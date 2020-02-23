@@ -22,6 +22,12 @@
         ]
     },
     "permissions": [],
+    "bugs":
+    {
+        "url": "https://github.com/AdyRock/com.weatherunderground/issues"
+    },
+    "source": "https://github.com/AdyRock/com.weatherunderground",
+    "homeyCommunityTopicId": 26309,
     "author":
     {
         "name": "Adrian Rockall",
