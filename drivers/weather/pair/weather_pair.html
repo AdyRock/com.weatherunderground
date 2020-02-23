@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <!-- SETTINGS PAGE -->
+    <div id="settings">
+
+        <pSettings>
+            </p>
+
+            <fieldset>
+                <legend>Your Weather Underground Station Information.</legend>
+
+                <div class="field row">
+                    <label for="stationID">Station IP</label>
+                    <input id="stationID" type="text" value="" />
+                </div>
+                <div class="field row">
+                    <label for="apiKey">API IP</label>
+                    <input id="apiKey" type="text" value="" />
+                </div>
+            </fieldset>
+            <p><button id="save" class="right">Add Station</button></p>
+            </fieldset>
+    </div>
+
+    <script type="text/javascript">
+        var stationIDElement = document.getElementById( 'stationID' );
+        var apiKeyElement = document.getElementById( 'apiKey' );
+        var saveElement = document.getElementById( 'save' );
+
+        // Tell Homey we're ready to be displayed
+        Homey.ready();
+
+        saveElement.addEventListener( 'click', function( e )
+        {
+            if ( stationIDElement.value === "" )
+            {
+                return Homey.alert( "Station ID is required" );
+            }
+            if ( apiKeyElement.value === "" )
+            {
+                return Homey.alert( "API Key is required" );
+            }
+            Homey.createDevice(
+            {
+                name: stationIDElement.value,
+                data:
+                {
+                    id: stationIDElement.value,
+                },
+                settings:
+                {
+                    stationID: stationIDElement.value,
+                    apiKey: apiKeyElement.value
+                },
+
+                // the store is dynamic and persistent storage for your device
+                store: {},
+            }, function( err, result )
+            {
+                if ( err ) return Homey.alert( err );
+                Homey.done();
+            } );
+        } );
+    </script>
+
+</body>
+
+</html>

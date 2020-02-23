@@ -1,0 +1,90 @@
+{
+    "id": "com.weatherunderground",
+    "version": "0.0.1",
+    "compatibility": ">=3.0.0",
+    "sdk": 2,
+    "name":
+    {
+        "en": "Weather Underground"
+    },
+    "description":
+    {
+        "en": "Get the last data from you weather station"
+    },
+    "category": [
+        "climate"
+    ],
+    "tags":
+    {
+        "en": [
+            "Weather",
+            "Climate"
+        ]
+    },
+    "permissions": [],
+    "author":
+    {
+        "name": "Adrian Rockall",
+        "email": "ady@rockall.plus.com"
+    },
+    "drivers": [
+    {
+        "id": "weather",
+        "name":
+        {
+            "en": "Weather Station"
+        },
+        "class": "other",
+        "capabilities": [
+            "measure_temperature",
+            "measure_humidity",
+            "measure_wind_strength",
+            "measure_gust_strength",
+            "measure_wind_angle",
+            "measure_pressure",
+            "measure_rain",
+            "measure_rain.total"
+        ],
+        "capabilitiesOptions":
+        {
+            "measure_rain.total":
+            {
+                "title": { "en": "Rain Total" }
+            }
+        },
+        "pair": [
+        {
+            "id": "weather_pair"
+        } ],
+        "settings": [
+        {
+            "type": "group",
+            "label":
+            {
+                "en": "Station Details"
+            },
+            "children": [
+            {
+                "id": "stationID",
+                "type": "text",
+                "label":
+                {
+                    "en": "Station ID"
+                }
+            },
+            {
+                "id": "apiKey",
+                "type": "text",
+                "label":
+                {
+                    "en": "API Key"
+                }
+            } ]
+        } ],
+        "images":
+        {
+            "large": "/drivers/weather/assets/images/large.png",
+            "small": "/drivers/weather/assets/images/small.png"
+        }
+    } ]
+}

@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="lwsa.css">
+
+    <!-- The '/homey.js' script must be included in your settings view to work -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+
+<body>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="setPage(event, 'settings')" id="defaultOpen">Settings</button>
+        <button class="tablinks" onclick="setPage(event, 'log')">Log</button>
+    </div>
+
+    <!-- SETTINGS PAGE -->
+    <div id="settings" class="tabcontent">
+
+        <p data-i18n="settings.subtitle"></p>
+
+        <fieldset>
+            <legend>Find the IP address assigned by your router.</legend>
+
+            <div class="field row">
+                <label for="hubIP">Hub IP</label>
+                <input id="hubIP" type="text" value="" />
+            </div>
+        </fieldset>
+        <p>Polling</p>
+        <fieldset>
+            <legend>Polling is always used after a settings is changed</legend>
+            
+            <div class="field row">
+                <label for="usePolling">Use Polling For Values to update at regular intervals</label>
+                <input id="usePolling" type="checkbox" value="pollingEnabled" />
+            </div>
+            <div class="field row">
+                <label for="pollInterval">Polling Interval (sec)</label>
+                <input id="pollInterval" type="text" value="" />
+            </div>
+
+            <p><button id="save" class="right">Save changes</button></p>
+        </fieldset>
+    </div>
+
+    <!-- LOG PAGE -->
+    <div id="log" class="tabcontent">
+        <fieldset>
+            <p> Diagnostics Log
+            </p>
+            <div class="field row">
+                <label for="logEnabled">Log Enabled</label>
+                <input id="logEnabled" type="checkbox" value="logEnabled" />
+            </div>
+        </fieldset>
+        <fieldset>
+            <p><button id="clearLog">Clear Log</button></p>
+            <div class="field row">
+                <textarea id="diagLog"></textarea>
+            </div>
+        </fieldset>
+    </div>
+
+    <script type="text/javascript">
+        var hubIPElement = document.getElementById( 'hubIP' );
+        var diagLogElement = document.getElementById( 'diagLog' );
+        var logEnabledElement = document.getElementById( 'logEnabled' );
+        var usePollingElement = document.getElementById( 'usePolling' );
+        var pollIntervalElement = document.getElementById( 'pollInterval' );
+
+        var saveElement = document.getElementById( 'save' );
+        var clearLogElement = document.getElementById( 'clearLog' );
+
+        // a method named 'onHomeyReady' must be present in your code
+        function onHomeyReady( Homey )
+        {
+            // Tell Homey we're ready to be displayed
+            Homey.ready();
+
+            document.getElementById( "defaultOpen" ).click();
+
+            Homey.on( 'settings.set', function()
+            {
+                Homey.get( 'diagLog', function( err, diagLog )
+                {
+                    if ( err ) return Homey.alert( err );
+                    diagLogElement.value = diagLog;
+                } );
+
+            } );
+
+            Homey.get( 'hubIP', function( err, hubIP )
+            {
+                if ( err ) return Homey.alert( err );
+                hubIPElement.value = hubIP;
+            } );
+
+            Homey.get( 'usePolling', function( err, usePolling )
+            {
+                if ( err ) return Homey.alert( err );
+                usePollingElement.checked = usePolling;
+            } );
+
+            Homey.get( 'pollInterval', function( err, pollInterval )
+            {
+                if ( err ) return Homey.alert( err );
+                pollIntervalElement.value = pollInterval;
+            } );
+
+            saveElement.addEventListener( 'click', function( e )
+            {
+                hubIPElement.value = hubIPElement.value.replace( /[\"\']/g, '' );
+                Homey.set( 'hubIP', hubIPElement.value, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+
+                Homey.set( 'usePolling', usePollingElement.checked, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+
+                if ( pollIntervalElement.value < 5 ) pollIntervalElement.value = 5;
+                if ( pollIntervalElement.value > 3600 ) pollIntervalElement.value = 3600;
+                Homey.set( 'pollInterval', pollIntervalElement.value, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+
+                return Homey.alert( "The settings have been saved" );
+            } );
+
+            logEnabledElement.addEventListener( 'click', function( e )
+            {
+                Homey.set( 'logEnabled', logEnabledElement.checked, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+            } );
+
+            clearLogElement.addEventListener( 'click', function( e )
+            {
+                Homey.set( 'diagLog', "", function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+                diagLogElement.value = "";
+            } );
+        };
+
+        function setPage( evt, tabPage )
+        {
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName( "tabcontent" );
+            for ( i = 0; i < tabcontent.length; i++ )
+            {
+                tabcontent[ i ].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName( "tablinks" );
+            for ( i = 0; i < tablinks.length; i++ )
+            {
+                tablinks[ i ].className = tablinks[ i ].className.replace( " active", "" );
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById( tabPage ).style.display = "block";
+            evt.currentTarget.className += " active";
+
+            if ( tabPage == 'log' )
+            {
+                // Refresh the log data
+                Homey.get( 'logEnabled', function( err, logEnabled )
+                {
+                    if ( err ) return Homey.alert( err );
+                    logEnabledElement.checked = logEnabled;
+                } );
+
+                Homey.get( 'diagLog', function( err, diagLog )
+                {
+                    if ( err ) return Homey.alert( err );
+                    diagLogElement.value = diagLog;
+                } );
+
+                // Make the log text area fill the page
+                diagLogElement.setAttribute( 'cols', diagLogElement.parentElement.clientWidth / 8 );
+                diagLogElement.style.height = ( window.innerHeight - diagLogElement.offsetTop - 20 ) + 'px';
+            }
+        };
+    </script>
+
+</body>
+
+</html>
