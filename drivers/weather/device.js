@@ -22,15 +22,18 @@ class WeatherDevice extends Homey.Device
 			{
 				let weatherData = JSON.parse(result.body);
 				let currentData = weatherData.observations[0];
-				this.log( "currentData = " + currentData );
+				this.log( "currentData = " + JSON.stringify( currentData ));
 				this.setCapabilityValue("measure_wind_angle", currentData.winddir);
-				this.setCapabilityValue("measure_humidity", currentData.humidity);
-				this.setCapabilityValue("measure_temperature", currentData.metric.temp);
 				this.setCapabilityValue("measure_wind_strength", currentData.metric.windSpeed);
 				this.setCapabilityValue("measure_gust_strength", currentData.metric.windGust);
-				this.setCapabilityValue("measure_pressure", currentData.metric.pressure);
+				this.setCapabilityValue("measure_humidity", currentData.humidity);
+				this.setCapabilityValue("measure_temperature", currentData.metric.temp);
+				this.setCapabilityValue("measure_temperature.feelsLike", currentData.metric.heatIndex);
+				this.setCapabilityValue("measure_temperature.windchill", currentData.metric.windChill);
+				this.setCapabilityValue("measure_temperature.dewPoint", currentData.metric.dewpt);
 				this.setCapabilityValue("measure_rain", currentData.metric.precipRate);
 				this.setCapabilityValue("measure_rain.total", currentData.metric.precipTotal);
+				this.setCapabilityValue("measure_pressure", currentData.metric.pressure);
 			}
 		}
         catch ( err )

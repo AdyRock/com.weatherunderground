@@ -43,16 +43,31 @@
         "class": "other",
         "capabilities": [
             "measure_temperature",
+            "measure_temperature.feelsLike",
+            "measure_temperature.windchill",
+            "measure_temperature.dewPoint",
             "measure_humidity",
+            "measure_wind_angle",
             "measure_wind_strength",
             "measure_gust_strength",
-            "measure_wind_angle",
-            "measure_pressure",
             "measure_rain",
-            "measure_rain.total"
+            "measure_rain.total",
+            "measure_pressure"
         ],
         "capabilitiesOptions":
         {
+            "measure_temperature.feelsLike":
+            {
+                "title": { "en": "Feels Like" }
+            },
+            "measure_temperature.windchill":
+            {
+                "title": { "en": "Wind chill" }
+            },
+            "measure_temperature.dewPoint":
+            {
+                "title": { "en": "Dew point" }
+            },
             "measure_rain.total":
             {
                 "title": { "en": "Rain Total" }
