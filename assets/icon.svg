@@ -32,7 +32,7 @@
      showgrid="false"
      inkscape:zoom="0.89189189"
      inkscape:cx="542.66667"
-     inkscape:cy="542.66667"
+     inkscape:cy="632.36364"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -46,61 +46,54 @@ Created by potrace 1.13, written by Peter Selinger 2001-2015
     <dc:format>image/svg+xml</dc:format>
     <dc:type
        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:title></dc:title>
+    <dc:title />
   </cc:Work>
 </rdf:RDF>
 </metadata>
   <g
-     id="g4568"
-     transform="matrix(3.2397902,0,0,3.2150496,-24.219213,-247.00181)"
-     style="stroke-width:0.23238549">
-	
-	
-	
-	
-	
-<text
-   transform="scale(1.0614331,0.94212248)"
-   id="text4579"
-   y="291.30069"
-   x="-0.12971178"
-   style="font-style:normal;font-weight:normal;font-size:34.09115601px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.23238546"
-   xml:space="preserve"><tspan
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:163.63755798px;font-family:'Pump Demi Bold LET';-inkscape-font-specification:'Pump Demi Bold LET,  weight=101';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.23238546"
-     y="291.30069"
-     x="-0.12971178"
-     id="tspan4577"
-     sodipodi:role="line">WU</tspan></text>
-
-<g
-   transform="translate(57.202479,45.132231)"
-   id="g4596"
-   style="stroke-width:0.23238549">
-  <ellipse
-     style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000004;stroke-width:1.16192746;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0.99999976;stroke-opacity:1;paint-order:fill markers stroke"
-     id="path4590"
-     cx="158.2252"
-     cy="98.13636"
-     rx="18.630165"
-     ry="18.367769" />
-  <path
-     sodipodi:type="star"
-     style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000004;stroke-width:1.1109488;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0.99999976;stroke-opacity:1;paint-order:fill markers stroke"
-     id="path4592"
-     sodipodi:sides="3"
-     sodipodi:cx="157.96281"
-     sodipodi:cy="80.293388"
-     sodipodi:r1="17.641178"
-     sodipodi:r2="8.8205891"
-     sodipodi:arg1="2.6113769"
-     sodipodi:arg2="3.6585744"
-     inkscape:flatsided="true"
-     inkscape:rounded="0.07"
-     inkscape:randomized="0"
-     d="m 142.74381,89.214876 c -1.08168,-1.845207 12.96344,-26.548127 15.10227,-26.56228 2.13884,-0.01415 16.50963,24.500737 15.45247,26.360097 -1.05716,1.859359 -29.47307,2.04739 -30.55474,0.202183 z"
-     inkscape:transform-center-x="-0.059366195"
-     inkscape:transform-center-y="-4.6888517"
-     transform="matrix(1.0170806,0,0,1.0755103,-2.4366762,-6.8321455)" />
-</g>
-</g>
+     aria-label="WU"
+     transform="matrix(1.1072082,0,0,0.90317254,0,74.999999)"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:499.99996948px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.74999994"
+     id="text4579">
+    <path
+       d="m 395.24759,295.23409 v 239.99022 q 0,44.92187 -27.09961,73.24218 -27.0996,28.32031 -70.06835,28.32031 -51.75781,0 -79.10156,-47.11913 -16.8457,25.39062 -36.13281,36.37695 -19.28711,10.74218 -47.60742,10.74218 -44.921869,0 -68.847649,-28.32031 -23.92578,-28.32031 -23.92578,-81.54296 V 295.23409 H 141.5855 v 216.79686 q 0,16.11328 2.4414,21.24024 2.68555,5.12695 10.49805,5.12695 14.64844,0 14.64844,-24.6582 V 295.23409 h 99.12109 v 216.79686 q 0,15.625 2.68554,20.99609 2.68555,5.3711 10.49805,5.3711 14.64843,0 14.64843,-26.36719 V 295.23409 Z"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:499.99996948px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.74999994"
+       id="path830"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 689.68116,295.23409 v 216.06444 q 0,57.1289 -34.17968,91.30859 -33.93555,34.17968 -90.57617,34.17968 -56.39648,0 -86.42578,-33.20312 -29.78515,-33.20312 -29.78515,-95.45898 V 295.23409 h 99.12109 v 212.64647 q 0,30.51758 21.72851,30.51758 20.9961,0 20.9961,-30.51758 V 295.23409 Z"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:499.99996948px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.74999994"
+       id="path832"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     style="stroke-width:0.17988321"
+     id="g4596"
+     transform="matrix(3.959,0,0,4.3909231,13.181381,-229.88526)">
+    <ellipse
+       ry="18.367769"
+       rx="18.630165"
+       cy="98.13636"
+       cx="158.2252"
+       id="path4590"
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000004;stroke-width:0.89941615;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0.99999976;stroke-opacity:1;paint-order:fill markers stroke" />
+    <path
+       transform="matrix(1.0170806,0,0,1.0755103,-2.4366762,-6.8321455)"
+       inkscape:transform-center-y="-4.6888517"
+       inkscape:transform-center-x="-0.059366195"
+       d="m 142.74381,89.214876 c -1.08168,-1.845207 12.96344,-26.548127 15.10227,-26.56228 2.13884,-0.01415 16.50963,24.500737 15.45247,26.360097 -1.05716,1.859359 -29.47307,2.04739 -30.55474,0.202183 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0.07"
+       inkscape:flatsided="true"
+       sodipodi:arg2="3.6585744"
+       sodipodi:arg1="2.6113769"
+       sodipodi:r2="8.8205891"
+       sodipodi:r1="17.641178"
+       sodipodi:cy="80.293388"
+       sodipodi:cx="157.96281"
+       sodipodi:sides="3"
+       id="path4592"
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000004;stroke-width:0.85995489;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0.99999976;stroke-opacity:1;paint-order:fill markers stroke"
+       sodipodi:type="star" />
+  </g>
 </svg>
