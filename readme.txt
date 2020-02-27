@@ -1,5 +1,3 @@
-# Weather Underground
-
 This app gets the last data from you Personal Weather Station that is hosted on the Weather Underground web site.
 
 If your weather station can be added to Weather Underground you will get a free access key once it is publishing data to their site.
