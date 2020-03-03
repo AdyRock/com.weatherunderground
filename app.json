@@ -38,6 +38,96 @@
         "name": "Adrian Rockall",
         "email": "ady@rockall.plus.com"
     },
+    "capabilities":
+    {
+        "forecast_text":
+        {
+            "type": "string",
+            "title":
+            {
+                "en": "Forecast"
+            },
+            "getable": true,
+            "setable": false,
+            "icon": "/assets/calender.svg"
+        },
+        "precipitation_type":
+        {
+            "type": "string",
+            "title":
+            {
+                "en": "Precipitation Type"
+            },
+            "getable": true,
+            "setable": false,
+            "icon": "/assets/rainsnow.svg"
+        },
+        "thunder_category":
+        {
+            "type": "string",
+            "title":
+            {
+                "en": "Thunder"
+            },
+            "getable": true,
+            "setable": false,
+            "icon": "/assets/thunder.svg"
+        },
+        "measure_precipitation_chance":
+        {
+            "type": "number",
+            "title":
+            {
+                "en": "Precipitation Chance"
+            },
+            "getable": true,
+            "setable": false,
+            "units":
+            {
+                "en": "%"
+            },
+            "step": 1,
+            "min": 0,
+            "max": 100,
+            "icon": "/assets/rainsnow.svg"
+        },
+        "measure_cloud_cover":
+        {
+            "type": "number",
+            "title":
+            {
+                "en": "Cloud Cover"
+            },
+            "getable": true,
+            "setable": false,
+            "units":
+            {
+                "en": "%"
+            },
+            "step": 1,
+            "min": 0,
+            "max": 100,
+            "icon": "/assets/cloud.svg"
+        },
+        "measure_snow":
+        {
+            "type": "number",
+            "title":
+            {
+                "en": "Snow Total"
+            },
+            "getable": true,
+            "setable": false,
+            "units":
+            {
+                "en": "mm"
+            },
+            "step": 1,
+            "min": 0,
+            "max": 100,
+            "icon": "/assets/rainsnow.svg"
+        }
+    },
     "drivers": [
     {
         "id": "weather",
@@ -112,6 +202,90 @@
         {
             "large": "/drivers/weather/assets/images/large.png",
             "small": "/drivers/weather/assets/images/small.png"
-        }
+        },
+        "icon": "/drivers/weather/assets/icon.svg"
+    },
+    {
+        "id": "forecast",
+        "name":
+        {
+            "en": "Weather Forecast"
+        },
+        "class": "other",
+        "capabilities": [
+            "forecast_text",
+            "measure_cloud_cover",
+
+            "measure_precipitation_chance",
+            "precipitation_type",
+
+            "measure_rain",
+            "measure_snow",
+
+            "measure_temperature.max",
+            "measure_temperature.min",
+
+            "measure_wind_angle",
+            "measure_wind_strength",
+
+            "measure_temperature.windchill",
+            "measure_humidity",
+
+            "measure_ultraviolet"
+        ],
+        "capabilitiesOptions":
+        {
+            "measure_rain":
+            {
+                "title": { "en": "Rain Total" }
+            },
+            "measure_temperature.max":
+            {
+                "title": { "en": "High Temperature" }
+            },
+            "measure_temperature.min":
+            {
+                "title": { "en": "Low Temperature" }
+            },
+            "measure_temperature.windchill":
+            {
+                "title": { "en": "Wind chill" }
+            }
+        },
+        "pair": [
+        {
+            "id": "forecast_pair"
+        } ],
+        "settings": [
+        {
+            "type": "group",
+            "label":
+            {
+                "en": "Location Details"
+            },
+            "children": [
+            {
+                "id": "stationID",
+                "type": "text",
+                "label":
+                {
+                    "en": "Station ID"
+                }
+            },
+            {
+                "id": "apiKey",
+                "type": "text",
+                "label":
+                {
+                    "en": "API Key"
+                }
+            } ]
+        } ],
+        "images":
+        {
+            "large": "/drivers/forecast/assets/images/large.png",
+            "small": "/drivers/forecast/assets/images/small.png"
+        },
+        "icon": "/drivers/forecast/assets/icon.svg"
     } ]
 }
