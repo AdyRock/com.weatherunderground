@@ -3,8 +3,9 @@
     "",
     "\\assets",
     "\\drivers",
-    "\\drivers\\weather"
+    "\\drivers\\weather",
+    "\\drivers\\weather\\pair"
   ],
-  "SelectedNode": "\\assets\\icon.svg",
+  "SelectedNode": "\\drivers",
   "PreviewInSolutionExplorer": false
 }

@@ -9,9 +9,9 @@ class WeatherDevice extends Homey.Device
     onInit()
     {
         this.log( ' WeatherDevice has been inited' );
-        if (!this.hasCapability("Ultraviolet"))
+        if (!this.hasCapability("measure_ultraviolet"))
         {
-            this.addCapability("Ultraviolet");
+            this.addCapability("measure_ultraviolet");
         }
 		this.refreshCapabilities = this.refreshCapabilities.bind( this );
 		this.timerID = setTimeout( this.refreshCapabilities, 1000 );
@@ -38,7 +38,7 @@ class WeatherDevice extends Homey.Device
 				this.setCapabilityValue("measure_rain", currentData.metric.precipRate);
 				this.setCapabilityValue("measure_rain.total", currentData.metric.precipTotal);
 				this.setCapabilityValue("measure_pressure", currentData.metric.pressure);
-				this.setCapabilityValue("measure_pressure", currentData.uv);
+				this.setCapabilityValue("measure_ultraviolet", currentData.uv);
             }
 		}
         catch ( err )
