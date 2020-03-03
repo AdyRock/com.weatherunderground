@@ -3,99 +3,114 @@
     "version": "0.0.2",
     "compatibility": ">=3.0.0",
     "sdk": 2,
-    "name": {
+    "name":
+    {
         "en": "Weather Underground"
     },
-    "description": {
+    "description":
+    {
         "en": "Get the last data from you weather station"
     },
     "category": [
         "climate"
     ],
-    "tags": {
+    "tags":
+    {
         "en": [
             "Weather",
             "Climate"
         ]
     },
     "permissions": [],
-    "bugs": {
+    "bugs":
+    {
         "url": "https://github.com/AdyRock/com.weatherunderground/issues"
     },
     "source": "https://github.com/AdyRock/com.weatherunderground",
     "homeyCommunityTopicId": 26309,
-    "author": {
+    "images":
+    {
+        "large": "/assets/images/large.png",
+        "small": "/assets/images/small.png"
+    },
+    "author":
+    {
         "name": "Adrian Rockall",
         "email": "ady@rockall.plus.com"
     },
     "drivers": [
+    {
+        "id": "weather",
+        "name":
         {
-            "id": "weather",
-            "name": {
-                "en": "Weather Station"
+            "en": "Weather Station"
+        },
+        "class": "other",
+        "capabilities": [
+            "measure_temperature",
+            "measure_temperature.feelsLike",
+            "measure_temperature.windchill",
+            "measure_temperature.dewPoint",
+            "measure_humidity",
+            "measure_wind_angle",
+            "measure_wind_strength",
+            "measure_gust_strength",
+            "measure_rain",
+            "measure_rain.total",
+            "measure_pressure"
+        ],
+        "capabilitiesOptions":
+        {
+            "measure_temperature.feelsLike":
+            {
+                "title": { "en": "Feels Like" }
             },
-            "class": "other",
-            "capabilities": [
-                "measure_temperature",
-                "measure_temperature.feelsLike",
-                "measure_temperature.windchill",
-                "measure_temperature.dewPoint",
-                "measure_humidity",
-                "measure_wind_angle",
-                "measure_wind_strength",
-                "measure_gust_strength",
-                "measure_rain",
-                "measure_rain.total",
-                "measure_pressure",
-                "Ultraviolet"
-            ],
-            "capabilitiesOptions": {
-                "measure_temperature.feelsLike": {
-                    "title": { "en": "Feels Like" }
-                },
-                "measure_temperature.windchill": {
-                    "title": { "en": "Wind chill" }
-                },
-                "measure_temperature.dewPoint": {
-                    "title": { "en": "Dew point" }
-                },
-                "measure_rain.total": {
-                    "title": { "en": "Rain Total" }
-                }
+            "measure_temperature.windchill":
+            {
+                "title": { "en": "Wind chill" }
             },
-            "pair": [
-                {
-                    "id": "weather_pair"
-                }
-            ],
-            "settings": [
-                {
-                    "type": "group",
-                    "label": {
-                        "en": "Station Details"
-                    },
-                    "children": [
-                        {
-                            "id": "stationID",
-                            "type": "text",
-                            "label": {
-                                "en": "Station ID"
-                            }
-                        },
-                        {
-                            "id": "apiKey",
-                            "type": "text",
-                            "label": {
-                                "en": "API Key"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "images": {
-                "large": "/drivers/weather/assets/images/large.png",
-                "small": "/drivers/weather/assets/images/small.png"
+            "measure_temperature.dewPoint":
+            {
+                "title": { "en": "Dew point" }
+            },
+            "measure_rain.total":
+            {
+                "title": { "en": "Rain Total" }
             }
+        },
+        "pair": [
+        {
+            "id": "weather_pair"
+        } ],
+        "settings": [
+        {
+            "type": "group",
+            "label":
+            {
+                "en": "Station Details"
+            },
+            "children": [
+            {
+                "id": "stationID",
+                "type": "text",
+                "label":
+                {
+                    "en": "Station ID"
+                }
+            },
+            {
+                "id": "apiKey",
+                "type": "text",
+                "label":
+                {
+                    "en": "API Key"
+                }
+            } ]
+        } ],
+        "images":
+        {
+            "large": "/drivers/weather/assets/images/large.png",
+            "small": "/drivers/weather/assets/images/small.png"
         }
-    ]
+    } ]
 }
