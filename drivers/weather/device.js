@@ -8,7 +8,11 @@ class WeatherDevice extends Homey.Device
 
     onInit()
     {
-		this.log( ' WeatherDevice has been inited' );
+        this.log( ' WeatherDevice has been inited' );
+        if (!this.hasCapability("Ultraviolet"))
+        {
+            this.addCapability("Ultraviolet");
+        }
 		this.refreshCapabilities = this.refreshCapabilities.bind( this );
 		this.timerID = setTimeout( this.refreshCapabilities, 1000 );
 	}
@@ -34,7 +38,8 @@ class WeatherDevice extends Homey.Device
 				this.setCapabilityValue("measure_rain", currentData.metric.precipRate);
 				this.setCapabilityValue("measure_rain.total", currentData.metric.precipTotal);
 				this.setCapabilityValue("measure_pressure", currentData.metric.pressure);
-			}
+				this.setCapabilityValue("measure_pressure", currentData.uv);
+            }
 		}
         catch ( err )
         {
@@ -46,7 +51,7 @@ class WeatherDevice extends Homey.Device
     async getWeather()
     {
 		let settings = this.getSettings();
-		let url = "https://api.weather.com/v2/pws/observations/current?stationId=" + settings.stationID + "&format=json&units=m&apiKey=" + settings.apiKey;
+		let url = "https://api.weather.com/v2/pws/observations/current?numericPrecision=decimal&stationId=" + settings.stationID + "&format=json&units=m&apiKey=" + settings.apiKey;
         this.log( url );
 
         return new Promise( ( resolve, reject ) =>
