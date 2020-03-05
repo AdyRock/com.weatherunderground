@@ -3,87 +3,85 @@
     "version": "0.0.4",
     "compatibility": ">=3.0.0",
     "sdk": 2,
-    "name":
-    {
+    "name": {
         "en": "Weather Underground"
     },
-    "description":
-    {
-        "en": "Get the last data from you weather station"
+    "description": {
+        "en": "Get the last data from you weather station",
+        "nl": "Haal de laatste gegevens van uw weerstation op"
     },
     "category": [
         "climate"
     ],
-    "tags":
-    {
+    "tags": {
         "en": [
             "Weather",
             "Climate"
+        ],
+        "nl": [
+            "Weer",
+            "Klimaat"
         ]
     },
     "permissions": [],
-    "bugs":
-    {
+    "bugs": {
         "url": "https://github.com/AdyRock/com.weatherunderground/issues"
     },
     "source": "https://github.com/AdyRock/com.weatherunderground",
     "homeyCommunityTopicId": 26309,
-    "images":
-    {
+    "images": {
         "large": "/assets/images/large.png",
         "small": "/assets/images/small.png"
     },
-    "author":
-    {
+    "author": {
         "name": "Adrian Rockall",
         "email": "ady@rockall.plus.com"
     },
-    "capabilities":
-    {
-        "forecast_text":
+    "translators": [
         {
+            "name": "Raymond van Setten"
+        }
+    ],
+    "capabilities": {
+        "forecast_text": {
             "type": "string",
-            "title":
-            {
-                "en": "Forecast"
+            "title": {
+                "en": "Forecast",
+                "nl": "Verwachting"
             },
             "getable": true,
             "setable": false,
             "icon": "/assets/calender.svg"
         },
-        "precipitation_type":
-        {
+        "precipitation_type": {
             "type": "string",
-            "title":
-            {
-                "en": "Precipitation Type"
+            "title": {
+                "en": "Precipitation Type",
+                "nl": "Neerslagtype"
             },
             "getable": true,
             "setable": false,
             "icon": "/assets/rainsnow.svg"
         },
-        "thunder_category":
-        {
+        "thunder_category": {
             "type": "string",
-            "title":
-            {
-                "en": "Thunder"
+            "title": {
+                "en": "Thunder",
+                "nl": "Onweer"
             },
             "getable": true,
             "setable": false,
             "icon": "/assets/thunder.svg"
         },
-        "measure_precipitation_chance":
-        {
+        "measure_precipitation_chance": {
             "type": "number",
-            "title":
-            {
-                "en": "Precipitation Chance"
+            "title": {
+                "en": "Precipitation Chance",
+                "nl": "Neerslagkans"
             },
             "getable": true,
             "setable": false,
-            "units":
-            {
+            "units": {
                 "en": "%"
             },
             "step": 1,
@@ -91,17 +89,15 @@
             "max": 100,
             "icon": "/assets/rainsnow.svg"
         },
-        "measure_cloud_cover":
-        {
+        "measure_cloud_cover": {
             "type": "number",
-            "title":
-            {
-                "en": "Cloud Cover"
+            "title": {
+                "en": "Cloud Cover",
+                "nl": "Bewolking"
             },
             "getable": true,
             "setable": false,
-            "units":
-            {
+            "units": {
                 "en": "%"
             },
             "step": 1,
@@ -109,17 +105,15 @@
             "max": 100,
             "icon": "/assets/cloud.svg"
         },
-        "measure_snow":
-        {
+        "measure_snow": {
             "type": "number",
-            "title":
-            {
-                "en": "Snow Total"
+            "title": {
+                "en": "Snow Total",
+                "nl": "Sneeuwtotaal"
             },
             "getable": true,
             "setable": false,
-            "units":
-            {
+            "units": {
                 "en": "mm"
             },
             "step": 1,
@@ -129,163 +123,180 @@
         }
     },
     "drivers": [
-    {
-        "id": "weather",
-        "name":
         {
-            "en": "Weather Station"
-        },
-        "class": "other",
-        "capabilities": [
-            "measure_temperature",
-            "measure_temperature.feelsLike",
-            "measure_temperature.windchill",
-            "measure_temperature.dewPoint",
-            "measure_humidity",
-            "measure_wind_angle",
-            "measure_wind_strength",
-            "measure_gust_strength",
-            "measure_rain",
-            "measure_rain.total",
-            "measure_pressure",
-            "measure_ultraviolet"
-        ],
-        "capabilitiesOptions":
-        {
-            "measure_temperature.feelsLike":
-            {
-                "title": { "en": "Feels Like" }
+            "id": "weather",
+            "name": {
+                "en": "Weather Station",
+                "nl": "Weerstation"
             },
-            "measure_temperature.windchill":
-            {
-                "title": { "en": "Wind chill" }
-            },
-            "measure_temperature.dewPoint":
-            {
-                "title": { "en": "Dew point" }
-            },
-            "measure_rain.total":
-            {
-                "title": { "en": "Rain Total" }
-            }
-        },
-        "pair": [
-        {
-            "id": "weather_pair"
-        } ],
-        "settings": [
-        {
-            "type": "group",
-            "label":
-            {
-                "en": "Station Details"
-            },
-            "children": [
-            {
-                "id": "stationID",
-                "type": "text",
-                "label":
-                {
-                    "en": "Station ID"
+            "class": "other",
+            "capabilities": [
+                "measure_temperature",
+                "measure_temperature.feelsLike",
+                "measure_temperature.windchill",
+                "measure_temperature.dewPoint",
+                "measure_humidity",
+                "measure_wind_angle",
+                "measure_wind_strength",
+                "measure_gust_strength",
+                "measure_rain",
+                "measure_rain.total",
+                "measure_pressure",
+                "measure_ultraviolet"
+            ],
+            "capabilitiesOptions": {
+                "measure_temperature.feelsLike": {
+                    "title": {
+                        "en": "Feels Like",
+                        "nl": "Voelt als"
+                    }
+                },
+                "measure_temperature.windchill": {
+                    "title": {
+                        "en": "Wind chill",
+                        "nl": "Gevoelstemperatuur"
+                    }
+                },
+                "measure_temperature.dewPoint": {
+                    "title": {
+                        "en": "Dew point",
+                        "nl": "Dauwpunt"
+                    }
+                },
+                "measure_rain.total": {
+                    "title": {
+                        "en": "Rain Total",
+                        "nl": "Regen Totaal"
+                    }
                 }
             },
-            {
-                "id": "apiKey",
-                "type": "text",
-                "label":
+            "pair": [
                 {
-                    "en": "API Key"
+                    "id": "weather_pair"
                 }
-            } ]
-        } ],
-        "images":
-        {
-            "large": "/drivers/weather/assets/images/large.png",
-            "small": "/drivers/weather/assets/images/small.png"
-        },
-        "icon": "/drivers/weather/assets/icon.svg"
-    },
-    {
-        "id": "forecast",
-        "name":
-        {
-            "en": "Weather Forecast"
-        },
-        "class": "other",
-        "capabilities": [
-            "forecast_text",
-            "measure_cloud_cover",
-
-            "measure_precipitation_chance",
-            "precipitation_type",
-
-            "measure_rain",
-            "measure_snow",
-
-            "measure_temperature.max",
-            "measure_temperature.min",
-
-            "measure_wind_angle",
-            "measure_wind_strength",
-
-            "measure_temperature.windchill",
-            "measure_humidity",
-
-            "measure_ultraviolet"
-        ],
-        "capabilitiesOptions":
-        {
-            "measure_rain":
-            {
-                "title": { "en": "Rain Total" }
-            },
-            "measure_temperature.max":
-            {
-                "title": { "en": "High Temperature" }
-            },
-            "measure_temperature.min":
-            {
-                "title": { "en": "Low Temperature" }
-            },
-            "measure_temperature.windchill":
-            {
-                "title": { "en": "Wind chill" }
-            }
-        },
-        "pair": [
-        {
-            "id": "forecast_pair"
-        } ],
-        "settings": [
-        {
-            "type": "group",
-            "label":
-            {
-                "en": "Location Details"
-            },
-            "children": [
-            {
-                "id": "stationID",
-                "type": "text",
-                "label":
+            ],
+            "settings": [
                 {
-                    "en": "Station ID"
+                    "type": "group",
+                    "label": {
+                        "en": "Station Details",
+                        "nl": "Station detail informatie"
+                    },
+                    "children": [
+                        {
+                            "id": "stationID",
+                            "type": "text",
+                            "label": {
+                                "en": "Station ID"
+                            }
+                        },
+                        {
+                            "id": "apiKey",
+                            "type": "text",
+                            "label": {
+                                "en": "API Key",
+                                "nl": "API Sleutel"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images": {
+                "large": "/drivers/weather/assets/images/large.png",
+                "small": "/drivers/weather/assets/images/small.png"
+            },
+            "icon": "/drivers/weather/assets/icon.svg"
+        },
+        {
+            "id": "forecast",
+            "name": {
+                "en": "Weather Forecast",
+                "nl": "Weersverwachting"
+            },
+            "class": "other",
+            "capabilities": [
+                "forecast_text",
+                "measure_cloud_cover",
+
+                "measure_precipitation_chance",
+                "precipitation_type",
+
+                "measure_rain",
+                "measure_snow",
+
+                "measure_temperature.max",
+                "measure_temperature.min",
+
+                "measure_wind_angle",
+                "measure_wind_strength",
+
+                "measure_temperature.windchill",
+                "measure_humidity",
+
+                "measure_ultraviolet"
+            ],
+            "capabilitiesOptions": {
+                "measure_rain": {
+                    "title": {
+                        "en": "Rain Total",
+                        "nl": "Regen Totaal"
+                    }
+                },
+                "measure_temperature.max": {
+                    "title": {
+                        "en": "High Temperature",
+                        "nl": "Hoge temperatuur"
+                    }
+                },
+                "measure_temperature.min": {
+                    "title": {
+                        "en": "Low Temperature",
+                        "nl": "Lage temperatuur"
+                    }
+                },
+                "measure_temperature.windchill": {
+                    "title": {
+                        "en": "Wind chill",
+                        "nl": "Gevoelstemperatuur"
+                    }
                 }
             },
-            {
-                "id": "apiKey",
-                "type": "text",
-                "label":
+            "pair": [
                 {
-                    "en": "API Key"
+                    "id": "forecast_pair"
                 }
-            } ]
-        } ],
-        "images":
-        {
-            "large": "/drivers/forecast/assets/images/large.png",
-            "small": "/drivers/forecast/assets/images/small.png"
-        },
-        "icon": "/drivers/forecast/assets/icon.svg"
-    } ]
+            ],
+            "settings": [
+                {
+                    "type": "group",
+                    "label": {
+                        "en": "Station Details",
+                        "nl": "Station detail informatie"
+                    },
+                    "children": [
+                        {
+                            "id": "stationID",
+                            "type": "text",
+                            "label": {
+                                "en": "Station ID"
+                            }
+                        },
+                        {
+                            "id": "apiKey",
+                            "type": "text",
+                            "label": {
+                                "en": "API Key",
+                                "nl": "API Sleutel"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images": {
+                "large": "/drivers/forecast/assets/images/large.png",
+                "small": "/drivers/forecast/assets/images/small.png"
+            },
+            "icon": "/drivers/forecast/assets/icon.svg"
+        }
+    ]
 }

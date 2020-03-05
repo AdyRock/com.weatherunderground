@@ -1,0 +1,8 @@
+{
+    "title": "Informatie over uw weerstation.",
+    "stationID": "Station ID",
+    "apiKey": "API Sleutel",
+    "addStation": "Station toevoegen",
+    "stationIDRequired": "Station ID is vereist",
+    "apiKeyRequired": "API-sleutel is vereist"
+}

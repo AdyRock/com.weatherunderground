@@ -12,18 +12,18 @@
             </p>
 
             <fieldset>
-                <legend>Your Weather Underground Station Information.</legend>
+                <legend>data-i18n="title"</legend>
 
                 <div class="field row">
-                    <label for="stationID">Station ID</label>
+                    <label for="stationID">data-i18n="stationID"</label>
                     <input id="stationID" type="text" value="" />
                 </div>
                 <div class="field row">
-                    <label for="apiKey">API KEY</label>
+                    <label for="apiKey">data-i18n="apiKey"</label>
                     <input id="apiKey" type="text" value="" />
                 </div>
             </fieldset>
-            <p><button id="save" class="right">Add Station</button></p>
+            <p><button id="save" class="right">data-i18n="addStation"</button></p>
             </fieldset>
     </div>
 
@@ -39,11 +39,11 @@
         {
             if ( stationIDElement.value === "" )
             {
-                return Homey.alert( "Station ID is required" );
+                return Homey.alert(Homey.__("stationIDRequired") );
             }
             if ( apiKeyElement.value === "" )
             {
-                return Homey.alert( "API Key is required" );
+                return Homey.alert( Homey.__("apiKeyRequired") );
             }
             Homey.createDevice(
             {
