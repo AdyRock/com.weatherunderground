@@ -4,5 +4,6 @@
     "apiKey": "API KEY",
     "addStation": "Add Station",
     "stationIDRequired": "Station ID is required",
-    "apiKeyRequired": "API Key is required"
+    "apiKeyRequired": "API Key is required",
+    "langCode": "en-GB"
 }

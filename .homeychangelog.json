@@ -4,5 +4,23 @@
   },
   "0.0.2": {
     "en": "Fixed images and removed title from readme"
+  },
+  "0.0.4": {
+    "en": "Added UV and more decimal places to temperature to PWS plus a new device for tomorrors forecast"
+  },
+  "0.0.5": {
+    "en": "Add Dutch translations"
+  },
+  "0.0.6": {
+    "en": "Fixed Dutch URL when calling WU"
+  },
+  "0.0.7": {
+    "en": "Added Dutch translations"
+  },
+  "0.0.8": {
+    "en": "Increased decimal places for temperature, added Forecats device, added Dutch translations"
+  },
+  "0.1.0": {
+    "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
   }
 }

@@ -120,7 +120,8 @@ class ForecastDevice extends Homey.Device
                 reject( null );
             }
         }
-        let url = "https://api.weather.com/v3/wx/forecast/daily/5day?placeid=" + placeID + "&units=m&language=en-US&format=json&apiKey=" + settings.apiKey;
+        let langCode = Homey.__("langCode");
+        let url = "https://api.weather.com/v3/wx/forecast/daily/5day?placeid=" + placeID + "&units=m&language=" + langCode + "&format=json&apiKey=" + settings.apiKey;
         this.log( url );
 
         return new Promise( ( resolve, reject ) =>
