@@ -1,6 +1,6 @@
 {
     "id": "com.weatherunderground",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "compatibility": ">=3.0.0",
     "sdk": 2,
     "name":
@@ -264,7 +264,7 @@
             "measure_temperature.min",
 
             "measure_wind_angle",
-            "measure_wind_strength",
+            "measure_gust_strength",
 
             "measure_temperature.windchill",
             "measure_humidity",

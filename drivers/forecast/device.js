@@ -6,11 +6,17 @@ const https = require( "https" );
 class ForecastDevice extends Homey.Device
 {
 
-    onInit()
+    async onInit()
     {
         this.log( ' Forecast has been inited' );
         this.refreshCapabilities = this.refreshCapabilities.bind( this );
         this.timerID = setTimeout( this.refreshCapabilities, 1000 );
+
+        if ( this.hasCapability( "measure_wind_strength" ) )
+        {
+            this.addCapability( "measure_gust_strength" );
+            this.removeCapability( "measure_wind_strength" );
+        }
     }
 
     async refreshCapabilities()
@@ -22,7 +28,7 @@ class ForecastDevice extends Homey.Device
             {
                 let forecastData = JSON.parse( result.body );
 
-                this.log( "currentData = " + JSON.stringify( forecastData ) );
+//                this.log( "currentData = " + JSON.stringify( forecastData ) );
                 this.setCapabilityValue( "forecast_text", forecastData.daypart[ 0 ].daypartName[ 2 ] );
                 this.setCapabilityValue( "measure_cloud_cover", forecastData.daypart[ 0 ].cloudCover[ 2 ] );
 
@@ -36,17 +42,22 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_temperature.min", forecastData.temperatureMin[ 2 ] );
 
                 this.setCapabilityValue( "measure_wind_angle", forecastData.daypart[ 0 ].windDirection[ 2 ] );
-                this.setCapabilityValue( "measure_wind_strength", forecastData.daypart[ 0 ].windSpeed[ 2 ] );
 
+                if ( this.hasCapability( "measure_gust_strength" ) )
+                {
+                    this.setCapabilityValue( "measure_gust_strength", forecastData.daypart[ 0 ].windSpeed[ 2 ] );
+                }
                 this.setCapabilityValue( "measure_temperature.windchill", forecastData.daypart[ 0 ].temperatureWindChill[ 2 ] );
                 this.setCapabilityValue( "measure_humidity", forecastData.daypart[ 0 ].relativeHumidity[ 2 ] );
 
                 this.setCapabilityValue( "measure_ultraviolet", forecastData.daypart[ 0 ].uvIndex[ 2 ] );
+                this.setAvailable();
             }
         }
         catch ( err )
         {
-            this.log( "Refresh Error: " + err );
+            this.log( "Forecast Refresh Error: " + err );
+            this.setWarning( "Forecast Refresh Error: " + err, null );
         }
         // Refresh forecast 1 per hour
         this.timerID = setTimeout( this.refreshCapabilities, 3600000 );
@@ -55,115 +66,39 @@ class ForecastDevice extends Homey.Device
     async getPlaceID()
     {
         let settings = this.getSettings();
-        let url = "https://api.weather.com/v3/location/search?query=" + settings.stationID + "&locationType=pws&language=en-US&format=json&apiKey=" + settings.apiKey;
-        this.log( url );
-
-        return new Promise( ( resolve, reject ) =>
+        let placeID = settings.placeID;
+        if ( !placeID || ( settings.oldStationID != settings.stationID ) )
         {
-            try
+            let url = "https://api.weather.com/v3/location/search?query=" + settings.stationID + "&locationType=pws&language=en-US&format=json&apiKey=" + settings.apiKey;
+            let searchResult = await Homey.app.GetURL( url );
+            if ( searchResult )
             {
-                https.get( url, ( res ) =>
-                {
-                    if ( res.statusCode === 200 )
-                    {
-                        let body = [];
-                        res.on( 'data', ( chunk ) =>
-                        {
-                            this.log( "retrieve data" );
-                            body.push( chunk );
-                        } );
-                        res.on( 'end', () =>
-                        {
-                            this.log( "Done retrieval of data" );
-                            resolve(
-                            {
-                                "body": Buffer.concat( body )
-                            } );
-                        } );
-                    }
-                    else
-                    {
-                        this.log( "HTTPS Error: " + res.statusCode );
-                        reject( null );
-                    }
-                } ).on( 'error', ( err ) =>
-                {
-                    this.log( err );
-                    reject( null );
-                } );
+                let searchData = JSON.parse( searchResult.body );
+//              this.log( "searchData = " + JSON.stringify( searchData ) );
+                placeID = searchData.location.placeId[ 0 ];
+                settings.oldStationID = settings.stationID;
             }
-            catch ( e )
+            else
             {
-                this.log( e );
-                reject( null );
+                return null;
             }
-        } );
+        }
 
+        return placeID;
     }
 
     async getForecast()
     {
         let settings = this.getSettings();
-        let placeID = settings.placeID;
-        if ( !placeID || (settings.oldStationID != settings.stationID ))
+        let placeID = await this.getPlaceID();
+        if ( placeID == null )
         {
-            let searchResult = await this.getPlaceID();
-            if ( searchResult )
-            {
-                let searchData = JSON.parse( searchResult.body );
-                this.log( "searchData = " + JSON.stringify( searchData ) );
-                placeID = searchData.location.placeId[0];
-                settings.oldStationID = settings.stationID;
-            }
-            else
-            {
-                reject( null );
-            }
+            return null;
         }
-        let langCode = Homey.__("langCode");
-        let url = "https://api.weather.com/v3/wx/forecast/daily/5day?placeid=" + placeID + "&units=m&language=" + langCode + "&format=json&apiKey=" + settings.apiKey;
-        this.log( url );
 
-        return new Promise( ( resolve, reject ) =>
-        {
-            try
-            {
-                https.get( url, ( res ) =>
-                {
-                    if ( res.statusCode === 200 )
-                    {
-                        let body = [];
-                        res.on( 'data', ( chunk ) =>
-                        {
-                            this.log( "retrieve data" );
-                            body.push( chunk );
-                        } );
-                        res.on( 'end', () =>
-                        {
-                            this.log( "Done retrieval of data" );
-                            resolve(
-                            {
-                                "body": Buffer.concat( body )
-                            } );
-                        } );
-                    }
-                    else
-                    {
-                        this.log( "HTTPS Error: " + res.statusCode );
-                        reject( null );
-                    }
-                } ).on( 'error', ( err ) =>
-                {
-                    this.log( err );
-                    reject( null );
-                } );
-            }
-            catch ( e )
-            {
-                this.log( e );
-                reject( null );
-            }
-        } );
+        let langCode = Homey.__( "langCode" );
+        let url = "https://api.weather.com/v3/wx/forecast/daily/5day?placeid=" + placeID + "&units=m&language=" + langCode + "&format=json&apiKey=" + settings.apiKey;
+        return await Homey.app.GetURL( url );
     }
 
     async onDeleted()

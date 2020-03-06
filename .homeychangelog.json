@@ -22,5 +22,8 @@
   },
   "0.1.0": {
     "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
+  },
+  "0.1.1": {
+    "en": "Changed Forecast Wind Speed to Gust Speed"
   }
 }
