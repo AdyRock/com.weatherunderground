@@ -1,14 +1,16 @@
 'use strict';
 
-const Homey = require('homey');
+const Homey = require( 'homey' );
 
-class WeatherDriver extends Homey.Driver {
-	
-	onInit() {
-		this.log('MyDriver has been inited');
-	}
+class WeatherDriver extends Homey.Driver
+{
 
-	// this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
+    onInit()
+    {
+        this.log( 'MyDriver has been init' );
+    }
+
+    // this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
     onPairListDevices( data, callback )
     {
         // Required properties:
@@ -26,7 +28,7 @@ class WeatherDriver extends Homey.Driver {
 
         callback( null, null );
     }
-	
+
 }
 
 module.exports = WeatherDriver;

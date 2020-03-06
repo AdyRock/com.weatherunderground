@@ -25,5 +25,8 @@
   },
   "0.1.1": {
     "en": "Changed Forecast Wind Speed to Gust Speed"
+  },
+  "0.1.2": {
+    "en": "Added Solar Radiation and triggeres for all custom capabilities"
   }
 }

@@ -1,7 +1,6 @@
 'use strict';
 
 const Homey = require( 'homey' );
-const https = require( "https" );
 
 class ForecastDevice extends Homey.Device
 {
@@ -17,12 +16,17 @@ class ForecastDevice extends Homey.Device
             this.addCapability( "measure_gust_strength" );
             this.removeCapability( "measure_wind_strength" );
         }
-    }
+         if ( !this.hasCapability( "thunder_category" ) )
+        {
+            this.addCapability( "thunder_category" );
+        }
+   }
 
     async refreshCapabilities()
     {
         try
         {
+            this.unsetWarning();
             let result = await this.getForecast();
             if ( result )
             {
@@ -51,6 +55,7 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_humidity", forecastData.daypart[ 0 ].relativeHumidity[ 2 ] );
 
                 this.setCapabilityValue( "measure_ultraviolet", forecastData.daypart[ 0 ].uvIndex[ 2 ] );
+                this.setCapabilityValue( "thunder_category", forecastData.daypart[ 0 ].thunderCategory[ 2 ] );
                 this.setAvailable();
             }
         }

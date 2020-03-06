@@ -1,19 +1,20 @@
 'use strict';
 
-const Homey = require('homey');
+const Homey = require( 'homey' );
 const https = require( "https" );
 
-class  WeatherApp extends Homey.App {
-	
-	onInit() {
-		this.log(' WeatherApp is running...');
-	}
+class WeatherApp extends Homey.App
+{
+    onInit()
+    {
+        this.log( ' WeatherApp is running...' );
+    }
 
-	async GetURL( url )
-	{
+    async GetURL( url )
+    {
         this.log( url );
 
-		return new Promise( ( resolve, reject ) =>
+        return new Promise( ( resolve, reject ) =>
         {
             try
             {
@@ -53,7 +54,7 @@ class  WeatherApp extends Homey.App {
                 reject( null );
             }
         } );
-	}
+    }
 }
 
-module.exports =  WeatherApp;
+module.exports = WeatherApp;

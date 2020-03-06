@@ -1,6 +1,6 @@
 {
     "id": "com.weatherunderground",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "compatibility": ">=3.0.0",
     "sdk": 2,
     "name":
@@ -140,11 +140,384 @@
             {
                 "en": "mm"
             },
-            "step": 1,
+            "step": 0.1,
             "min": 0,
-            "max": 100,
+            "max": 500,
+            "icon": "/assets/rainsnow.svg"
+        },
+        "measure_radiation":
+        {
+            "type": "number",
+            "title":
+            {
+                "en": "Solar Radiation",
+                "nl": "Zonnestraling"
+            },
+            "getable": true,
+            "setable": false,
+            "units":
+            {
+                "en": "W/m²"
+            },
+            "step": 0.1,
+            "min": 0,
+            "max": 1100,
             "icon": "/assets/rainsnow.svg"
         }
+    },
+    "flow":
+    {
+        "triggers": [
+        {
+            "id": "measure_temperature.feelsLike_changed",
+            "title":
+            {
+                "en": "The feels like changed",
+                "nl": "Het voelt als veranderd"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.feelsLike",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 25.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=weather"
+            } ]
+        },
+        {
+            "id": "measure_temperature.windchill_changed",
+            "title":
+            {
+                "en": "The wind chill changed",
+                "nl": "De gevoelstemperatuur veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.windchill",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 25.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=weather"
+            } ]
+        },
+        {
+            "id": "measure_temperature.dewPoint_changed",
+            "title":
+            {
+                "en": "The dew point changed",
+                "nl": "Het dauwpunt veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.dewPoint",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 25.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=weather"
+            } ]
+        },
+        {
+            "id": "measure_rain.total_changed",
+            "title":
+            {
+                "en": "The rain total changed",
+                "nl": "Het regentotaal veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_rain.total",
+                "type": "number",
+                "title":
+                {
+                    "en": "Rain Total",
+                    "nl": "Regen Totaal"
+                },
+                "example": 2
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=weather"
+            } ]
+        },
+        {
+            "id": "measure_radiation_changed",
+            "title":
+            {
+                "en": "The solar radiation changed",
+                "nl": "De zonnestraling veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_radiation",
+                "type": "number",
+                "title":
+                {
+                    "en": "Solar Radiation",
+                    "nl": "Zonnestraling"
+                },
+                "example": 200.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=weather"
+            } ]
+        },
+        {
+            "id": "measure_rain_changed",
+            "title":
+            {
+                "en": "The rain total changed",
+                "nl": "Het regentotaal veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_rain",
+                "type": "number",
+                "title":
+                {
+                    "en": "Rain",
+                    "nl": "Regen"
+                },
+                "example": 2.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_temperature.max_changed",
+            "title":
+            {
+                "en": "The high temperature changed",
+                "nl": "De hoge temperatuur veranderd"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.max",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 20.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_temperature.min_changed",
+            "title":
+            {
+                "en": "The low temperature changed",
+                "nl": "De lage temperatuur veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.min",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 20.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_temperature.windchill_changed",
+            "title":
+            {
+                "en": "The windchill changed",
+                "nl": "De gevoelstemperatuur veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_temperature.windchill",
+                "type": "number",
+                "title":
+                {
+                    "en": "Temperature",
+                    "nl": "Temperatuur"
+                },
+                "example": 20.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_cloud_cover_changed",
+            "title":
+            {
+                "en": "The cloud cover changed",
+                "nl": "De bewolking veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_cloud_cover",
+                "type": "number",
+                "title":
+                {
+                    "en": "Cloud Cover",
+                    "nl": "Bewolking"
+                },
+                "example": 50.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "precipitation_type_changed",
+            "title":
+            {
+                "en": "The precipitation type changed",
+                "nl": "De neerslagtype veranderde"
+            },
+            "tokens": [
+            {
+                "name": "precipitation_type",
+                "type": "string",
+                "title":
+                {
+                    "en": "Precipitation Type",
+                    "nl": "Neerslagtype"
+                },
+                "example": "rain"
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "thunder_category_changed",
+            "title":
+            {
+                "en": "The thunder category changed",
+                "nl": "De onweer categorie veranderde"
+            },
+            "tokens": [
+            {
+                "name": "thunder_category",
+                "type": "string",
+                "title":
+                {
+                    "en": "Thunder Category",
+                    "nl": "Onweer Categorie"
+                },
+                "example": "No thunder"
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_precipitation_chance_changed",
+            "title":
+            {
+                "en": "The precipitation chance changed",
+                "nl": "De neerslagkans veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_precipitation_chance",
+                "type": "number",
+                "title":
+                {
+                    "en": "Precipitation Chance",
+                    "nl": "Neerslagkans"
+                },
+                "example": 50.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        },
+        {
+            "id": "measure_snow_changed",
+            "title":
+            {
+                "en": "The snow chance changed",
+                "nl": "De sneeuwkans veranderde"
+            },
+            "tokens": [
+            {
+                "name": "measure_snow",
+                "type": "number",
+                "title":
+                {
+                    "en": "Snow",
+                    "nl": "Sneeuw"
+                },
+                "example": 10.0
+            } ],
+            "args": [
+            {
+                "name": "device",
+                "type": "device",
+                "filter": "driver_id=forecast"
+            } ]
+        } ]
     },
     "drivers": [
     {
@@ -167,7 +540,8 @@
             "measure_rain",
             "measure_rain.total",
             "measure_pressure",
-            "measure_ultraviolet"
+            "measure_ultraviolet",
+            "measure_radiation"
         ],
         "capabilitiesOptions":
         {
@@ -269,7 +643,8 @@
             "measure_temperature.windchill",
             "measure_humidity",
 
-            "measure_ultraviolet"
+            "measure_ultraviolet",
+            "thunder_category"
         ],
         "capabilitiesOptions":
         {
