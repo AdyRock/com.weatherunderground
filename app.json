@@ -531,15 +531,22 @@
         "capabilities": [
             "measure_temperature",
             "measure_temperature.feelsLike",
+
             "measure_temperature.windchill",
+            "measure_temperature.heatIndex",
+
             "measure_temperature.dewPoint",
             "measure_humidity",
+
+            "measure_pressure",
             "measure_wind_angle",
+
             "measure_wind_strength",
             "measure_gust_strength",
+
             "measure_rain",
             "measure_rain.total",
-            "measure_pressure",
+
             "measure_ultraviolet",
             "measure_radiation"
         ],
@@ -559,6 +566,14 @@
                 {
                     "en": "Wind chill",
                     "nl": "Gevoelstemperatuur"
+                }
+            },
+            "measure_temperature.heatIndex":
+            {
+                "title":
+                {
+                    "en": "Heat Index",
+                    "nl": "Warmte-index"
                 }
             },
             "measure_temperature.dewPoint":

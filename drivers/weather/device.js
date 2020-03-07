@@ -8,6 +8,12 @@ class WeatherDevice extends Homey.Device
     onInit()
     {
         this.log( ' WeatherDevice has been inited' );
+        
+        if ( !this.hasCapability( "measure_temperature.heatIndex" ) )
+        {
+            this.addCapability( "measure_temperature.heatIndex" );
+        }
+
         if ( !this.hasCapability( "measure_ultraviolet" ) )
         {
             this.addCapability( "measure_ultraviolet" );
@@ -56,8 +62,17 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );
                 this.setCapabilityValue( "measure_humidity", currentData.humidity );
                 this.setCapabilityValue( "measure_temperature", currentData.metric.temp );
-                this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex );
+                if (currentData.metric.temp <= 16.1){
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill );
+                }
+                else if (currentData.metric.temp >= 21){
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex );
+                }
+                else{
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp );
+                }
                 this.setCapabilityValue( "measure_temperature.windchill", currentData.metric.windChill );
+                this.setCapabilityValue( "measure_temperature.heatIndex", currentData.metric.heatIndex );
                 this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt );
                 this.setCapabilityValue( "measure_rain", currentData.metric.precipRate );
                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
