@@ -5,5 +5,6 @@
     "addStation": "Add Station",
     "stationIDRequired": "Station ID is required",
     "apiKeyRequired": "API Key is required",
-    "langCode": "en-GB"
+    "langCode": "en-GB",
+    "stationNotFound": "Unable to find the Station ID location or invalid API Key"
 }

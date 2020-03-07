@@ -16,11 +16,30 @@ class ForecastDevice extends Homey.Device
             this.addCapability( "measure_gust_strength" );
             this.removeCapability( "measure_wind_strength" );
         }
-         if ( !this.hasCapability( "thunder_category" ) )
+
+        if ( !this.hasCapability( "thunder_category" ) )
         {
             this.addCapability( "thunder_category" );
         }
-   }
+    }
+
+    async onSettings( oldSettingsObj, newSettingsObj )
+    {
+        // run when the user has changed the device's settings in Homey.
+        // changedKeysArr contains an array of keys that have been changed
+
+        // if the settings must not be saved for whatever reason:
+        // throw new Error('Your error message');
+        this.log( "onSettings called" );
+
+        let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
+        if ( !placeID )
+        {
+            throw new Error( Homey.__( "stationNotFound" ) );
+        }
+
+        this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
+    }
 
     async refreshCapabilities()
     {
@@ -32,7 +51,7 @@ class ForecastDevice extends Homey.Device
             {
                 let forecastData = JSON.parse( result.body );
 
-//                this.log( "currentData = " + JSON.stringify( forecastData ) );
+                Homey.app.updateLog( "currentData = " + JSON.stringify( forecastData, null, 2 ) );
                 this.setCapabilityValue( "forecast_text", forecastData.daypart[ 0 ].daypartName[ 2 ] );
                 this.setCapabilityValue( "measure_cloud_cover", forecastData.daypart[ 0 ].cloudCover[ 2 ] );
 
@@ -46,11 +65,8 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_temperature.min", forecastData.temperatureMin[ 2 ] );
 
                 this.setCapabilityValue( "measure_wind_angle", forecastData.daypart[ 0 ].windDirection[ 2 ] );
+                this.setCapabilityValue( "measure_gust_strength", forecastData.daypart[ 0 ].windSpeed[ 2 ] );
 
-                if ( this.hasCapability( "measure_gust_strength" ) )
-                {
-                    this.setCapabilityValue( "measure_gust_strength", forecastData.daypart[ 0 ].windSpeed[ 2 ] );
-                }
                 this.setCapabilityValue( "measure_temperature.windchill", forecastData.daypart[ 0 ].temperatureWindChill[ 2 ] );
                 this.setCapabilityValue( "measure_humidity", forecastData.daypart[ 0 ].relativeHumidity[ 2 ] );
 
@@ -68,38 +84,15 @@ class ForecastDevice extends Homey.Device
         this.timerID = setTimeout( this.refreshCapabilities, 3600000 );
     }
 
-    async getPlaceID()
-    {
-        let settings = this.getSettings();
-        let placeID = settings.placeID;
-        if ( !placeID || ( settings.oldStationID != settings.stationID ) )
-        {
-            let url = "https://api.weather.com/v3/location/search?query=" + settings.stationID + "&locationType=pws&language=en-US&format=json&apiKey=" + settings.apiKey;
-            let searchResult = await Homey.app.GetURL( url );
-            if ( searchResult )
-            {
-                let searchData = JSON.parse( searchResult.body );
-//              this.log( "searchData = " + JSON.stringify( searchData ) );
-                placeID = searchData.location.placeId[ 0 ];
-                settings.oldStationID = settings.stationID;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        return placeID;
-    }
-
     async getForecast()
     {
         let settings = this.getSettings();
-        let placeID = await this.getPlaceID();
+        let placeID = await Homey.app.getPlaceID( settings, null );
         if ( placeID == null )
         {
             return null;
         }
+        this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
 
         let langCode = Homey.__( "langCode" );
         let url = "https://api.weather.com/v3/wx/forecast/daily/5day?placeid=" + placeID + "&units=m&language=" + langCode + "&format=json&apiKey=" + settings.apiKey;

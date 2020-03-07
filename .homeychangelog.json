@@ -28,5 +28,8 @@
   },
   "0.1.2": {
     "en": "Added Solar Radiation and triggeres for all custom capabilities"
+  },
+  "0.1.3": {
+    "en": "Added diagnostic log, better validation of settings and removed checks for capabilities in data refresh functions"
   }
 }

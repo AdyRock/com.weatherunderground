@@ -8,6 +8,23 @@ class WeatherDriver extends Homey.Driver {
 		this.log('MyDriver has been inited');
 	}
 
+    onPair( socket )
+    {
+        socket.on( 'validate', ( settings, callback ) =>
+        {
+            this.log( 'onPair validate called: ' + settings );
+            Homey.app.getPlaceID( settings, null ).then( placeID =>
+            {
+                this.log( 'onPair placeID = ' + placeID );
+                callback( null, placeID );
+            } ).catch( err =>
+            {
+                this.log( 'onPair err = ' + err );
+                callback( null, false );
+            } );
+        } );
+    }
+
 	// this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
     onPairListDevices( data, callback )
     {

@@ -5,5 +5,6 @@
     "addStation": "Station toevoegen",
     "stationIDRequired": "Station ID is vereist",
     "apiKeyRequired": "API-sleutel is vereist",
-    "langCode": "nl-NL"
+    "langCode": "nl-NL",
+    "stationNotFound": "Kan de Station ID-locatie of ongeldige API-sleutel niet vinden"
 }

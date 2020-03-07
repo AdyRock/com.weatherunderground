@@ -22,6 +22,23 @@ class WeatherDevice extends Homey.Device
         this.timerID = setTimeout( this.refreshCapabilities, 1000 );
     }
 
+    async onSettings( oldSettingsObj, newSettingsObj )
+    {
+        // run when the user has changed the device's settings in Homey.
+        // changedKeysArr contains an array of keys that have been changed
+
+        // if the settings must not be saved for whatever reason:
+        // throw new Error('Your error message');
+
+        let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
+        if ( !placeID )
+        {
+            throw new Error( Homey.__( "stationNotFound" ) );
+        }
+
+        this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
+    }
+
     async refreshCapabilities()
     {
         try
@@ -33,9 +50,7 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                //new Homey.FlowCardTriggerDevice( 'feelLike_changed' ).register().trigger( this, { 'temperature': currentData.metric.heatIndex } ).catch(error => { this.error(error); });
-    
-                //				this.log( "currentData = " + JSON.stringify( currentData ));
+                Homey.app.updateLog( "currentData = " + JSON.stringify( currentData, null, 2 ));
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
                 this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed );
                 this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );
@@ -48,10 +63,7 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
                 this.setCapabilityValue( "measure_pressure", currentData.metric.pressure );
                 this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
-                if ( this.hasCapability( "measure_radiation" ) )
-                {
-                    this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
-                }
+                this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                 this.setAvailable();
             }
         }

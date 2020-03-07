@@ -12,18 +12,18 @@
             </p>
 
             <fieldset>
-                <legend>data-i18n="title"</legend>
+                <legend data-i18n="title"></legend>
 
                 <div class="field row">
-                    <label for="stationID">data-i18n="stationID"</label>
+                    <label for="stationID" data-i18n="stationID"></label>
                     <input id="stationID" type="text" value="" />
                 </div>
                 <div class="field row">
-                    <label for="apiKey">data-i18n="apiKey"</label>
+                    <label for="apiKey" data-i18n="apiKey"></label>
                     <input id="apiKey" type="text" value="" />
                 </div>
             </fieldset>
-            <p><button id="save" class="right">data-i18n="addStation"</button></p>
+            <p><button id="save" class="right" data-i18n="addStation"></button></p>
             </fieldset>
     </div>
 
@@ -39,32 +39,45 @@
         {
             if ( stationIDElement.value === "" )
             {
-                return Homey.alert(Homey.__("stationIDRequired") );
+                return Homey.alert( Homey.__( "stationIDRequired" ) );
             }
             if ( apiKeyElement.value === "" )
             {
-                return Homey.alert( Homey.__("apiKeyRequired") );
+                return Homey.alert( Homey.__( "apiKeyRequired" ) );
             }
-            Homey.createDevice(
-            {
-                name: stationIDElement.value,
-                icon: "/icon.svg",
-                data:
-                {
-                    id: stationIDElement.value,
-                },
-                settings:
-                {
-                    stationID: stationIDElement.value,
-                    apiKey: apiKeyElement.value
-                },
 
-                // the store is dynamic and persistent storage for your device
-                store: {},
-            }, function( err, result )
+            var settings = {
+                stationID: stationIDElement.value,
+                apiKey: apiKeyElement.value
+            };
+            Homey.emit( 'validate', settings, function( err, result )
             {
-                if ( err ) return Homey.alert( err );
-                Homey.done();
+                if ( !result )
+                {
+                    return Homey.alert( Homey.__( "stationNotFound" ) );
+                }
+
+                Homey.createDevice(
+                {
+                    name: stationIDElement.value,
+                    icon: "/icon.svg",
+                    data:
+                    {
+                        id: stationIDElement.value,
+                    },
+                    settings:
+                    {
+                        stationID: stationIDElement.value,
+                        apiKey: apiKeyElement.value
+                    },
+
+                    // the store is dynamic and persistent storage for your device
+                    store: {},
+                }, function( err, result )
+                {
+                    if ( err ) return Homey.alert( err );
+                    Homey.done();
+                } );
             } );
         } );
     </script>
