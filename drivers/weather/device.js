@@ -8,7 +8,7 @@ class WeatherDevice extends Homey.Device
     onInit()
     {
         this.log( ' WeatherDevice has been inited' );
-        
+
         if ( !this.hasCapability( "measure_temperature.heatIndex" ) )
         {
             this.addCapability( "measure_temperature.heatIndex" );
@@ -56,19 +56,22 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                Homey.app.updateLog( "currentData = " + JSON.stringify( currentData, null, 2 ));
+                Homey.app.updateLog( "currentData = " + JSON.stringify( currentData, null, 2 ) );
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
                 this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed );
                 this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );
                 this.setCapabilityValue( "measure_humidity", currentData.humidity );
                 this.setCapabilityValue( "measure_temperature", currentData.metric.temp );
-                if (currentData.metric.temp <= 16.1){
+                if ( currentData.metric.temp <= 16.1 )
+                {
                     this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill );
                 }
-                else if (currentData.metric.temp >= 21){
+                else if ( currentData.metric.temp >= 21 )
+                {
                     this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex );
                 }
-                else{
+                else
+                {
                     this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp );
                 }
                 this.setCapabilityValue( "measure_temperature.windchill", currentData.metric.windChill );
@@ -80,6 +83,7 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
                 this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                 this.setAvailable();
+                Homey.app.updateLog( "refreshCapabilities complete: SR= " + currentData.solarRadiation );
             }
         }
         catch ( err )
