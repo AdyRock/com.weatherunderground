@@ -34,5 +34,8 @@
   },
   "0.1.4": {
     "en": "Fixed solar radiation and change it's icon"
+  },
+  "0.1.5": {
+    "en": "Added Day and Night selection. Added custom capabilities to Insights"
   }
 }

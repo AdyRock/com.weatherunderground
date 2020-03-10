@@ -774,13 +774,42 @@
         ],
         "capabilitiesOptions":
         {
+            "measure_cloud_cover":
+            {
+                "insights": false
+            },
+            "measure_precipitation_chance":
+            {
+                "insights": false
+            },
+            "measure_wind_angle":
+            {
+                "insights": false
+            },
+            "measure_gust_strength":
+            {
+                "insights": false
+            },
+            "measure_humidity":
+            {
+                "insights": false
+            },
+            "measure_ultraviolet":
+            {
+                "insights": false
+            },
             "measure_rain":
             {
                 "title":
                 {
                     "en": "Rain Total",
                     "nl": "Regen Totaal"
-                }
+                },
+                "insights": false
+            },
+            "measure_snow":
+            {
+                "insights": false
             },
             "measure_temperature.max":
             {
@@ -788,7 +817,8 @@
                 {
                     "en": "High Temperature",
                     "nl": "Hoge temperatuur"
-                }
+                },
+                "insights": false
             },
             "measure_temperature.min":
             {
@@ -796,7 +826,8 @@
                 {
                     "en": "Low Temperature",
                     "nl": "Lage temperatuur"
-                }
+                },
+                "insights": false
             },
             "measure_temperature.windchill":
             {
@@ -804,7 +835,8 @@
                 {
                     "en": "Wind chill",
                     "nl": "Gevoelstemperatuur"
-                }
+                },
+                "insights": false
             }
         },
         "pair": [

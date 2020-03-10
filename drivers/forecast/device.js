@@ -3,18 +3,18 @@
 const Homey = require( 'homey' );
 
 const forecast_dayToNum = [
-    {id: "today", value: 0},
-    {id: "tonight", value: 1},
-    {id: "today_1", value: 2},
-    {id: "tonight_1", value: 3},
-    {id: "today_2", value: 4},
-    {id: "tonight_2", value: 5},
-    {id: "today_3", value: 6},
-    {id: "tonight_3", value: 7},
-    {id: "today_4", value: 8},
-    {id: "tonight_4", value: 9},
-    {id: "today_5", value: 10},
-    {id: "tonight_5", value: 11},
+    { id: "today", value: 0 },
+    { id: "tonight", value: 1 },
+    { id: "today_1", value: 2 },
+    { id: "tonight_1", value: 3 },
+    { id: "today_2", value: 4 },
+    { id: "tonight_2", value: 5 },
+    { id: "today_3", value: 6 },
+    { id: "tonight_3", value: 7 },
+    { id: "today_4", value: 8 },
+    { id: "tonight_4", value: 9 },
+    { id: "today_5", value: 10 },
+    { id: "tonight_5", value: 11 },
 ];
 
 class ForecastDevice extends Homey.Device
@@ -46,6 +46,11 @@ class ForecastDevice extends Homey.Device
         {
             return this.updateCapabilities( value );
         } );
+
+        if ( !this.getCapabilityValue( 'forecast_day' ) )
+        {
+            this.setCapabilityValue( 'forecast_day', "today" );
+        }
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -74,7 +79,7 @@ class ForecastDevice extends Homey.Device
             {
                 const entry = forecast_dayToNum.find( x => x.id == value );
                 const dayNight = entry.value;
-                const day = Math.floor(dayNight / 2);
+                const day = Math.floor( dayNight / 2 );
                 this.log( "day = " + dayNight );
                 this.setCapabilityValue( "forecast_text", this.forecastData.daypart[ 0 ].daypartName[ dayNight ] );
                 this.setCapabilityValue( "measure_cloud_cover", this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] );
