@@ -102,6 +102,7 @@
             {
                 "en": "%"
             },
+            "insights": true,
             "icon": "/assets/rainsnow.svg"
         },
         "measure_cloud_cover":
@@ -118,6 +119,7 @@
             {
                 "en": "%"
             },
+            "insights": true,
             "icon": "/assets/cloud.svg"
         },
         "measure_snow":
@@ -134,6 +136,7 @@
             {
                 "en": "mm"
             },
+            "insights": true,
             "decimals": 1,
             "icon": "/assets/rainsnow.svg"
         },
@@ -151,6 +154,7 @@
             {
                 "en": "W/m²"
             },
+            "insights": true,
             "decimals": 1,
             "icon": "/assets/radiation.svg"
         }
