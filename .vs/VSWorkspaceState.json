@@ -3,8 +3,12 @@
     "",
     "\\assets",
     "\\drivers",
+    "\\drivers\\forecast",
+    "\\drivers\\forecast\\pair",
     "\\drivers\\weather",
-    "\\drivers\\weather\\pair"
+    "\\drivers\\weather\\pair",
+    "\\locales"
   ],
+  "SelectedNode": "\\drivers\\forecast\\pair\\forecast_pair.html",
   "PreviewInSolutionExplorer": false
 }

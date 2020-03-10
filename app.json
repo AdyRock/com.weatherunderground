@@ -297,31 +297,6 @@
             } ]
         },
         {
-            "id": "measure_temperature.windchill_changed",
-            "title":
-            {
-                "en": "The wind chill changed",
-                "nl": "De gevoelstemperatuur veranderde"
-            },
-            "tokens": [
-            {
-                "name": "measure_temperature.windchill",
-                "type": "number",
-                "title":
-                {
-                    "en": "Temperature",
-                    "nl": "Temperatuur"
-                },
-                "example": 25.0
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=weather"
-            } ]
-        },
-        {
             "id": "measure_temperature.dewPoint_changed",
             "title":
             {
@@ -456,31 +431,6 @@
             "tokens": [
             {
                 "name": "measure_temperature.min",
-                "type": "number",
-                "title":
-                {
-                    "en": "Temperature",
-                    "nl": "Temperatuur"
-                },
-                "example": 20.0
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            } ]
-        },
-        {
-            "id": "measure_temperature.windchill_changed",
-            "title":
-            {
-                "en": "The windchill changed",
-                "nl": "De gevoelstemperatuur veranderde"
-            },
-            "tokens": [
-            {
-                "name": "measure_temperature.windchill",
                 "type": "number",
                 "title":
                 {
@@ -635,9 +585,6 @@
             "measure_temperature",
             "measure_temperature.feelsLike",
 
-            "measure_temperature.windchill",
-            "measure_temperature.heatIndex",
-
             "measure_temperature.dewPoint",
             "measure_humidity",
 
@@ -661,22 +608,6 @@
                 {
                     "en": "Feels Like",
                     "nl": "Voelt als"
-                }
-            },
-            "measure_temperature.windchill":
-            {
-                "title":
-                {
-                    "en": "Wind chill",
-                    "nl": "Gevoelstemperatuur"
-                }
-            },
-            "measure_temperature.heatIndex":
-            {
-                "title":
-                {
-                    "en": "Heat Index",
-                    "nl": "Warmte-index"
                 }
             },
             "measure_temperature.dewPoint":
@@ -766,78 +697,54 @@
             "measure_wind_angle",
             "measure_gust_strength",
 
-            "measure_temperature.windchill",
             "measure_humidity",
 
             "measure_ultraviolet",
             "thunder_category"
         ],
-        "capabilitiesOptions":
-        {
-            "measure_cloud_cover":
-            {
+        "capabilitiesOptions": {
+            "measure_cloud_cover": {
                 "insights": false
             },
-            "measure_precipitation_chance":
-            {
+            "measure_precipitation_chance": {
                 "insights": false
             },
-            "measure_wind_angle":
-            {
+            "measure_wind_angle": {
                 "insights": false
             },
-            "measure_gust_strength":
-            {
+            "measure_gust_strength": {
                 "insights": false
             },
-            "measure_humidity":
-            {
+            "measure_humidity": {
                 "insights": false
             },
-            "measure_ultraviolet":
-            {
+            "measure_ultraviolet": {
                 "insights": false
             },
-            "measure_rain":
-            {
-                "title":
-                {
+            "measure_rain": {
+                "title": {
                     "en": "Rain Total",
                     "nl": "Regen Totaal"
                 },
                 "insights": false
             },
-            "measure_snow":
-            {
+            "measure_snow": {
                 "insights": false
             },
-            "measure_temperature.max":
-            {
-                "title":
-                {
+            "measure_temperature.max": {
+                "title": {
                     "en": "High Temperature",
                     "nl": "Hoge temperatuur"
                 },
                 "insights": false
             },
-            "measure_temperature.min":
-            {
-                "title":
-                {
+            "measure_temperature.min": {
+                "title": {
                     "en": "Low Temperature",
                     "nl": "Lage temperatuur"
                 },
                 "insights": false
             },
-            "measure_temperature.windchill":
-            {
-                "title":
-                {
-                    "en": "Wind chill",
-                    "nl": "Gevoelstemperatuur"
-                },
-                "insights": false
-            }
         },
         "pair": [
         {

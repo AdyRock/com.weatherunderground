@@ -42,6 +42,16 @@ class ForecastDevice extends Homey.Device
             this.addCapability( "thunder_category" );
         }
 
+        if ( this.hasCapability( "measure_temperature.windchill" ) )
+        {
+            this.removeCapability( "measure_temperature.windchill" );
+        }
+
+        if ( !this.hasCapability( "measure_temperature.feelsLike" ) )
+        {
+            this.addCapability( "measure_temperature.feelsLike" );
+        }
+
         this.registerCapabilityListener( 'forecast_day', async ( value ) =>
         {
             return this.updateCapabilities( value );
@@ -51,6 +61,8 @@ class ForecastDevice extends Homey.Device
         {
             this.setCapabilityValue( 'forecast_day', "today" );
         }
+
+        
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -96,7 +108,6 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_wind_angle", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] );
                 this.setCapabilityValue( "measure_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
 
-                this.setCapabilityValue( "measure_temperature.windchill", this.forecastData.daypart[ 0 ].temperatureWindChill[ dayNight ] );
                 this.setCapabilityValue( "measure_humidity", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] );
 
                 this.setCapabilityValue( "measure_ultraviolet", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] );
