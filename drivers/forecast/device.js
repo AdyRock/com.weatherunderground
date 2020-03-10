@@ -2,6 +2,21 @@
 
 const Homey = require( 'homey' );
 
+const forecast_dayToNum = [
+    {id: "today", value: 0},
+    {id: "tonight", value: 1},
+    {id: "today_1", value: 2},
+    {id: "tonight_1", value: 3},
+    {id: "today_2", value: 4},
+    {id: "tonight_2", value: 5},
+    {id: "today_3", value: 6},
+    {id: "tonight_3", value: 7},
+    {id: "today_4", value: 8},
+    {id: "tonight_4", value: 9},
+    {id: "today_5", value: 10},
+    {id: "tonight_5", value: 11},
+];
+
 class ForecastDevice extends Homey.Device
 {
 
@@ -10,6 +25,11 @@ class ForecastDevice extends Homey.Device
         this.log( ' Forecast has been inited' );
         this.refreshCapabilities = this.refreshCapabilities.bind( this );
         this.timerID = setTimeout( this.refreshCapabilities, 1000 );
+
+        if ( !this.hasCapability( "forecast_day" ) )
+        {
+            this.addCapability( "forecast_day" );
+        }
 
         if ( this.hasCapability( "measure_wind_strength" ) )
         {
@@ -21,6 +41,11 @@ class ForecastDevice extends Homey.Device
         {
             this.addCapability( "thunder_category" );
         }
+
+        this.registerCapabilityListener( 'forecast_day', async ( value ) =>
+        {
+            return this.updateCapabilities( value );
+        } );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -41,6 +66,46 @@ class ForecastDevice extends Homey.Device
         this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
     }
 
+    async updateCapabilities( value )
+    {
+        try
+        {
+            if ( this.forecastData )
+            {
+                const entry = forecast_dayToNum.find( x => x.id == value );
+                const dayNight = entry.value;
+                const day = Math.floor(dayNight / 2);
+                this.log( "day = " + dayNight );
+                this.setCapabilityValue( "forecast_text", this.forecastData.daypart[ 0 ].daypartName[ dayNight ] );
+                this.setCapabilityValue( "measure_cloud_cover", this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] );
+
+                this.setCapabilityValue( "measure_precipitation_chance", this.forecastData.daypart[ 0 ].precipChance[ dayNight ] );
+                this.setCapabilityValue( "precipitation_type", this.forecastData.daypart[ 0 ].precipType[ dayNight ] );
+
+                this.setCapabilityValue( "measure_rain", this.forecastData.qpf[ day ] );
+                this.setCapabilityValue( "measure_snow", this.forecastData.qpfSnow[ day ] );
+
+                this.setCapabilityValue( "measure_temperature.max", this.forecastData.temperatureMax[ day ] );
+                this.setCapabilityValue( "measure_temperature.min", this.forecastData.temperatureMin[ day ] );
+
+                this.setCapabilityValue( "measure_wind_angle", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] );
+                this.setCapabilityValue( "measure_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
+
+                this.setCapabilityValue( "measure_temperature.windchill", this.forecastData.daypart[ 0 ].temperatureWindChill[ dayNight ] );
+                this.setCapabilityValue( "measure_humidity", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] );
+
+                this.setCapabilityValue( "measure_ultraviolet", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] );
+                this.setCapabilityValue( "thunder_category", this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] );
+                this.setAvailable();
+            }
+        }
+        catch ( err )
+        {
+            this.log( "Forecast Update Error: " + err );
+            this.setWarning( "Forecast Err: " + err, null );
+        }
+    }
+
     async refreshCapabilities()
     {
         try
@@ -49,30 +114,9 @@ class ForecastDevice extends Homey.Device
             let result = await this.getForecast();
             if ( result )
             {
-                let forecastData = JSON.parse( result.body );
-
-                Homey.app.updateLog( "currentData = " + JSON.stringify( forecastData, null, 2 ) );
-                this.setCapabilityValue( "forecast_text", forecastData.daypart[ 0 ].daypartName[ 2 ] );
-                this.setCapabilityValue( "measure_cloud_cover", forecastData.daypart[ 0 ].cloudCover[ 2 ] );
-
-                this.setCapabilityValue( "measure_precipitation_chance", forecastData.daypart[ 0 ].precipChance[ 2 ] );
-                this.setCapabilityValue( "precipitation_type", forecastData.daypart[ 0 ].precipType[ 2 ] );
-
-                this.setCapabilityValue( "measure_rain", forecastData.qpf[ 2 ] );
-                this.setCapabilityValue( "measure_snow", forecastData.qpfSnow[ 2 ] );
-
-                this.setCapabilityValue( "measure_temperature.max", forecastData.temperatureMax[ 2 ] );
-                this.setCapabilityValue( "measure_temperature.min", forecastData.temperatureMin[ 2 ] );
-
-                this.setCapabilityValue( "measure_wind_angle", forecastData.daypart[ 0 ].windDirection[ 2 ] );
-                this.setCapabilityValue( "measure_gust_strength", forecastData.daypart[ 0 ].windSpeed[ 2 ] );
-
-                this.setCapabilityValue( "measure_temperature.windchill", forecastData.daypart[ 0 ].temperatureWindChill[ 2 ] );
-                this.setCapabilityValue( "measure_humidity", forecastData.daypart[ 0 ].relativeHumidity[ 2 ] );
-
-                this.setCapabilityValue( "measure_ultraviolet", forecastData.daypart[ 0 ].uvIndex[ 2 ] );
-                this.setCapabilityValue( "thunder_category", forecastData.daypart[ 0 ].thunderCategory[ 2 ] );
-                this.setAvailable();
+                this.forecastData = JSON.parse( result.body );
+                Homey.app.updateLog( "currentData = " + JSON.stringify( this.forecastData, null, 2 ) );
+                this.updateCapabilities( this.getCapabilityValue( 'forecast_day' ) );
             }
         }
         catch ( err )
