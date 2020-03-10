@@ -1,6 +1,6 @@
 {
     "id": "com.weatherunderground",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "compatibility": ">=3.0.0",
     "sdk": 2,
     "name":
