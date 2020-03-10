@@ -40,5 +40,8 @@
   },
   "0.1.6": {
     "en": "Removed WindChill and HeatIndex"
+  },
+  "0.1.7": {
+    "en": "Improved error information"
   }
 }
