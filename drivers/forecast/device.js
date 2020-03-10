@@ -62,7 +62,7 @@ class ForecastDevice extends Homey.Device
             this.setCapabilityValue( 'forecast_day', "today" );
         }
 
-        
+
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -80,7 +80,8 @@ class ForecastDevice extends Homey.Device
             throw new Error( Homey.__( "stationNotFound" ) );
         }
 
-        this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
+        clearTimeout( this.timerID );
+        this.timerID = setTimeout( this.refreshCapabilities, 1000 );
     }
 
     async updateCapabilities( value )
@@ -117,8 +118,8 @@ class ForecastDevice extends Homey.Device
         }
         catch ( err )
         {
-            this.log( "Forecast Update Error: " + err );
-            this.setWarning( "Forecast Err: " + err, null );
+            this.log( "Forecast Update: " + err );
+            this.setWarning( err, null );
         }
     }
 
@@ -126,6 +127,8 @@ class ForecastDevice extends Homey.Device
     {
         try
         {
+            this.log( "refreshCapabilities" );
+            
             this.unsetWarning();
             let result = await this.getForecast();
             if ( result )

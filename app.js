@@ -68,18 +68,39 @@ class WeatherApp extends Homey.App
                     else
                     {
                         this.updateLog( "HTTPS Error: " + res.statusCode );
-                        reject( null );
+                        let message = "";
+                        if (res.statusCode === 204)
+                        {
+                            message = "No Data Found";
+                        }
+                        else if (res.statusCode === 400)
+                        {
+                            message = "Bad request";
+                        }
+                        else if (res.statusCode === 401)
+                        {
+                            message = "Unauthorized";
+                        }
+                        else if (res.statusCode === 403)
+                        {
+                            message = "Forbidden";
+                        }
+                        else if (res.statusCode === 404)
+                        {
+                            message = "Not Found";
+                        }
+                        reject( "HTTPS Error: " + res.statusCode + ", " + message );
                     }
                 } ).on( 'error', ( err ) =>
                 {
-                    this.updateLog( err );
-                    reject( null );
+                    this.updateLog( "HTTPS Catch: " + err );
+                    reject( "HTTPS Catch: " + err );
                 } );
             }
             catch ( e )
             {
                 this.updateLog( e );
-                reject( null );
+                reject( "HTTPS Error: " + e );
             }
         } );
     }

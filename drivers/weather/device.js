@@ -40,20 +40,31 @@ class WeatherDevice extends Homey.Device
 
         // if the settings must not be saved for whatever reason:
         // throw new Error('Your error message');
+        this.log( "onSettings called" );
 
-        let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
-        if ( !placeID )
+        try
         {
-            throw new Error( Homey.__( "stationNotFound" ) );
-        }
+            let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
+            if ( !placeID )
+            {
+                throw new Error( Homey.__( "stationNotFound" ) );
+            }
 
-        this.setSettings( { placeID: placeID, oldStationID: settings.stationID } ).catch( this.error );
+            clearTimeout( this.timerID );
+            this.timerID = setTimeout( this.refreshCapabilities, 1000 );
+        }
+        catch ( e )
+        {
+            throw new Error( e );
+        }
     }
 
     async refreshCapabilities()
     {
         try
         {
+            this.log( "refreshCapabilities" );
+
             this.unsetWarning();
             let result = await this.getWeather();
             if ( result )
@@ -91,8 +102,8 @@ class WeatherDevice extends Homey.Device
         }
         catch ( err )
         {
-            this.log( "Weather Refresh Error: " + err );
-            this.setWarning( "Error: " + err, null );
+            this.log( "Weather Refresh: " + err );
+            this.setWarning( err, null );
         }
         this.timerID = setTimeout( this.refreshCapabilities, 60000 );
     }
