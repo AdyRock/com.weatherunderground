@@ -43,5 +43,8 @@
   },
   "0.1.7": {
     "en": "Improved error information"
+  },
+  "1.0.0": {
+    "en": "First proper release"
   }
 }
