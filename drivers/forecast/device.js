@@ -136,12 +136,24 @@ class ForecastDevice extends Homey.Device
                 this.forecastData = JSON.parse( result.body );
                 Homey.app.updateLog( "currentData = " + JSON.stringify( this.forecastData, null, 2 ) );
                 this.updateCapabilities( this.getCapabilityValue( 'forecast_day' ) );
+                Homey.app.stationOffline = false;
             }
         }
         catch ( err )
         {
             this.log( "Forecast Refresh Error: " + err );
             this.setWarning( "Forecast Refresh Error: " + err, null );
+
+            if ( !Homey.app.stationOffline && (err.search( ": 204" ) > 0 ))
+            {
+                Homey.app.stationOffline = true;
+                let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
+                noDataTrigger
+                    .register()
+                    .trigger()
+                    .catch( this.error )
+                    .then( this.log("Offline triggered") )
+            }
         }
         // Refresh forecast 1 per hour
         this.timerID = setTimeout( this.refreshCapabilities, 3600000 );

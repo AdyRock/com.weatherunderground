@@ -1,6 +1,6 @@
 {
     "id": "com.weatherunderground",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "compatibility": ">=3.0.0",
     "sdk": 2,
     "name":
@@ -372,6 +372,14 @@
             } ]
         },
         {
+            "id": "no_data_changed",
+            "title":
+            {
+                "en": "No data has been received",
+                "nl": "Er zijn geen gegevens ontvangen"
+            }
+        },
+        {
             "id": "measure_rain_changed",
             "title":
             {
@@ -570,7 +578,8 @@
                 "type": "device",
                 "filter": "driver_id=forecast"
             } ]
-        } ]
+        }
+     ]
     },
     "drivers": [
     {

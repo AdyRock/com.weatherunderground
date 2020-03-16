@@ -98,12 +98,24 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                 this.setAvailable();
                 Homey.app.updateLog( "refreshCapabilities complete: SR= " + currentData.solarRadiation );
+                Homey.app.stationOffline = false;
             }
         }
         catch ( err )
         {
             this.log( "Weather Refresh: " + err );
             this.setWarning( err, null );
+
+            if ( !Homey.app.stationOffline && (err.search( ": 204" ) > 0 ))
+            {
+                Homey.app.stationOffline = true;
+                let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
+                noDataTrigger
+                    .register()
+                    .trigger()
+                    .catch( this.error )
+                    .then( this.log )
+            }
         }
         this.timerID = setTimeout( this.refreshCapabilities, 60000 );
     }

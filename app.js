@@ -8,6 +8,8 @@ class WeatherApp extends Homey.App
     onInit()
     {
         this.log( ' WeatherApp is running...' );
+        Homey.ManagerSettings.set( 'diagLog', "App Started" );
+        this.stationOffline = false;
     }
 
     async getPlaceID( newSettings, oldSettings )
@@ -114,6 +116,10 @@ class WeatherApp extends Homey.App
 
         this.log( newMessage );
         var oldText = Homey.ManagerSettings.get( 'diagLog' );
+        if (oldText.length > 5000)
+        {
+            oldText = "";
+        }
         oldText += "* ";
         oldText += newMessage;
         oldText += "\r\n";
