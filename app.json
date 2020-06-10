@@ -21,6 +21,10 @@
     "nl": [
       "Weer",
       "Klimaat"
+    ],
+    "de": [
+      "Wetter",
+      "Climate"
     ]
   },
   "permissions": [],
@@ -41,6 +45,9 @@
     "translators": [
       {
         "name": "Raymond van Setten"
+      },
+      {
+        "name": "Dirk G."
       }
     ]
   },
@@ -49,7 +56,8 @@
       "type": "enum",
       "title": {
         "en": "Forecast Day",
-        "nl": "Verwachting Dag"
+        "nl": "Verwachting Dag",
+        "de": "Wetterprognosetag"
       },
       "getable": true,
       "setable": true,
@@ -59,84 +67,96 @@
           "id": "today",
           "title": {
             "en": "Today",
-            "nl": "Vandaag"
+            "nl": "Vandaag",
+            "de": "Heute"
           }
         },
         {
           "id": "tonight",
           "title": {
             "en": "Tonight",
-            "nl": "Vanavond"
+            "nl": "Vanavond",
+            "de": "Heute Nacht"
           }
         },
         {
           "id": "today_1",
           "title": {
             "en": "Tomorrow",
-            "nl": "Morgen"
+            "nl": "Morgen",
+            "de": "Morgen"
           }
         },
         {
           "id": "tonight_1",
           "title": {
             "en": "Tomorrow Night",
-            "nl": "Morgen vanavond"
+            "nl": "Morgen vanavond",
+            "de": "Morgen Nacht"
           }
         },
         {
           "id": "today_2",
           "title": {
             "en": "Today + 2",
-            "nl": "Vandaag + 2"
+            "nl": "Vandaag + 2",
+            "de": "Heute + 2"
           }
         },
         {
           "id": "tonight_2",
           "title": {
             "en": "Tonight + 2",
-            "nl": "Vanavond + 2"
+            "nl": "Vanavond + 2",
+            "de": "Heute Nacht + 2"
           }
         },
         {
           "id": "today_3",
           "title": {
             "en": "Today + 3",
-            "nl": "Vandaag + 3"
+            "nl": "Vandaag + 3",
+            "de": "Heute + 3"
           }
         },
         {
           "id": "tonight_3",
           "title": {
             "en": "Tonight + 3",
-            "nl": "Vanavond + 3"
+            "nl": "Vanavond + 3",
+            "de": "Heute Nacht + 3"
           }
         },
         {
           "id": "today_4",
           "title": {
             "en": "Today + 4",
-            "nl": "Vandaag + 4"
+            "nl": "Vandaag + 4",
+            "de": "Heute + 4"
           }
         },
         {
           "id": "tonight_4",
           "title": {
             "en": "Tonight + 4",
-            "nl": "Vanavond + 4"
+            "nl": "Vanavond + 4",
+            "de": "Heute Nacht + 4"
           }
         },
         {
           "id": "today_5",
           "title": {
             "en": "Today + 5",
-            "nl": "Vandaag + 5"
+            "nl": "Vandaag + 5",
+            "de": "Heute + 5"
           }
         },
         {
           "id": "tonight_5",
           "title": {
             "en": "Tonight + 5",
-            "nl": "Vanavond + 5"
+            "nl": "Vanavond + 5",
+            "de": "Heute Nacht + 5"
           }
         }
       ]
@@ -145,7 +165,8 @@
       "type": "string",
       "title": {
         "en": "Forecast",
-        "nl": "Verwachting"
+        "nl": "Verwachting",
+        "de": "Wetterprognose"
       },
       "getable": true,
       "setable": false,
@@ -155,7 +176,8 @@
       "type": "string",
       "title": {
         "en": "Precipitation Type",
-        "nl": "Neerslagtype"
+        "nl": "Neerslagtype",
+        "de": "Niederschlagsart"
       },
       "getable": true,
       "setable": false,
@@ -165,7 +187,8 @@
       "type": "string",
       "title": {
         "en": "Thunder",
-        "nl": "Onweer"
+        "nl": "Onweer",
+        "de": "Gewitter"
       },
       "getable": true,
       "setable": false,
@@ -175,7 +198,8 @@
       "type": "number",
       "title": {
         "en": "Precipitation Chance",
-        "nl": "Neerslagkans"
+        "nl": "Neerslagkans",
+        "de": "Niederschlagswahrscheinlichkeit"
       },
       "getable": true,
       "setable": false,
@@ -189,7 +213,8 @@
       "type": "number",
       "title": {
         "en": "Cloud Cover",
-        "nl": "Bewolking"
+        "nl": "Bewolking",
+        "de": "Bewölkung"
       },
       "getable": true,
       "setable": false,
@@ -203,7 +228,8 @@
       "type": "number",
       "title": {
         "en": "Snow Total",
-        "nl": "Sneeuwtotaal"
+        "nl": "Sneeuwtotaal",
+        "de": "Schneemenge"
       },
       "getable": true,
       "setable": false,
@@ -294,7 +320,8 @@
             "type": "number",
             "title": {
               "en": "Rain Total",
-              "nl": "Regen Totaal"
+              "nl": "Regen Totaal",
+              "de": "Regenmenge"
             },
             "example": 2
           }
@@ -351,7 +378,8 @@
             "type": "number",
             "title": {
               "en": "Rain",
-              "nl": "Regen"
+              "nl": "Regen",
+              "de": "Regen"
             },
             "example": 2
           }
@@ -426,7 +454,8 @@
             "type": "number",
             "title": {
               "en": "Cloud Cover",
-              "nl": "Bewolking"
+              "nl": "Bewolking",
+              "de": "Bewölkung"
             },
             "example": 50
           }
@@ -451,7 +480,8 @@
             "type": "string",
             "title": {
               "en": "Precipitation Type",
-              "nl": "Neerslagtype"
+              "nl": "Neerslagtype",
+              "de": "Niederschlagsart"
             },
             "example": "rain"
           }
@@ -501,7 +531,8 @@
             "type": "number",
             "title": {
               "en": "Precipitation Chance",
-              "nl": "Neerslagkans"
+              "nl": "Neerslagkans",
+              "de": "Niederschlagswahrscheinlichkeit"
             },
             "example": 50
           }
@@ -526,7 +557,8 @@
             "type": "number",
             "title": {
               "en": "Snow",
-              "nl": "Sneeuw"
+              "nl": "Sneeuw",
+              "de": "Schnee"
             },
             "example": 10
           }
@@ -546,7 +578,8 @@
       "id": "weather",
       "name": {
         "en": "Weather Station",
-        "nl": "Weerstation"
+        "nl": "Weerstation",
+        "de": "Wetterstation"
       },
       "class": "other",
       "capabilities": [
@@ -584,7 +617,8 @@
         "measure_rain.total": {
           "title": {
             "en": "Rain Total",
-            "nl": "Regen Totaal"
+            "nl": "Regen Totaal",
+            "de": "Regenmenge"
           }
         }
       },
@@ -629,7 +663,8 @@
       "id": "forecast",
       "name": {
         "en": "Weather Forecast",
-        "nl": "Weersverwachting"
+        "nl": "Weersverwachting",
+        "de": "Wettervorhersage"
       },
       "class": "other",
       "capabilities": [
@@ -670,7 +705,8 @@
         "measure_rain": {
           "title": {
             "en": "Rain Total",
-            "nl": "Regen Totaal"
+            "nl": "Regen Totaal",
+            "de": "Regenmenge"
           },
           "insights": false
         },
@@ -680,14 +716,16 @@
         "measure_temperature.max": {
           "title": {
             "en": "High Temperature",
-            "nl": "Hoge temperatuur"
+            "nl": "Hoge temperatuur",
+            "de": "Höchsttemperatur"
           },
           "insights": false
         },
         "measure_temperature.min": {
           "title": {
             "en": "Low Temperature",
-            "nl": "Lage temperatuur"
+            "nl": "Lage temperatuur",
+            "de": "Tiefsttemperatur"
           },
           "insights": false
         }
