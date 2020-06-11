@@ -434,7 +434,7 @@
         "title": {
           "en": "The low temperature changed",
           "nl": "De lage temperatuur veranderde",
-          "de": "Die Mindesttemperatur hat sich geändert"
+          "de": "Die Tiefsttemperatur hat sich geändert"
         },
         "tokens": [
           {
@@ -515,7 +515,7 @@
         "title": {
           "en": "The thunder category changed",
           "nl": "De onweer categorie veranderde",
-          "de": "Die Kategorie Donner hat sich geändert"
+          "de": "Die Gewitterkategorie hat sich geändert"
         },
         "tokens": [
           {
@@ -524,7 +524,7 @@
             "title": {
               "en": "Thunder Category",
               "nl": "Onweer Categorie",
-              "de": "Kategorie Donner"
+              "de": "Gewitterkategorie"
             },
             "example": "No thunder"
           }
