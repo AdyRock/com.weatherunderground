@@ -24,7 +24,7 @@
     ],
     "de": [
       "Wetter",
-      "Climate"
+      "Klima"
     ]
   },
   "permissions": [],
@@ -47,7 +47,7 @@
         "name": "Raymond van Setten"
       },
       {
-        "name": "Dirk G."
+        "name": "Dirk Göbel"
       }
     ]
   },
@@ -244,7 +244,8 @@
       "type": "number",
       "title": {
         "en": "Solar Radiation",
-        "nl": "Zonnestraling"
+        "nl": "Zonnestraling",
+        "de": "Sonnenstrahlung"
       },
       "getable": true,
       "setable": false,
@@ -262,7 +263,8 @@
         "id": "measure_temperature.feelsLike_changed",
         "title": {
           "en": "The feels like changed",
-          "nl": "Het voelt als veranderd"
+          "nl": "Het voelt als veranderd",
+          "de": "Gefühlte Temperatur hat sich geändert"
         },
         "tokens": [
           {
@@ -270,7 +272,8 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur"
             },
             "example": 25
           }
@@ -287,7 +290,8 @@
         "id": "measure_temperature.dewPoint_changed",
         "title": {
           "en": "The dew point changed",
-          "nl": "Het dauwpunt veranderde"
+          "nl": "Het dauwpunt veranderde",
+          "de": "Der Taupunkt hat sich geändert"
         },
         "tokens": [
           {
@@ -295,7 +299,8 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur"
             },
             "example": 25
           }
@@ -312,7 +317,8 @@
         "id": "measure_rain.total_changed",
         "title": {
           "en": "The rain total changed",
-          "nl": "Het regentotaal veranderde"
+          "nl": "Het regentotaal veranderde",
+          "de": "Die Regenmenge hat sich geändert"
         },
         "tokens": [
           {
@@ -338,7 +344,8 @@
         "id": "measure_radiation_changed",
         "title": {
           "en": "The solar radiation changed",
-          "nl": "De zonnestraling veranderde"
+          "nl": "De zonnestraling veranderde",
+          "de": "Die Sonnenstrahlung hat sich geändert"
         },
         "tokens": [
           {
@@ -346,7 +353,8 @@
             "type": "number",
             "title": {
               "en": "Solar Radiation",
-              "nl": "Zonnestraling"
+              "nl": "Zonnestraling",
+              "de": "Sonnenstrahlung"
             },
             "example": 200
           }
@@ -363,14 +371,16 @@
         "id": "no_data_changed",
         "title": {
           "en": "No data has been received",
-          "nl": "Er zijn geen gegevens ontvangen"
+          "nl": "Er zijn geen gegevens ontvangen",
+          "de": "Es wurden keine Daten empfangen"
         }
       },
       {
         "id": "measure_rain_changed",
         "title": {
           "en": "The rain total changed",
-          "nl": "Het regentotaal veranderde"
+          "nl": "Het regentotaal veranderde",
+          "de": "Die Regenmenge hat sich geändert"
         },
         "tokens": [
           {
@@ -396,7 +406,8 @@
         "id": "measure_temperature.max_changed",
         "title": {
           "en": "The high temperature changed",
-          "nl": "De hoge temperatuur veranderd"
+          "nl": "De hoge temperatuur veranderd",
+          "de": "Die Höchsttemperatur hat sich geändert"
         },
         "tokens": [
           {
@@ -404,7 +415,8 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur"
             },
             "example": 20
           }
@@ -421,7 +433,8 @@
         "id": "measure_temperature.min_changed",
         "title": {
           "en": "The low temperature changed",
-          "nl": "De lage temperatuur veranderde"
+          "nl": "De lage temperatuur veranderde",
+          "de": "Die Mindesttemperatur hat sich geändert"
         },
         "tokens": [
           {
@@ -429,7 +442,8 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur"
             },
             "example": 20
           }
@@ -446,7 +460,8 @@
         "id": "measure_cloud_cover_changed",
         "title": {
           "en": "The cloud cover changed",
-          "nl": "De bewolking veranderde"
+          "nl": "De bewolking veranderde",
+          "de": "Die Bewölkung hat sich geändert"
         },
         "tokens": [
           {
@@ -472,7 +487,8 @@
         "id": "precipitation_type_changed",
         "title": {
           "en": "The precipitation type changed",
-          "nl": "De neerslagtype veranderde"
+          "nl": "De neerslagtype veranderde",
+          "de": "Der Niederschlagsart hat sich geändert"
         },
         "tokens": [
           {
@@ -498,7 +514,8 @@
         "id": "thunder_category_changed",
         "title": {
           "en": "The thunder category changed",
-          "nl": "De onweer categorie veranderde"
+          "nl": "De onweer categorie veranderde",
+          "de": "Die Kategorie Donner hat sich geändert"
         },
         "tokens": [
           {
@@ -506,7 +523,8 @@
             "type": "string",
             "title": {
               "en": "Thunder Category",
-              "nl": "Onweer Categorie"
+              "nl": "Onweer Categorie",
+              "de": "Kategorie Donner"
             },
             "example": "No thunder"
           }
@@ -523,7 +541,8 @@
         "id": "measure_precipitation_chance_changed",
         "title": {
           "en": "The precipitation chance changed",
-          "nl": "De neerslagkans veranderde"
+          "nl": "De neerslagkans veranderde",
+          "de": "Die Niederschlagswahrscheinlichkeit hat sich geändert"
         },
         "tokens": [
           {
@@ -549,7 +568,8 @@
         "id": "measure_snow_changed",
         "title": {
           "en": "The snow chance changed",
-          "nl": "De sneeuwkans veranderde"
+          "nl": "De sneeuwkans veranderde",
+          "de": "Die Schneewahrscheinlichkeit hat sich geändert"
         },
         "tokens": [
           {
@@ -600,13 +620,15 @@
         "measure_temperature.feelsLike": {
           "title": {
             "en": "Feels Like",
-            "nl": "Voelt als"
+            "nl": "Voelt als",
+            "de": "Gefühlte Temperatur"
           }
         },
         "measure_temperature.dewPoint": {
           "title": {
             "en": "Dew point",
-            "nl": "Dauwpunt"
+            "nl": "Dauwpunt",
+            "de": "Taupunkt"
           }
         },
         "measure_rain": {
@@ -632,14 +654,17 @@
           "type": "group",
           "label": {
             "en": "Station Details",
-            "nl": "Station detail informatie"
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
           },
           "children": [
             {
               "id": "stationID",
               "type": "text",
               "label": {
-                "en": "Station ID"
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
               }
             },
             {
@@ -647,7 +672,8 @@
               "type": "text",
               "label": {
                 "en": "API Key",
-                "nl": "API Sleutel"
+                "nl": "API Sleutel",
+                "de": "API Key"
               }
             }
           ]
@@ -740,14 +766,17 @@
           "type": "group",
           "label": {
             "en": "Station Details",
-            "nl": "Station detail informatie"
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
           },
           "children": [
             {
               "id": "stationID",
               "type": "text",
               "label": {
-                "en": "Station ID"
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
               }
             },
             {
@@ -755,7 +784,8 @@
               "type": "text",
               "label": {
                 "en": "API Key",
-                "nl": "API Sleutel"
+                "nl": "API Sleutel",
+                "de": "API Key"
               }
             }
           ]

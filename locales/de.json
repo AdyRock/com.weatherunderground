@@ -3,8 +3,8 @@
     "stationID": "Station ID",
     "apiKey": "API KEY",
     "addStation": "Wetterstation hinzufügen / Station hinzufügen",
-    "stationIDRequired": "Station ID is required",
-    "apiKeyRequired": "API Key is required",
+    "stationIDRequired": "Stations ID wird benötigt",
+    "apiKeyRequired": "API Key wird benötigt",
     "langCode": "de-DE",
-    "stationNotFound": "Unable to find the Station ID location or invalid API Key"
+    "stationNotFound": "Die Stations ID wurde nicht gefunden oder der API Key ist ungültig"
 }
