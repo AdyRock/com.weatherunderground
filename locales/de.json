@@ -2,7 +2,7 @@
     "title": "Informationen Ihrer Weather Underground Station.",
     "stationID": "Station ID",
     "apiKey": "API KEY",
-    "addStation": "Wetterstation hinzufügen / Station hinzufügen",
+    "addStation": "Wetterstation hinzufügen",
     "stationIDRequired": "Stations ID wird benötigt",
     "apiKeyRequired": "API Key wird benötigt",
     "langCode": "de-DE",

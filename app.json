@@ -8,7 +8,8 @@
   },
   "description": {
     "en": "Get the last data from you weather station",
-    "nl": "Haal de laatste gegevens van uw weerstation op"
+    "nl": "Haal de laatste gegevens van uw weerstation op",
+    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
   },
   "category": [
     "climate"
