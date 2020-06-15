@@ -55,5 +55,8 @@
   },
   "1.2.1": {
     "en": "revised one German translation and added German text to app store"
+  },
+  "1.2.2": {
+    "en": "Published with latest CLI"
   }
 }
