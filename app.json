@@ -643,6 +643,12 @@
             "nl": "Regen Totaal",
             "de": "Regenmenge"
           }
+        },
+        "measure_ultraviolet": {
+          "title":{
+            "en": "UV-Index",
+            "de": "UV-Index"
+          }
         }
       },
       "pair": [
@@ -727,7 +733,11 @@
           "insights": false
         },
         "measure_ultraviolet": {
-          "insights": false
+          "insights": false,
+          "title":{
+            "en": "UV-Index",
+            "de": "UV-Index"
+          }
         },
         "measure_rain": {
           "title": {
