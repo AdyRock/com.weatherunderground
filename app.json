@@ -1,6 +1,6 @@
 {
   "id": "com.weatherunderground",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "compatibility": ">=3.0.0",
   "sdk": 2,
   "name": {
@@ -645,7 +645,7 @@
           }
         },
         "measure_ultraviolet": {
-          "title":{
+          "title": {
             "en": "UV-Index",
             "de": "UV-Index"
           }
@@ -734,7 +734,7 @@
         },
         "measure_ultraviolet": {
           "insights": false,
-          "title":{
+          "title": {
             "en": "UV-Index",
             "de": "UV-Index"
           }

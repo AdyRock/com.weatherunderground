@@ -61,5 +61,8 @@
   },
   "1.2.3": {
     "en": "Renamed readme.de.txt to README.de.txt so it shows in the store"
+  },
+  "1.2.4": {
+    "en": "Changed ULTRAVIOLATE to UV-INDEX for English and German"
   }
 }
