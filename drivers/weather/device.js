@@ -63,7 +63,7 @@ class WeatherDevice extends Homey.Device
     {
         try
         {
-            this.log( "refreshCapabilities" );
+            this.log( "PWS refreshCapabilities" );
 
             this.unsetWarning();
             let result = await this.getWeather();
@@ -72,7 +72,7 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                Homey.app.updateLog( "currentData = " + JSON.stringify( currentData, null, 2 ) );
+                Homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
                 this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed );
                 this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );

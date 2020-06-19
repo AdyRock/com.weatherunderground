@@ -162,12 +162,45 @@
         }
       ]
     },
+    "forecast_active_day": {
+      "type": "string",
+      "title": {
+        "en": "Day",
+        "nl": "Dag",
+        "de": "Tag"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
     "forecast_text": {
       "type": "string",
       "title": {
-        "en": "Forecast",
-        "nl": "Verwachting",
-        "de": "Wetterprognose"
+        "en": "Day / Night",
+        "nl": "Dag / Nacht",
+        "de": "Tag / Nacht"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
+    "forecast_summary": {
+      "type": "string",
+      "title": {
+        "en": "Summary",
+        "nl": "Overzicht",
+        "de": "Zusammenfassung"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
+    "forecast_moonPhase": {
+      "type": "string",
+      "title": {
+        "en": "Moon Phase",
+        "nl": "Maanfase",
+        "de": "Mond Phase"
       },
       "getable": true,
       "setable": false,
@@ -702,14 +735,18 @@
       "class": "other",
       "capabilities": [
         "forecast_day",
-        "forecast_text",
-        "measure_cloud_cover",
-        "measure_precipitation_chance",
-        "precipitation_type",
+        "forecast_active_day",
+        "forecast_moonPhase",
         "measure_rain",
         "measure_snow",
         "measure_temperature.max",
         "measure_temperature.min",
+        "forecast_text",
+        "forecast_summary",
+        "measure_cloud_cover",
+        "measure_precipitation_chance",
+        "precipitation_type",
+        "measure_temperature.feelsLike",
         "measure_wind_angle",
         "measure_gust_strength",
         "measure_humidity",
@@ -749,6 +786,13 @@
         },
         "measure_snow": {
           "insights": false
+        },
+        "measure_temperature.feelsLike": {
+          "title": {
+            "en": "Feels Like",
+            "nl": "Voelt als",
+            "de": "Gefühlte Temperatur"
+          }
         },
         "measure_temperature.max": {
           "title": {
