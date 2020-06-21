@@ -106,7 +106,7 @@ class ForecastDevice extends Homey.Device
             if ( this.forecastData )
             {
                 const entry = forecast_dayToNum.find( x => x.id == value );
-                const dayNight = entry.value;
+                let dayNight = entry.value;
                 const day = Math.floor( dayNight / 2 );
                 this.log( "day = " + dayNight );
 
@@ -119,6 +119,9 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_temperature.min", this.forecastData.temperatureMin[ day ] );
 
                 // Day / Night parts
+                if (this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null){
+                    dayNight++;
+                }
                 this.setCapabilityValue( "forecast_text", this.forecastData.daypart[ 0 ].daypartName[ dayNight ] );
                 this.setCapabilityValue( "forecast_summary", this.forecastData.daypart[ 0 ].wxPhraseLong[ dayNight ] );
                 this.setCapabilityValue( "measure_cloud_cover", this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] );

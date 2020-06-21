@@ -97,7 +97,7 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
                 this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                 this.setAvailable();
-                Homey.app.updateLog( "refreshCapabilities complete: SR= " + currentData.solarRadiation );
+                Homey.app.updateLog( "refreshCapabilities complete" );
                 Homey.app.stationOffline = false;
             }
         }
