@@ -64,5 +64,8 @@
   },
   "1.2.4": {
     "en": "Changed ULTRAVIOLATE to UV-INDEX for English and German"
+  },
+  "1.3.0": {
+    "en": "Added extra capabilities to forecast\\nChanged order of capabilities(device needs to be removed and added again to update existing devices)\\nToday forecast values automatically switches to Tonight data when WU stops sending it."
   }
 }
