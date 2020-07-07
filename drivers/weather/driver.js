@@ -7,7 +7,7 @@ class WeatherDriver extends Homey.Driver
 
     onInit()
     {
-        this.log( 'MyDriver has been init' );
+        this.log( 'WeatherDriver has been init' );
     }
 
     onPair( socket )

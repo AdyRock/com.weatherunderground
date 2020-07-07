@@ -16,7 +16,7 @@ class WeatherApp extends Homey.App
     {
         let placeID = newSettings.placeID;
         let oldStationID = newSettings.oldStationID;
-        if (oldSettings)
+        if ( oldSettings )
         {
             oldStationID = oldSettings.stationID;
         }
@@ -71,23 +71,23 @@ class WeatherApp extends Homey.App
                     {
                         this.updateLog( "HTTPS Error: " + res.statusCode );
                         let message = "";
-                        if (res.statusCode === 204)
+                        if ( res.statusCode === 204 )
                         {
                             message = "No Data Found";
                         }
-                        else if (res.statusCode === 400)
+                        else if ( res.statusCode === 400 )
                         {
                             message = "Bad request";
                         }
-                        else if (res.statusCode === 401)
+                        else if ( res.statusCode === 401 )
                         {
                             message = "Unauthorized";
                         }
-                        else if (res.statusCode === 403)
+                        else if ( res.statusCode === 403 )
                         {
                             message = "Forbidden";
                         }
-                        else if (res.statusCode === 404)
+                        else if ( res.statusCode === 404 )
                         {
                             message = "Not Found";
                         }
@@ -116,7 +116,7 @@ class WeatherApp extends Homey.App
 
         this.log( newMessage );
         var oldText = Homey.ManagerSettings.get( 'diagLog' );
-        if (oldText.length > 5000)
+        if ( oldText.length > 5000 )
         {
             oldText = "";
         }
