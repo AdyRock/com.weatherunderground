@@ -29,12 +29,6 @@ class WeatherDevice extends Homey.Device
             this.addCapability( "measure_radiation" );
         }
 
-        let driver = this.getDriver();
-        driver.ready( () =>
-        {
-            driver.triggerFeelLike( this, 5);
-        } );
-
         this.refreshCapabilities = this.refreshCapabilities.bind( this );
         this.timerID = setTimeout( this.refreshCapabilities, 1000 );
     }

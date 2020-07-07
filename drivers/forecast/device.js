@@ -21,7 +21,7 @@ class ForecastDevice extends Homey.Device
 {
     async onInit()
     {
-        this.log( 'ForecastDevice has been inited' );
+        this.log( 'ForecastDevice has been initialised' );
 
         if ( !this.hasCapability( "forecast_day" ) )
         {
@@ -104,13 +104,7 @@ class ForecastDevice extends Homey.Device
             this.setCapabilityValue( 'forecast_day', "today" );
         }
 
-        //setTimeout( this.refreshCapabilities, 1000, this );
-        // let device = this;
-        // let driver = this.getDriver();
-        // driver.ready( () =>
-        // {
-        //     driver.triggerRain( device, "today", 5 );
-        // } );
+        this.timerID = setTimeout( this.refreshCapabilities, 1000, this );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -128,8 +122,8 @@ class ForecastDevice extends Homey.Device
             throw new Error( Homey.__( "stationNotFound" ) );
         }
 
-        //clearTimeout( this.timerID );
-        //setTimeout( this.refreshCapabilities, 1000, this );
+        clearTimeout( this.timerID );
+        this.timerID = setTimeout( this.refreshCapabilities, 1000, this );
     }
 
     async updateCapabilities( Device, value )
@@ -174,8 +168,8 @@ class ForecastDevice extends Homey.Device
 
                 Device.setAvailable();
 
-                let driver = Device.getDriver();
-                driver.triggerRain( Device, entry.id, Device.forecastData.qpf[ day ] );
+                // let driver = Device.getDriver();
+                // driver.triggerRain( Device, entry.id, Device.forecastData.qpf[ day ] );
             }
         }
         catch ( err )
@@ -210,9 +204,9 @@ class ForecastDevice extends Homey.Device
                             if ( element.day == 0 )
                             {
                                 if ( Device.forecastData.qpf[ element.day ] != Device.oldForecastData.qpf[ element.day ] ) { driver.triggerRain( Device, element.id, Device.forecastData.qpf[ element.day ] ); }
-                                // if ( Device.forecastData.qpfSnow[ element.day ] != Device.oldForecastData.qpfSnow[ element.day ] ) { driver.triggerSnow( Device, element.id, Device.forecastData.qpfSnow[ element.day ] ); }
-                                // if ( Device.forecastData.temperatureMax[ element.day ] != Device.oldForecastData.temperatureMax[ element.day ] ) { driver.triggerTempMax( Device, element.id, Device.forecastData.temperatureMax[ element.day ] ); }
-                                // if ( Device.forecastData.temperatureMin[ element.day ] != Device.oldForecastData.temperatureMin[ element.day ] ) { driver.triggerTempMin( Device, element.id, Device.forecastData.temperatureMin[ element.day ] ); }
+                                if ( Device.forecastData.qpfSnow[ element.day ] != Device.oldForecastData.qpfSnow[ element.day ] ) { driver.triggerSnow( Device, element.id, Device.forecastData.qpfSnow[ element.day ] ); }
+                                if ( Device.forecastData.temperatureMax[ element.day ] != Device.oldForecastData.temperatureMax[ element.day ] ) { driver.triggerTempMax( Device, element.id, Device.forecastData.temperatureMax[ element.day ] ); }
+                                if ( Device.forecastData.temperatureMin[ element.day ] != Device.oldForecastData.temperatureMin[ element.day ] ) { driver.triggerTempMin( Device, element.id, Device.forecastData.temperatureMin[ element.day ] ); }
                             }
 
                             let dayNight = element.value;
@@ -220,15 +214,15 @@ class ForecastDevice extends Homey.Device
                             {
                                 dayNight++;
                             }
-                            // if ( Device.forecastData.daypart[ 0 ].cloudCover[ dayNight ] != Device.oldForecastData.daypart[ 0 ].cloudCover[ dayNight ] ) { driver.triggerCloudCover( Device, element.id, Device.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].precipChance[ dayNight ] != Device.oldForecastData.daypart[ 0 ].precipChance[ dayNight ] ) { driver.triggerRainChance( Device, element.id, Device.forecastData.daypart[ 0 ].precipChance[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].precipType[ dayNight ] != Device.oldForecastData.daypart[ 0 ].precipType[ dayNight ] ) { driver.triggerPrecipitationType( Device, element.id, Device.forecastData.daypart[ 0 ].precipType[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].windDirection[ dayNight ] != Device.oldForecastData.daypart[ 0 ].windDirection[ dayNight ] ) { driver.triggerWindAngle( Device, element.id, Device.forecastData.daypart[ 0 ].windDirection[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].windSpeed[ dayNight ] != Device.oldForecastData.daypart[ 0 ].windSpeed[ dayNight ] ) { driver.triggerGustStrength( Device, element.id, Device.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] != Device.oldForecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ) { driver.triggerHumidity( Device, element.id, Device.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].uvIndex[ dayNight ] != Device.oldForecastData.daypart[ 0 ].uvIndex[ dayNight ] ) { driver.triggerUltraviolet( Device, element.id, Device.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] != Device.oldForecastData.daypart[ 0 ].thunderCategory[ dayNight ] ) { driver.triggerThunder( Device, element.id, Device.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] ); }
-                            // if ( Device.forecastData.daypart[ 0 ].temperature[ dayNight ] != Device.oldForecastData.daypart[ 0 ].temperature[ dayNight ] ) { driver.triggerTemperature( Device, element.id, Device.forecastData.daypart[ 0 ].temperature[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].cloudCover[ dayNight ] != Device.oldForecastData.daypart[ 0 ].cloudCover[ dayNight ] ) { driver.triggerCloudCover( Device, element.id, Device.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].precipChance[ dayNight ] != Device.oldForecastData.daypart[ 0 ].precipChance[ dayNight ] ) { driver.triggerRainChance( Device, element.id, Device.forecastData.daypart[ 0 ].precipChance[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].precipType[ dayNight ] != Device.oldForecastData.daypart[ 0 ].precipType[ dayNight ] ) { driver.triggerPrecipitationType( Device, element.id, Device.forecastData.daypart[ 0 ].precipType[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].windDirection[ dayNight ] != Device.oldForecastData.daypart[ 0 ].windDirection[ dayNight ] ) { driver.triggerWindAngle( Device, element.id, Device.forecastData.daypart[ 0 ].windDirection[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].windSpeed[ dayNight ] != Device.oldForecastData.daypart[ 0 ].windSpeed[ dayNight ] ) { driver.triggerGustStrength( Device, element.id, Device.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] != Device.oldForecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ) { driver.triggerHumidity( Device, element.id, Device.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].uvIndex[ dayNight ] != Device.oldForecastData.daypart[ 0 ].uvIndex[ dayNight ] ) { driver.triggerUltraviolet( Device, element.id, Device.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] != Device.oldForecastData.daypart[ 0 ].thunderCategory[ dayNight ] ) { driver.triggerThunder( Device, element.id, Device.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] ); }
+                            if ( Device.forecastData.daypart[ 0 ].temperature[ dayNight ] != Device.oldForecastData.daypart[ 0 ].temperature[ dayNight ] ) { driver.triggerTemperature( Device, element.id, Device.forecastData.daypart[ 0 ].temperature[ dayNight ] ); }
                         } )
                     }
 
@@ -255,7 +249,7 @@ class ForecastDevice extends Homey.Device
             }
         }
         // Refresh forecast 1 per hour
-        //Device.timerID = setTimeout( Device.refreshCapabilities, 3600000, Device );
+        Device.timerID = setTimeout( Device.refreshCapabilities, 3600000, Device );
     }
 
     async getForecast( Device )

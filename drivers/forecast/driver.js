@@ -12,8 +12,7 @@ class ForecastDriver extends Homey.Driver {
         .register()
         .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -23,8 +22,7 @@ class ForecastDriver extends Homey.Driver {
         this.windAngleTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -36,8 +34,7 @@ class ForecastDriver extends Homey.Driver {
         this.gustStrengthTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -48,8 +45,7 @@ class ForecastDriver extends Homey.Driver {
         this.humidityTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -60,8 +56,7 @@ class ForecastDriver extends Homey.Driver {
         this.ultraVioletTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -72,8 +67,7 @@ class ForecastDriver extends Homey.Driver {
         this.tempMaxTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -84,8 +78,7 @@ class ForecastDriver extends Homey.Driver {
         this.tempMinTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -96,8 +89,7 @@ class ForecastDriver extends Homey.Driver {
         this.cloudCoverTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -108,8 +100,7 @@ class ForecastDriver extends Homey.Driver {
         this.precipitationTypeTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -120,8 +111,7 @@ class ForecastDriver extends Homey.Driver {
         this.thunderCatTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -132,8 +122,7 @@ class ForecastDriver extends Homey.Driver {
         this.precipitationTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -144,8 +133,7 @@ class ForecastDriver extends Homey.Driver {
         this.snowTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -156,8 +144,7 @@ class ForecastDriver extends Homey.Driver {
         this.temperatureTrigger
             .registerRunListener( ( args, state ) =>
             {
-                console.log( args );
-                console.log( state );
+                console.log( "Fire trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
