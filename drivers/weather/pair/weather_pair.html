@@ -37,12 +37,15 @@
 
         saveElement.addEventListener( 'click', function( e )
         {
+            Homey.showLoadingOverlay()
             if ( stationIDElement.value === "" )
             {
+                Homey.hideLoadingOverlay()
                 return Homey.alert( Homey.__( "stationIDRequired" ) );
             }
             if ( apiKeyElement.value === "" )
             {
+                Homey.hideLoadingOverlay()
                 return Homey.alert( Homey.__( "apiKeyRequired" ) );
             }
 
@@ -54,16 +57,18 @@
             {
                 if ( !result )
                 {
+                    Homey.hideLoadingOverlay()
                     return Homey.alert( Homey.__( "stationNotFound" ) );
                 }
 
+                let rndId = Math.floor(Math.random() * 10000);
                 Homey.createDevice(
                 {
                     name: stationIDElement.value,
                     icon: "/icon.svg",
                     data:
                     {
-                        id: stationIDElement.value + "W",
+                        id: stationIDElement.value + "_W" + rndId,
                     },
                     settings:
                     {
@@ -75,7 +80,11 @@
                     store: {},
                 }, function( err, result )
                 {
-                    if ( err ) return Homey.alert( err );
+                    if ( err )
+                    {
+                        Homey.hideLoadingOverlay()
+                        return Homey.alert( err );
+                    }
                     Homey.done();
                 } );
             } );
