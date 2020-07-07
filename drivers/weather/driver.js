@@ -9,8 +9,20 @@ class WeatherDriver extends Homey.Driver
     {
         this.log( 'WeatherDriver has been init' );
 
-        this.feelLike = new Homey.FlowCardTriggerDevice( 'measure_temperature_feelsLike_changed' );
-        this.feelLike
+        this.feelLikeTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_feelsLike_changed' );
+        this.feelLikeTrigger
+        .register()
+
+        this.dewPointTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_dewPoint_changed' );
+        this.dewPointTrigger
+        .register()
+
+        this.rainTotalTrigger = new Homey.FlowCardTriggerDevice( 'measure_rain_total_changed' );
+        this.rainTotalTrigger
+        .register()
+
+        this.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' );
+        this.radiationTrigger
         .register()
     }
 
@@ -57,11 +69,47 @@ class WeatherDriver extends Homey.Driver
         let tokens = { 'feelsLike': Value };
         let state = {};
 
-        this.feelLike.trigger( Device, tokens, state )
+        this.feelLikeTrigger.trigger( Device, tokens, state )
             .then( this.log )
             .catch( this.error )
     }
 
+    
+    async triggerDewPoint( Device, Value )
+    {
+        // trigger the card
+        this.log( "Triggering feels like changed with: ", Value );
+        let tokens = { 'feelsLike': Value };
+        let state = {};
+
+        this.dewPointTrigger.trigger( Device, tokens, state )
+            .then( this.log )
+            .catch( this.error )
+    }
+    
+    async triggerRainTotal( Device, Value )
+    {
+        // trigger the card
+        this.log( "Triggering feels like changed with: ", Value );
+        let tokens = { 'feelsLike': Value };
+        let state = {};
+
+        this.rainTotalTrigger.trigger( Device, tokens, state )
+            .then( this.log )
+            .catch( this.error )
+    }
+    
+    async triggerRadiation( Device, Value )
+    {
+        // trigger the card
+        this.log( "Triggering feels like changed with: ", Value );
+        let tokens = { 'feelsLike': Value };
+        let state = {};
+
+        this.radiationTrigger.trigger( Device, tokens, state )
+            .then( this.log )
+            .catch( this.error )
+    }
 }
 
 module.exports = WeatherDriver;
