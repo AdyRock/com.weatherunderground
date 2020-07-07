@@ -7,7 +7,7 @@ class WeatherDevice extends Homey.Device
 
     onInit()
     {
-        this.log( ' WeatherDevice has been inited' );
+        this.log( ' WeatherDevice has been init' );
 
         if ( this.hasCapability( "measure_temperature.heatIndex" ) )
         {
@@ -28,6 +28,12 @@ class WeatherDevice extends Homey.Device
         {
             this.addCapability( "measure_radiation" );
         }
+
+        let driver = this.getDriver();
+        driver.ready( () =>
+        {
+            driver.triggerFeelLike( this, 5);
+        } );
 
         this.refreshCapabilities = this.refreshCapabilities.bind( this );
         this.timerID = setTimeout( this.refreshCapabilities, 1000 );

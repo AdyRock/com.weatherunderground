@@ -204,7 +204,7 @@ class ForecastDriver extends Homey.Driver {
     async triggerRain( Device, Day, Value )
     {
         // trigger the card
-        this.log( "Triggering rain changed for: ", Device, " Day: ", Day, " With: ", Value );
+        this.log( "Triggering rain changed for: ", Day, " With: ", Value );
         let tokens = { 'measure_rain': Value };
         let state = { 'day': Day };
 

@@ -105,12 +105,12 @@ class ForecastDevice extends Homey.Device
         }
 
         //setTimeout( this.refreshCapabilities, 1000, this );
-        let device = this;
-        let driver = this.getDriver();
-        driver.ready( () =>
-        {
-            driver.triggerRain( device, "today", 5 );
-        } );
+        // let device = this;
+        // let driver = this.getDriver();
+        // driver.ready( () =>
+        // {
+        //     driver.triggerRain( device, "today", 5 );
+        // } );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )

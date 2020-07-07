@@ -348,7 +348,7 @@
             },
             "tokens": [
             {
-                "name": "measure_temperature_feelsLike",
+                "name": "feelsLike",
                 "type": "number",
                 "title":
                 {
