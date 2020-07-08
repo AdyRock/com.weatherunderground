@@ -79,9 +79,9 @@ class ForecastDevice extends Homey.Device
             this.removeCapability( "measure_ultraviolet" );
         }
 
-        if ( !this.hasCapability( "thunder_category" ) )
+        if ( this.hasCapability( "thunder_category" ) )
         {
-            this.addCapability( "thunder_category" );
+            this.removeCapability( "thunder_category" );
         }
 
         if ( this.hasCapability( "measure_temperature.windchill" ) )
@@ -89,9 +89,14 @@ class ForecastDevice extends Homey.Device
             this.removeCapability( "measure_temperature.windchill" );
         }
 
-        if ( !this.hasCapability( "measure_temperature.feelsLike" ) )
+        if ( !this.hasCapability( "measure_temperature.feelsLike.forecast" ) )
         {
-            this.addCapability( "measure_temperature.feelsLike" );
+            this.addCapability( "measure_temperature.feelsLike.forecast" );
+        }
+        
+        if ( this.hasCapability( "measure_temperature.feelsLike" ) )
+        {
+            this.removeCapability( "measure_temperature.feelsLike" );
         }
 
         this.registerCapabilityListener( 'forecast_day', async ( value ) =>
@@ -163,8 +168,7 @@ class ForecastDevice extends Homey.Device
                 Device.setCapabilityValue( "measure_gust_strength.forecast", Device.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
                 Device.setCapabilityValue( "measure_humidity.forecast", Device.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] );
                 Device.setCapabilityValue( "measure_ultraviolet.forecast", Device.forecastData.daypart[ 0 ].uvIndex[ dayNight ] );
-                Device.setCapabilityValue( "thunder_category", Device.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] );
-                Device.setCapabilityValue( "measure_temperature.feelsLike", Device.forecastData.daypart[ 0 ].temperature[ dayNight ] );
+                Device.setCapabilityValue( "measure_temperature.feelsLike.forecast", Device.forecastData.daypart[ 0 ].temperature[ dayNight ] );
 
                 Device.setAvailable();
 
