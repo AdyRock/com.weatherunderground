@@ -9,7 +9,7 @@ The PWS data include (subject to being provided by your station):
 * Feels Like Temperature,
 * Dew Point,
 * Humidity,
-* Pressure,
+* Relative Pressure,
 * Wind Direction,
 * Wind Strength,
 * Rain rate,
@@ -34,3 +34,5 @@ Plus the following data for Day and Night 9for 5 days):
 * Wind Strength,
 * Humidity,
 * UV Index
+
+Click on the 'Visit Community' link below for installation instruction.
