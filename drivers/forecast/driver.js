@@ -1,16 +1,17 @@
 'use strict';
 
-const Homey = require('homey');
+const Homey = require( 'homey' );
 
-class ForecastDriver extends Homey.Driver {
-	
-	onInit() {
-        this.log('ForecastDriver has been inited');
-        
-        this.rainTrigger = new Homey.FlowCardTriggerDevice( 'rain_changed_forecast' );
-        this.rainTrigger
-        .register()
-        .registerRunListener( ( args, state ) =>
+class ForecastDriver extends Homey.Driver
+{
+
+    onInit()
+    {
+        this.log( 'ForecastDriver has been inited' );
+
+        this.rainTrigger = new Homey.FlowCardTriggerDevice( 'rain_changed_forecast' )
+            .register()
+            .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
 
@@ -18,8 +19,9 @@ class ForecastDriver extends Homey.Driver {
                 return Promise.resolve( args.day === state.day );
             } )
 
-        this.windAngleTrigger = new Homey.FlowCardTriggerDevice( 'wind_angle_changed_forecast' );
+        this.windAngleTrigger = new Homey.FlowCardTriggerDevice( 'wind_angle_changed_forecast' )
         this.windAngleTrigger
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -27,11 +29,10 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
 
-        this.gustStrengthTrigger = new Homey.FlowCardTriggerDevice( 'gust_strength_forecast' );
-        this.gustStrengthTrigger
+        this.gustStrengthTrigger = new Homey.FlowCardTriggerDevice( 'gust_strength_forecast' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -39,10 +40,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.humidityTrigger = new Homey.FlowCardTriggerDevice( 'humidity_changed_forecast' );
-        this.humidityTrigger
+        this.humidityTrigger = new Homey.FlowCardTriggerDevice( 'humidity_changed_forecast' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -50,10 +50,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.ultraVioletTrigger = new Homey.FlowCardTriggerDevice( 'ultraviolet_changed_forecast' );
-        this.ultraVioletTrigger
+        this.ultraVioletTrigger = new Homey.FlowCardTriggerDevice( 'ultraviolet_changed_forecast' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -61,10 +60,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.tempMaxTrigger = new Homey.FlowCardTriggerDevice( 'temperature_max_changed' );
-        this.tempMaxTrigger
+        this.tempMaxTrigger = new Homey.FlowCardTriggerDevice( 'temperature_max_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -72,10 +70,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.tempMinTrigger = new Homey.FlowCardTriggerDevice( 'temperature_min_changed' );
-        this.tempMinTrigger
+        this.tempMinTrigger = new Homey.FlowCardTriggerDevice( 'temperature_min_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -83,10 +80,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.cloudCoverTrigger = new Homey.FlowCardTriggerDevice( 'cloud_cover_changed' );
-        this.cloudCoverTrigger
+        this.cloudCoverTrigger = new Homey.FlowCardTriggerDevice( 'cloud_cover_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -94,10 +90,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.precipitationTypeTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_type_changed' );
-        this.precipitationTypeTrigger
+        this.precipitationTypeTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_type_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -105,10 +100,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.thunderCatTrigger = new Homey.FlowCardTriggerDevice( 'thunder_category_changed' );
-        this.thunderCatTrigger
+        this.precipitationTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_chance_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -116,10 +110,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.precipitationTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_chance_changed' );
-        this.precipitationTrigger
+        this.snowTrigger = new Homey.FlowCardTriggerDevice( 'snow_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -127,10 +120,9 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
 
-        this.snowTrigger = new Homey.FlowCardTriggerDevice( 'snow_changed' );
-        this.snowTrigger
+        this.temperatureTrigger = new Homey.FlowCardTriggerDevice( 'temperature_feelsLike_forecast_changed' )
+            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire trigger = ", args.day === state.day );
@@ -138,19 +130,7 @@ class ForecastDriver extends Homey.Driver {
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } )
-            .register();
-
-        this.temperatureTrigger = new Homey.FlowCardTriggerDevice( 'temperature_feelsLike_forecast_changed' );
-        this.temperatureTrigger
-            .registerRunListener( ( args, state ) =>
-            {
-                console.log( "Fire trigger = ", args.day === state.day );
-
-                // If true, this flow should run
-                return Promise.resolve( args.day === state.day );
-            } )
-            .register();
-	}
+    }
 
     onPair( socket )
     {
@@ -169,7 +149,7 @@ class ForecastDriver extends Homey.Driver {
         } );
     }
 
-	// this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
+    // this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
     onPairListDevices( data, callback )
     {
         // Required properties:
@@ -291,19 +271,7 @@ class ForecastDriver extends Homey.Driver {
         let tokens = { 'precipitation_type': Value }
         let state = { 'day': Day }
 
-        this.precipitationTypeTrigger.trigger(  Device, tokens, state )
-            .then( this.log )
-            .catch( this.error )
-    }
-
-    async triggerThunder( Device, Day, Value )
-    {
-        // trigger the card
-        this.log( "Triggering thunder changed for: ", Day, " with: ", Value );
-        let tokens = { 'thunder_category': Value }
-        let state = { 'day': Day }
-
-        this.thunderCatTrigger.trigger( Device, tokens, state )
+        this.precipitationTypeTrigger.trigger( Device, tokens, state )
             .then( this.log )
             .catch( this.error )
     }

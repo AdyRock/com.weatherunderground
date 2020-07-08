@@ -352,9 +352,9 @@
                 "type": "number",
                 "title":
                 {
-                    "en": "Temperature",
-                    "nl": "Temperatuur",
-                    "de": "Temperatur"
+                    "en": "Feels Like",
+                    "nl": "Voelt als",
+                    "de": "Gefühlte Temperatur"
                 },
                 "example": 25
             } ],
@@ -375,13 +375,13 @@
             },
             "tokens": [
             {
-                "name": "measure_temperature_dewPoint",
+                "name": "dewPoint",
                 "type": "number",
                 "title":
                 {
-                    "en": "Temperature",
-                    "nl": "Temperatuur",
-                    "de": "Temperatur"
+                    "en": "Dew Point",
+                    "nl": "Dauwpunt",
+                    "de": "Taupunkt"
                 },
                 "example": 25
             } ],
@@ -402,7 +402,7 @@
             },
             "tokens": [
             {
-                "name": "measure_rain_total",
+                "name": "rain_total",
                 "type": "number",
                 "title":
                 {
@@ -429,7 +429,7 @@
             },
             "tokens": [
             {
-                "name": "measure_radiation",
+                "name": "radiation",
                 "type": "number",
                 "title":
                 {
@@ -469,9 +469,9 @@
                 "type": "number",
                 "title":
                 {
-                    "en": "Temperature",
-                    "nl": "Temperatuur",
-                    "de": "Temperatur"
+                    "en": "Feels Like",
+                    "nl": "Voelt als",
+                    "de": "Gefühlte Temperatur"
                 },
                 "example": 25
             } ],
@@ -609,9 +609,9 @@
                 "type": "number",
                 "title":
                 {
-                    "en": "Rain",
-                    "nl": "Regen",
-                    "de": "Regen"
+                    "en": "Rain Total",
+                    "nl": "Regen Totaal",
+                    "de": "Regenmenge"
                 },
                 "example": 2
             } ],
@@ -1357,9 +1357,9 @@
                 "type": "number",
                 "title":
                 {
-                    "en": "Temperature",
-                    "nl": "Temperatuur",
-                    "de": "Temperatur"
+                    "en": "High Temperature",
+                    "nl": "Hoge temperatuur",
+                    "de": "Höchsttemperatur"
                 },
                 "example": 20
             } ],
@@ -1497,9 +1497,9 @@
                 "type": "number",
                 "title":
                 {
-                    "en": "Temperature",
-                    "nl": "Temperatuur",
-                    "de": "Temperatur"
+                    "en": "Low Temperature",
+                    "nl": "Lage temperatuur",
+                    "de": "Tiefsttemperatur"
                 },
                 "example": 20
             } ],
@@ -1782,146 +1782,6 @@
                     "de": "Niederschlagsart"
                 },
                 "example": "rain"
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "thunder_category_changed",
-            "title":
-            {
-                "en": "The thunder category changed",
-                "nl": "De onweer categorie veranderde",
-                "de": "Die Gewitterkategorie hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "thunder_category",
-                "type": "string",
-                "title":
-                {
-                    "en": "Thunder Category",
-                    "nl": "Onweer Categorie",
-                    "de": "Gewitterkategorie"
-                },
-                "example": "No thunder"
             } ],
             "args": [
             {

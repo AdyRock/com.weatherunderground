@@ -9,21 +9,17 @@ class WeatherDriver extends Homey.Driver
     {
         this.log( 'WeatherDriver has been init' );
 
-        this.feelLikeTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_feelsLike_changed' );
-        this.feelLikeTrigger
-        .register()
+        this.feelLikeTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_feelsLike_changed' )
+            .register()
 
-        this.dewPointTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_dewPoint_changed' );
-        this.dewPointTrigger
-        .register()
+        this.dewPointTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_dewPoint_changed' )
+            .register()
 
-        this.rainTotalTrigger = new Homey.FlowCardTriggerDevice( 'measure_rain_total_changed' );
-        this.rainTotalTrigger
-        .register()
+        this.rainTotalTrigger = new Homey.FlowCardTriggerDevice( 'measure_rain_total_changed' )
+            .register()
 
-        this.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' );
-        this.radiationTrigger
-        .register()
+        this.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' )
+            .register()
     }
 
     onPair( socket )
@@ -61,11 +57,11 @@ class WeatherDriver extends Homey.Driver
 
         callback( null, null );
     }
-    
+
     async triggerFeelLike( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering feels like changed with: ", Value );
+        this.log( "Triggering Feels Like changed with: ", Value );
         let tokens = { 'feelsLike': Value };
         let state = {};
 
@@ -74,36 +70,36 @@ class WeatherDriver extends Homey.Driver
             .catch( this.error )
     }
 
-    
+
     async triggerDewPoint( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering feels like changed with: ", Value );
-        let tokens = { 'feelsLike': Value };
+        this.log( "Triggering Dew Point like changed with: ", Value );
+        let tokens = { 'dewPoint': Value };
         let state = {};
 
         this.dewPointTrigger.trigger( Device, tokens, state )
             .then( this.log )
             .catch( this.error )
     }
-    
+
     async triggerRainTotal( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering feels like changed with: ", Value );
-        let tokens = { 'feelsLike': Value };
+        this.log( "Triggering Rain Total changed with: ", Value );
+        let tokens = { 'rain_total': Value };
         let state = {};
 
         this.rainTotalTrigger.trigger( Device, tokens, state )
             .then( this.log )
             .catch( this.error )
     }
-    
+
     async triggerRadiation( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering feels like changed with: ", Value );
-        let tokens = { 'feelsLike': Value };
+        this.log( "Triggering Radiation changed with: ", Value );
+        let tokens = { 'radiation': Value };
         let state = {};
 
         this.radiationTrigger.trigger( Device, tokens, state )
