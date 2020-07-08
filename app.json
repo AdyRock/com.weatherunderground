@@ -2251,6 +2251,15 @@
                     "en": "UV-Index",
                     "de": "UV-Index"
                 }
+            },
+            "measure_pressure":
+            {
+                "title":
+                {
+                    "en": "Relative Pressure",
+                    "nl": "Relatieve druk",
+                    "de": "Relativer Druck"
+                }
             }
         },
         "pair": [
