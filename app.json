@@ -1,2453 +1,2243 @@
 {
-    "id": "com.weatherunderground",
-    "version": "1.3.0",
-    "compatibility": ">=3.0.0",
-    "sdk": 2,
-    "name":
-    {
-        "en": "Weather Underground"
-    },
-    "description":
-    {
-        "en": "Get the last data from you weather station",
-        "nl": "Haal de laatste gegevens van uw weerstation op",
-        "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
-    },
-    "category": [
-        "climate"
+  "id": "com.weatherunderground",
+  "version": "2.0.0",
+  "compatibility": ">=3.0.0",
+  "sdk": 2,
+  "name": {
+    "en": "Weather Underground"
+  },
+  "description": {
+    "en": "Get the last data from you weather station",
+    "nl": "Haal de laatste gegevens van uw weerstation op",
+    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "Weather",
+      "Climate"
     ],
-    "tags":
-    {
-        "en": [
-            "Weather",
-            "Climate"
-        ],
-        "nl": [
-            "Weer",
-            "Klimaat"
-        ],
-        "de": [
-            "Wetter",
-            "Klima"
-        ]
-    },
-    "permissions": [],
-    "bugs":
-    {
-        "url": "https://github.com/AdyRock/com.weatherunderground/issues"
-    },
-    "source": "https://github.com/AdyRock/com.weatherunderground",
-    "homeyCommunityTopicId": 26309,
-    "images":
-    {
-        "large": "/assets/images/large.png",
-        "small": "/assets/images/small.png"
-    },
-    "author":
-    {
-        "name": "Adrian Rockall",
-        "email": "ady@rockall.plus.com"
-    },
-    "contributors":
-    {
-        "translators": [
+    "nl": [
+      "Weer",
+      "Klimaat"
+    ],
+    "de": [
+      "Wetter",
+      "Klima"
+    ]
+  },
+  "permissions": [],
+  "bugs": {
+    "url": "https://github.com/AdyRock/com.weatherunderground/issues"
+  },
+  "source": "https://github.com/AdyRock/com.weatherunderground",
+  "homeyCommunityTopicId": 26309,
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Adrian Rockall",
+    "email": "ady@rockall.plus.com"
+  },
+  "contributors": {
+    "translators": [
+      {
+        "name": "Raymond van Setten"
+      },
+      {
+        "name": "Dirk Göbel"
+      }
+    ]
+  },
+  "capabilities": {
+    "forecast_day": {
+      "type": "enum",
+      "title": {
+        "en": "Forecast Day",
+        "nl": "Verwachting Dag",
+        "de": "Wetterprognosetag"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "values": [
         {
-            "name": "Raymond van Setten"
+          "id": "today",
+          "title": {
+            "en": "Today",
+            "nl": "Vandaag",
+            "de": "Heute"
+          }
         },
         {
-            "name": "Dirk Göbel"
-        } ]
-    },
-    "capabilities":
-    {
-        "forecast_day":
-        {
-            "type": "enum",
-            "title":
-            {
-                "en": "Forecast Day",
-                "nl": "Verwachting Dag",
-                "de": "Wetterprognosetag"
-            },
-            "getable": true,
-            "setable": true,
-            "uiComponent": "picker",
-            "values": [
-            {
-                "id": "today",
-                "title":
-                {
-                    "en": "Today",
-                    "nl": "Vandaag",
-                    "de": "Heute"
-                }
-            },
-            {
-                "id": "tonight",
-                "title":
-                {
-                    "en": "Tonight",
-                    "nl": "Vanavond",
-                    "de": "Heute Nacht"
-                }
-            },
-            {
-                "id": "today_1",
-                "title":
-                {
-                    "en": "Tomorrow",
-                    "nl": "Morgen",
-                    "de": "Morgen"
-                }
-            },
-            {
-                "id": "tonight_1",
-                "title":
-                {
-                    "en": "Tomorrow Night",
-                    "nl": "Morgen vanavond",
-                    "de": "Morgen Nacht"
-                }
-            },
-            {
-                "id": "today_2",
-                "title":
-                {
-                    "en": "Today + 2",
-                    "nl": "Vandaag + 2",
-                    "de": "Heute + 2"
-                }
-            },
-            {
-                "id": "tonight_2",
-                "title":
-                {
-                    "en": "Tonight + 2",
-                    "nl": "Vanavond + 2",
-                    "de": "Heute Nacht + 2"
-                }
-            },
-            {
-                "id": "today_3",
-                "title":
-                {
-                    "en": "Today + 3",
-                    "nl": "Vandaag + 3",
-                    "de": "Heute + 3"
-                }
-            },
-            {
-                "id": "tonight_3",
-                "title":
-                {
-                    "en": "Tonight + 3",
-                    "nl": "Vanavond + 3",
-                    "de": "Heute Nacht + 3"
-                }
-            },
-            {
-                "id": "today_4",
-                "title":
-                {
-                    "en": "Today + 4",
-                    "nl": "Vandaag + 4",
-                    "de": "Heute + 4"
-                }
-            },
-            {
-                "id": "tonight_4",
-                "title":
-                {
-                    "en": "Tonight + 4",
-                    "nl": "Vanavond + 4",
-                    "de": "Heute Nacht + 4"
-                }
-            },
-            {
-                "id": "today_5",
-                "title":
-                {
-                    "en": "Today + 5",
-                    "nl": "Vandaag + 5",
-                    "de": "Heute + 5"
-                }
-            },
-            {
-                "id": "tonight_5",
-                "title":
-                {
-                    "en": "Tonight + 5",
-                    "nl": "Vanavond + 5",
-                    "de": "Heute Nacht + 5"
-                }
-            } ]
+          "id": "tonight",
+          "title": {
+            "en": "Tonight",
+            "nl": "Vanavond",
+            "de": "Heute Nacht"
+          }
         },
-        "forecast_active_day":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Day",
-                "nl": "Dag",
-                "de": "Tag"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/calender.svg"
+          "id": "today_1",
+          "title": {
+            "en": "Tomorrow",
+            "nl": "Morgen",
+            "de": "Morgen"
+          }
         },
-        "forecast_text":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Day / Night",
-                "nl": "Dag / Nacht",
-                "de": "Tag / Nacht"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/calender.svg"
+          "id": "tonight_1",
+          "title": {
+            "en": "Tomorrow Night",
+            "nl": "Morgen vanavond",
+            "de": "Morgen Nacht"
+          }
         },
-        "forecast_summary":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Summary",
-                "nl": "Overzicht",
-                "de": "Zusammenfassung"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/calender.svg"
+          "id": "today_2",
+          "title": {
+            "en": "Today + 2",
+            "nl": "Vandaag + 2",
+            "de": "Heute + 2"
+          }
         },
-        "forecast_moonPhase":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Moon Phase",
-                "nl": "Maanfase",
-                "de": "Mond Phase"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/calender.svg"
+          "id": "tonight_2",
+          "title": {
+            "en": "Tonight + 2",
+            "nl": "Vanavond + 2",
+            "de": "Heute Nacht + 2"
+          }
         },
-        "precipitation_type":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Precipitation Type",
-                "nl": "Neerslagtype",
-                "de": "Niederschlagsart"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/rainsnow.svg"
+          "id": "today_3",
+          "title": {
+            "en": "Today + 3",
+            "nl": "Vandaag + 3",
+            "de": "Heute + 3"
+          }
         },
-        "thunder_category":
         {
-            "type": "string",
-            "title":
-            {
-                "en": "Thunder",
-                "nl": "Onweer",
-                "de": "Gewitter"
-            },
-            "getable": true,
-            "setable": false,
-            "icon": "/assets/thunder.svg"
+          "id": "tonight_3",
+          "title": {
+            "en": "Tonight + 3",
+            "nl": "Vanavond + 3",
+            "de": "Heute Nacht + 3"
+          }
         },
-        "measure_precipitation_chance":
         {
-            "type": "number",
-            "title":
-            {
-                "en": "Precipitation Chance",
-                "nl": "Neerslagkans",
-                "de": "Niederschlagswahrscheinlichkeit"
-            },
-            "getable": true,
-            "setable": false,
-            "units":
-            {
-                "en": "%"
-            },
-            "insights": true,
-            "icon": "/assets/rainsnow.svg"
+          "id": "today_4",
+          "title": {
+            "en": "Today + 4",
+            "nl": "Vandaag + 4",
+            "de": "Heute + 4"
+          }
         },
-        "measure_cloud_cover":
         {
-            "type": "number",
-            "title":
-            {
-                "en": "Cloud Cover",
-                "nl": "Bewolking",
-                "de": "Bewölkung"
-            },
-            "getable": true,
-            "setable": false,
-            "units":
-            {
-                "en": "%"
-            },
-            "insights": true,
-            "icon": "/assets/cloud.svg"
+          "id": "tonight_4",
+          "title": {
+            "en": "Tonight + 4",
+            "nl": "Vanavond + 4",
+            "de": "Heute Nacht + 4"
+          }
         },
-        "measure_snow":
         {
-            "type": "number",
-            "title":
-            {
-                "en": "Snow Total",
-                "nl": "Sneeuwtotaal",
-                "de": "Schneemenge"
-            },
-            "getable": true,
-            "setable": false,
-            "units":
-            {
-                "en": "mm"
-            },
-            "insights": true,
-            "decimals": 1,
-            "icon": "/assets/rainsnow.svg"
+          "id": "today_5",
+          "title": {
+            "en": "Today + 5",
+            "nl": "Vandaag + 5",
+            "de": "Heute + 5"
+          }
         },
-        "measure_radiation":
         {
-            "type": "number",
-            "title":
-            {
-                "en": "Solar Radiation",
-                "nl": "Zonnestraling",
-                "de": "Sonnenstrahlung"
-            },
-            "getable": true,
-            "setable": false,
-            "units":
-            {
-                "en": "W/m²"
-            },
-            "insights": true,
-            "decimals": 1,
-            "icon": "/assets/radiation.svg"
+          "id": "tonight_5",
+          "title": {
+            "en": "Tonight + 5",
+            "nl": "Vanavond + 5",
+            "de": "Heute Nacht + 5"
+          }
         }
+      ]
     },
-    "flow":
-    {
-        "triggers": [
-        {
-            "id": "measure_temperature_feelsLike_changed",
-            "title":
-            {
-                "en": "The feels like changed",
-                "nl": "Het voelt als veranderd",
-                "de": "Gefühlte Temperatur hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "feelsLike",
-                "type": "number",
-                "title":
-                {
-                    "en": "Feels Like",
-                    "nl": "Voelt als",
-                    "de": "Gefühlte Temperatur"
-                },
-                "example": 25
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=weather"
-            } ]
-        },
-        {
-            "id": "measure_temperature_dewPoint_changed",
-            "title":
-            {
-                "en": "The dew point changed",
-                "nl": "Het dauwpunt veranderde",
-                "de": "Der Taupunkt hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "dewPoint",
-                "type": "number",
-                "title":
-                {
-                    "en": "Dew Point",
-                    "nl": "Dauwpunt",
-                    "de": "Taupunkt"
-                },
-                "example": 25
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=weather"
-            } ]
-        },
-        {
-            "id": "measure_rain_total_changed",
-            "title":
-            {
-                "en": "The rain total changed",
-                "nl": "Het regentotaal veranderde",
-                "de": "Die Regenmenge hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "rain_total",
-                "type": "number",
-                "title":
-                {
-                    "en": "Rain Total",
-                    "nl": "Regen Totaal",
-                    "de": "Regenmenge"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=weather"
-            } ]
-        },
-        {
-            "id": "measure_radiation_changed",
-            "title":
-            {
-                "en": "The solar radiation changed",
-                "nl": "De zonnestraling veranderde",
-                "de": "Die Sonnenstrahlung hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "radiation",
-                "type": "number",
-                "title":
-                {
-                    "en": "Solar Radiation",
-                    "nl": "Zonnestraling",
-                    "de": "Sonnenstrahlung"
-                },
-                "example": 200
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=weather"
-            } ]
-        },
-        {
-            "id": "no_data_changed",
-            "title":
-            {
-                "en": "No data has been received",
-                "nl": "Er zijn geen gegevens ontvangen",
-                "de": "Es wurden keine Daten empfangen"
-            }
-        },
-        {
-            "id": "temperature_feelsLike_forecast_changed",
-            "title":
-            {
-                "en": "The feels like changed",
-                "nl": "Het voelt als veranderd",
-                "de": "Gefühlte Temperatur hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_temperature.feelsLike.forecast",
-                "type": "number",
-                "title":
-                {
-                    "en": "Feels Like",
-                    "nl": "Voelt als",
-                    "de": "Gefühlte Temperatur"
-                },
-                "example": 25
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "rain_changed_forecast",
-            "title":
-            {
-                "en": "The rain total changed",
-                "nl": "Het regentotaal veranderde",
-                "de": "Die Regenmenge hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_rain",
-                "type": "number",
-                "title":
-                {
-                    "en": "Rain Total",
-                    "nl": "Regen Totaal",
-                    "de": "Regenmenge"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "my_device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "wind_angle_changed_forecast",
-            "title":
-            {
-                "en": "The wind angle changed",
-                "nl": "De windrichting is veranderd",
-                "de": "Die Windrichtung hat sich geändert",
-                "fr": "L'angle du vent a changé",
-                "it": "L'angolo del vento è cambiato",
-                "sv": "Vindvinkel ändrad",
-                "no": "Vindvinkel er endret",
-                "es": "El ángulo del viento ha cambiado",
-                "da": "Vindvinklen er skiftet"
-            },
-            "tokens": [
-            {
-                "name": "measure_wind_angle",
-                "type": "number",
-                "title":
-                {
-                    "en": "Wind Angle",
-                    "nl": "Windrichting",
-                    "de": "Windrichtung",
-                    "fr": "Angle du vent",
-                    "it": "Angolo del vento",
-                    "sv": "Vindvinkel",
-                    "no": "Vindvinkel",
-                    "es": "Ángulo del viento",
-                    "da": "Vindvinkel"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "gust_strength_forecast",
-            "title":
-            {
-                "en": "The gust strength changed",
-                "nl": "De windstoot snelheid is veranderd",
-                "de": "Die Böenstärke hat sich geändert",
-                "fr": "La force du coup de vent a changé",
-                "it": "L'intensità delle raffiche è cambiata",
-                "sv": "Vindstyrkan ändrades",
-                "no": "Vindstyrken ble endret",
-                "es": "La fuerza del aire ha cambiado",
-                "da": "Vindstyrken skiftede"
-            },
-            "tokens": [
-            {
-                "name": "measure_gust_strength",
-                "type": "number",
-                "title":
-                {
-                    "en": "Gust Strength",
-                    "nl": "Windstoot kracht",
-                    "de": "Böenstärke",
-                    "fr": "Force d'un coup de vent",
-                    "it": "Intensità delle raffiche",
-                    "sv": "Vindstyrka",
-                    "no": "Vindstyrke",
-                    "es": "Fuerza del aire",
-                    "da": "Vindstyrke"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "humidity_changed_forecast",
-            "title":
-            {
-                "en": "The humidity changed",
-                "nl": "De luchtvochtigheid is veranderd",
-                "de": "Die Luftfeuchtigkeit hat sich geändert",
-                "fr": "L'humidité a changé",
-                "it": "L'umidità è cambiata",
-                "sv": "Luftfuktigheten ändrades",
-                "no": "Luftfuktigheten ble endret",
-                "es": "La humedad ha cambiado",
-                "da": "Luftfugtigheden ændrede sig"
-            },
-            "tokens": [
-            {
-                "name": "measure_humidity",
-                "type": "number",
-                "title":
-                {
-                    "en": "Humidity",
-                    "nl": "Luchtvochtigheid",
-                    "de": "Luftfeuchtigkeit",
-                    "fr": "Humidité",
-                    "it": "Umidità",
-                    "sv": "Luftfuktighet",
-                    "no": "Luftfuktighet",
-                    "es": "Humedad",
-                    "da": "Luftfugtighed"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "ultraviolet_changed_forecast",
-            "title":
-            {
-                "en": "The ultraviolet value changed",
-                "nl": "De ultraviolet waarde is veranderd",
-                "de": "Der Ultraviolett-Wert hat sich geändert",
-                "fr": "La valeur d'ultraviolet a changé",
-                "it": "Il valore dell'ultravioletto è cambiato",
-                "sv": "Ultraviolettvärdet ändrades",
-                "no": "Ultrafiolettverdien ble endret",
-                "es": "La radiación ultravioleta ha cambiado",
-                "da": "UV-værdien ændrede sig"
-            },
-            "tokens": [
-            {
-                "name": "measure_ultraviolet",
-                "type": "number",
-                "title":
-                {
-                    "en": "Ultraviolet",
-                    "nl": "Ultraviolet",
-                    "de": "Ultraviolett",
-                    "fr": "Ultraviolet",
-                    "it": "Ultravioletto",
-                    "sv": "Ultraviolett",
-                    "no": "Ultrafiolett",
-                    "es": "Ultravioleta",
-                    "da": "Ultraviolet"
-                },
-                "example": 2
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "temperature_max_changed",
-            "title":
-            {
-                "en": "The high temperature changed",
-                "nl": "De hoge temperatuur veranderd",
-                "de": "Die Höchsttemperatur hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_temperature.max",
-                "type": "number",
-                "title":
-                {
-                    "en": "High Temperature",
-                    "nl": "Hoge temperatuur",
-                    "de": "Höchsttemperatur"
-                },
-                "example": 20
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "temperature_min_changed",
-            "title":
-            {
-                "en": "The low temperature changed",
-                "nl": "De lage temperatuur veranderde",
-                "de": "Die Tiefsttemperatur hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_temperature.min",
-                "type": "number",
-                "title":
-                {
-                    "en": "Low Temperature",
-                    "nl": "Lage temperatuur",
-                    "de": "Tiefsttemperatur"
-                },
-                "example": 20
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "cloud_cover_changed",
-            "title":
-            {
-                "en": "The cloud cover changed",
-                "nl": "De bewolking veranderde",
-                "de": "Die Bewölkung hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_cloud_cover",
-                "type": "number",
-                "title":
-                {
-                    "en": "Cloud Cover",
-                    "nl": "Bewolking",
-                    "de": "Bewölkung"
-                },
-                "example": 50
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "precipitation_type_changed",
-            "title":
-            {
-                "en": "The precipitation type changed",
-                "nl": "De neerslagtype veranderde",
-                "de": "Der Niederschlagsart hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "precipitation_type",
-                "type": "string",
-                "title":
-                {
-                    "en": "Precipitation Type",
-                    "nl": "Neerslagtype",
-                    "de": "Niederschlagsart"
-                },
-                "example": "rain"
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "precipitation_chance_changed",
-            "title":
-            {
-                "en": "The precipitation chance changed",
-                "nl": "De neerslagkans veranderde",
-                "de": "Die Niederschlagswahrscheinlichkeit hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_precipitation_chance",
-                "type": "number",
-                "title":
-                {
-                    "en": "Precipitation Chance",
-                    "nl": "Neerslagkans",
-                    "de": "Niederschlagswahrscheinlichkeit"
-                },
-                "example": 50
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        },
-        {
-            "id": "snow_changed",
-            "title":
-            {
-                "en": "The snow chance changed",
-                "nl": "De sneeuwkans veranderde",
-                "de": "Die Schneewahrscheinlichkeit hat sich geändert"
-            },
-            "tokens": [
-            {
-                "name": "measure_snow",
-                "type": "number",
-                "title":
-                {
-                    "en": "Snow",
-                    "nl": "Sneeuw",
-                    "de": "Schnee"
-                },
-                "example": 10
-            } ],
-            "args": [
-            {
-                "name": "device",
-                "type": "device",
-                "filter": "driver_id=forecast"
-            },
-            {
-                "name": "day",
-                "type": "dropdown",
-                "values": [
-                {
-                    "id": "today",
-                    "title":
-                    {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title":
-                    {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title":
-                    {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title":
-                    {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title":
-                    {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title":
-                    {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title":
-                    {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title":
-                    {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title":
-                    {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title":
-                    {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title":
-                    {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title":
-                    {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                } ]
-            } ]
-        } ]
+    "forecast_active_day": {
+      "type": "string",
+      "title": {
+        "en": "Day",
+        "nl": "Dag",
+        "de": "Tag"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
     },
-    "drivers": [
-    {
-        "id": "weather",
-        "name":
-        {
-            "en": "Weather Station",
-            "nl": "Weerstation",
-            "de": "Wetterstation"
+    "forecast_text": {
+      "type": "string",
+      "title": {
+        "en": "Day / Night",
+        "nl": "Dag / Nacht",
+        "de": "Tag / Nacht"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
+    "forecast_summary": {
+      "type": "string",
+      "title": {
+        "en": "Summary",
+        "nl": "Overzicht",
+        "de": "Zusammenfassung"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
+    "forecast_moonPhase": {
+      "type": "string",
+      "title": {
+        "en": "Moon Phase",
+        "nl": "Maanfase",
+        "de": "Mond Phase"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/calender.svg"
+    },
+    "precipitation_type": {
+      "type": "string",
+      "title": {
+        "en": "Precipitation Type",
+        "nl": "Neerslagtype",
+        "de": "Niederschlagsart"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/rainsnow.svg"
+    },
+    "thunder_category": {
+      "type": "string",
+      "title": {
+        "en": "Thunder",
+        "nl": "Onweer",
+        "de": "Gewitter"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/thunder.svg"
+    },
+    "measure_precipitation_chance": {
+      "type": "number",
+      "title": {
+        "en": "Precipitation Chance",
+        "nl": "Neerslagkans",
+        "de": "Niederschlagswahrscheinlichkeit"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "icon": "/assets/rainsnow.svg"
+    },
+    "measure_cloud_cover": {
+      "type": "number",
+      "title": {
+        "en": "Cloud Cover",
+        "nl": "Bewolking",
+        "de": "Bewölkung"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "insights": true,
+      "icon": "/assets/cloud.svg"
+    },
+    "measure_snow": {
+      "type": "number",
+      "title": {
+        "en": "Snow Total",
+        "nl": "Sneeuwtotaal",
+        "de": "Schneemenge"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "mm"
+      },
+      "insights": true,
+      "decimals": 1,
+      "icon": "/assets/rainsnow.svg"
+    },
+    "measure_radiation": {
+      "type": "number",
+      "title": {
+        "en": "Solar Radiation",
+        "nl": "Zonnestraling",
+        "de": "Sonnenstrahlung"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "W/m²"
+      },
+      "insights": true,
+      "decimals": 1,
+      "icon": "/assets/radiation.svg"
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "measure_temperature_feelsLike_changed",
+        "title": {
+          "en": "The feels like changed",
+          "nl": "Het voelt als veranderd",
+          "de": "Gefühlte Temperatur hat sich geändert"
         },
-        "class": "other",
-        "capabilities": [
-            "measure_temperature",
-            "measure_temperature.feelsLike",
-            "measure_temperature.dewPoint",
-            "measure_humidity",
-            "measure_pressure",
-            "measure_wind_angle",
-            "measure_wind_strength",
-            "measure_gust_strength",
-            "measure_rain",
-            "measure_rain.total",
-            "measure_ultraviolet",
-            "measure_radiation"
+        "tokens": [
+          {
+            "name": "feelsLike",
+            "type": "number",
+            "title": {
+              "en": "Feels Like",
+              "nl": "Voelt als",
+              "de": "Gefühlte Temperatur"
+            },
+            "example": 25
+          }
         ],
-        "capabilitiesOptions":
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature_dewPoint_changed",
+        "title": {
+          "en": "The dew point changed",
+          "nl": "Het dauwpunt veranderde",
+          "de": "Der Taupunkt hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "dewPoint",
+            "type": "number",
+            "title": {
+              "en": "Dew Point",
+              "nl": "Dauwpunt",
+              "de": "Taupunkt"
+            },
+            "example": 25
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          }
+        ]
+      },
+      {
+        "id": "measure_rain_total_changed",
+        "title": {
+          "en": "The rain total changed",
+          "nl": "Het regentotaal veranderde",
+          "de": "Die Regenmenge hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "rain_total",
+            "type": "number",
+            "title": {
+              "en": "Rain Total",
+              "nl": "Regen Totaal",
+              "de": "Regenmenge"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          }
+        ]
+      },
+      {
+        "id": "measure_radiation_changed",
+        "title": {
+          "en": "The solar radiation changed",
+          "nl": "De zonnestraling veranderde",
+          "de": "Die Sonnenstrahlung hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "radiation",
+            "type": "number",
+            "title": {
+              "en": "Solar Radiation",
+              "nl": "Zonnestraling",
+              "de": "Sonnenstrahlung"
+            },
+            "example": 200
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          }
+        ]
+      },
+      {
+        "id": "no_data_changed",
+        "title": {
+          "en": "No data has been received",
+          "nl": "Er zijn geen gegevens ontvangen",
+          "de": "Es wurden keine Daten empfangen"
+        }
+      },
+      {
+        "id": "temperature_feelsLike_forecast_changed",
+        "title": {
+          "en": "The feels like changed",
+          "nl": "Het voelt als veranderd",
+          "de": "Gefühlte Temperatur hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.feelsLike.forecast",
+            "type": "number",
+            "title": {
+              "en": "Feels Like",
+              "nl": "Voelt als",
+              "de": "Gefühlte Temperatur"
+            },
+            "example": 25
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rain_changed_forecast",
+        "title": {
+          "en": "The rain total changed",
+          "nl": "Het regentotaal veranderde",
+          "de": "Die Regenmenge hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_rain",
+            "type": "number",
+            "title": {
+              "en": "Rain Total",
+              "nl": "Regen Totaal",
+              "de": "Regenmenge"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wind_angle_changed_forecast",
+        "title": {
+          "en": "The wind angle changed",
+          "nl": "De windrichting is veranderd",
+          "de": "Die Windrichtung hat sich geändert",
+          "fr": "L'angle du vent a changé",
+          "it": "L'angolo del vento è cambiato",
+          "sv": "Vindvinkel ändrad",
+          "no": "Vindvinkel er endret",
+          "es": "El ángulo del viento ha cambiado",
+          "da": "Vindvinklen er skiftet"
+        },
+        "tokens": [
+          {
+            "name": "measure_wind_angle",
+            "type": "number",
+            "title": {
+              "en": "Wind Angle",
+              "nl": "Windrichting",
+              "de": "Windrichtung",
+              "fr": "Angle du vent",
+              "it": "Angolo del vento",
+              "sv": "Vindvinkel",
+              "no": "Vindvinkel",
+              "es": "Ángulo del viento",
+              "da": "Vindvinkel"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gust_strength_forecast",
+        "title": {
+          "en": "The gust strength changed",
+          "nl": "De windstoot snelheid is veranderd",
+          "de": "Die Böenstärke hat sich geändert",
+          "fr": "La force du coup de vent a changé",
+          "it": "L'intensità delle raffiche è cambiata",
+          "sv": "Vindstyrkan ändrades",
+          "no": "Vindstyrken ble endret",
+          "es": "La fuerza del aire ha cambiado",
+          "da": "Vindstyrken skiftede"
+        },
+        "tokens": [
+          {
+            "name": "measure_gust_strength",
+            "type": "number",
+            "title": {
+              "en": "Gust Strength",
+              "nl": "Windstoot kracht",
+              "de": "Böenstärke",
+              "fr": "Force d'un coup de vent",
+              "it": "Intensità delle raffiche",
+              "sv": "Vindstyrka",
+              "no": "Vindstyrke",
+              "es": "Fuerza del aire",
+              "da": "Vindstyrke"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "humidity_changed_forecast",
+        "title": {
+          "en": "The humidity changed",
+          "nl": "De luchtvochtigheid is veranderd",
+          "de": "Die Luftfeuchtigkeit hat sich geändert",
+          "fr": "L'humidité a changé",
+          "it": "L'umidità è cambiata",
+          "sv": "Luftfuktigheten ändrades",
+          "no": "Luftfuktigheten ble endret",
+          "es": "La humedad ha cambiado",
+          "da": "Luftfugtigheden ændrede sig"
+        },
+        "tokens": [
+          {
+            "name": "measure_humidity",
+            "type": "number",
+            "title": {
+              "en": "Humidity",
+              "nl": "Luchtvochtigheid",
+              "de": "Luftfeuchtigkeit",
+              "fr": "Humidité",
+              "it": "Umidità",
+              "sv": "Luftfuktighet",
+              "no": "Luftfuktighet",
+              "es": "Humedad",
+              "da": "Luftfugtighed"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ultraviolet_changed_forecast",
+        "title": {
+          "en": "The ultraviolet value changed",
+          "nl": "De ultraviolet waarde is veranderd",
+          "de": "Der Ultraviolett-Wert hat sich geändert",
+          "fr": "La valeur d'ultraviolet a changé",
+          "it": "Il valore dell'ultravioletto è cambiato",
+          "sv": "Ultraviolettvärdet ändrades",
+          "no": "Ultrafiolettverdien ble endret",
+          "es": "La radiación ultravioleta ha cambiado",
+          "da": "UV-værdien ændrede sig"
+        },
+        "tokens": [
+          {
+            "name": "measure_ultraviolet",
+            "type": "number",
+            "title": {
+              "en": "Ultraviolet",
+              "nl": "Ultraviolet",
+              "de": "Ultraviolett",
+              "fr": "Ultraviolet",
+              "it": "Ultravioletto",
+              "sv": "Ultraviolett",
+              "no": "Ultrafiolett",
+              "es": "Ultravioleta",
+              "da": "Ultraviolet"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "temperature_max_changed",
+        "title": {
+          "en": "The high temperature changed",
+          "nl": "De hoge temperatuur veranderd",
+          "de": "Die Höchsttemperatur hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.max",
+            "type": "number",
+            "title": {
+              "en": "High Temperature",
+              "nl": "Hoge temperatuur",
+              "de": "Höchsttemperatur"
+            },
+            "example": 20
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "temperature_min_changed",
+        "title": {
+          "en": "The low temperature changed",
+          "nl": "De lage temperatuur veranderde",
+          "de": "Die Tiefsttemperatur hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.min",
+            "type": "number",
+            "title": {
+              "en": "Low Temperature",
+              "nl": "Lage temperatuur",
+              "de": "Tiefsttemperatur"
+            },
+            "example": 20
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cloud_cover_changed",
+        "title": {
+          "en": "The cloud cover changed",
+          "nl": "De bewolking veranderde",
+          "de": "Die Bewölkung hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_cloud_cover",
+            "type": "number",
+            "title": {
+              "en": "Cloud Cover",
+              "nl": "Bewolking",
+              "de": "Bewölkung"
+            },
+            "example": 50
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "precipitation_type_changed",
+        "title": {
+          "en": "The precipitation type changed",
+          "nl": "De neerslagtype veranderde",
+          "de": "Der Niederschlagsart hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "precipitation_type",
+            "type": "string",
+            "title": {
+              "en": "Precipitation Type",
+              "nl": "Neerslagtype",
+              "de": "Niederschlagsart"
+            },
+            "example": "rain"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "precipitation_chance_changed",
+        "title": {
+          "en": "The precipitation chance changed",
+          "nl": "De neerslagkans veranderde",
+          "de": "Die Niederschlagswahrscheinlichkeit hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_precipitation_chance",
+            "type": "number",
+            "title": {
+              "en": "Precipitation Chance",
+              "nl": "Neerslagkans",
+              "de": "Niederschlagswahrscheinlichkeit"
+            },
+            "example": 50
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "snow_changed",
+        "title": {
+          "en": "The snow chance changed",
+          "nl": "De sneeuwkans veranderde",
+          "de": "Die Schneewahrscheinlichkeit hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "measure_snow",
+            "type": "number",
+            "title": {
+              "en": "Snow",
+              "nl": "Sneeuw",
+              "de": "Schnee"
+            },
+            "example": 10
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          },
+          {
+            "name": "day",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "today",
+                "title": {
+                  "en": "Today",
+                  "nl": "Vandaag",
+                  "de": "Heute"
+                }
+              },
+              {
+                "id": "tonight",
+                "title": {
+                  "en": "Tonight",
+                  "nl": "Vanavond",
+                  "de": "Heute Nacht"
+                }
+              },
+              {
+                "id": "today_1",
+                "title": {
+                  "en": "Tomorrow",
+                  "nl": "Morgen",
+                  "de": "Morgen"
+                }
+              },
+              {
+                "id": "tonight_1",
+                "title": {
+                  "en": "Tomorrow Night",
+                  "nl": "Morgen vanavond",
+                  "de": "Morgen Nacht"
+                }
+              },
+              {
+                "id": "today_2",
+                "title": {
+                  "en": "Today + 2",
+                  "nl": "Vandaag + 2",
+                  "de": "Heute + 2"
+                }
+              },
+              {
+                "id": "tonight_2",
+                "title": {
+                  "en": "Tonight + 2",
+                  "nl": "Vanavond + 2",
+                  "de": "Heute Nacht + 2"
+                }
+              },
+              {
+                "id": "today_3",
+                "title": {
+                  "en": "Today + 3",
+                  "nl": "Vandaag + 3",
+                  "de": "Heute + 3"
+                }
+              },
+              {
+                "id": "tonight_3",
+                "title": {
+                  "en": "Tonight + 3",
+                  "nl": "Vanavond + 3",
+                  "de": "Heute Nacht + 3"
+                }
+              },
+              {
+                "id": "today_4",
+                "title": {
+                  "en": "Today + 4",
+                  "nl": "Vandaag + 4",
+                  "de": "Heute + 4"
+                }
+              },
+              {
+                "id": "tonight_4",
+                "title": {
+                  "en": "Tonight + 4",
+                  "nl": "Vanavond + 4",
+                  "de": "Heute Nacht + 4"
+                }
+              },
+              {
+                "id": "today_5",
+                "title": {
+                  "en": "Today + 5",
+                  "nl": "Vandaag + 5",
+                  "de": "Heute + 5"
+                }
+              },
+              {
+                "id": "tonight_5",
+                "title": {
+                  "en": "Tonight + 5",
+                  "nl": "Vanavond + 5",
+                  "de": "Heute Nacht + 5"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "weather",
+      "name": {
+        "en": "Weather Station",
+        "nl": "Weerstation",
+        "de": "Wetterstation"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_temperature",
+        "measure_temperature.feelsLike",
+        "measure_temperature.dewPoint",
+        "measure_humidity",
+        "measure_pressure",
+        "measure_wind_angle",
+        "measure_wind_strength",
+        "measure_gust_strength",
+        "measure_rain",
+        "measure_rain.total",
+        "measure_ultraviolet",
+        "measure_radiation"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature.feelsLike": {
+          "title": {
+            "en": "Feels Like",
+            "nl": "Voelt als",
+            "de": "Gefühlte Temperatur"
+          }
+        },
+        "measure_temperature.dewPoint": {
+          "title": {
+            "en": "Dew point",
+            "nl": "Dauwpunt",
+            "de": "Taupunkt"
+          }
+        },
+        "measure_rain": {
+          "units": {
+            "en": "mm/hr"
+          }
+        },
+        "measure_rain.total": {
+          "title": {
+            "en": "Rain Total",
+            "nl": "Regen Totaal",
+            "de": "Regenmenge"
+          }
+        },
+        "measure_ultraviolet": {
+          "title": {
+            "en": "UV-Index",
+            "de": "UV-Index"
+          }
+        },
+        "measure_pressure": {
+          "title": {
+            "en": "Relative Pressure",
+            "nl": "Relatieve druk",
+            "de": "Relativer Druck"
+          }
+        }
+      },
+      "pair": [
         {
-            "measure_temperature.feelsLike":
+          "id": "weather_pair"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Station Details",
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
+          },
+          "children": [
             {
-                "title":
-                {
-                    "en": "Feels Like",
-                    "nl": "Voelt als",
-                    "de": "Gefühlte Temperatur"
-                }
+              "id": "stationID",
+              "type": "text",
+              "label": {
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
+              }
             },
-            "measure_temperature.dewPoint":
             {
-                "title":
-                {
-                    "en": "Dew point",
-                    "nl": "Dauwpunt",
-                    "de": "Taupunkt"
-                }
-            },
-            "measure_rain":
-            {
-                "units":
-                {
-                    "en": "mm/hr"
-                }
-            },
-            "measure_rain.total":
-            {
-                "title":
-                {
-                    "en": "Rain Total",
-                    "nl": "Regen Totaal",
-                    "de": "Regenmenge"
-                }
-            },
-            "measure_ultraviolet":
-            {
-                "title":
-                {
-                    "en": "UV-Index",
-                    "de": "UV-Index"
-                }
-            },
-            "measure_pressure":
-            {
-                "title":
-                {
-                    "en": "Relative Pressure",
-                    "nl": "Relatieve druk",
-                    "de": "Relativer Druck"
-                }
+              "id": "apiKey",
+              "type": "text",
+              "label": {
+                "en": "API Key",
+                "nl": "API Sleutel",
+                "de": "API Key"
+              }
             }
-        },
-        "pair": [
-        {
-            "id": "weather_pair"
-        } ],
-        "settings": [
-        {
-            "type": "group",
-            "label":
-            {
-                "en": "Station Details",
-                "nl": "Station detail informatie",
-                "de": "Stationsdetails"
-            },
-            "children": [
-            {
-                "id": "stationID",
-                "type": "text",
-                "label":
-                {
-                    "en": "Station ID",
-                    "nl": "Station ID",
-                    "de": "Station ID"
-                }
-            },
-            {
-                "id": "apiKey",
-                "type": "text",
-                "label":
-                {
-                    "en": "API Key",
-                    "nl": "API Sleutel",
-                    "de": "API Key"
-                }
-            } ]
-        } ],
-        "images":
-        {
-            "large": "/drivers/weather/assets/images/large.png",
-            "small": "/drivers/weather/assets/images/small.png"
-        },
-        "icon": "/drivers/weather/assets/icon.svg"
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/weather/assets/images/large.png",
+        "small": "/drivers/weather/assets/images/small.png"
+      },
+      "icon": "/drivers/weather/assets/icon.svg"
     },
     {
-        "id": "forecast",
-        "name":
-        {
-            "en": "Weather Forecast",
-            "nl": "Weersverwachting",
-            "de": "Wettervorhersage"
+      "id": "forecast",
+      "name": {
+        "en": "Weather Forecast",
+        "nl": "Weersverwachting",
+        "de": "Wettervorhersage"
+      },
+      "class": "other",
+      "capabilities": [
+        "forecast_day",
+        "forecast_active_day",
+        "forecast_moonPhase",
+        "measure_rain.forecast",
+        "measure_snow",
+        "measure_temperature.max",
+        "measure_temperature.min",
+        "forecast_text",
+        "forecast_summary",
+        "measure_cloud_cover",
+        "measure_precipitation_chance",
+        "precipitation_type",
+        "measure_temperature.feelsLike.forecast",
+        "measure_wind_angle.forecast",
+        "measure_gust_strength.forecast",
+        "measure_humidity.forecast",
+        "measure_ultraviolet.forecast",
+        "thunder_category"
+      ],
+      "capabilitiesOptions": {
+        "measure_cloud_cover": {
+          "insights": false
         },
-        "class": "other",
-        "capabilities": [
-            "forecast_day",
-            "forecast_active_day",
-            "forecast_moonPhase",
-            "measure_rain.forecast",
-            "measure_snow",
-            "measure_temperature.max",
-            "measure_temperature.min",
-            "forecast_text",
-            "forecast_summary",
-            "measure_cloud_cover",
-            "measure_precipitation_chance",
-            "precipitation_type",
-            "measure_temperature.feelsLike.forecast",
-            "measure_wind_angle.forecast",
-            "measure_gust_strength.forecast",
-            "measure_humidity.forecast",
-            "measure_ultraviolet.forecast",
-            "thunder_category"
-        ],
-        "capabilitiesOptions":
+        "measure_precipitation_chance": {
+          "insights": false
+        },
+        "measure_wind_angle.forecast": {
+          "insights": false
+        },
+        "measure_gust_strength.forecast": {
+          "insights": false
+        },
+        "measure_humidity.forecast": {
+          "insights": false
+        },
+        "measure_ultraviolet.forecast": {
+          "insights": false,
+          "title": {
+            "en": "UV-Index",
+            "de": "UV-Index"
+          }
+        },
+        "measure_rain.forecast": {
+          "title": {
+            "en": "Rain Total",
+            "nl": "Regen Totaal",
+            "de": "Regenmenge"
+          },
+          "insights": false
+        },
+        "measure_snow": {
+          "insights": false
+        },
+        "measure_temperature.feelsLike.forecast": {
+          "title": {
+            "en": "Feels Like",
+            "nl": "Voelt als",
+            "de": "Gefühlte Temperatur"
+          }
+        },
+        "measure_temperature.max": {
+          "title": {
+            "en": "High Temperature",
+            "nl": "Hoge temperatuur",
+            "de": "Höchsttemperatur"
+          },
+          "insights": false
+        },
+        "measure_temperature.min": {
+          "title": {
+            "en": "Low Temperature",
+            "nl": "Lage temperatuur",
+            "de": "Tiefsttemperatur"
+          },
+          "insights": false
+        }
+      },
+      "pair": [
         {
-            "measure_cloud_cover":
+          "id": "forecast_pair"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Station Details",
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
+          },
+          "children": [
             {
-                "insights": false
+              "id": "stationID",
+              "type": "text",
+              "label": {
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
+              }
             },
-            "measure_precipitation_chance":
             {
-                "insights": false
-            },
-            "measure_wind_angle.forecast":
-            {
-                "insights": false
-            },
-            "measure_gust_strength.forecast":
-            {
-                "insights": false
-            },
-            "measure_humidity.forecast":
-            {
-                "insights": false
-            },
-            "measure_ultraviolet.forecast":
-            {
-                "insights": false,
-                "title":
-                {
-                    "en": "UV-Index",
-                    "de": "UV-Index"
-                }
-            },
-            "measure_rain.forecast":
-            {
-                "title":
-                {
-                    "en": "Rain Total",
-                    "nl": "Regen Totaal",
-                    "de": "Regenmenge"
-                },
-                "insights": false
-            },
-            "measure_snow":
-            {
-                "insights": false
-            },
-            "measure_temperature.feelsLike.forecast":
-            {
-                "title":
-                {
-                    "en": "Feels Like",
-                    "nl": "Voelt als",
-                    "de": "Gefühlte Temperatur"
-                }
-            },
-            "measure_temperature.max":
-            {
-                "title":
-                {
-                    "en": "High Temperature",
-                    "nl": "Hoge temperatuur",
-                    "de": "Höchsttemperatur"
-                },
-                "insights": false
-            },
-            "measure_temperature.min":
-            {
-                "title":
-                {
-                    "en": "Low Temperature",
-                    "nl": "Lage temperatuur",
-                    "de": "Tiefsttemperatur"
-                },
-                "insights": false
+              "id": "apiKey",
+              "type": "text",
+              "label": {
+                "en": "API Key",
+                "nl": "API Sleutel",
+                "de": "API Key"
+              }
             }
-        },
-        "pair": [
-        {
-            "id": "forecast_pair"
-        } ],
-        "settings": [
-        {
-            "type": "group",
-            "label":
-            {
-                "en": "Station Details",
-                "nl": "Station detail informatie",
-                "de": "Stationsdetails"
-            },
-            "children": [
-            {
-                "id": "stationID",
-                "type": "text",
-                "label":
-                {
-                    "en": "Station ID",
-                    "nl": "Station ID",
-                    "de": "Station ID"
-                }
-            },
-            {
-                "id": "apiKey",
-                "type": "text",
-                "label":
-                {
-                    "en": "API Key",
-                    "nl": "API Sleutel",
-                    "de": "API Key"
-                }
-            } ]
-        } ],
-        "images":
-        {
-            "large": "/drivers/forecast/assets/images/large.png",
-            "small": "/drivers/forecast/assets/images/small.png"
-        },
-        "icon": "/drivers/forecast/assets/icon.svg"
-    } ]
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/forecast/assets/images/large.png",
+        "small": "/drivers/forecast/assets/images/small.png"
+      },
+      "icon": "/drivers/forecast/assets/icon.svg"
+    }
+  ]
 }
