@@ -70,5 +70,8 @@
   },
   "2.0.0": {
     "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Presure to Realtive Preasure as that is what WU returns."
+  },
+  "2.0.1": {
+    "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Pressure to Relative Pressure as that is what WU returns. UV-Index and Solar Radiataion only shown if the data is received. "
   }
 }
