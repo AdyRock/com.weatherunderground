@@ -24,7 +24,7 @@ The forecast daily data includes (for 5 days):
 * High Temperature,
 * Low Temperature
 
-Plus the following data for Day and Night 9for 5 days):
+Plus the following data for Day and Night (for 5 days):
 * Summary,
 * Cloud Cover,
 * Precipitation Chance,

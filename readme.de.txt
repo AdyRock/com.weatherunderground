@@ -1,24 +1,36 @@
 Diese App ruft die letzten Daten Ihrer persönlichen Wetterstation, die auf der Weather Underground Webseite gehostet wird, ab.
-Für den Standort Ihrer Station kann auch eine Vorhersage für die zukünftigen Tage abgerufen werden.
+Eine 5-Tage-Vorhersage ist auch möglich.
 
-Wenn Ihre Wetterstation zu Weather Underground hinzugefügt werden kann, erhalten Sie einen kostenlosen API Key, sobald die Daten auf der Weather Underground Webseite veröffentlicht werden.
-Befolgen Sie auf der Webseite die Anleitung zu Ihrer Wetterstation, um sie zu Weather Underground hinzuzufügen.
-
-Für die Einrichtung der App wird Ihre “Stations ID” und Ihr “API Key” benötigt. Diese Informationen finden Sie auf der Weather Underground Webseite unter “My Profile” im Bereich “Member Settings”. Die “Stations ID” befindet sich auf der Registerkarte “My Devices” und der “API Key” auf der Registerkarte “API Keys”.
+Diese App kann die “Stations-ID” und “Ihren API-Schlüssel” nutzen. Diese Informationen finden Sie auf der Weather Underground Webseite unter “My Profile” im Bereich “Member Settings”. Die “Stations ID” befindet sich auf der Registerkarte “My Devices” und der “API Key” auf der Registerkarte “API Keys”.
 Die App ruft einmal pro Minute die Informationen für Ihre Wetterstation von der Weather Underground Webseite ab. Die Webseite beschränkt die Anfragen auf 10 pro Minute und 1500 pro Tag, daher habe ich ein 1-Minuten-Intervall gewählt, damit sie den ganzen Tag laufen kann.
 
-So fügen Sie Ihre Wetterstation zur App hinzu:
+Zu den PWS-Daten gehören (vorausgesetzt die Daten werden von Ihrer Station zur Verfügung gestellt):
 
-* Installieren Sie die App und fügen Sie dann ein neues Gerät hinzu
-* Wählen Sie das Symbol “Wetterstation”
-* Geben Sie Ihre “Stations ID” und Ihren “API Key” ein, der von Weather Underground zur Verfügung gestellt wird
-* Tippen Sie auf die Schaltfläche “Wetterstation hinzufügen”. Es dauert ein paar Sekunden bis die Daten übertragen wurden und der Bildschirm ausgeblendet wird.
-Sie sollten dann eine Kachel mit einem Wetterstationssymbol und der Stations ID sehen. Der angezeigte Name kann auf dem Einstellungsbildschirm “Geräte bearbeiten” des Geräts geändert werden.
+Aktuelle Temperatur
+Gefühlte Temperatur
+Taupunkt
+Luftfeuchtigkeit
+Luftdruck
+Windrichtung
+Windstärke
+Regenmenge
+Regenmenge, gesamt
+UV Index
+Sonnenstrahlung
+Die prognostizierten Tagesdaten umfassen (für 5 Tage):
 
-So fügen Sie die “Wettervorhersage” zur App hinzuzufügen:
+Mondphase
+Regenmenge, gesamt
+Schneemenge, gesamt
+Höchsttemperatur
+Tiefsttemperatur
+Zusätzlich folgende Daten für Tag und Nacht (für 5 Tage):
 
-* Installieren Sie die App und fügen Sie dann ein neues Gerät hinzu
-* Wählen Sie das Symbol “Wettervorhersage”
-* Geben Sie Ihre “Stations ID” und Ihren “API Key” ein, der von Weather Underground zur Verfügung gestellt wird
-* Tippen Sie auf die Schaltfläche “Wetterstation hinzufügen”. Es dauert ein paar Sekunden bis die Daten übertragen wurden und der Bildschirm ausgeblendet wird.
-Sie sollten dann eine Kachel mit einem Kalender-/Wolkensymbol und der Stations ID sehen. Der angezeigte Name kann auf dem Einstellungsbildschirm “Geräte bearbeiten” des Geräts geändert werden.
+Bewölkung
+Niederschlagswahrscheinlichkeit
+Niederschlagsart
+Temperatur
+Windrichtung
+Windstärke
+Luftfeuchtigkeit
+UV Index
