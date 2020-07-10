@@ -397,7 +397,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=weather"
+            "filter": "driver_id=weather&capabilities=measure_radiation"
           }
         ]
       },

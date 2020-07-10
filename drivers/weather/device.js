@@ -19,16 +19,6 @@ class WeatherDevice extends Homey.Device
             this.removeCapability( "measure_temperature.windchill" );
         }
 
-        if ( !this.hasCapability( "measure_ultraviolet" ) )
-        {
-            this.addCapability( "measure_ultraviolet" );
-        }
-
-        if ( !this.hasCapability( "measure_radiation" ) )
-        {
-            this.addCapability( "measure_radiation" );
-        }
-
         this.setCapabilityValue( "measure_temperature.feelsLike", 0 );
 
         this._driver = this.getDriver();
@@ -123,15 +113,38 @@ class WeatherDevice extends Homey.Device
 
                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
                 this.setCapabilityValue( "measure_pressure", currentData.metric.pressure );
-                this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
 
-
-                if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
+                if ( currentData.uv )
                 {
-                    this._driver.triggerRadiation( this, currentData.solarRadiation );
+                    if ( !this.hasCapability( "measure_ultraviolet" ) )
+                    {
+                        this.addCapability( "measure_ultraviolet" );
+                    }
+                    this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
+                }
+                else if ( this.hasCapability( "measure_ultraviolet" ) )
+                {
+                    this.removeCapability( "measure_ultraviolet" );
                 }
 
-                this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
+                if ( currentData.solarRadiation )
+                {
+                    if ( !this.hasCapability( "measure_radiation" ) )
+                    {
+                        this.addCapability( "measure_radiation" );
+                    }
+                    if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
+                    {
+                        this._driver.triggerRadiation( this, currentData.solarRadiation );
+                    }
+
+                    this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
+                }
+                else if ( this.hasCapability( "measure_radiation" ) )
+                {
+                    this.removeCapability( "measure_radiation" );
+                }
+
                 this.setAvailable();
                 Homey.app.updateLog( "refreshCapabilities complete" );
                 Homey.app.stationOffline = false;
