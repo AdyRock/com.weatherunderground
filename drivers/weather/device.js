@@ -114,7 +114,8 @@ class WeatherDevice extends Homey.Device
                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
                 this.setCapabilityValue( "measure_pressure", currentData.metric.pressure );
 
-                if ( currentData.uv )
+                this.log( "UV = ", currentData.uv, "Radiation = ", currentData.solarRadiation);
+                if ( currentData.uv != null )
                 {
                     if ( !this.hasCapability( "measure_ultraviolet" ) )
                     {
@@ -127,7 +128,7 @@ class WeatherDevice extends Homey.Device
                     this.removeCapability( "measure_ultraviolet" );
                 }
 
-                if ( currentData.solarRadiation )
+                if ( currentData.solarRadiation != null )
                 {
                     if ( !this.hasCapability( "measure_radiation" ) )
                     {
