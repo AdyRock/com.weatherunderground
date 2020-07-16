@@ -1,0 +1,146 @@
+{
+    "id": "forecast",
+    "name":
+    {
+        "en": "Weather Forecast",
+        "nl": "Weersverwachting",
+        "de": "Wettervorhersage"
+    },
+    "class": "other",
+    "capabilities": [
+        "forecast_day",
+        "forecast_active_day",
+        "forecast_moonPhase",
+        "measure_rain.forecast",
+        "measure_snow",
+        "measure_temperature.max",
+        "measure_temperature.min",
+        "forecast_text",
+        "forecast_summary",
+        "measure_cloud_cover",
+        "measure_precipitation_chance",
+        "precipitation_type",
+        "measure_temperature.feelsLike.forecast",
+        "measure_wind_angle.forecast",
+        "measure_gust_strength.forecast",
+        "measure_humidity.forecast",
+        "measure_ultraviolet.forecast",
+        "thunder_category"
+    ],
+    "capabilitiesOptions":
+    {
+        "measure_cloud_cover":
+        {
+            "insights": false
+        },
+        "measure_precipitation_chance":
+        {
+            "insights": false
+        },
+        "measure_wind_angle.forecast":
+        {
+            "insights": false
+        },
+        "measure_gust_strength.forecast":
+        {
+            "insights": false
+        },
+        "measure_humidity.forecast":
+        {
+            "insights": false
+        },
+        "measure_ultraviolet.forecast":
+        {
+            "insights": false,
+            "title":
+            {
+                "en": "UV-Index",
+                "de": "UV-Index"
+            }
+        },
+        "measure_rain.forecast":
+        {
+            "title":
+            {
+                "en": "Rain Total",
+                "nl": "Regen Totaal",
+                "de": "Regenmenge"
+            },
+            "insights": false
+        },
+        "measure_snow":
+        {
+            "insights": false
+        },
+        "measure_temperature.feelsLike.forecast":
+        {
+            "title":
+            {
+                "en": "Feels Like",
+                "nl": "Voelt als",
+                "de": "Gefühlte Temperatur"
+            }
+        },
+        "measure_temperature.max":
+        {
+            "title":
+            {
+                "en": "High Temperature",
+                "nl": "Hoge temperatuur",
+                "de": "Höchsttemperatur"
+            },
+            "insights": false
+        },
+        "measure_temperature.min":
+        {
+            "title":
+            {
+                "en": "Low Temperature",
+                "nl": "Lage temperatuur",
+                "de": "Tiefsttemperatur"
+            },
+            "insights": false
+        }
+    },
+    "pair": [
+    {
+        "id": "forecast_pair"
+    } ],
+    "settings": [
+    {
+        "type": "group",
+        "label":
+        {
+            "en": "Station Details",
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
+        },
+        "children": [
+        {
+            "id": "stationID",
+            "type": "text",
+            "label":
+            {
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
+            }
+        },
+        {
+            "id": "apiKey",
+            "type": "text",
+            "label":
+            {
+                "en": "API Key",
+                "nl": "API Sleutel",
+                "de": "API Key"
+            }
+        } ]
+    } ],
+    "images":
+    {
+        "large": "/drivers/forecast/assets/images/large.png",
+        "small": "/drivers/forecast/assets/images/small.png"
+    },
+    "icon": "/drivers/forecast/assets/icon.svg"
+}

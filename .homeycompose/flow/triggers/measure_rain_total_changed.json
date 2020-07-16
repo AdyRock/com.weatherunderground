@@ -1,0 +1,27 @@
+{
+    "id": "measure_rain_total_changed",
+    "title":
+    {
+        "en": "The rain total changed",
+        "nl": "Het regentotaal veranderde",
+        "de": "Die Regenmenge hat sich geändert"
+    },
+    "tokens": [
+    {
+        "name": "rain_total",
+        "type": "number",
+        "title":
+        {
+            "en": "Rain Total",
+            "nl": "Regen Totaal",
+            "de": "Regenmenge"
+        },
+        "example": 2
+    } ],
+    "args": [
+    {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=weather"
+    } ]
+}

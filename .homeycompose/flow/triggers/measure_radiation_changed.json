@@ -1,0 +1,27 @@
+{
+    "id": "measure_radiation_changed",
+    "title":
+    {
+        "en": "The solar radiation changed",
+        "nl": "De zonnestraling veranderde",
+        "de": "Die Sonnenstrahlung hat sich geändert"
+    },
+    "tokens": [
+    {
+        "name": "radiation",
+        "type": "number",
+        "title":
+        {
+            "en": "Solar Radiation",
+            "nl": "Zonnestraling",
+            "de": "Sonnenstrahlung"
+        },
+        "example": 200
+    } ],
+    "args": [
+    {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=weather&capabilities=measure_radiation"
+    } ]
+}

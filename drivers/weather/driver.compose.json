@@ -1,0 +1,119 @@
+{
+    "id": "weather",
+    "name":
+    {
+        "en": "Weather Station",
+        "nl": "Weerstation",
+        "de": "Wetterstation"
+    },
+    "class": "other",
+    "capabilities": [
+        "measure_temperature",
+        "measure_temperature.feelsLike",
+        "measure_temperature.dewPoint",
+        "measure_humidity",
+        "measure_pressure",
+        "measure_wind_angle",
+        "measure_wind_strength",
+        "measure_gust_strength",
+        "measure_rain",
+        "measure_rain.total",
+        "measure_ultraviolet",
+        "measure_radiation"
+    ],
+    "capabilitiesOptions":
+    {
+        "measure_temperature.feelsLike":
+        {
+            "title":
+            {
+                "en": "Feels Like",
+                "nl": "Voelt als",
+                "de": "Gefühlte Temperatur"
+            }
+        },
+        "measure_temperature.dewPoint":
+        {
+            "title":
+            {
+                "en": "Dew point",
+                "nl": "Dauwpunt",
+                "de": "Taupunkt"
+            }
+        },
+        "measure_rain":
+        {
+            "units":
+            {
+                "en": "mm/hr"
+            }
+        },
+        "measure_rain.total":
+        {
+            "title":
+            {
+                "en": "Rain Total",
+                "nl": "Regen Totaal",
+                "de": "Regenmenge"
+            }
+        },
+        "measure_ultraviolet":
+        {
+            "title":
+            {
+                "en": "UV-Index",
+                "de": "UV-Index"
+            }
+        },
+        "measure_pressure":
+        {
+            "title":
+            {
+                "en": "Relative Pressure",
+                "nl": "Relatieve druk",
+                "de": "Relativer Druck"
+            }
+        }
+    },
+    "pair": [
+    {
+        "id": "weather_pair"
+    } ],
+    "settings": [
+    {
+        "type": "group",
+        "label":
+        {
+            "en": "Station Details",
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails"
+        },
+        "children": [
+        {
+            "id": "stationID",
+            "type": "text",
+            "label":
+            {
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
+            }
+        },
+        {
+            "id": "apiKey",
+            "type": "text",
+            "label":
+            {
+                "en": "API Key",
+                "nl": "API Sleutel",
+                "de": "API Key"
+            }
+        } ]
+    } ],
+    "images":
+    {
+        "large": "/drivers/weather/assets/images/large.png",
+        "small": "/drivers/weather/assets/images/small.png"
+    },
+    "icon": "/drivers/weather/assets/icon.svg"
+}

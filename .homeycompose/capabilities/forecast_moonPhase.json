@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Moon Phase",
+    "nl": "Maanfase",
+    "de": "Mond Phase"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/calender.svg"
+}

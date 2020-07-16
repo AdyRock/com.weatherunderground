@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Day",
+    "nl": "Dag",
+    "de": "Tag"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/calender.svg"
+}

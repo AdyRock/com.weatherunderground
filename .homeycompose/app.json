@@ -1,0 +1,55 @@
+{
+  "id": "com.weatherunderground",
+  "version": "2.0.2",
+  "compatibility": ">=3.0.0",
+  "sdk": 2,
+  "name": {
+    "en": "Weather Underground"
+  },
+  "description": {
+    "en": "Get the last data from you weather station",
+    "nl": "Haal de laatste gegevens van uw weerstation op",
+    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "Weather",
+      "Climate"
+    ],
+    "nl": [
+      "Weer",
+      "Klimaat"
+    ],
+    "de": [
+      "Wetter",
+      "Klima"
+    ]
+  },
+  "permissions": [],
+  "bugs": {
+    "url": "https://github.com/AdyRock/com.weatherunderground/issues"
+  },
+  "source": "https://github.com/AdyRock/com.weatherunderground",
+  "homeyCommunityTopicId": 26309,
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Adrian Rockall",
+    "email": "ady@rockall.plus.com"
+  },
+  "contributors": {
+    "translators": [
+      {
+        "name": "Raymond van Setten"
+      },
+      {
+        "name": "Dirk Göbel"
+      }
+    ]
+  }
+}

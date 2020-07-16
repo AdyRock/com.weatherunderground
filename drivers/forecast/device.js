@@ -280,6 +280,24 @@ class ForecastDevice extends Homey.Device
         return await Homey.app.GetURL( url );
     }
 
+    getDayNight( SelectedDay )
+    {
+        const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
+        let dayNight = entry.value;
+        let day = entry.day;
+        if ( day < 0 )
+        {
+            day = -1 - day;
+        }
+        // Day / Night parts
+        if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
+        {
+            dayNight++;
+        }
+
+        return {'dayNight': dayNight, 'day': day};
+    }
+
     async onDeleted()
     {
         clearTimeout( this.timerID );

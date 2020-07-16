@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Summary",
+    "nl": "Overzicht",
+    "de": "Zusammenfassung"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/calender.svg"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Thunder",
+    "nl": "Onweer",
+    "de": "Gewitter"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/thunder.svg"
+}
