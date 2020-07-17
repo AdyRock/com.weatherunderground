@@ -76,5 +76,8 @@
   },
   "2.0.2": {
     "en": "Check for null for missing information so 0 is still reported."
+  },
+  "2.1.0": {
+    "en": "Added greater than and equal to flow condition cards for the forecast with selectable days."
   }
 }
