@@ -69,6 +69,8 @@ class WeatherDevice extends Homey.Device
             let result = await this.getWeather();
             if ( result )
             {
+                this.setAvailable();
+
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
@@ -83,15 +85,15 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.temp <= 16.1 )
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill );
+                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill );
                 }
                 else if ( currentData.metric.temp >= 21 )
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex );
+                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex );
                 }
                 else
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp );
+                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp );
                 }
 
                 if ( oldFeelsLike != this.getCapabilityValue( "measure_temperature.feelsLike" ) )
@@ -101,20 +103,21 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.dewpt != this.getCapabilityValue( "measure_temperature.dewPoint" ) )
                 {
+                    await this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt );
                     this._driver.triggerDewPoint( this, currentData.metric.dewpt );
                 }
-                this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt );
+
                 this.setCapabilityValue( "measure_rain", currentData.metric.precipRate );
 
                 if ( currentData.metric.precipTotal != this.getCapabilityValue( "measure_rain.total" ) )
                 {
+                    await this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
                     this._driver.triggerRainTotal( this, currentData.metric.precipTotal );
                 }
 
-                this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal );
                 this.setCapabilityValue( "measure_pressure", currentData.metric.pressure );
 
-                this.log( "UV = ", currentData.uv, "Radiation = ", currentData.solarRadiation);
+                this.log( "UV = ", currentData.uv, "Radiation = ", currentData.solarRadiation );
                 if ( currentData.uv != null )
                 {
                     if ( !this.hasCapability( "measure_ultraviolet" ) )
@@ -136,25 +139,38 @@ class WeatherDevice extends Homey.Device
                     }
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
                     {
+                        await this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                         this._driver.triggerRadiation( this, currentData.solarRadiation );
                     }
-
-                    this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
                 }
                 else if ( this.hasCapability( "measure_radiation" ) )
                 {
                     this.removeCapability( "measure_radiation" );
                 }
-
-                this.setAvailable();
                 Homey.app.updateLog( "refreshCapabilities complete" );
                 Homey.app.stationOffline = false;
+            }
+            else
+            {
+                Homey.app.updateLog( "refreshCapabilities NO data received" );
+                this.setWarning( "No data received", null );
+
+                if ( !Homey.app.stationOffline )
+                {
+                    Homey.app.stationOffline = true;
+                    let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
+                    noDataTrigger
+                        .register()
+                        .trigger()
+                        .catch( this.error )
+                        .then( this.log )
+                }
             }
         }
         catch ( err )
         {
             this.log( "Weather Refresh: " + err );
-            this.setWarning( err, null );
+            this.setWarning( Homey.app.varToString( err ), null );
 
             if ( !Homey.app.stationOffline && ( err.search( ": 204" ) > 0 ) )
             {

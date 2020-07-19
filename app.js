@@ -107,6 +107,23 @@ class WeatherApp extends Homey.App
         } );
     }
 
+	varToString(source) {
+		if (source === null) {
+			return "null";
+		}
+		if (source === undefined) {
+			return "undefined";
+		}
+		if (typeof (source) === "object") {
+			return JSON.stringify(source, null, 2);
+		}
+		if (typeof (source) === "string") {
+			return source;
+		}
+
+		return source.toString();
+	}
+
     updateLog( newMessage )
     {
         if ( !Homey.ManagerSettings.get( 'logEnabled' ) )
