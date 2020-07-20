@@ -61,7 +61,7 @@ class WeatherDriver extends Homey.Driver
     async triggerFeelLike( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering Feels Like changed with: ", Value );
+        Homey.app.updateLog("Triggering Feels Like changed with: ", Value);
         let tokens = { 'feelsLike': Value };
         let state = {};
 
@@ -74,7 +74,7 @@ class WeatherDriver extends Homey.Driver
     async triggerDewPoint( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering Dew Point like changed with: ", Value );
+        Homey.app.updateLog("Triggering Dew Point like changed with: ", Value);
         let tokens = { 'dewPoint': Value };
         let state = {};
 
@@ -86,7 +86,7 @@ class WeatherDriver extends Homey.Driver
     async triggerRainTotal( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering Rain Total changed with: ", Value );
+        Homey.app.updateLog("Triggering Rain Total changed with: ", Value);
         let tokens = { 'rain_total': Value };
         let state = {};
 
@@ -98,7 +98,7 @@ class WeatherDriver extends Homey.Driver
     async triggerRadiation( Device, Value )
     {
         // trigger the card
-        this.log( "Triggering Radiation changed with: ", Value );
+        Homey.app.updateLog("Triggering Radiation changed with: ", Value);
         let tokens = { 'radiation': Value };
         let state = {};
 

@@ -9,6 +9,6 @@
     "\\drivers\\weather\\pair",
     "\\locales"
   ],
-  "SelectedNode": "\\drivers\\forecast\\pair\\forecast_pair.html",
+  "SelectedNode": "\\drivers\\weather\\device.js",
   "PreviewInSolutionExplorer": false
 }
