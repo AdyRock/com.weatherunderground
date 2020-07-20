@@ -122,7 +122,7 @@ class WeatherDevice extends Homey.Device
                 {
                     if ( !this.hasCapability( "measure_ultraviolet" ) )
                     {
-                        this.addCapability( "measure_ultraviolet" );
+                        await this.addCapability( "measure_ultraviolet" );
                     }
                     this.setCapabilityValue( "measure_ultraviolet", currentData.uv );
                 }
@@ -135,10 +135,12 @@ class WeatherDevice extends Homey.Device
                 {
                     if ( !this.hasCapability( "measure_radiation" ) )
                     {
-                        this.addCapability( "measure_radiation" );
+                        await this.addCapability( "measure_radiation" );
+                        this._driver.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' )
+                            .register()
                     }
-                    
-                    Homey.app.updateLog("SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation);
+
+                    Homey.app.updateLog( "SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation );
 
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
                     {
