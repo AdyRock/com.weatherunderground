@@ -137,6 +137,9 @@ class WeatherDevice extends Homey.Device
                     {
                         this.addCapability( "measure_radiation" );
                     }
+                    
+                    Homey.app.updateLog("SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation);
+
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
                     {
                         await this.setCapabilityValue( "measure_radiation", currentData.solarRadiation );
