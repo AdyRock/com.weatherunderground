@@ -2,7 +2,8 @@
     "id": "temperature_feelsLike_greater",
     "title":
     {
-        "en": "The temperature is !{{greater|less}} than"
+        "en": "The temperature is !{{greater|less}} than",
+        "de": "Die Temperatur ist größer als"
     },
     "titleFormatted":
     {

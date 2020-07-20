@@ -2,11 +2,12 @@
     "id": "rain_equal",
     "title":
     {
-        "en": "The total rain !{{equals|does not equal}}"
+        "en": "The total rain !{{equals|does not equal}}",
+        "de": "Die Regenmenge entspricht"
     },
     "titleFormatted":
     {
-        "en": "The total rain [[day]] !{{=|<>}} [[value]]mm"
+        "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm"
     },
     "args": [
     {

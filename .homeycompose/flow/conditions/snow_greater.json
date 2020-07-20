@@ -2,7 +2,8 @@
     "id": "snow_greater",
     "title":
     {
-        "en": "The total snow is !{{greater|less}} than"
+        "en": "The total snow is !{{greater|less}} than",
+        "de": "Die Schneemenge ist größer als"
     },
     "titleFormatted":
     {

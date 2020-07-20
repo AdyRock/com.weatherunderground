@@ -2,7 +2,8 @@
     "id": "cloud_cover_greater",
     "title":
     {
-        "en": "The cloud cover is !{{greater|less}} than"
+        "en": "The cloud cover is !{{greater|less}} than",
+        "de": "Die Bewölkung ist größer als"
     },
     "titleFormatted":
     {

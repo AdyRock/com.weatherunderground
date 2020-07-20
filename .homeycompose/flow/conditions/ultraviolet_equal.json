@@ -2,11 +2,12 @@
     "id": "ultraviolet_equal",
     "title":
     {
-        "en": "The ultraviolet !{{equals|does not equal}}"
+        "en": "The ultraviolet !{{equals|does not equal}}",
+        "de": "Der UV-Index gleicht"
     },
     "titleFormatted":
     {
-        "en": "The ultraviolet [[day]] !{{=|<>}} [[value]]"
+        "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]"
     },
     "args": [
     {

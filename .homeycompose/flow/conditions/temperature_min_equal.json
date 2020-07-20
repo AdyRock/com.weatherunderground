@@ -2,11 +2,12 @@
     "id": "temperature_min_equal",
     "title":
     {
-        "en": "The minimum temperature !{{equals|does not equal}}"
+        "en": "The minimum temperature !{{equals|does not equal}}",
+        "de": "Die Tiefsttemperatur entspricht"
     },
     "titleFormatted":
     {
-        "en": "The minimum temperature [[day]] !{{=|<>}} [[value]]°C"
+        "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C"
     },
     "args": [
     {

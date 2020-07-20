@@ -2,11 +2,12 @@
     "id": "temperature_feelsLike_equal",
     "title":
     {
-        "en": "The temperature !{{equals|does not equal}}"
+        "en": "The temperature !{{equals|does not equal}}",
+        "de": "Die Temperatur entspricht"
     },
     "titleFormatted":
     {
-        "en": "The temperature [[day]] !{{=|<>}} [[value]]°C"
+        "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C"
     },
     "args": [
     {

@@ -2,7 +2,8 @@
     "id": "rain_greater",
     "title":
     {
-        "en": "The total rain is !{{greater|less}} than"
+        "en": "The total rain is !{{greater|less}} than",
+        "de": "Die Regenmenge ist größer als"
     },
     "titleFormatted":
     {

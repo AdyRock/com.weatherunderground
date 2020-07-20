@@ -2,11 +2,12 @@
     "id": "humidity_equal",
     "title":
     {
-        "en": "The humidity !{{equals|does not equal}}"
+        "en": "The humidity !{{equals|does not equal}}",
+        "de": "Die Luftfeuchtigkeit entspricht"
     },
     "titleFormatted":
     {
-        "en": "The humidity [[day]] !{{=|<>}} [[value]]%"
+        "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%"
     },
     "args": [
     {

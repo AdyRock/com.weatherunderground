@@ -2,7 +2,8 @@
     "id": "temperature_min_greater",
     "title":
     {
-        "en": "The minimum temperature is !{{greater|less}} than"
+        "en": "The minimum temperature is !{{greater|less}} than",
+        "de": "Die Tiefsttemperatur ist größer als"
     },
     "titleFormatted":
     {

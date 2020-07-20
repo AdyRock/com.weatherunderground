@@ -2,11 +2,12 @@
     "id": "snow_equal",
     "title":
     {
-        "en": "The total snow !{{equals|does not equal}}"
+        "en": "The total snow !{{equals|does not equal}}",
+        "de": "Die Schneemenge entspricht"
     },
     "titleFormatted":
     {
-        "en": "The total snow [[day]] !{{=|<>}} [[value]]mm"
+        "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm"
     },
     "args": [
     {

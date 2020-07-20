@@ -2,11 +2,12 @@
     "id": "temperature_max_equal",
     "title":
     {
-        "en": "The maximum temperature !{{equals|does not equal}}"
+        "en": "The maximum temperature !{{equals|does not equal}}",
+        "de": "Die Höchsttemperatur entspricht"
     },
     "titleFormatted":
     {
-        "en": "The maximum temperature [[day]] !{{=|<>}} [[value]]°C"
+        "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C"
     },
     "args": [
     {

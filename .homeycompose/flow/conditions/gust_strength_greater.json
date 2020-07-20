@@ -2,7 +2,8 @@
     "id": "gust_strength_greater",
     "title":
     {
-        "en": "The gust strength is !{{greater|less}} than"
+        "en": "The gust strength is !{{greater|less}} than",
+        "de": "Die Böenstärke ist größer als"
     },
     "titleFormatted":
     {

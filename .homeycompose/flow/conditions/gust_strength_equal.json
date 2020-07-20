@@ -2,11 +2,12 @@
     "id": "gust_strength_equal",
     "title":
     {
-        "en": "The gust strength !{{equals|does not equal}}"
+        "en": "The gust strength !{{equals|does not equal}}",
+        "de": "Die Böenstärke entspricht"
     },
     "titleFormatted":
     {
-        "en": "The gust strength [[day]] !{{=|<>}} [[value]]km/h"
+        "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h"
     },
     "args": [
     {

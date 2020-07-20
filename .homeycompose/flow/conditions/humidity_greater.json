@@ -2,7 +2,8 @@
     "id": "humidity_greater",
     "title":
     {
-        "en": "The humidity is !{{greater|less}} than"
+        "en": "The humidity is !{{greater|less}} than",
+        "de": "Die Luftfeuchtigkeit ist größer als"
     },
     "titleFormatted":
     {

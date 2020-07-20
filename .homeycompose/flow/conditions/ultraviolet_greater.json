@@ -2,7 +2,8 @@
     "id": "ultraviolet_greater",
     "title":
     {
-        "en": "The ultraviolet is !{{greater|less}} than"
+        "en": "The ultraviolet is !{{greater|less}} than",
+        "de": "Der UV-Index ist größer als"
     },
     "titleFormatted":
     {

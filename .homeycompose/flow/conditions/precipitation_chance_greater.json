@@ -2,7 +2,8 @@
     "id": "precipitation_chance_greater",
     "title":
     {
-        "en": "The precipitation chance is !{{greater|less}} than"
+        "en": "The precipitation chance is !{{greater|less}} than",
+        "de": "Die Niederschlagswahrscheinlichkeit ist größer als"
     },
     "titleFormatted":
     {

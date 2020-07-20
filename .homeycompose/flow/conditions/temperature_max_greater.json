@@ -2,7 +2,8 @@
     "id": "temperature_max_greater",
     "title":
     {
-        "en": "The maximum temperature is !{{greater|less}} than"
+        "en": "The maximum temperature is !{{greater|less}} than",
+        "de": "ie Höchsttemperatur ist größer als"
     },
     "titleFormatted":
     {
