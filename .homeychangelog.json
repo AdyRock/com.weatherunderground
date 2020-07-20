@@ -79,5 +79,8 @@
   },
   "2.1.0": {
     "en": "Added greater than and equal to flow condition cards for the forecast with selectable days."
+  },
+  "2.1.1": {
+    "en": "Fix broken Solar Radiation trigger and added more diagnostics in case the fix does not work."
   }
 }
