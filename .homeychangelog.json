@@ -82,5 +82,8 @@
   },
   "2.1.1": {
     "en": "Fix broken Solar Radiation trigger and added more diagnostics in case the fix does not work."
+  },
+  "2.1.2": {
+    "en": "Update German text for new flow conditions"
   }
 }
