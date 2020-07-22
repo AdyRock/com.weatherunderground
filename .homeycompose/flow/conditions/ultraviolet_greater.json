@@ -2,13 +2,13 @@
     "id": "ultraviolet_greater",
     "title":
     {
-        "en": "The ultraviolet is !{{greater|less}} than",
-        "de": "Die UV-Index ist !{{größer|nicht größer}} als"
+        "en": "The ultraviolet is !{{greater than|less or equal to}}",
+        "de": "Der UV-Index ist !{{größer als|kleiner oder gleich}}"
     },
     "titleFormatted":
     {
-        "en": "The ultraviolet [[day]] is !{{greater|less or equal to}} than [[value]]",
-        "de": "Die UV-Index [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]"
+        "en": "The ultraviolet [[day]] is !{{greater than|less or equal to}} [[value]]",
+        "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]"
     },
     "args": [
     {

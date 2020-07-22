@@ -2,13 +2,13 @@
     "id": "rain_greater",
     "title":
     {
-        "en": "The total rain is !{{greater|less}} than",
-        "de": "Die Regenmenge ist !{{größer|nicht größer}} als"
+        "en": "The total rain is !{{greater than|less or equal to}}",
+        "de": "Die Regenmenge ist !{{größer als|kleiner oder gleich}}"
     },
     "titleFormatted":
     {
-        "en": "The total rain [[day]] is !{{greater|less or equal to}} than [[value]]mm",
-        "de": "Die Regenmenge [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]mm"
+        "en": "The total rain [[day]] is !{{greater than|less or equal to}} [[value]]mm",
+        "de": "Die Regenmenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm"
     },
     "args": [
     {

@@ -2,13 +2,13 @@
     "id": "humidity_greater",
     "title":
     {
-        "en": "The humidity is !{{greater|less}} than",
-        "de": "Die Luftfeuchtigkeit ist !{{größer|nicht größer}} als"
+        "en": "The humidity is !{{greater than|less or equal to}}",
+        "de": "Die Luftfeuchtigkeit ist !{{größer als|kleiner oder gleich}}"
     },
     "titleFormatted":
     {
-        "en": "The humidity [[day]] is !{{greater|less or equal to}} than [[value]]%",
-        "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
+        "en": "The humidity [[day]] is !{{greater than|less or equal to}} [[value]]%",
+        "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%"
     },
     "args": [
     {

@@ -8,7 +8,7 @@
     "titleFormatted":
     {
         "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
-        "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} als [[value]]mm"
+        "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
     },
     "args": [
     {

@@ -8,7 +8,7 @@
     "titleFormatted":
     {
         "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
-        "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} als [[value]]°C"
+        "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
     },
     "args": [
     {

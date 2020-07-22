@@ -2,13 +2,13 @@
     "id": "temperature_max_greater",
     "title":
     {
-        "en": "The maximum temperature is !{{greater|less}} than",
-        "de": "Die Höchsttemperatur ist !{{größer|nicht größer}} als"
+        "en": "The maximum temperature is !{{greater than|less or equal to}}",
+        "de": "Die Höchsttemperatur ist !{{größer als|kleiner oder gleich}}"
     },
     "titleFormatted":
     {
-        "en": "The maximum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
-        "de": "Die Höchsttemperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
+        "en": "The maximum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
+        "de": "Die Höchsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
     },
     "args": [
     {
