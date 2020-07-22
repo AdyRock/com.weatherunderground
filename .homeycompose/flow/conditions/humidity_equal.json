@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The humidity !{{equals|does not equal}}",
-        "de": "Die Luftfeuchtigkeit entspricht"
+        "de": "Die Luftfeuchtigkeit !{{entspricht|entspricht nicht}}"
     },
     "titleFormatted":
     {
-        "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%"
+        "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%",
+        "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
     },
     "args": [
     {

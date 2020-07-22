@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The maximum temperature is !{{greater|less}} than",
-        "de": "ie Höchsttemperatur ist größer als"
+        "de": "Die Höchsttemperatur ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The maximum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+        "en": "The maximum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+        "de": "Die Höchsttemperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
     },
     "args": [
     {

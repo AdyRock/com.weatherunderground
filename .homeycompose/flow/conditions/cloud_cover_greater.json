@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The cloud cover is !{{greater|less}} than",
-        "de": "Die Bewölkung ist größer als"
+        "de": "Die Bewölkung ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The cloud cover [[day]] is !{{greater|less or equal to}} than [[value]]%"
+        "en": "The cloud cover [[day]] is !{{greater|less or equal to}} than [[value]]%",
+        "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
     },
     "args": [
     {

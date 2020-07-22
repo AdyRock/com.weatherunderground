@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The precipitation chance is !{{greater|less}} than",
-        "de": "Die Niederschlagswahrscheinlichkeit ist größer als"
+        "de": "Die Niederschlagswahrscheinlichkeit ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The precipitation chance [[day]] is !{{greater|less or equal to}} than [[value]]%"
+        "en": "The precipitation chance [[day]] is !{{greater|less or equal to}} than [[value]]%",
+        "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
     },
     "args": [
     {

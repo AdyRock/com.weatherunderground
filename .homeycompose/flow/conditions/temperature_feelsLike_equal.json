@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The temperature !{{equals|does not equal}}",
-        "de": "Die Temperatur entspricht"
+        "de": "Die Temperatur !{{entspricht|entspricht nicht}}"
     },
     "titleFormatted":
     {
-        "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C"
+        "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+        "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} als [[value]]°C"
     },
     "args": [
     {

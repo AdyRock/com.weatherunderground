@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The precipitation chance !{{equals|does not equal}}",
-        "de": "Die Niederschlagswahrscheinlichkeit entspricht"
+        "de": "Die Niederschlagswahrscheinlichkeit !{{entspricht|entspricht nicht}}"
     },
     "titleFormatted":
     {
-        "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%"
+        "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
+        "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
     },
     "args": [
     {

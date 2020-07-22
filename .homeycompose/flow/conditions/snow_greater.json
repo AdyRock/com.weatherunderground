@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The total snow is !{{greater|less}} than",
-        "de": "Die Schneemenge ist größer als"
+        "de": "Die Schneemenge ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The total snow [[day]] is !{{greater|less or equal to}} than [[value]]mm"
+        "en": "The total snow [[day]] is !{{greater|less or equal to}} than [[value]]mm",
+        "de": "Die Schneemenge [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]mm"
     },
     "args": [
     {

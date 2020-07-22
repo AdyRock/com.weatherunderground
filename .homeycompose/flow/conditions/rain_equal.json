@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The total rain !{{equals|does not equal}}",
-        "de": "Die Regenmenge entspricht"
+        "de": "Die Regenmenge !{{entspricht|entspricht nicht}}"
     },
     "titleFormatted":
     {
-        "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm"
+        "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
+        "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} als [[value]]mm"
     },
     "args": [
     {

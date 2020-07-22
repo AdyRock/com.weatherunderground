@@ -1772,10 +1772,11 @@
         "id": "cloud_cover_equal",
         "title": {
           "en": "The cloud cover !{{equals|does not equal}}",
-          "de": "Die Bewölkung entspricht"
+          "de": "Die Bewölkung !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%"
+          "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
+          "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
         },
         "args": [
           {
@@ -1901,10 +1902,11 @@
         "id": "cloud_cover_greater",
         "title": {
           "en": "The cloud cover is !{{greater|less}} than",
-          "de": "Die Bewölkung ist größer als"
+          "de": "Die Bewölkung ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The cloud cover [[day]] is !{{greater|less or equal to}} than [[value]]%"
+          "en": "The cloud cover [[day]] is !{{greater|less or equal to}} than [[value]]%",
+          "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
         },
         "args": [
           {
@@ -2030,10 +2032,11 @@
         "id": "gust_strength_equal",
         "title": {
           "en": "The gust strength !{{equals|does not equal}}",
-          "de": "Die Böenstärke entspricht"
+          "de": "Die Böenstärke entspricht ist !{{entspricht|entspricht nicht}} als"
         },
         "titleFormatted": {
-          "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h"
+          "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h",
+          "de": "Die Böenstärke entspricht [[day]] ist !{{entspricht|entspricht nicht}} als [[value]]km/h"
         },
         "args": [
           {
@@ -2159,10 +2162,11 @@
         "id": "gust_strength_greater",
         "title": {
           "en": "The gust strength is !{{greater|less}} than",
-          "de": "Die Böenstärke ist größer als"
+          "de": "Die Böenstärke entspricht ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The gust strength [[day]] is !{{greater|less or equal to}} than [[value]]km/h"
+          "en": "The gust strength [[day]] is !{{greater|less or equal to}} than [[value]]km/h",
+          "de": "Die Böenstärke entspricht [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]km/h"
         },
         "args": [
           {
@@ -2288,10 +2292,11 @@
         "id": "humidity_equal",
         "title": {
           "en": "The humidity !{{equals|does not equal}}",
-          "de": "Die Luftfeuchtigkeit entspricht"
+          "de": "Die Luftfeuchtigkeit !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%"
+          "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%",
+          "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
         },
         "args": [
           {
@@ -2417,10 +2422,11 @@
         "id": "humidity_greater",
         "title": {
           "en": "The humidity is !{{greater|less}} than",
-          "de": "Die Luftfeuchtigkeit ist größer als"
+          "de": "Die Luftfeuchtigkeit ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The humidity [[day]] is !{{greater|less or equal to}} than [[value]]%"
+          "en": "The humidity [[day]] is !{{greater|less or equal to}} than [[value]]%",
+          "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
         },
         "args": [
           {
@@ -2546,10 +2552,11 @@
         "id": "precipitation_chance_equal",
         "title": {
           "en": "The precipitation chance !{{equals|does not equal}}",
-          "de": "Die Niederschlagswahrscheinlichkeit entspricht"
+          "de": "Die Niederschlagswahrscheinlichkeit !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%"
+          "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
+          "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
         },
         "args": [
           {
@@ -2675,10 +2682,11 @@
         "id": "precipitation_chance_greater",
         "title": {
           "en": "The precipitation chance is !{{greater|less}} than",
-          "de": "Die Niederschlagswahrscheinlichkeit ist größer als"
+          "de": "Die Niederschlagswahrscheinlichkeit ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The precipitation chance [[day]] is !{{greater|less or equal to}} than [[value]]%"
+          "en": "The precipitation chance [[day]] is !{{greater|less or equal to}} than [[value]]%",
+          "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]%"
         },
         "args": [
           {
@@ -2804,10 +2812,11 @@
         "id": "rain_equal",
         "title": {
           "en": "The total rain !{{equals|does not equal}}",
-          "de": "Die Regenmenge entspricht"
+          "de": "Die Regenmenge !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm"
+          "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
+          "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} als [[value]]mm"
         },
         "args": [
           {
@@ -2933,10 +2942,11 @@
         "id": "rain_greater",
         "title": {
           "en": "The total rain is !{{greater|less}} than",
-          "de": "Die Regenmenge ist größer als"
+          "de": "Die Regenmenge ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The total rain [[day]] is !{{greater|less or equal to}} than [[value]]mm"
+          "en": "The total rain [[day]] is !{{greater|less or equal to}} than [[value]]mm",
+          "de": "Die Regenmenge [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]mm"
         },
         "args": [
           {
@@ -3062,10 +3072,11 @@
         "id": "snow_equal",
         "title": {
           "en": "The total snow !{{equals|does not equal}}",
-          "de": "Die Schneemenge entspricht"
+          "de": "Die Schneemenge !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm"
+          "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm",
+          "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} als [[value]]mm"
         },
         "args": [
           {
@@ -3191,10 +3202,11 @@
         "id": "snow_greater",
         "title": {
           "en": "The total snow is !{{greater|less}} than",
-          "de": "Die Schneemenge ist größer als"
+          "de": "Die Schneemenge ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The total snow [[day]] is !{{greater|less or equal to}} than [[value]]mm"
+          "en": "The total snow [[day]] is !{{greater|less or equal to}} than [[value]]mm",
+          "de": "Die Schneemenge [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]mm"
         },
         "args": [
           {
@@ -3320,10 +3332,11 @@
         "id": "temperature_feelsLike_equal",
         "title": {
           "en": "The temperature !{{equals|does not equal}}",
-          "de": "Die Temperatur entspricht"
+          "de": "Die Temperatur !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C"
+          "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} als [[value]]°C"
         },
         "args": [
           {
@@ -3449,10 +3462,11 @@
         "id": "temperature_feelsLike_greater",
         "title": {
           "en": "The temperature is !{{greater|less}} than",
-          "de": "Die Temperatur ist größer als"
+          "de": "Die Temperatur ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+          "en": "The temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+          "de": "Die Temperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
         },
         "args": [
           {
@@ -3578,10 +3592,11 @@
         "id": "temperature_max_equal",
         "title": {
           "en": "The maximum temperature !{{equals|does not equal}}",
-          "de": "Die Höchsttemperatur entspricht"
+          "de": "Die Höchsttemperatur !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C"
+          "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} als [[value]]°C"
         },
         "args": [
           {
@@ -3707,10 +3722,11 @@
         "id": "temperature_max_greater",
         "title": {
           "en": "The maximum temperature is !{{greater|less}} than",
-          "de": "ie Höchsttemperatur ist größer als"
+          "de": "Die Höchsttemperatur ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The maximum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+          "en": "The maximum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+          "de": "Die Höchsttemperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
         },
         "args": [
           {
@@ -3836,10 +3852,11 @@
         "id": "temperature_min_equal",
         "title": {
           "en": "The minimum temperature !{{equals|does not equal}}",
-          "de": "Die Tiefsttemperatur entspricht"
+          "de": "Die Tiefsttemperatur !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C"
+          "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "de": "Die Tiefsttemperatur [[day]] !{{entspricht|entspricht nicht}} als [[value]]°C"
         },
         "args": [
           {
@@ -3965,10 +3982,11 @@
         "id": "temperature_min_greater",
         "title": {
           "en": "The minimum temperature is !{{greater|less}} than",
-          "de": "Die Tiefsttemperatur ist größer als"
+          "de": "Die Tiefsttemperatur ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The minimum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+          "en": "The minimum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+          "de": "Die Tiefsttemperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
         },
         "args": [
           {
@@ -4094,10 +4112,11 @@
         "id": "ultraviolet_equal",
         "title": {
           "en": "The ultraviolet !{{equals|does not equal}}",
-          "de": "Der UV-Index gleicht"
+          "de": "Die UV-Index !{{entspricht|entspricht nicht}}"
         },
         "titleFormatted": {
-          "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]"
+          "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]",
+          "de": "Die UV-Index [[day]] !{{entspricht|entspricht nicht}} als [[value]]"
         },
         "args": [
           {
@@ -4223,10 +4242,11 @@
         "id": "ultraviolet_greater",
         "title": {
           "en": "The ultraviolet is !{{greater|less}} than",
-          "de": "Der UV-Index ist größer als"
+          "de": "Die UV-Index ist !{{größer|nicht größer}} als"
         },
         "titleFormatted": {
-          "en": "The ultraviolet [[day]] is !{{greater|less or equal to}} than [[value]]"
+          "en": "The ultraviolet [[day]] is !{{greater|less or equal to}} than [[value]]",
+          "de": "Die UV-Index [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]"
         },
         "args": [
           {

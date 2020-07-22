@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The temperature is !{{greater|less}} than",
-        "de": "Die Temperatur ist größer als"
+        "de": "Die Temperatur ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+        "en": "The temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+        "de": "Die Temperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
     },
     "args": [
     {

@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The gust strength is !{{greater|less}} than",
-        "de": "Die Böenstärke ist größer als"
+        "de": "Die Böenstärke entspricht ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The gust strength [[day]] is !{{greater|less or equal to}} than [[value]]km/h"
+        "en": "The gust strength [[day]] is !{{greater|less or equal to}} than [[value]]km/h",
+        "de": "Die Böenstärke entspricht [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]km/h"
     },
     "args": [
     {

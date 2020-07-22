@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The cloud cover !{{equals|does not equal}}",
-        "de": "Die Bewölkung entspricht"
+        "de": "Die Bewölkung !{{entspricht|entspricht nicht}}"
     },
     "titleFormatted":
     {
-        "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%"
+        "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
+        "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} als [[value]]%"
     },
     "args": [
     {

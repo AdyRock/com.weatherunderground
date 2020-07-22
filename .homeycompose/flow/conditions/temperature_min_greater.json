@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The minimum temperature is !{{greater|less}} than",
-        "de": "Die Tiefsttemperatur ist größer als"
+        "de": "Die Tiefsttemperatur ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The minimum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C"
+        "en": "The minimum temperature [[day]] is !{{greater|less or equal to}} than [[value]]°C",
+        "de": "Die Tiefsttemperatur [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]°C"
     },
     "args": [
     {

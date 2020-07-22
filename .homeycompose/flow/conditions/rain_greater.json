@@ -3,11 +3,12 @@
     "title":
     {
         "en": "The total rain is !{{greater|less}} than",
-        "de": "Die Regenmenge ist größer als"
+        "de": "Die Regenmenge ist !{{größer|nicht größer}} als"
     },
     "titleFormatted":
     {
-        "en": "The total rain [[day]] is !{{greater|less or equal to}} than [[value]]mm"
+        "en": "The total rain [[day]] is !{{greater|less or equal to}} than [[value]]mm",
+        "de": "Die Regenmenge [[day]] ist !{{größer|kleiner oder gleich}} als [[value]]mm"
     },
     "args": [
     {
