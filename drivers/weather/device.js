@@ -168,7 +168,7 @@ class WeatherDevice extends Homey.Device
                         .register()
                         .trigger()
                         .catch( this.error )
-                        .then( this.log )
+                        .then( this.log("Trigger stationOffline") )
                 }
             }
         }
@@ -185,7 +185,7 @@ class WeatherDevice extends Homey.Device
                     .register()
                     .trigger()
                     .catch( this.error )
-                    .then( this.log )
+                    .then( this.log("Trigger no_data_changed") )
             }
         }
 

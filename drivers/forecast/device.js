@@ -195,10 +195,11 @@ class ForecastDevice extends Homey.Device
         {
             this.log( "Forecast refreshCapabilities" );
 
-            this.unsetWarning();
             let result = await this.getForecast( this );
             if ( result )
             {
+                this.unsetWarning();
+
                 this.forecastData = JSON.parse( result.body );
                 Homey.app.updateLog( "Forecast Data = " + JSON.stringify( this.forecastData, null, 2 ) );
                 this.updateCapabilities( this.getCapabilityValue( 'forecast_day' ) );
@@ -209,8 +210,8 @@ class ForecastDevice extends Homey.Device
                     {
                         forecast_dayToNum.forEach( ( element ) =>
                         {
-                            this.log( "Checking forecast triggers for: ", element.id );
-                            if ( element.day == 0 )
+                            this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
+                            if ( element.day >= 0 )
                             {
                                 if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this._driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
                                 if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this._driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
@@ -262,7 +263,7 @@ class ForecastDevice extends Homey.Device
         this.timerID = setTimeout( () =>
         {
             this.refreshCapabilities();
-        }, 3600000 );
+        }, 3600000 ); //3600000 ms = 1 hour
     }
 
     async getForecast()

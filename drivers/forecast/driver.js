@@ -13,7 +13,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire rain trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -24,7 +24,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire wind angle trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -35,7 +35,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire gust trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -45,7 +45,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire humidity trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -55,7 +55,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire UV trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -65,7 +65,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire T.Max trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -75,7 +75,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire T.Min trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -85,7 +85,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire Cloud trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -95,7 +95,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire precipitation type trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -105,7 +105,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire precipitation chance trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -115,7 +115,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire snow chance trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -125,7 +125,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( ( args, state ) =>
             {
-                console.log( "Fire trigger = ", args.day === state.day );
+                console.log( "Fire feels like trigger = ", args.day === state.day );
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
@@ -356,7 +356,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day };
 
         this.rainTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_rain") )
             .catch( this.error )
     }
 
@@ -368,7 +368,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.windAngleTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_wind_angle") )
             .catch( this.error )
     }
 
@@ -380,7 +380,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.gustStrengthTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_gust_strength") )
             .catch( this.error )
     }
 
@@ -392,7 +392,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.humidityTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_humidity") )
             .catch( this.error )
     }
 
@@ -404,7 +404,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.ultraVioletTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_ultraviolet") )
             .catch( this.error )
     }
 
@@ -416,7 +416,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.tempMaxTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_temperature.max") )
             .catch( this.error )
     }
 
@@ -428,7 +428,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.tempMinTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_temperature.min") )
             .catch( this.error )
     }
 
@@ -440,7 +440,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.cloudCoverTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_cloud_cover") )
             .catch( this.error )
     }
 
@@ -452,7 +452,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.precipitationTypeTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger precipitation_type") )
             .catch( this.error )
     }
 
@@ -464,7 +464,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.precipitationTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_precipitation_chance") )
             .catch( this.error )
     }
 
@@ -476,7 +476,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.snowTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_snow") )
             .catch( this.error )
     }
 
@@ -488,7 +488,7 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day }
 
         this.temperatureTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger measure_temperature.feelsLike.forecast") )
             .catch( this.error )
     }
 }

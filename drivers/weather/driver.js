@@ -66,7 +66,7 @@ class WeatherDriver extends Homey.Driver
         let state = {};
 
         this.feelLikeTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger feelsLike") )
             .catch( this.error )
     }
 
@@ -79,7 +79,7 @@ class WeatherDriver extends Homey.Driver
         let state = {};
 
         this.dewPointTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger dewPoint") )
             .catch( this.error )
     }
 
@@ -91,7 +91,7 @@ class WeatherDriver extends Homey.Driver
         let state = {};
 
         this.rainTotalTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger rain_total") )
             .catch( this.error )
     }
 
@@ -103,7 +103,7 @@ class WeatherDriver extends Homey.Driver
         let state = {};
 
         this.radiationTrigger.trigger( Device, tokens, state )
-            .then( this.log )
+            .then( this.log("Trigger radiation") )
             .catch( this.error )
     }
 }
