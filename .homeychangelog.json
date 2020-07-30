@@ -88,5 +88,8 @@
   },
   "2.1.3": {
     "en": "Fix German translations"
+  },
+  "2.1.4": {
+    "en": "Fixed issue with forecast trigger only working for Today"
   }
 }
