@@ -91,5 +91,8 @@
   },
   "2.1.4": {
     "en": "Fixed issue with forecast trigger only working for Today"
+  },
+  "2.1.5": {
+    "en": "Added extra logging and always log errors"
   }
 }

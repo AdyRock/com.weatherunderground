@@ -157,7 +157,7 @@ class WeatherDevice extends Homey.Device
             }
             else
             {
-                Homey.app.updateLog( "refreshCapabilities NO data received" );
+                Homey.app.updateLog( "refreshCapabilities NO data received", true );
                 this.setWarning( "No data received", null );
 
                 if ( !Homey.app.stationOffline )
@@ -174,6 +174,7 @@ class WeatherDevice extends Homey.Device
         }
         catch ( err )
         {
+            Homey.app.updateLog( "Weather Refresh: " + varToString(err), true );
             this.log( "Weather Refresh: " + err );
             this.setWarning( Homey.app.varToString( err ), null );
 

@@ -69,7 +69,7 @@ class WeatherApp extends Homey.App
                     }
                     else
                     {
-                        this.updateLog( "HTTPS Error: " + res.statusCode );
+                        this.updateLog( "HTTPS Error: " + res.statusCode, true );
                         let message = "";
                         if ( res.statusCode === 204 )
                         {
@@ -95,38 +95,48 @@ class WeatherApp extends Homey.App
                     }
                 } ).on( 'error', ( err ) =>
                 {
-                    this.updateLog( "HTTPS Catch: " + err );
+                    this.updateLog( "HTTPS Catch: " + varToString( err ), true );
                     reject( "HTTPS Catch: " + err );
                 } );
             }
             catch ( e )
             {
-                this.updateLog( e );
+                this.updateLog( varToString( e ), true );
                 reject( "HTTPS Error: " + e );
             }
         } );
     }
 
-	varToString(source) {
-		if (source === null) {
-			return "null";
-		}
-		if (source === undefined) {
-			return "undefined";
-		}
-		if (typeof (source) === "object") {
-			return JSON.stringify(source, null, 2);
-		}
-		if (typeof (source) === "string") {
-			return source;
-		}
-
-		return source.toString();
-	}
-
-    updateLog( newMessage )
+    varToString( source )
     {
-        if ( !Homey.ManagerSettings.get( 'logEnabled' ) )
+        if ( source === null )
+        {
+            return "null";
+        }
+        if ( source === undefined )
+        {
+            return "undefined";
+        }
+        if (source instanceof Error)
+        {
+            let stack = source.stack.replace('/\\n/g', '\n');
+            return source.message + '\n' + stack;
+        }
+        if ( typeof( source ) === "object" )
+        {
+            return JSON.stringify( source, null, 2 );
+        }
+        if ( typeof( source ) === "string" )
+        {
+            return source;
+        }
+
+        return source.toString();
+    }
+
+    updateLog( newMessage, isError = false )
+    {
+        if ( !isError && !Homey.ManagerSettings.get( 'logEnabled' ) )
         {
             return;
         }
