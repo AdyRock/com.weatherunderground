@@ -99,6 +99,6 @@
     "en": "Fixed crash when an error is returned for WU"
   },
   "2.1.7": {
-    "en": "Fixed an issue where polling stops when an error is returned for WU"
+    "en": "Fixed an issue where polling stops after a network error"
   }
 }
