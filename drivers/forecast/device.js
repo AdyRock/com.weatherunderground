@@ -111,8 +111,11 @@ class ForecastDevice extends Homey.Device
 
         this._driver = this.getDriver();
 
-        this.timerID = null;
-        this.refreshCapabilities();
+        // Refresh forecast but give it a minute and a bit to settle down
+        this.timerID = setTimeout( () =>
+        {
+            this.refreshCapabilities();
+        }, 70000 );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -138,7 +141,7 @@ class ForecastDevice extends Homey.Device
         {
             this.refreshCapabilities();
         } );
-}
+    }
 
     async updateCapabilities( SelectedDay )
     {
@@ -146,6 +149,16 @@ class ForecastDevice extends Homey.Device
         {
             if ( this.forecastData )
             {
+                // Update the capabilities for the selected day
+
+                if (!this.getAvailable())
+                {
+                    this.unsetWarning();
+                    this.setAvailable();
+                }
+
+                Homey.app.stationOffline = false;
+
                 const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
                 let dayNight = entry.value;
                 let day = entry.day;
@@ -178,8 +191,6 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_humidity.forecast", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] );
                 this.setCapabilityValue( "measure_ultraviolet.forecast", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] );
                 this.setCapabilityValue( "measure_temperature.feelsLike.forecast", this.forecastData.daypart[ 0 ].temperature[ dayNight ] );
-
-                this.setAvailable();
             }
         }
         catch ( err )
@@ -195,55 +206,48 @@ class ForecastDevice extends Homey.Device
         {
             this.log( "Forecast refreshCapabilities" );
 
+            // refresh the forecast cache
             let result = await this.getForecast( this );
             if ( result )
             {
                 this.forecastData = JSON.parse( result.body );
                 Homey.app.updateLog( "Forecast Data = " + JSON.stringify( this.forecastData, null, 2 ) );
+
+                // Update the capabilities for the selected day
                 this.updateCapabilities( this.getCapabilityValue( 'forecast_day' ) );
 
-                if ( this.forecastData )
+                if ( this.oldForecastData )
                 {
-                    if (!this.getAvailable())
+                    // Check for changes in each day and trigger flows as required
+                    forecast_dayToNum.forEach( ( element ) =>
                     {
-                        this.unsetWarning();
-                        this.setAvailable();
-                    }
-
-                    Homey.app.stationOffline = false;
-
-                    if ( this.oldForecastData )
-                    {
-                        forecast_dayToNum.forEach( ( element ) =>
+                        this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
+                        if ( element.day >= 0 )
                         {
-                            this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
-                            if ( element.day >= 0 )
-                            {
-                                if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this._driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
-                                if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this._driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
-                                if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this._driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ] ); }
-                                if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this._driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ] ); }
-                            }
+                            if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this._driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
+                            if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this._driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
+                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this._driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ] ); }
+                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this._driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ] ); }
+                        }
 
-                            let dayNight = element.value;
-                            if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
-                            {
-                                dayNight++;
-                            }
-                            if ( this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] != this.oldForecastData.daypart[ 0 ].cloudCover[ dayNight ] ) { this._driver.triggerCloudCover( this, element.id, this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].precipChance[ dayNight ] != this.oldForecastData.daypart[ 0 ].precipChance[ dayNight ] ) { this._driver.triggerRainChance( this, element.id, this.forecastData.daypart[ 0 ].precipChance[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].precipType[ dayNight ] != this.oldForecastData.daypart[ 0 ].precipType[ dayNight ] ) { this._driver.triggerPrecipitationType( this, element.id, this.forecastData.daypart[ 0 ].precipType[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].windDirection[ dayNight ] != this.oldForecastData.daypart[ 0 ].windDirection[ dayNight ] ) { this._driver.triggerWindAngle( this, element.id, this.forecastData.daypart[ 0 ].windDirection[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] != this.oldForecastData.daypart[ 0 ].windSpeed[ dayNight ] ) { this._driver.triggerGustStrength( this, element.id, this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] != this.oldForecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ) { this._driver.triggerHumidity( this, element.id, this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] != this.oldForecastData.daypart[ 0 ].uvIndex[ dayNight ] ) { this._driver.triggerUltraviolet( this, element.id, this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] != this.oldForecastData.daypart[ 0 ].thunderCategory[ dayNight ] ) { this._driver.triggerThunder( this, element.id, this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] ); }
-                            if ( this.forecastData.daypart[ 0 ].temperature[ dayNight ] != this.oldForecastData.daypart[ 0 ].temperature[ dayNight ] ) { this._driver.triggerTemperature( this, element.id, this.forecastData.daypart[ 0 ].temperature[ dayNight ] ); }
-                        } )
-                    }
-
-                    this.oldForecastData = this.forecastData;
+                        let dayNight = element.value;
+                        if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
+                        {
+                            dayNight++;
+                        }
+                        if ( this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] != this.oldForecastData.daypart[ 0 ].cloudCover[ dayNight ] ) { this._driver.triggerCloudCover( this, element.id, this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].precipChance[ dayNight ] != this.oldForecastData.daypart[ 0 ].precipChance[ dayNight ] ) { this._driver.triggerRainChance( this, element.id, this.forecastData.daypart[ 0 ].precipChance[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].precipType[ dayNight ] != this.oldForecastData.daypart[ 0 ].precipType[ dayNight ] ) { this._driver.triggerPrecipitationType( this, element.id, this.forecastData.daypart[ 0 ].precipType[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].windDirection[ dayNight ] != this.oldForecastData.daypart[ 0 ].windDirection[ dayNight ] ) { this._driver.triggerWindAngle( this, element.id, this.forecastData.daypart[ 0 ].windDirection[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] != this.oldForecastData.daypart[ 0 ].windSpeed[ dayNight ] ) { this._driver.triggerGustStrength( this, element.id, this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] != this.oldForecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ) { this._driver.triggerHumidity( this, element.id, this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] != this.oldForecastData.daypart[ 0 ].uvIndex[ dayNight ] ) { this._driver.triggerUltraviolet( this, element.id, this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] != this.oldForecastData.daypart[ 0 ].thunderCategory[ dayNight ] ) { this._driver.triggerThunder( this, element.id, this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] ); }
+                        if ( this.forecastData.daypart[ 0 ].temperature[ dayNight ] != this.oldForecastData.daypart[ 0 ].temperature[ dayNight ] ) { this._driver.triggerTemperature( this, element.id, this.forecastData.daypart[ 0 ].temperature[ dayNight ] ); }
+                    } )
                 }
+
+                this.oldForecastData = this.forecastData;
             }
         }
         catch ( err )

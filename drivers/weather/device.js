@@ -23,8 +23,11 @@ class WeatherDevice extends Homey.Device
 
         this._driver = this.getDriver();
 
-        this.timerID = null;
-        this.refreshCapabilities();
+        // Refresh forecast but give it a minute to settle down
+        this.timerID = setTimeout( () =>
+        {
+            this.refreshCapabilities();
+        }, 60000 );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )

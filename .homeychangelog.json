@@ -100,5 +100,8 @@
   },
   "2.1.7": {
     "en": "Fixed an issue where polling stops after a network error"
+  },
+  "2.1.8": {
+    "en": "Ensure error message is cleared from the forecast. Initial update is now delayed to ensure app updates don't exceed connection rate."
   }
 }
