@@ -1,4 +1,8 @@
 'use strict';
+if (process.env.DEBUG === '1')
+{
+    require('inspector').open(9222, '0.0.0.0', true)
+}
 
 const Homey = require( 'homey' );
 const https = require( "https" );
@@ -8,7 +12,7 @@ class WeatherApp extends Homey.App
     onInit()
     {
         this.log( ' WeatherApp is running...' );
-        Homey.ManagerSettings.set( 'diagLog', "App Started" );
+        Homey.ManagerSettings.set( 'diagLog', "App Started\r\n" );
         this.stationOffline = false;
     }
 
@@ -91,18 +95,18 @@ class WeatherApp extends Homey.App
                         {
                             message = "Not Found";
                         }
-                        reject( "HTTPS Error: " + res.statusCode + ", " + message );
+                        reject( "GetURL Error: " + res.statusCode + ", " + message );
                     }
                 } ).on( 'error', ( err ) =>
                 {
-                    this.updateLog( "HTTPS Catch: " + varToString( err ), true );
-                    reject( "HTTPS Catch: " + err );
+                    this.updateLog( "GetURL Catch: " + this.varToString( err ), true );
+                    reject( err );
                 } );
             }
             catch ( e )
             {
-                this.updateLog( varToString( e ), true );
-                reject( "HTTPS Error: " + e );
+                this.updateLog( "GetURL Catch: " + this.varToString( e ), true );
+                reject( e );
             }
         } );
     }
@@ -136,20 +140,52 @@ class WeatherApp extends Homey.App
 
     updateLog( newMessage, isError = false )
     {
-        if ( !isError && !Homey.ManagerSettings.get( 'logEnabled' ) )
+        // Maximum size of the log in characters
+        let maxSize = 30000;
+        if (!Homey.ManagerSettings.get( 'logEnabled' ) )
         {
-            return;
+            if (!isError)
+            {
+                return;
+            }
+
+            // Reduce the size if only logging errors
+            maxSize = 5000;
         }
 
         this.log( newMessage );
         var oldText = Homey.ManagerSettings.get( 'diagLog' );
-        if ( oldText.length > 5000 )
+        if (oldText.length > maxSize)
         {
-            oldText = "";
+            // Remove characters from the beginning to make space for the new message.
+            oldText = oldText.substring(newMessage.length + 20);
+            var n = oldText.indexOf("\n");
+            if (n >= 0)
+            {
+                // Remove up to and including the first \n so the log starts on a whole line
+                oldText = oldText.substring(n + 1);
+            }
         }
+
+        const nowTime = new Date(Date.now());
+
+        if (oldText.length == 0)
+        {
+            oldText = "Log ID: ";
+            oldText += nowTime.toJSON();
+            oldText += "\r\n";
+            oldText += "App version ";
+            oldText += Homey.manifest.version;
+            oldText += "\r\n\r\n";
+            this.logLastTime = nowTime;
+        }
+
+        oldText += nowTime.toJSON()
+        oldText += "\r\n  ";
+
         oldText += "* ";
         oldText += newMessage;
-        oldText += "\r\n";
+        oldText += "\r\n\r\n";
         Homey.ManagerSettings.set( 'diagLog', oldText );
     }
 }

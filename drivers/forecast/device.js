@@ -198,14 +198,20 @@ class ForecastDevice extends Homey.Device
             let result = await this.getForecast( this );
             if ( result )
             {
-                this.unsetWarning();
-
                 this.forecastData = JSON.parse( result.body );
                 Homey.app.updateLog( "Forecast Data = " + JSON.stringify( this.forecastData, null, 2 ) );
                 this.updateCapabilities( this.getCapabilityValue( 'forecast_day' ) );
 
                 if ( this.forecastData )
                 {
+                    if (!this.getAvailable())
+                    {
+                        this.unsetWarning();
+                        this.setAvailable();
+                    }
+
+                    Homey.app.stationOffline = false;
+
                     if ( this.oldForecastData )
                     {
                         forecast_dayToNum.forEach( ( element ) =>
@@ -238,24 +244,26 @@ class ForecastDevice extends Homey.Device
 
                     this.oldForecastData = this.forecastData;
                 }
-
-                Homey.app.stationOffline = false;
             }
         }
         catch ( err )
         {
+            Homey.app.updateLog( "Forecast Refresh: " + Homey.app.varToString(err), true );
             this.log( "Forecast Refresh Error: " + err );
-            this.setWarning( "Forecast Refresh Error: " + err, null );
+            this.setWarning( Homey.app.varToString(err));
 
             if ( !Homey.app.stationOffline && ( err.search( ": 204" ) > 0 ) )
             {
                 Homey.app.stationOffline = true;
+                
                 let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
                 noDataTrigger
                     .register()
                     .trigger()
                     .catch( this.error )
-                    .then( this.log( "Offline triggered" ) )
+                    .then( this.log( "Offline triggered" ) );
+
+                this.setUnavailable("No data available");
             }
         }
 
