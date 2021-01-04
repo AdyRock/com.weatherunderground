@@ -93,7 +93,7 @@ class ForecastDevice extends Homey.Device
         {
             this.addCapability( "measure_temperature.feelsLike.forecast" );
         }
-        
+
         if ( this.hasCapability( "measure_temperature.feelsLike" ) )
         {
             this.removeCapability( "measure_temperature.feelsLike" );
@@ -151,12 +151,8 @@ class ForecastDevice extends Homey.Device
             {
                 // Update the capabilities for the selected day
 
-                if (!this.getAvailable())
-                {
-                    this.unsetWarning();
-                    this.setAvailable();
-                }
-
+                this.setAvailable();
+                this.unsetWarning();
                 Homey.app.stationOffline = false;
 
                 const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
@@ -249,17 +245,22 @@ class ForecastDevice extends Homey.Device
 
                 this.oldForecastData = this.forecastData;
             }
+            else
+            {
+                this.setWarning( "No data received" );
+            }
         }
         catch ( err )
         {
-            Homey.app.updateLog( "Forecast Refresh: " + Homey.app.varToString(err), true );
+            let errString = Homey.app.varToString( err, false );
+            Homey.app.updateLog( "Forecast Refresh: " + errString, true );
             this.log( "Forecast Refresh Error: " + err );
-            this.setWarning( Homey.app.varToString(err));
+            this.unsetWarning();
 
-            if ( !Homey.app.stationOffline && ( err.search( ": 204" ) > 0 ) )
+            if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
             {
                 Homey.app.stationOffline = true;
-                
+
                 let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
                 noDataTrigger
                     .register()
@@ -267,7 +268,11 @@ class ForecastDevice extends Homey.Device
                     .catch( this.error )
                     .then( this.log( "Offline triggered" ) );
 
-                this.setUnavailable("No data available");
+                this.setUnavailable( "No data available" );
+            }
+            else
+            {
+                this.setUnavailable( errString );
             }
         }
 
@@ -308,7 +313,7 @@ class ForecastDevice extends Homey.Device
             dayNight++;
         }
 
-        return {'dayNight': dayNight, 'day': day};
+        return { 'dayNight': dayNight, 'day': day };
     }
 
     async onDeleted()

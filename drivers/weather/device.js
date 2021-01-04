@@ -27,7 +27,7 @@ class WeatherDevice extends Homey.Device
         this.timerID = setTimeout( () =>
         {
             this.refreshCapabilities();
-        }, 60000 );
+        }, 6000 );
     }
 
     async onSettings( oldSettingsObj, newSettingsObj )
@@ -74,14 +74,9 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                if (!this.getAvailable())
-                {
-                    this.unsetWarning();
-                    this.setAvailable();
-                }
-
+                this.setAvailable();
+                this.unsetWarning();
                 Homey.app.stationOffline = false;
-            
 
                 Homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
@@ -166,8 +161,6 @@ class WeatherDevice extends Homey.Device
             else
             {
                 Homey.app.updateLog( "refreshCapabilities NO data received", true );
-                this.setWarning( "No data received" );
-
                 if ( !Homey.app.stationOffline )
                 {
                     Homey.app.stationOffline = true;
@@ -176,19 +169,21 @@ class WeatherDevice extends Homey.Device
                         .register()
                         .trigger()
                         .catch( this.error )
-                        .then( this.log("Trigger stationOffline") );
+                        .then( this.log( "Trigger stationOffline" ) );
 
-                    this.setUnavailable("No data available");
                 }
+
+                this.setWarning( "No data received" );
             }
         }
         catch ( err )
         {
-            Homey.app.updateLog( "Weather Refresh: " + Homey.app.varToString(err), true );
+            let errString = Homey.app.varToString( err, false );
+            Homey.app.updateLog( "Weather Refresh: " + errString, true );
             this.log( "Weather Refresh: " + err );
-            this.setWarning( Homey.app.varToString( err ) );
+            this.unsetWarning();
 
-            if ( !Homey.app.stationOffline && ( err.search( ": 204" ) > 0 ) )
+            if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
             {
                 Homey.app.stationOffline = true;
 
@@ -197,9 +192,13 @@ class WeatherDevice extends Homey.Device
                     .register()
                     .trigger()
                     .catch( this.error )
-                    .then( this.log("Trigger no_data_changed") );
+                    .then( this.log( "Trigger no_data_changed" ) );
 
-                this.setUnavailable("No data available");
+                this.setUnavailable( "No data available" );
+            }
+            else
+            {
+                this.setUnavailable( errString );
             }
         }
 

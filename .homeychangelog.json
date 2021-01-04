@@ -103,5 +103,8 @@
   },
   "2.1.8": {
     "en": "Ensure error message is cleared from the forecast. Initial update is now delayed to ensure app updates don't exceed connection rate."
+  },
+  "2.1.9": {
+    "en": "Ensure warning message is cleared from the device. Initial update is now delayed to ensure app updates don't exceed connection rate. Fixed an issue where polling stops after a network error"
   }
 }

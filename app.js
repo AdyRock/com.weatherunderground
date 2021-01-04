@@ -1,7 +1,7 @@
 'use strict';
-if (process.env.DEBUG === '1')
+if ( process.env.DEBUG === '1' )
 {
-    require('inspector').open(9222, '0.0.0.0', true)
+    require( 'inspector' ).open( 9222, '0.0.0.0', true )
 }
 
 const Homey = require( 'homey' );
@@ -54,53 +54,55 @@ class WeatherApp extends Homey.App
             {
                 https.get( url, ( res ) =>
                 {
-                    if ( res.statusCode === 200 )
+                    let body = [];
+
+                    res.on( 'data', ( chunk ) =>
                     {
-                        let body = [];
-                        res.on( 'data', ( chunk ) =>
+                        this.updateLog( "retrieve data" );
+                        body.push( chunk );
+                    } );
+
+                    res.on( 'end', () =>
+                    {
+                        this.updateLog( "Done retrieval of data" );
+                        if ( res.statusCode === 200 )
                         {
-                            this.updateLog( "retrieve data" );
-                            body.push( chunk );
-                        } );
-                        res.on( 'end', () =>
-                        {
-                            this.updateLog( "Done retrieval of data" );
                             resolve(
                             {
                                 "body": Buffer.concat( body )
                             } );
-                        } );
-                    }
-                    else
-                    {
-                        this.updateLog( "HTTPS Error: " + res.statusCode, true );
-                        let message = "";
-                        if ( res.statusCode === 204 )
-                        {
-                            message = "No Data Found";
                         }
-                        else if ( res.statusCode === 400 )
+                        else
                         {
-                            message = "Bad request";
+                            this.updateLog( "HTTPS Error: " + res.statusCode, true );
+                            let message = "";
+                            if ( res.statusCode === 204 )
+                            {
+                                message = "No Data Found";
+                            }
+                            else if ( res.statusCode === 400 )
+                            {
+                                message = "Bad request";
+                            }
+                            else if ( res.statusCode === 401 )
+                            {
+                                message = "Unauthorized";
+                            }
+                            else if ( res.statusCode === 403 )
+                            {
+                                message = "Forbidden";
+                            }
+                            else if ( res.statusCode === 404 )
+                            {
+                                message = "Not Found";
+                            }
+                            reject( "GetURL Error: " + res.statusCode + ", " + message );
                         }
-                        else if ( res.statusCode === 401 )
-                        {
-                            message = "Unauthorized";
-                        }
-                        else if ( res.statusCode === 403 )
-                        {
-                            message = "Forbidden";
-                        }
-                        else if ( res.statusCode === 404 )
-                        {
-                            message = "Not Found";
-                        }
-                        reject( "GetURL Error: " + res.statusCode + ", " + message );
-                    }
+                    } );
                 } ).on( 'error', ( err ) =>
                 {
-                    this.updateLog( "GetURL Catch: " + this.varToString( err ), true );
-                    reject( err );
+                    this.updateLog( "GetURL On Error: " + this.varToString( err ), true );
+                    reject( "GetURL On Error: " + err.data.message  );
                 } );
             }
             catch ( e )
@@ -111,7 +113,7 @@ class WeatherApp extends Homey.App
         } );
     }
 
-    varToString( source )
+    varToString( source, includeStack = true )
     {
         if ( source === null )
         {
@@ -121,10 +123,14 @@ class WeatherApp extends Homey.App
         {
             return "undefined";
         }
-        if (source instanceof Error)
+        if ( source instanceof Error )
         {
-            let stack = source.stack.replace('/\\n/g', '\n');
-            return source.message + '\n' + stack;
+            if ( includeStack )
+            {
+                let stack = source.stack.replace( '/\\n/g', '\n' );
+                return source.message + '\n' + stack;
+            }
+            return source.message;
         }
         if ( typeof( source ) === "object" )
         {
@@ -142,9 +148,9 @@ class WeatherApp extends Homey.App
     {
         // Maximum size of the log in characters
         let maxSize = 30000;
-        if (!Homey.ManagerSettings.get( 'logEnabled' ) )
+        if ( !Homey.ManagerSettings.get( 'logEnabled' ) )
         {
-            if (!isError)
+            if ( !isError )
             {
                 return;
             }
@@ -154,22 +160,30 @@ class WeatherApp extends Homey.App
         }
 
         this.log( newMessage );
+
+        //Remove the API key from the output
+        let apiKeyIndex = newMessage.indexOf( "apiKey=" );
+        if ( apiKeyIndex > 0 )
+        {
+            newMessage = newMessage.substring( 0, apiKeyIndex + 7 );
+        }
+
         var oldText = Homey.ManagerSettings.get( 'diagLog' );
-        if (oldText.length > maxSize)
+        if ( oldText.length > maxSize )
         {
             // Remove characters from the beginning to make space for the new message.
-            oldText = oldText.substring(newMessage.length + 20);
-            var n = oldText.indexOf("\n");
-            if (n >= 0)
+            oldText = oldText.substring( newMessage.length + 20 );
+            var n = oldText.indexOf( "\n" );
+            if ( n >= 0 )
             {
                 // Remove up to and including the first \n so the log starts on a whole line
-                oldText = oldText.substring(n + 1);
+                oldText = oldText.substring( n + 1 );
             }
         }
 
-        const nowTime = new Date(Date.now());
+        const nowTime = new Date( Date.now() );
 
-        if (oldText.length == 0)
+        if ( oldText.length == 0 )
         {
             oldText = "Log ID: ";
             oldText += nowTime.toJSON();
