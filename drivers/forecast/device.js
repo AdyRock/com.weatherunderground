@@ -198,6 +198,8 @@ class ForecastDevice extends Homey.Device
 
     async refreshCapabilities()
     {
+        let errString = null;
+
         try
         {
             this.log( "Forecast refreshCapabilities" );
@@ -252,28 +254,39 @@ class ForecastDevice extends Homey.Device
         }
         catch ( err )
         {
-            let errString = Homey.app.varToString( err, false );
-            Homey.app.updateLog( "Forecast Refresh: " + errString, true );
+            errString = Homey.app.varToString( err, false );
             this.log( "Forecast Refresh Error: " + err );
-            this.unsetWarning();
+        }
 
-            if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+        try
+        {
+            if ( errString )
             {
-                Homey.app.stationOffline = true;
+                Homey.app.updateLog( "Forecast Refresh: " + errString, true );
+                this.unsetWarning();
 
-                let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
-                noDataTrigger
-                    .register()
-                    .trigger()
-                    .catch( this.error )
-                    .then( this.log( "Offline triggered" ) );
+                if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+                {
+                    Homey.app.stationOffline = true;
 
-                this.setUnavailable( "No data available" );
+                    let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
+                    noDataTrigger
+                        .register()
+                        .trigger()
+                        .catch( this.error )
+                        .then( this.log( "Offline triggered" ) );
+
+                    this.setUnavailable( "No data available" );
+                }
+                else
+                {
+                    this.setUnavailable( errString );
+                }
             }
-            else
-            {
-                this.setUnavailable( errString );
-            }
+        }
+        catch ( error )
+        {
+            Homey.app.updateLog( "Forecast Refresh Error Error: " + Homey.app.varToString( error, false ), true );
         }
 
         // Refresh forecast 1 per hour

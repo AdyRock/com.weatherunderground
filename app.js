@@ -101,8 +101,26 @@ class WeatherApp extends Homey.App
                     } );
                 } ).on( 'error', ( err ) =>
                 {
+                    let errMessage = null;
+                    if (err.message)
+                    {
+                        errMessage = err.message;
+                    }
+                    else if (err.data)
+                    {
+                        if (err.data.message)
+                        {
+                            errMessage = err.data.message;
+                        }
+                    }
+
+                    if (!errMessage)
+                    {
+                        errMessage = err.toString();
+                    }
+
                     this.updateLog( "GetURL On Error: " + this.varToString( err ), true );
-                    reject( "GetURL On Error: " + err.data.message  );
+                    reject( "GetURL On Error: " + errMessage  );
                 } );
             }
             catch ( e )
@@ -115,33 +133,41 @@ class WeatherApp extends Homey.App
 
     varToString( source, includeStack = true )
     {
-        if ( source === null )
+        try
         {
-            return "null";
-        }
-        if ( source === undefined )
-        {
-            return "undefined";
-        }
-        if ( source instanceof Error )
-        {
-            if ( includeStack )
+            if ( source === null )
             {
-                let stack = source.stack.replace( '/\\n/g', '\n' );
-                return source.message + '\n' + stack;
+                return "null";
             }
-            return source.message;
-        }
-        if ( typeof( source ) === "object" )
-        {
-            return JSON.stringify( source, null, 2 );
-        }
-        if ( typeof( source ) === "string" )
-        {
-            return source;
-        }
+            if ( source === undefined )
+            {
+                return "undefined";
+            }
+            if ( source instanceof Error )
+            {
+                if ( includeStack )
+                {
+                    let stack = source.stack.replace( '/\\n/g', '\n' );
+                    return source.message + '\n' + stack;
+                }
+                return source.message;
+            }
+            if ( typeof( source ) === "object" )
+            {
+                return JSON.stringify( source, null, 2 );
+            }
+            if ( typeof( source ) === "string" )
+            {
+                return source;
+            }
 
-        return source.toString();
+            return source.toString();
+        }
+        catch(error)
+        {
+            this.log( "Error decoding message to a string", source );
+            return "Error decoding message to a string";
+        }
     }
 
     updateLog( newMessage, isError = false )

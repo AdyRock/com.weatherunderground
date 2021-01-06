@@ -64,6 +64,8 @@ class WeatherDevice extends Homey.Device
 
     async refreshCapabilities()
     {
+        let errString = null;
+
         try
         {
             this.log( "PWS refreshCapabilities" );
@@ -178,28 +180,39 @@ class WeatherDevice extends Homey.Device
         }
         catch ( err )
         {
-            let errString = Homey.app.varToString( err, false );
-            Homey.app.updateLog( "Weather Refresh: " + errString, true );
+            errString = Homey.app.varToString( err, false );
             this.log( "Weather Refresh: " + err );
-            this.unsetWarning();
+        }
 
-            if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+        try
+        {
+            if ( errString )
             {
-                Homey.app.stationOffline = true;
+                Homey.app.updateLog( "Weather Refresh: " + errString, true );
+                this.unsetWarning();
 
-                let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
-                noDataTrigger
-                    .register()
-                    .trigger()
-                    .catch( this.error )
-                    .then( this.log( "Trigger no_data_changed" ) );
+                if ( !Homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+                {
+                    Homey.app.stationOffline = true;
 
-                this.setUnavailable( "No data available" );
+                    let noDataTrigger = new Homey.FlowCardTrigger( 'no_data_changed' );
+                    noDataTrigger
+                        .register()
+                        .trigger()
+                        .catch( this.error )
+                        .then( this.log( "Trigger no_data_changed" ) );
+
+                    this.setUnavailable( "No data available" );
+                }
+                else
+                {
+                    this.setUnavailable( errString );
+                }
             }
-            else
-            {
-                this.setUnavailable( errString );
-            }
+        }
+        catch ( error )
+        {
+            Homey.app.updateLog( "Weather Refresh Error Error: " + Homey.app.varToString( error, false ), true );
         }
 
         this.timerID = setTimeout( () =>

@@ -106,5 +106,8 @@
   },
   "2.1.9": {
     "en": "Ensure warning message is cleared from the device. Initial update is now delayed to ensure app updates don't exceed connection rate. Fixed an issue where polling stops after a network error"
+  },
+  "2.1.10": {
+    "en": "Another attempt at fixing the mysterious crash when the network fails"
   }
 }
