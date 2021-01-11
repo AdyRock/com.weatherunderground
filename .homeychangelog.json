@@ -109,5 +109,8 @@
   },
   "2.1.10": {
     "en": "Another attempt at fixing the mysterious crash when the network fails"
+  },
+  "2.1.11": {
+    "en": "Fixed issues where polling stops after a network error"
   }
 }
