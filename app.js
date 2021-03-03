@@ -1,7 +1,8 @@
+/*jslint node: true */
 'use strict';
 if ( process.env.DEBUG === '1' )
 {
-    require( 'inspector' ).open( 9222, '0.0.0.0', true )
+    require( 'inspector' ).open( 9222, '0.0.0.0', true );
 }
 
 const Homey = require( 'homey' );
@@ -102,25 +103,25 @@ class WeatherApp extends Homey.App
                 } ).on( 'error', ( err ) =>
                 {
                     let errMessage = null;
-                    if (err.message)
+                    if ( err.message )
                     {
                         errMessage = err.message;
                     }
-                    else if (err.data)
+                    else if ( err.data )
                     {
-                        if (err.data.message)
+                        if ( err.data.message )
                         {
                             errMessage = err.data.message;
                         }
                     }
 
-                    if (!errMessage)
+                    if ( !errMessage )
                     {
                         errMessage = err.toString();
                     }
 
                     this.updateLog( "GetURL On Error: " + this.varToString( err ), true );
-                    reject( "GetURL On Error: " + errMessage  );
+                    reject( "GetURL On Error: " + errMessage );
                 } );
             }
             catch ( e )
@@ -163,7 +164,7 @@ class WeatherApp extends Homey.App
 
             return source.toString();
         }
-        catch(error)
+        catch ( error )
         {
             this.log( "Error decoding message to a string", source );
             return "Error decoding message to a string";
@@ -220,7 +221,7 @@ class WeatherApp extends Homey.App
             this.logLastTime = nowTime;
         }
 
-        oldText += nowTime.toJSON()
+        oldText += nowTime.toJSON();
         oldText += "\r\n  ";
 
         oldText += "* ";

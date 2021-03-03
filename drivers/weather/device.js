@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 const Homey = require( 'homey' );
@@ -41,7 +42,7 @@ class WeatherDevice extends Homey.Device
 
         try
         {
-            let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
+            let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj );
             if ( !placeID )
             {
                 throw new Error( Homey.__( "stationNotFound" ) );
@@ -143,7 +144,7 @@ class WeatherDevice extends Homey.Device
                     {
                         await this.addCapability( "measure_radiation" );
                         this._driver.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' )
-                            .register()
+                            .register();
                     }
 
                     Homey.app.updateLog( "SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation );

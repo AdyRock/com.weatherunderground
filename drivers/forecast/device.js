@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 const Homey = require( 'homey' );
@@ -127,7 +128,7 @@ class ForecastDevice extends Homey.Device
         // throw new Error('Your error message');
         this.log( "onSettings called" );
 
-        let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj )
+        let placeID = await Homey.app.getPlaceID( newSettingsObj, oldSettingsObj );
         if ( !placeID )
         {
             throw new Error( Homey.__( "stationNotFound" ) );
@@ -242,7 +243,7 @@ class ForecastDevice extends Homey.Device
                         if ( this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] != this.oldForecastData.daypart[ 0 ].uvIndex[ dayNight ] ) { this._driver.triggerUltraviolet( this, element.id, this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ); }
                         if ( this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] != this.oldForecastData.daypart[ 0 ].thunderCategory[ dayNight ] ) { this._driver.triggerThunder( this, element.id, this.forecastData.daypart[ 0 ].thunderCategory[ dayNight ] ); }
                         if ( this.forecastData.daypart[ 0 ].temperature[ dayNight ] != this.oldForecastData.daypart[ 0 ].temperature[ dayNight ] ) { this._driver.triggerTemperature( this, element.id, this.forecastData.daypart[ 0 ].temperature[ dayNight ] ); }
-                    } )
+                    } );
                 }
 
                 this.oldForecastData = this.forecastData;

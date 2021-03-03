@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 const Homey = require( 'homey' );
@@ -17,9 +18,9 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
-        this.windAngleTrigger = new Homey.FlowCardTriggerDevice( 'wind_angle_changed_forecast' )
+        this.windAngleTrigger = new Homey.FlowCardTriggerDevice( 'wind_angle_changed_forecast' );
         this.windAngleTrigger
             .register()
             .registerRunListener( ( args, state ) =>
@@ -28,7 +29,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
 
         this.gustStrengthTrigger = new Homey.FlowCardTriggerDevice( 'gust_strength_forecast' )
@@ -39,7 +40,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.humidityTrigger = new Homey.FlowCardTriggerDevice( 'humidity_changed_forecast' )
             .register()
@@ -49,7 +50,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.ultraVioletTrigger = new Homey.FlowCardTriggerDevice( 'ultraviolet_changed_forecast' )
             .register()
@@ -59,7 +60,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.tempMaxTrigger = new Homey.FlowCardTriggerDevice( 'temperature_max_changed' )
             .register()
@@ -69,7 +70,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.tempMinTrigger = new Homey.FlowCardTriggerDevice( 'temperature_min_changed' )
             .register()
@@ -79,7 +80,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.cloudCoverTrigger = new Homey.FlowCardTriggerDevice( 'cloud_cover_changed' )
             .register()
@@ -89,7 +90,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.precipitationTypeTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_type_changed' )
             .register()
@@ -99,7 +100,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.precipitationTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_chance_changed' )
             .register()
@@ -109,7 +110,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.snowTrigger = new Homey.FlowCardTriggerDevice( 'snow_changed' )
             .register()
@@ -119,7 +120,7 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.temperatureTrigger = new Homey.FlowCardTriggerDevice( 'temperature_feelsLike_forecast_changed' )
             .register()
@@ -129,14 +130,14 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
-            } )
+            } );
 
         this.cloudCoverEqualCondition = new Homey.FlowCardCondition( 'cloud_cover_equal' );
         this.cloudCoverEqualCondition
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] == args.value;
             } );
 
@@ -145,7 +146,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] > args.value;
             } );
 
@@ -154,7 +155,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] == args.value;
             } );
 
@@ -163,7 +164,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] > args.value;
             } );
 
@@ -172,7 +173,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] == args.value;
             } );
 
@@ -181,7 +182,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] > args.value;
             } );
 
@@ -190,7 +191,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] == args.value;
             } );
 
@@ -199,7 +200,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] > args.value;
             } );
 
@@ -208,7 +209,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.qpf[ day.day ] == args.value;
             } );
 
@@ -217,7 +218,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.qpf[ day.day ] > args.value;
             } );
 
@@ -226,7 +227,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.qpfSnow[ day.day ] == args.value;
             } );
 
@@ -235,7 +236,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.qpfSnow[ day.day ] > args.value;
             } );
 
@@ -244,7 +245,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].temperature[ day.dayNight ] == args.value;
             } );
 
@@ -253,7 +254,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].temperature[ day.dayNight ] > args.value;
             } );
 
@@ -262,7 +263,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.temperatureMax[ day.day ] == args.value;
             } );
 
@@ -271,7 +272,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.temperatureMax[ day.day ] > args.value;
             } );
 
@@ -280,7 +281,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.temperatureMin[ day.day ] == args.value;
             } );
 
@@ -289,7 +290,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.temperatureMin[ day.day ] > args.value;
             } );
 
@@ -298,7 +299,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] == args.value;
             } );
 
@@ -307,7 +308,7 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
-                const day = args.device.getDayNight(args.day);
+                const day = args.device.getDayNight( args.day );
                 return this.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] > args.value;
             } );
     }
@@ -356,140 +357,140 @@ class ForecastDriver extends Homey.Driver
         let state = { 'day': Day };
 
         this.rainTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_rain") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_rain" ) )
+            .catch( this.error );
     }
 
     async triggerWindAngle( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering wind angle changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_wind_angle': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_wind_angle': Value };
+        let state = { 'day': Day };
 
         this.windAngleTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_wind_angle") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_wind_angle" ) )
+            .catch( this.error );
     }
 
     async triggerGustStrength( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering gust strength changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_gust_strength': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_gust_strength': Value };
+        let state = { 'day': Day };
 
         this.gustStrengthTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_gust_strength") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_gust_strength" ) )
+            .catch( this.error );
     }
 
     async triggerHumidity( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering humidity changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_humidity': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_humidity': Value };
+        let state = { 'day': Day };
 
         this.humidityTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_humidity") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_humidity" ) )
+            .catch( this.error );
     }
 
     async triggerUltraviolet( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering ultraviolet changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_ultraviolet': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_ultraviolet': Value };
+        let state = { 'day': Day };
 
         this.ultraVioletTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_ultraviolet") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_ultraviolet" ) )
+            .catch( this.error );
     }
 
     async triggerTempMax( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering max temp changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_temperature.max': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_temperature.max': Value };
+        let state = { 'day': Day };
 
         this.tempMaxTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_temperature.max") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_temperature.max" ) )
+            .catch( this.error );
     }
 
     async triggerTempMin( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering min temp changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_temperature.min': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_temperature.min': Value };
+        let state = { 'day': Day };
 
         this.tempMinTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_temperature.min") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_temperature.min" ) )
+            .catch( this.error );
     }
 
     async triggerCloudCover( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering cloud cover changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_cloud_cover': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_cloud_cover': Value };
+        let state = { 'day': Day };
 
         this.cloudCoverTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_cloud_cover") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_cloud_cover" ) )
+            .catch( this.error );
     }
 
     async triggerPrecipitationType( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering precipitation type changed for: ", Day, " with: ", Value );
-        let tokens = { 'precipitation_type': Value }
-        let state = { 'day': Day }
+        let tokens = { 'precipitation_type': Value };
+        let state = { 'day': Day };
 
         this.precipitationTypeTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger precipitation_type") )
-            .catch( this.error )
+            .then( this.log( "Trigger precipitation_type" ) )
+            .catch( this.error );
     }
 
     async triggerRainChance( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering precipitation chance changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_precipitation_chance': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_precipitation_chance': Value };
+        let state = { 'day': Day };
 
         this.precipitationTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_precipitation_chance") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_precipitation_chance" ) )
+            .catch( this.error );
     }
 
     async triggerSnow( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering snow changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_snow': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_snow': Value };
+        let state = { 'day': Day };
 
         this.snowTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_snow") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_snow" ) )
+            .catch( this.error );
     }
 
     async triggerTemperature( Device, Day, Value )
     {
         // trigger the card
         this.log( "Triggering feels like changed for: ", Day, " with: ", Value );
-        let tokens = { 'measure_temperature.feelsLike.forecast': Value }
-        let state = { 'day': Day }
+        let tokens = { 'measure_temperature.feelsLike.forecast': Value };
+        let state = { 'day': Day };
 
         this.temperatureTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger measure_temperature.feelsLike.forecast") )
-            .catch( this.error )
+            .then( this.log( "Trigger measure_temperature.feelsLike.forecast" ) )
+            .catch( this.error );
     }
 }
 

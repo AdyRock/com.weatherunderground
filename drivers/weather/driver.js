@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 const Homey = require( 'homey' );
@@ -10,16 +11,16 @@ class WeatherDriver extends Homey.Driver
         this.log( 'WeatherDriver has been init' );
 
         this.feelLikeTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_feelsLike_changed' )
-            .register()
+            .register();
 
         this.dewPointTrigger = new Homey.FlowCardTriggerDevice( 'measure_temperature_dewPoint_changed' )
-            .register()
+            .register();
 
         this.rainTotalTrigger = new Homey.FlowCardTriggerDevice( 'measure_rain_total_changed' )
-            .register()
+            .register();
 
         this.radiationTrigger = new Homey.FlowCardTriggerDevice( 'measure_radiation_changed' )
-            .register()
+            .register();
     }
 
     onPair( socket )
@@ -61,50 +62,50 @@ class WeatherDriver extends Homey.Driver
     async triggerFeelLike( Device, Value )
     {
         // trigger the card
-        Homey.app.updateLog("Triggering Feels Like changed with: " + Value);
+        Homey.app.updateLog( "Triggering Feels Like changed with: " + Value );
         let tokens = { 'feelsLike': Value };
         let state = {};
 
         this.feelLikeTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger feelsLike") )
-            .catch( this.error )
+            .then( this.log( "Trigger feelsLike" ) )
+            .catch( this.error );
     }
 
 
     async triggerDewPoint( Device, Value )
     {
         // trigger the card
-        Homey.app.updateLog("Triggering Dew Point like changed with: " + Value);
+        Homey.app.updateLog( "Triggering Dew Point like changed with: " + Value );
         let tokens = { 'dewPoint': Value };
         let state = {};
 
         this.dewPointTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger dewPoint") )
-            .catch( this.error )
+            .then( this.log( "Trigger dewPoint" ) )
+            .catch( this.error );
     }
 
     async triggerRainTotal( Device, Value )
     {
         // trigger the card
-        Homey.app.updateLog("Triggering Rain Total changed with: " + Value);
+        Homey.app.updateLog( "Triggering Rain Total changed with: " + Value );
         let tokens = { 'rain_total': Value };
         let state = {};
 
         this.rainTotalTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger rain_total") )
-            .catch( this.error )
+            .then( this.log( "Trigger rain_total" ) )
+            .catch( this.error );
     }
 
     async triggerRadiation( Device, Value )
     {
         // trigger the card
-        Homey.app.updateLog("Triggering Radiation changed with: " + Value);
+        Homey.app.updateLog( "Triggering Radiation changed with: " + Value );
         let tokens = { 'radiation': Value };
         let state = {};
 
         this.radiationTrigger.trigger( Device, tokens, state )
-            .then( this.log("Trigger radiation") )
-            .catch( this.error )
+            .then( this.log( "Trigger radiation" ) )
+            .catch( this.error );
     }
 }
 
