@@ -154,7 +154,18 @@ class ForecastDevice extends Homey.Device
 
                 this.setAvailable();
                 this.unsetWarning();
-                Homey.app.stationOffline = false;
+
+                if ( Homey.app.stationOffline )
+                {
+                    Homey.app.stationOffline = false;
+
+                    let dataResumedTrigger = new Homey.FlowCardTrigger( 'data_resumed_changed' );
+                    dataResumedTrigger
+                        .register()
+                        .trigger()
+                        .catch( this.error )
+                        .then( this.log( "Resumed triggered" ) );
+                }
 
                 const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
                 let dayNight = entry.value;

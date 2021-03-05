@@ -112,5 +112,8 @@
     },
     "2.1.11": {
         "en": "Fixed issues where polling stops after a network error"
+    },
+    "2.1.12": {
+        "en": "Added Data Resumed flow trigger"
     }
 }

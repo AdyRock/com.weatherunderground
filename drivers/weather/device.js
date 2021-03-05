@@ -79,7 +79,18 @@ class WeatherDevice extends Homey.Device
 
                 this.setAvailable();
                 this.unsetWarning();
-                Homey.app.stationOffline = false;
+
+                if ( Homey.app.stationOffline )
+                {
+                    Homey.app.stationOffline = false;
+
+                    let dataResumedTrigger = new Homey.FlowCardTrigger( 'data_resumed_changed' );
+                    dataResumedTrigger
+                        .register()
+                        .trigger()
+                        .catch( this.error )
+                        .then( this.log( "Resumed triggered" ) );
+                }
 
                 Homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
