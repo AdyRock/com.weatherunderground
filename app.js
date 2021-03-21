@@ -15,6 +15,21 @@ class WeatherApp extends Homey.App
         this.log( ' WeatherApp is running...' );
         Homey.ManagerSettings.set( 'diagLog', "App Started\r\n" );
         this.stationOffline = false;
+
+        this.NumStations = Homey.ManagerSettings.get('NumStations');
+        if (!this.NumStations)
+        {
+            this.NumStations = 1;
+            Homey.ManagerSettings.set('NumStations', this.NumStations);
+        }
+
+        Homey.ManagerSettings.on('set', (setting) =>
+        {
+            if (setting === 'NumStations')
+            {
+                this.NumStations = Homey.ManagerSettings.get('NumStations');
+            }
+        });
     }
 
     async getPlaceID( newSettings, oldSettings )

@@ -115,5 +115,8 @@
     },
     "2.1.12": {
         "en": "Added Data Resumed flow trigger"
+    },
+    "2.1.13": {
+        "en": "Added an app option to specify the number of weather stations on your account so the update rate can be optimised."
     }
 }

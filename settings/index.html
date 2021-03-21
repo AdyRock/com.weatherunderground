@@ -11,7 +11,25 @@
 <body>
     <!-- Tab links -->
     <div class="tab">
-        <button class="tablinks" onclick="setPage(event, 'log')" id="defaultOpen">Log</button>
+        <button class="tablinks" onclick="setPage(event, 'settings')" id="defaultOpen"><span data-i18n="settings.settings"></span></button>
+        <button class="tablinks" onclick="setPage(event, 'log')">Log</button>
+    </div>
+
+    <!-- SETTINGS PAGE -->
+    <div id="settings" class="tabcontent">
+
+        <p data-i18n="settings.subtitle"></p>
+
+        <fieldset>
+            <legend><span data-i18n="settings.accountDetails"></span></legend>
+            <div class="field row">
+                <label for="NumStations"><span data-i18n="settings.NumStations"></span></label>
+                <input id="NumStations" type="number" min="1" step="1" style="text-align:right; width:80px;" value="" />
+            </div>
+            <div class="field row">
+                <p><button id="save" class="right"><span data-i18n="settings.saveChanges"></span></button></p>
+            </div>
+        </fieldset>
     </div>
 
     <!-- LOG PAGE -->
@@ -33,6 +51,8 @@
     </div>
 
     <script type="text/javascript">
+        var NumStationElement = document.getElementById( 'NumStations' );
+        var saveElement = document.getElementById( 'save' );
         var diagLogElement = document.getElementById( 'diagLog' );
         var logEnabledElement = document.getElementById( 'logEnabled' );
         var clearLogElement = document.getElementById( 'clearLog' );
@@ -50,6 +70,26 @@
                     diagLogElement.value = diagLog;
                 } );
 
+            } );
+
+            Homey.get( 'NumStations', function( err, NumStations )
+            {
+                if ( err ) return Homey.alert( err );
+                NumStationElement.value = NumStations;
+            } );
+
+            saveElement.addEventListener( 'click', function( e )
+            {
+                if ( NumStationElement.value < 1 )
+                {
+                    NumStationElement.value = 1;
+                }
+                Homey.set( 'NumStations', NumStationElement.value, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+
+                return Homey.alert( Homey.__( 'settings.saved' ) );
             } );
 
             logEnabledElement.addEventListener( 'click', function( e )
@@ -71,7 +111,7 @@
 
             // Tell Homey we're ready to be displayed
             Homey.ready();
-        };
+        }
 
         function setPage( evt, tabPage )
         {
@@ -114,7 +154,7 @@
                 diagLogElement.setAttribute( 'cols', diagLogElement.parentElement.clientWidth / 8 );
                 diagLogElement.style.height = ( window.innerHeight - diagLogElement.offsetTop - 20 ) + 'px';
             }
-        };
+        }
     </script>
 
 </body>

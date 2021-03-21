@@ -230,7 +230,7 @@ class WeatherDevice extends Homey.Device
         this.timerID = setTimeout( () =>
         {
             this.refreshCapabilities();
-        }, 60000 );
+        }, 60000 * Homey.app.NumStations );
     }
 
     async getWeather()

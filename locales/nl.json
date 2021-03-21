@@ -6,5 +6,12 @@
     "stationIDRequired": "Station ID is vereist",
     "apiKeyRequired": "API-sleutel is vereist",
     "langCode": "nl-NL",
-    "stationNotFound": "Kan de Station ID-locatie of ongeldige API-sleutel niet vinden"
+    "stationNotFound": "Kan de Station ID-locatie of ongeldige API-sleutel niet vinden",
+    "settings": {
+        "settings": "Instellingen",
+        "subtitle": "De update-snelheid is gebaseerd op het totale aantal weerstations dat u op uw WU-account hebt om ervoor te zorgen dat u binnen de limiet blijft.",
+        "NumStations": "Aantal stations",
+        "saveChanges": "Wijzigingen opslaan",
+        "saved": "De instellingen zijn opgeslagen"
+    }
 }

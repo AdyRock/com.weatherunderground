@@ -6,5 +6,12 @@
     "stationIDRequired": "Stations ID wird benötigt",
     "apiKeyRequired": "API Key wird benötigt",
     "langCode": "de-DE",
-    "stationNotFound": "Die Stations ID wurde nicht gefunden oder der API Key ist ungültig"
+    "stationNotFound": "Die Stations ID wurde nicht gefunden oder der API Key ist ungültig",
+    "settings": {
+        "settings": "Einstellungen",
+        "subtitle": "Die Aktualisierungsrate basiert auf der Gesamtzahl der Wetterstationen, die Sie auf Ihrem WU-Konto haben, um sicherzustellen, dass Sie innerhalb des Ratenlimits bleiben.",
+        "NumStations": "Anzahl der Stationen",
+        "saveChanges": "Änderungen speichern",
+        "saved": "Die Einstellungen wurden gespeichert"
+    }
 }
