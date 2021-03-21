@@ -63,6 +63,24 @@ class WeatherDevice extends Homey.Device
         }
     }
 
+    async unitsChanged(Units)
+    {
+        if (Units === 'SpeedUnits')
+        {
+            let unitsText = Homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
+            this.setCapabilityOptions('measure_wind_strength', {"units": unitsText});
+            this.setCapabilityOptions('measure_gust_strength', {"units": unitsText});
+            if ( this.timerID )
+            {
+                clearTimeout( this.timerID );
+            }
+            setImmediate( () =>
+            {
+                this.refreshCapabilities();
+            } );
+        }
+    }
+
     async refreshCapabilities()
     {
         let errString = null;
@@ -94,8 +112,19 @@ class WeatherDevice extends Homey.Device
 
                 Homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
                 this.setCapabilityValue( "measure_wind_angle", currentData.winddir );
-                this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed );
-                this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );
+
+                if (Homey.app.SpeedUnits === '0')
+                {
+                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed );
+                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust );
+                }
+                else
+                {
+                    // Convert Km/H to m/s
+                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed  * 1000 / 3600 );
+                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust  * 1000 / 3600);
+                }
+
                 this.setCapabilityValue( "measure_humidity", currentData.humidity );
                 this.setCapabilityValue( "measure_temperature", currentData.metric.temp );
 

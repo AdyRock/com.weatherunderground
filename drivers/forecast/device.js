@@ -144,6 +144,23 @@ class ForecastDevice extends Homey.Device
         } );
     }
 
+    async unitsChanged(Units)
+    {
+        if (Units === 'SpeedUnits')
+        {
+            let unitsText = Homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
+            this.setCapabilityOptions('measure_gust_strength.forecast', {"units": unitsText});
+            if ( this.timerID )
+            {
+                clearTimeout( this.timerID );
+            }
+            setImmediate( () =>
+            {
+                this.refreshCapabilities();
+            } );
+        }
+    }
+
     async updateCapabilities( SelectedDay )
     {
         try
@@ -195,7 +212,16 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "measure_precipitation_chance", this.forecastData.daypart[ 0 ].precipChance[ dayNight ] );
                 this.setCapabilityValue( "precipitation_type", this.forecastData.daypart[ 0 ].precipType[ dayNight ] );
                 this.setCapabilityValue( "measure_wind_angle.forecast", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] );
-                this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
+
+                if (Homey.app.SpeedUnits === '0')
+                {
+                    this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
+                }
+                else
+                {
+                    this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600 );
+                }
+
                 this.setCapabilityValue( "measure_humidity.forecast", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] );
                 this.setCapabilityValue( "measure_ultraviolet.forecast", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] );
                 this.setCapabilityValue( "measure_temperature.feelsLike.forecast", this.forecastData.daypart[ 0 ].temperature[ dayNight ] );

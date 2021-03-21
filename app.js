@@ -29,7 +29,35 @@ class WeatherApp extends Homey.App
             {
                 this.NumStations = Homey.ManagerSettings.get('NumStations');
             }
+            if (setting === 'SpeedUnits')
+            {
+                this.SpeedUnits = Homey.ManagerSettings.get('SpeedUnits');
+                this.changeUnits('SpeedUnits');
+            }
         });
+    }
+
+    async changeUnits(Units)
+    {
+        let promises = [];
+
+        const drivers = Homey.ManagerDrivers.getDrivers();
+        for (const driver in drivers)
+        {
+            let devices = Homey.ManagerDrivers.getDriver(driver).getDevices();
+            let numDevices = devices.length;
+            for (var i = 0; i < numDevices; i++)
+            {
+                let device = devices[i];
+                if (device.unitsChanged)
+                {
+                    promises.push(device.unitsChanged(Units));
+                }
+            }
+        }
+
+        // Wait for all the checks to complete
+        await Promise.allSettled(promises);
     }
 
     async getPlaceID( newSettings, oldSettings )

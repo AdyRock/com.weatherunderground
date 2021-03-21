@@ -17,19 +17,27 @@
 
     <!-- SETTINGS PAGE -->
     <div id="settings" class="tabcontent">
-
-        <p data-i18n="settings.subtitle"></p>
-
         <fieldset>
             <legend><span data-i18n="settings.accountDetails"></span></legend>
+            <p data-i18n="settings.subtitle"></p>
             <div class="field row">
                 <label for="NumStations"><span data-i18n="settings.NumStations"></span></label>
                 <input id="NumStations" type="number" min="1" step="1" style="text-align:right; width:80px;" value="" />
             </div>
+        </fieldset>
+        <fieldset>
+            <legend><span data-i18n="settings.Units"></span></legend>
             <div class="field row">
-                <p><button id="save" class="right"><span data-i18n="settings.saveChanges"></span></button></p>
+                <label for="SpeedUnits"><span data-i18n="settings.SpeedUnits"></span></label>
+                <select id="SpeedUnits" style="width:80px;">
+                    <option value='0'>Km/H</option>
+                    <option value='1'>m/s</option>
+                </select>
             </div>
         </fieldset>
+        <div class="field row">
+            <p><button id="save" class="right"><span data-i18n="settings.saveChanges"></span></button></p>
+        </div>
     </div>
 
     <!-- LOG PAGE -->
@@ -56,6 +64,7 @@
         var diagLogElement = document.getElementById( 'diagLog' );
         var logEnabledElement = document.getElementById( 'logEnabled' );
         var clearLogElement = document.getElementById( 'clearLog' );
+        var SpeedUnitsElement = document.getElementById( 'SpeedUnits' );
 
         // a method named 'onHomeyReady' must be present in your code
         function onHomeyReady( Homey )
@@ -78,6 +87,12 @@
                 NumStationElement.value = NumStations;
             } );
 
+            Homey.get( 'SpeedUnits', function( err, SpeedUnits )
+            {
+                if ( err ) return Homey.alert( err );
+                SpeedUnitsElement.value = SpeedUnits;
+            } );
+
             saveElement.addEventListener( 'click', function( e )
             {
                 if ( NumStationElement.value < 1 )
@@ -85,6 +100,10 @@
                     NumStationElement.value = 1;
                 }
                 Homey.set( 'NumStations', NumStationElement.value, function( err )
+                {
+                    if ( err ) return Homey.alert( err );
+                } );
+                Homey.set( 'SpeedUnits', SpeedUnitsElement.value, function( err )
                 {
                     if ( err ) return Homey.alert( err );
                 } );
