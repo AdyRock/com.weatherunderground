@@ -12,6 +12,9 @@
         "subtitle": "De update-snelheid is gebaseerd op het totale aantal weerstations dat u op uw WU-account hebt om ervoor te zorgen dat u binnen de limiet blijft.",
         "NumStations": "Aantal stations",
         "saveChanges": "Wijzigingen opslaan",
-        "saved": "De instellingen zijn opgeslagen"
+        "saved": "De instellingen zijn opgeslagen",
+        "Units": "Eenheden instellingen",
+        "SpeedUnits": "Windsnelheid",
+        "accountDetails": "Accountgegevens"
     }
 }

@@ -118,5 +118,8 @@
     },
     "2.1.13": {
         "en": "Added an app option to specify the number of weather stations on your account so the update rate can be optimised."
+    },
+    "2.1.14": {
+        "en": "Added an app option to specify the wind speed units (Km/H or m/s)."
     }
 }

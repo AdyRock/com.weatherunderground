@@ -12,6 +12,9 @@
         "subtitle": "Die Aktualisierungsrate basiert auf der Gesamtzahl der Wetterstationen, die Sie auf Ihrem WU-Konto haben, um sicherzustellen, dass Sie innerhalb des Ratenlimits bleiben.",
         "NumStations": "Anzahl der Stationen",
         "saveChanges": "Änderungen speichern",
-        "saved": "Die Einstellungen wurden gespeichert"
+        "saved": "Die Einstellungen wurden gespeichert",
+        "Einheiten": "Units",
+        "SpeedUnits": "Windgeschwindigkeit",
+        "accountDetails": "Kontodetails"
     }
 }

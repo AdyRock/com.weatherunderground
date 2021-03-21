@@ -13,8 +13,8 @@
         "NumStations": "Number of Stations",
         "saveChanges": "Save Changes",
         "saved": "The settings have been saved",
-        "Units": "Units settings",
-        "SpeedUnits": "Wind Speed Units",
+        "Units": "Units",
+        "SpeedUnits": "Wind Speed",
         "accountDetails": "Account Details"
     }
 }
