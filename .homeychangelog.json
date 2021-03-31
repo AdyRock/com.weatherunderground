@@ -121,5 +121,8 @@
     },
     "2.1.14": {
         "en": "Added an app option to specify the wind speed units (Km/H or m/s)."
+    },
+    "2.1.15": {
+        "en": "Fix probelm with using forcast flow conditions."
     }
 }

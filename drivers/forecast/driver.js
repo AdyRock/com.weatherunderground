@@ -137,6 +137,10 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
                 return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] == args.value;
             } );
@@ -146,6 +150,10 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
                 return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] > args.value;
             } );
@@ -155,8 +163,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] == args.value;
+                return args.device.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] == args.value;
             } );
 
         this.gustStrengthGreaterCondition = new Homey.FlowCardCondition( 'gust_strength_greater' );
@@ -164,8 +176,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] > args.value;
+                return args.device.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] > args.value;
             } );
 
         this.humidityEqualCondition = new Homey.FlowCardCondition( 'humidity_equal' );
@@ -173,8 +189,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] == args.value;
+                return args.device.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] == args.value;
             } );
 
         this.humidityGreaterCondition = new Homey.FlowCardCondition( 'humidity_greater' );
@@ -182,8 +202,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] > args.value;
+                return args.device.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] > args.value;
             } );
 
         this.precipitationChanceEqualCondition = new Homey.FlowCardCondition( 'precipitation_chance_equal' );
@@ -191,8 +215,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] == args.value;
+                return args.device.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] == args.value;
             } );
 
         this.precipitationChanceGreaterCondition = new Homey.FlowCardCondition( 'precipitation_chance_greater' );
@@ -200,8 +228,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] > args.value;
+                return args.device.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] > args.value;
             } );
 
         this.rainEqualCondition = new Homey.FlowCardCondition( 'rain_equal' );
@@ -209,8 +241,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.qpf[ day.day ] == args.value;
+                return args.device.forecastData.qpf[ day.day ] == args.value;
             } );
 
         this.rainGreaterCondition = new Homey.FlowCardCondition( 'rain_greater' );
@@ -218,8 +254,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.qpf[ day.day ] > args.value;
+                return args.device.forecastData.qpf[ day.day ] > args.value;
             } );
 
         this.snowEqualCondition = new Homey.FlowCardCondition( 'snow_equal' );
@@ -227,8 +267,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.qpfSnow[ day.day ] == args.value;
+                return args.device.forecastData.qpfSnow[ day.day ] == args.value;
             } );
 
         this.snowGreaterCondition = new Homey.FlowCardCondition( 'snow_greater' );
@@ -236,8 +280,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.qpfSnow[ day.day ] > args.value;
+                return args.device.forecastData.qpfSnow[ day.day ] > args.value;
             } );
 
         this.temperatureFeelsLikeEqualCondition = new Homey.FlowCardCondition( 'temperature_feelsLike_equal' );
@@ -245,8 +293,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].temperature[ day.dayNight ] == args.value;
+                return args.device.forecastData.daypart[ 0 ].temperature[ day.dayNight ] == args.value;
             } );
 
         this.temperatureFeelsLikeGreaterCondition = new Homey.FlowCardCondition( 'temperature_feelsLike_greater' );
@@ -254,8 +306,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].temperature[ day.dayNight ] > args.value;
+                return args.device.forecastData.daypart[ 0 ].temperature[ day.dayNight ] > args.value;
             } );
 
         this.temperatureMaxEqualCondition = new Homey.FlowCardCondition( 'temperature_max_equal' );
@@ -263,8 +319,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.temperatureMax[ day.day ] == args.value;
+                return args.device.forecastData.temperatureMax[ day.day ] == args.value;
             } );
 
         this.temperatureMaxGreaterCondition = new Homey.FlowCardCondition( 'temperature_max_greater' );
@@ -272,8 +332,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.temperatureMax[ day.day ] > args.value;
+                return args.device.forecastData.temperatureMax[ day.day ] > args.value;
             } );
 
         this.temperatureMinEqualCondition = new Homey.FlowCardCondition( 'temperature_min_equal' );
@@ -282,7 +346,7 @@ class ForecastDriver extends Homey.Driver
             .registerRunListener( async ( args, state ) =>
             {
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.temperatureMin[ day.day ] == args.value;
+                return args.device.forecastData.temperatureMin[ day.day ] == args.value;
             } );
 
         this.temperatureMinGreaterCondition = new Homey.FlowCardCondition( 'temperature_min_greater' );
@@ -290,8 +354,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.temperatureMin[ day.day ] > args.value;
+                return args.device.forecastData.temperatureMin[ day.day ] > args.value;
             } );
 
         this.ultravioletEqualCondition = new Homey.FlowCardCondition( 'ultraviolet_equal' );
@@ -299,8 +367,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] == args.value;
+                return args.device.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] == args.value;
             } );
 
         this.ultravioletGreaterCondition = new Homey.FlowCardCondition( 'ultraviolet_greater' );
@@ -308,8 +380,12 @@ class ForecastDriver extends Homey.Driver
             .register()
             .registerRunListener( async ( args, state ) =>
             {
+                if (!args.device.forecastData)
+                {
+                    throw new Error("Forcast not available yet");
+                }
                 const day = args.device.getDayNight( args.day );
-                return this.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] > args.value;
+                return args.device.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] > args.value;
             } );
     }
 

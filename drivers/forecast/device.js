@@ -144,12 +144,12 @@ class ForecastDevice extends Homey.Device
         } );
     }
 
-    async unitsChanged(Units)
+    async unitsChanged( Units )
     {
-        if (Units === 'SpeedUnits')
+        if ( Units === 'SpeedUnits' )
         {
             let unitsText = Homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
-            this.setCapabilityOptions('measure_gust_strength.forecast', {"units": unitsText});
+            this.setCapabilityOptions( 'measure_gust_strength.forecast', { "units": unitsText } );
             if ( this.timerID )
             {
                 clearTimeout( this.timerID );
@@ -213,7 +213,7 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "precipitation_type", this.forecastData.daypart[ 0 ].precipType[ dayNight ] );
                 this.setCapabilityValue( "measure_wind_angle.forecast", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] );
 
-                if (Homey.app.SpeedUnits === '0')
+                if ( Homey.app.SpeedUnits === '0' )
                 {
                     this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] );
                 }
@@ -358,12 +358,14 @@ class ForecastDevice extends Homey.Device
         {
             day = -1 - day;
         }
-        // Day / Night parts
-        if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
-        {
-            dayNight++;
-        }
 
+        if ( this.oldForecastData )
+        { // Day / Night parts
+            if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
+            {
+                dayNight++;
+            }
+        }
         return { 'dayNight': dayNight, 'day': day };
     }
 
