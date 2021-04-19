@@ -23,6 +23,13 @@ class WeatherApp extends Homey.App
             Homey.ManagerSettings.set('NumStations', this.NumStations);
         }
 
+        this.SpeedUnits = Homey.ManagerSettings.get('SpeedUnits');
+        if (this.SpeedUnits === null)
+        {
+            this.SpeedUnits = 0;
+            Homey.ManagerSettings.set('SpeedUnits', this.SpeedUnits);
+        }
+
         Homey.ManagerSettings.on('set', (setting) =>
         {
             if (setting === 'NumStations')

@@ -124,5 +124,8 @@
     },
     "2.1.15": {
         "en": "Fix probelm with using forcast flow conditions."
+    },
+    "2.1.16": {
+        "en": "Fix problem with speed units changing to m/s after update and put default back to Km/H unless already set manually."
     }
 }
