@@ -22,6 +22,13 @@ class WeatherDevice extends Homey.Device
 
         this.setCapabilityValue( "measure_temperature.feelsLike", 0 );
 
+        if (Homey.app.NumStations == 0)
+        {
+            // App must have been updated from an older version that didn't have this setting
+            Homey.app.NumStations++;
+            Homey.ManagerSettings.set('NumStations', Homey.app.NumStations);
+        }
+
         this._driver = this.getDriver();
 
         // Refresh forecast but give it a minute to settle down
@@ -269,13 +276,20 @@ class WeatherDevice extends Homey.Device
         return await Homey.app.GetURL( url );
     }
 
+    async onAdded()
+    {
+        Homey.app.NumStations++;
+        Homey.ManagerSettings.set('NumStations', Homey.app.NumStations);
+    }
+
     async onDeleted()
     {
         if ( this.timerID )
         {
             clearTimeout( this.timerID );
         }
-    }
+        Homey.app.NumStations--;
+        Homey.ManagerSettings.set('NumStations', Homey.app.NumStations);    }
 }
 
 module.exports = WeatherDevice;

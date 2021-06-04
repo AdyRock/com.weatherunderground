@@ -127,5 +127,8 @@
     },
     "2.1.16": {
         "en": "Fix problem with speed units changing to m/s after update and put default back to Km/H unless already set manually."
+    },
+    "2.1.17": {
+        "en": "If the station ID is not found then you now have the option to add it anyway. Adding / removing a station automatically increments / decrements the station count to adjust the polling interval."
     }
 }

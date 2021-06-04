@@ -19,7 +19,7 @@ class WeatherApp extends Homey.App
         this.NumStations = Homey.ManagerSettings.get('NumStations');
         if (!this.NumStations)
         {
-            this.NumStations = 1;
+            this.NumStations = 0;
             Homey.ManagerSettings.set('NumStations', this.NumStations);
         }
 

@@ -37,15 +37,15 @@
 
         saveElement.addEventListener( 'click', function( e )
         {
-            Homey.showLoadingOverlay()
+            Homey.showLoadingOverlay();
             if ( stationIDElement.value === "" )
             {
-                Homey.hideLoadingOverlay()
+                Homey.hideLoadingOverlay();
                 return Homey.alert( Homey.__( "stationIDRequired" ) );
             }
             if ( apiKeyElement.value === "" )
             {
-                Homey.hideLoadingOverlay()
+                Homey.hideLoadingOverlay();
                 return Homey.alert( Homey.__( "apiKeyRequired" ) );
             }
 
@@ -57,8 +57,11 @@
             {
                 if ( !result )
                 {
-                    Homey.hideLoadingOverlay()
-                    return Homey.alert( Homey.__( "stationNotFound" ) );
+                    Homey.hideLoadingOverlay();
+                    if (!Homey.confirm( Homey.__( "stationNotFound" ) ))
+                    {
+                        return false;
+                    }
                 }
 
                 let rndId = Math.floor(Math.random() * 10000);
@@ -82,7 +85,7 @@
                 {
                     if ( err )
                     {
-                        Homey.hideLoadingOverlay()
+                        Homey.hideLoadingOverlay();
                         return Homey.alert( err );
                     }
                     Homey.done();

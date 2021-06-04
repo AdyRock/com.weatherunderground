@@ -1,6 +1,6 @@
 {
     "id": "com.weatherunderground",
-    "version": "2.1.16",
+    "version": "2.1.17",
     "compatibility": ">=3.0.0",
     "sdk": 2,
     "brandColor": "#FF7D4B",
