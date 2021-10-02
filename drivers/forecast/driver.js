@@ -10,8 +10,7 @@ class ForecastDriver extends Homey.Driver
     {
         this.log( 'ForecastDriver has been inited' );
 
-        this.rainTrigger = new Homey.FlowCardTriggerDevice( 'rain_changed_forecast' )
-            .register()
+        this.rainTrigger = this.homey.flow.getDeviceTriggerCard( 'rain_changed_forecast' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire rain trigger = ", args.day === state.day );
@@ -20,9 +19,8 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.windAngleTrigger = new Homey.FlowCardTriggerDevice( 'wind_angle_changed_forecast' );
+        this.windAngleTrigger = this.homey.flow.getDeviceTriggerCard( 'wind_angle_changed_forecast' );
         this.windAngleTrigger
-            .register()
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire wind angle trigger = ", args.day === state.day );
@@ -32,8 +30,7 @@ class ForecastDriver extends Homey.Driver
             } );
 
 
-        this.gustStrengthTrigger = new Homey.FlowCardTriggerDevice( 'gust_strength_forecast' )
-            .register()
+        this.gustStrengthTrigger = this.homey.flow.getDeviceTriggerCard( 'gust_strength_forecast' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire gust trigger = ", args.day === state.day );
@@ -42,8 +39,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.humidityTrigger = new Homey.FlowCardTriggerDevice( 'humidity_changed_forecast' )
-            .register()
+        this.humidityTrigger = this.homey.flow.getDeviceTriggerCard( 'humidity_changed_forecast' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire humidity trigger = ", args.day === state.day );
@@ -52,8 +48,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.ultraVioletTrigger = new Homey.FlowCardTriggerDevice( 'ultraviolet_changed_forecast' )
-            .register()
+        this.ultraVioletTrigger = this.homey.flow.getDeviceTriggerCard( 'ultraviolet_changed_forecast' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire UV trigger = ", args.day === state.day );
@@ -62,8 +57,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.tempMaxTrigger = new Homey.FlowCardTriggerDevice( 'temperature_max_changed' )
-            .register()
+        this.tempMaxTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_max_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire T.Max trigger = ", args.day === state.day );
@@ -72,8 +66,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.tempMinTrigger = new Homey.FlowCardTriggerDevice( 'temperature_min_changed' )
-            .register()
+        this.tempMinTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_min_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire T.Min trigger = ", args.day === state.day );
@@ -82,8 +75,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.cloudCoverTrigger = new Homey.FlowCardTriggerDevice( 'cloud_cover_changed' )
-            .register()
+        this.cloudCoverTrigger = this.homey.flow.getDeviceTriggerCard( 'cloud_cover_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire Cloud trigger = ", args.day === state.day );
@@ -92,8 +84,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.precipitationTypeTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_type_changed' )
-            .register()
+        this.precipitationTypeTrigger = this.homey.flow.getDeviceTriggerCard( 'precipitation_type_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire precipitation type trigger = ", args.day === state.day );
@@ -102,8 +93,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.precipitationTrigger = new Homey.FlowCardTriggerDevice( 'precipitation_chance_changed' )
-            .register()
+        this.precipitationTrigger = this.homey.flow.getDeviceTriggerCard( 'precipitation_chance_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire precipitation chance trigger = ", args.day === state.day );
@@ -112,8 +102,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.snowTrigger = new Homey.FlowCardTriggerDevice( 'snow_changed' )
-            .register()
+        this.snowTrigger = this.homey.flow.getDeviceTriggerCard( 'snow_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire snow chance trigger = ", args.day === state.day );
@@ -122,8 +111,7 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
-        this.temperatureTrigger = new Homey.FlowCardTriggerDevice( 'temperature_feelsLike_forecast_changed' )
-            .register()
+        this.temperatureTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_feelsLike_forecast_changed' )
             .registerRunListener( ( args, state ) =>
             {
                 console.log( "Fire feels like trigger = ", args.day === state.day );
@@ -131,298 +119,15 @@ class ForecastDriver extends Homey.Driver
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } );
-
-        this.cloudCoverEqualCondition = new Homey.FlowCardCondition( 'cloud_cover_equal' );
-        this.cloudCoverEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] == args.value;
-            } );
-
-        this.cloudCoverGreaterCondition = new Homey.FlowCardCondition( 'cloud_cover_greater' );
-        this.cloudCoverGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.oldForecastData.daypart[ 0 ].cloudCover[ day.dayNight ] > args.value;
-            } );
-
-        this.gustStrengthEqualCondition = new Homey.FlowCardCondition( 'gust_strength_equal' );
-        this.gustStrengthEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] == args.value;
-            } );
-
-        this.gustStrengthGreaterCondition = new Homey.FlowCardCondition( 'gust_strength_greater' );
-        this.gustStrengthGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].windSpeed[ day.dayNight ] > args.value;
-            } );
-
-        this.humidityEqualCondition = new Homey.FlowCardCondition( 'humidity_equal' );
-        this.humidityEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] == args.value;
-            } );
-
-        this.humidityGreaterCondition = new Homey.FlowCardCondition( 'humidity_greater' );
-        this.humidityGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].relativeHumidity[ day.dayNight ] > args.value;
-            } );
-
-        this.precipitationChanceEqualCondition = new Homey.FlowCardCondition( 'precipitation_chance_equal' );
-        this.precipitationChanceEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] == args.value;
-            } );
-
-        this.precipitationChanceGreaterCondition = new Homey.FlowCardCondition( 'precipitation_chance_greater' );
-        this.precipitationChanceGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].precipChance[ day.dayNight ] > args.value;
-            } );
-
-        this.rainEqualCondition = new Homey.FlowCardCondition( 'rain_equal' );
-        this.rainEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.qpf[ day.day ] == args.value;
-            } );
-
-        this.rainGreaterCondition = new Homey.FlowCardCondition( 'rain_greater' );
-        this.rainGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.qpf[ day.day ] > args.value;
-            } );
-
-        this.snowEqualCondition = new Homey.FlowCardCondition( 'snow_equal' );
-        this.snowEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.qpfSnow[ day.day ] == args.value;
-            } );
-
-        this.snowGreaterCondition = new Homey.FlowCardCondition( 'snow_greater' );
-        this.snowGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.qpfSnow[ day.day ] > args.value;
-            } );
-
-        this.temperatureFeelsLikeEqualCondition = new Homey.FlowCardCondition( 'temperature_feelsLike_equal' );
-        this.temperatureFeelsLikeEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].temperature[ day.dayNight ] == args.value;
-            } );
-
-        this.temperatureFeelsLikeGreaterCondition = new Homey.FlowCardCondition( 'temperature_feelsLike_greater' );
-        this.temperatureFeelsLikeGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].temperature[ day.dayNight ] > args.value;
-            } );
-
-        this.temperatureMaxEqualCondition = new Homey.FlowCardCondition( 'temperature_max_equal' );
-        this.temperatureMaxEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.temperatureMax[ day.day ] == args.value;
-            } );
-
-        this.temperatureMaxGreaterCondition = new Homey.FlowCardCondition( 'temperature_max_greater' );
-        this.temperatureMaxGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.temperatureMax[ day.day ] > args.value;
-            } );
-
-        this.temperatureMinEqualCondition = new Homey.FlowCardCondition( 'temperature_min_equal' );
-        this.temperatureMinEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.temperatureMin[ day.day ] == args.value;
-            } );
-
-        this.temperatureMinGreaterCondition = new Homey.FlowCardCondition( 'temperature_min_greater' );
-        this.temperatureMinGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.temperatureMin[ day.day ] > args.value;
-            } );
-
-        this.ultravioletEqualCondition = new Homey.FlowCardCondition( 'ultraviolet_equal' );
-        this.ultravioletEqualCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] == args.value;
-            } );
-
-        this.ultravioletGreaterCondition = new Homey.FlowCardCondition( 'ultraviolet_greater' );
-        this.ultravioletGreaterCondition
-            .register()
-            .registerRunListener( async ( args, state ) =>
-            {
-                if (!args.device.forecastData)
-                {
-                    throw new Error("Forcast not available yet");
-                }
-                const day = args.device.getDayNight( args.day );
-                return args.device.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] > args.value;
-            } );
     }
 
-    onPair( socket )
+    async onPair( session )
     {
-        socket.on( 'validate', ( settings, callback ) =>
+        session.setHandler( 'validate', async ( settings ) =>
         {
             this.log( 'onPair validate called: ' + settings );
-            Homey.app.getPlaceID( settings, null ).then( placeID =>
-            {
-                this.log( 'onPair placeID = ' + placeID );
-                callback( null, placeID );
-            } ).catch( err =>
-            {
-                this.log( 'onPair err = ' + err );
-                callback( null, false );
-            } );
+            return await this.homey.app.getPlaceID( settings, null );
         } );
-    }
-
-    // this is the easiest method to overwrite, when only the template 'Drivers-Pairing-System-Views' is being used.
-    onPairListDevices( data, callback )
-    {
-        // Required properties:
-        //"data": { "id": "abcd" },
-
-        // Optional properties, these overwrite those specified in app.json:
-        // "name": "My Device",
-        // "icon": "/my_icon.svg", // relative to: /drivers/<driver_id>/assets/
-        // "capabilities": [ "onoff", "dim" ],
-        // "capabilitiesOptions: { "onoff": {} },
-
-        // Optional properties, device-specific:
-        // "store": { "foo": "bar" },
-        // "settings": { "my_setting": "my_value" },
-
-        callback( null, null );
     }
 
     async triggerRain( Device, Day, Value )

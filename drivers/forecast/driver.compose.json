@@ -6,6 +6,13 @@
         "nl": "Weersverwachting",
         "de": "Wettervorhersage"
     },
+    "platforms": [
+        "local",
+        "cloud"
+    ],
+    "connectivity": [
+        "cloud"
+    ],
     "class": "other",
     "capabilities": [
         "forecast_day",

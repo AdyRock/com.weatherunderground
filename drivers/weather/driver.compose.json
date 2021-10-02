@@ -6,6 +6,13 @@
         "nl": "Weerstation",
         "de": "Wetterstation"
     },
+    "platforms": [
+        "local",
+        "cloud"
+    ],
+    "connectivity": [
+        "cloud"
+    ],
     "class": "other",
     "capabilities": [
         "measure_temperature",

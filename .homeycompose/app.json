@@ -1,8 +1,12 @@
 {
     "id": "com.weatherunderground",
     "version": "2.1.17",
-    "compatibility": ">=3.0.0",
-    "sdk": 2,
+    "compatibility": ">=5.0.0",
+    "platforms": [
+        "local",
+        "cloud"
+    ],
+    "sdk": 3,
     "brandColor": "#FF7D4B",
     "name": {
         "en": "Weather Underground"
@@ -30,6 +34,8 @@
         ]
     },
     "permissions": [],
+    "support": "https://github.com/AdyRock/com.weatherunderground/issues",
+    "homepage": "https://www.wunderground.com/",
     "contributing": {
         "donate": {
             "paypal": {

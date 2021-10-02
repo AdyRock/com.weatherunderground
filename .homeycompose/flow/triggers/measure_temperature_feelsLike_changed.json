@@ -1,27 +1,31 @@
 {
     "id": "measure_temperature_feelsLike_changed",
-    "title":
-    {
+    "title": {
         "en": "The feels like changed",
         "nl": "Het voelt als veranderd",
         "de": "Gefühlte Temperatur hat sich geändert"
     },
+    "platforms": [
+        "local",
+        "cloud"
+    ],
     "tokens": [
-    {
-        "name": "feelsLike",
-        "type": "number",
-        "title":
         {
-            "en": "Feels Like",
-            "nl": "Voelt als",
-            "de": "Gefühlte Temperatur"
-        },
-        "example": 25
-    } ],
+            "name": "feelsLike",
+            "type": "number",
+            "title": {
+                "en": "Feels Like",
+                "nl": "Voelt als",
+                "de": "Gefühlte Temperatur"
+            },
+            "example": 25
+        }
+    ],
     "args": [
-    {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=weather"
-    } ]
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+        }
+    ]
 }

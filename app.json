@@ -2,8 +2,12 @@
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.weatherunderground",
   "version": "2.1.17",
-  "compatibility": ">=3.0.0",
-  "sdk": 2,
+  "compatibility": ">=5.0.0",
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "sdk": 3,
   "brandColor": "#FF7D4B",
   "name": {
     "en": "Weather Underground"
@@ -31,6 +35,8 @@
     ]
   },
   "permissions": [],
+  "support": "https://github.com/AdyRock/com.weatherunderground/issues",
+  "homepage": "https://www.wunderground.com/",
   "contributing": {
     "donate": {
       "paypal": {
@@ -70,6 +76,13 @@
           "nl": "De bewolking veranderde",
           "de": "Die Bewölkung hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The cloud cover [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_cloud_cover",
@@ -90,6 +103,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -198,7 +214,11 @@
           "en": "Data has been resumed",
           "nl": "De gegevens zijn hervat",
           "de": "Die Daten wurden fortgesetzt"
-        }
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ]
       },
       {
         "id": "gust_strength_forecast",
@@ -213,6 +233,13 @@
           "es": "La fuerza del aire ha cambiado",
           "da": "Vindstyrken skiftede"
         },
+        "titleFormatted": {
+          "en": "The gust strength [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_gust_strength",
@@ -239,6 +266,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -339,7 +369,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "humidity_changed_forecast",
@@ -354,6 +385,13 @@
           "es": "La humedad ha cambiado",
           "da": "Luftfugtigheden ændrede sig"
         },
+        "titleFormatted": {
+          "en": "The humidity [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_humidity",
@@ -380,6 +418,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -489,6 +530,10 @@
           "nl": "De zonnestraling veranderde",
           "de": "Die Sonnenstrahlung hat sich geändert"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "radiation",
@@ -516,6 +561,10 @@
           "nl": "Het regentotaal veranderde",
           "de": "Die Regenmenge hat sich geändert"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "rain_total",
@@ -534,7 +583,8 @@
             "type": "device",
             "filter": "driver_id=weather"
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "measure_temperature_dewPoint_changed",
@@ -543,6 +593,10 @@
           "nl": "Het dauwpunt veranderde",
           "de": "Der Taupunkt hat sich geändert"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "dewPoint",
@@ -570,6 +624,10 @@
           "nl": "Het voelt als veranderd",
           "de": "Gefühlte Temperatur hat sich geändert"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "feelsLike",
@@ -596,7 +654,11 @@
           "en": "No data has been received",
           "nl": "Er zijn geen gegevens ontvangen",
           "de": "Es wurden keine Daten empfangen"
-        }
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ]
       },
       {
         "id": "precipitation_chance_changed",
@@ -605,6 +667,13 @@
           "nl": "De neerslagkans veranderde",
           "de": "Die Niederschlagswahrscheinlichkeit hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The precipitation chance [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_precipitation_chance",
@@ -625,6 +694,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -734,6 +806,13 @@
           "nl": "De neerslagtype veranderde",
           "de": "Der Niederschlagsart hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The precipitation type [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "precipitation_type",
@@ -754,6 +833,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -863,6 +945,13 @@
           "nl": "Het regentotaal veranderde",
           "de": "Die Regenmenge hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The rain total [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_rain",
@@ -883,6 +972,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -992,6 +1084,13 @@
           "nl": "De sneeuwkans veranderde",
           "de": "Die Schneewahrscheinlichkeit hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The snow chance [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_snow",
@@ -1012,6 +1111,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1117,10 +1219,17 @@
       {
         "id": "temperature_feelsLike_forecast_changed",
         "title": {
-          "en": "The feels like changed",
+          "en": "The feels like temperature changed",
           "nl": "Het voelt als veranderd",
           "de": "Gefühlte Temperatur hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The  feels like temperature [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_temperature.feelsLike.forecast",
@@ -1141,6 +1250,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1250,6 +1362,13 @@
           "nl": "De hoge temperatuur veranderd",
           "de": "Die Höchsttemperatur hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The high temperature [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_temperature.max",
@@ -1270,6 +1389,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1379,6 +1501,13 @@
           "nl": "De lage temperatuur veranderde",
           "de": "Die Tiefsttemperatur hat sich geändert"
         },
+        "titleFormatted": {
+          "en": "The low temperature [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_temperature.min",
@@ -1399,6 +1528,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1514,6 +1646,13 @@
           "es": "La radiación ultravioleta ha cambiado",
           "da": "UV-værdien ændrede sig"
         },
+        "titleFormatted": {
+          "en": "The ultraviolet [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_ultraviolet",
@@ -1540,6 +1679,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1655,6 +1797,13 @@
           "es": "El ángulo del viento ha cambiado",
           "da": "Vindvinklen er skiftet"
         },
+        "titleFormatted": {
+          "en": "The wind angle [[day]] changed"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "tokens": [
           {
             "name": "measure_wind_angle",
@@ -1681,6 +1830,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1795,6 +1947,10 @@
           "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
           "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -1803,6 +1959,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Cloud cover %"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -1813,6 +1972,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1925,6 +2087,10 @@
           "en": "The cloud cover [[day]] is !{{greater than|less or equal to}} [[value]]%",
           "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -1933,6 +2099,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Cloud cover %"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -1943,6 +2112,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2055,6 +2227,10 @@
           "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h",
           "de": "Die Böenstärke [[day]] ist !{{entspricht|entspricht nicht}} [[value]]km/h"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2063,6 +2239,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Gust strength"
+            },
             "type": "number",
             "min": 0,
             "max": 200,
@@ -2073,6 +2252,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2185,6 +2367,10 @@
           "en": "The gust strength [[day]] is !{{greater than|less or equal to}} [[value]]km/h",
           "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2193,6 +2379,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Gust strength"
+            },
             "type": "number",
             "min": 0,
             "max": 200,
@@ -2203,6 +2392,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2315,6 +2507,10 @@
           "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%",
           "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2323,6 +2519,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Humidity"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -2333,6 +2532,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2445,6 +2647,10 @@
           "en": "The humidity [[day]] is !{{greater than|less or equal to}} [[value]]%",
           "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2453,6 +2659,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Humidity"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -2463,6 +2672,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2575,6 +2787,10 @@
           "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2583,6 +2799,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Chance of precipitation"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -2593,6 +2812,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2705,6 +2927,10 @@
           "en": "The precipitation chance [[day]] is !{{greater than|less or equal to}} [[value]]%",
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2713,6 +2939,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Chance of precipitation"
+            },
             "type": "number",
             "min": 0,
             "max": 100,
@@ -2723,6 +2952,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2835,6 +3067,10 @@
           "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
           "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2843,6 +3079,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Rain total"
+            },
             "type": "number",
             "min": 0,
             "max": 1000,
@@ -2853,6 +3092,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2965,6 +3207,10 @@
           "en": "The total rain [[day]] is !{{greater than|less or equal to}} [[value]]mm",
           "de": "Die Regenmenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -2973,6 +3219,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Rain total"
+            },
             "type": "number",
             "min": 0,
             "max": 1000,
@@ -2983,6 +3232,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3095,6 +3347,10 @@
           "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm",
           "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3103,6 +3359,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Snow total"
+            },
             "type": "number",
             "min": 0,
             "max": 1000,
@@ -3113,6 +3372,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3225,6 +3487,10 @@
           "en": "The total snow [[day]] is !{{greater than|less or equal to}} [[value]]mm",
           "de": "Die Schneemenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3233,6 +3499,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Snow total"
+            },
             "type": "number",
             "min": 0,
             "max": 1000,
@@ -3243,6 +3512,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3355,6 +3627,10 @@
           "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C",
           "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3363,6 +3639,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -3373,6 +3652,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3485,6 +3767,10 @@
           "en": "The temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
           "de": "Die Temperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3493,6 +3779,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -3503,6 +3792,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3615,6 +3907,10 @@
           "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
           "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3623,6 +3919,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -3633,6 +3932,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3745,6 +4047,10 @@
           "en": "The maximum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
           "de": "Die Höchsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3753,6 +4059,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -3763,6 +4072,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3875,6 +4187,10 @@
           "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
           "de": "Die Tiefsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -3883,6 +4199,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -3893,6 +4212,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4005,6 +4327,10 @@
           "en": "The minimum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
           "de": "Die Tiefsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -4013,6 +4339,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Temperature"
+            },
             "type": "number",
             "min": -100,
             "max": 100,
@@ -4023,6 +4352,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4135,6 +4467,10 @@
           "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]",
           "de": "Der UV-Index [[day]] !{{entspricht|entspricht nicht}} [[value]]"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -4143,6 +4479,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Ultraviolet"
+            },
             "type": "number",
             "min": 0,
             "max": 16,
@@ -4153,6 +4492,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4265,6 +4607,10 @@
           "en": "The ultraviolet [[day]] is !{{greater than|less or equal to}} [[value]]",
           "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "name": "device",
@@ -4273,6 +4619,9 @@
           },
           {
             "name": "value",
+            "title": {
+              "en": "Ultraviolet"
+            },
             "type": "number",
             "min": 0,
             "max": 16,
@@ -4283,6 +4632,9 @@
           },
           {
             "name": "day",
+            "title": {
+              "en": "Period to report"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4395,6 +4747,13 @@
         "nl": "Weersverwachting",
         "de": "Wettervorhersage"
       },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
       "class": "other",
       "capabilities": [
         "forecast_day",
@@ -4522,6 +4881,13 @@
         "nl": "Weerstation",
         "de": "Wetterstation"
       },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
       "class": "other",
       "capabilities": [
         "measure_temperature",
@@ -4750,7 +5116,7 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "/assets/calender.svg"
+      "icon": "/assets/moon_phase.svg"
     },
     "forecast_summary": {
       "type": "string",

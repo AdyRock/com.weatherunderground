@@ -1,129 +1,139 @@
 {
-  "id": "temperature_min_changed",
-  "title": {
-    "en": "The low temperature changed",
-    "nl": "De lage temperatuur veranderde",
-    "de": "Die Tiefsttemperatur hat sich geändert"
-  },
-  "tokens": [
-    {
-      "name": "measure_temperature.min",
-      "type": "number",
-      "title": {
-        "en": "Low Temperature",
-        "nl": "Lage temperatuur",
-        "de": "Tiefsttemperatur"
-      },
-      "example": 20
-    }
-  ],
-  "args": [
-    {
-      "name": "device",
-      "type": "device",
-      "filter": "driver_id=forecast"
+    "id": "temperature_min_changed",
+    "title": {
+        "en": "The low temperature changed",
+        "nl": "De lage temperatuur veranderde",
+        "de": "Die Tiefsttemperatur hat sich geändert"
     },
-    {
-      "name": "day",
-      "type": "dropdown",
-      "values": [
+    "titleFormatted": {
+        "en": "The low temperature [[day]] changed"
+    },
+    "platforms": [
+        "local",
+        "cloud"
+    ],
+    "tokens": [
         {
-          "id": "today",
-          "title": {
-            "en": "Today",
-            "nl": "Vandaag",
-            "de": "Heute"
-          }
-        },
-        {
-          "id": "tonight",
-          "title": {
-            "en": "Tonight",
-            "nl": "Vanavond",
-            "de": "Heute Nacht"
-          }
-        },
-        {
-          "id": "today_1",
-          "title": {
-            "en": "Tomorrow",
-            "nl": "Morgen",
-            "de": "Morgen"
-          }
-        },
-        {
-          "id": "tonight_1",
-          "title": {
-            "en": "Tomorrow Night",
-            "nl": "Morgen vanavond",
-            "de": "Morgen Nacht"
-          }
-        },
-        {
-          "id": "today_2",
-          "title": {
-            "en": "Today + 2",
-            "nl": "Vandaag + 2",
-            "de": "Heute + 2"
-          }
-        },
-        {
-          "id": "tonight_2",
-          "title": {
-            "en": "Tonight + 2",
-            "nl": "Vanavond + 2",
-            "de": "Heute Nacht + 2"
-          }
-        },
-        {
-          "id": "today_3",
-          "title": {
-            "en": "Today + 3",
-            "nl": "Vandaag + 3",
-            "de": "Heute + 3"
-          }
-        },
-        {
-          "id": "tonight_3",
-          "title": {
-            "en": "Tonight + 3",
-            "nl": "Vanavond + 3",
-            "de": "Heute Nacht + 3"
-          }
-        },
-        {
-          "id": "today_4",
-          "title": {
-            "en": "Today + 4",
-            "nl": "Vandaag + 4",
-            "de": "Heute + 4"
-          }
-        },
-        {
-          "id": "tonight_4",
-          "title": {
-            "en": "Tonight + 4",
-            "nl": "Vanavond + 4",
-            "de": "Heute Nacht + 4"
-          }
-        },
-        {
-          "id": "today_5",
-          "title": {
-            "en": "Today + 5",
-            "nl": "Vandaag + 5",
-            "de": "Heute + 5"
-          }
-        },
-        {
-          "id": "tonight_5",
-          "title": {
-            "en": "Tonight + 5",
-            "nl": "Vanavond + 5",
-            "de": "Heute Nacht + 5"
-          }
+            "name": "measure_temperature.min",
+            "type": "number",
+            "title": {
+                "en": "Low Temperature",
+                "nl": "Lage temperatuur",
+                "de": "Tiefsttemperatur"
+            },
+            "example": 20
         }
-      ]
-    }
-  ]
+    ],
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+        },
+        {
+            "name": "day",
+            "title": {
+                "en": "Period to report"
+            },
+            "type": "dropdown",
+            "values": [
+                {
+                    "id": "today",
+                    "title": {
+                        "en": "Today",
+                        "nl": "Vandaag",
+                        "de": "Heute"
+                    }
+                },
+                {
+                    "id": "tonight",
+                    "title": {
+                        "en": "Tonight",
+                        "nl": "Vanavond",
+                        "de": "Heute Nacht"
+                    }
+                },
+                {
+                    "id": "today_1",
+                    "title": {
+                        "en": "Tomorrow",
+                        "nl": "Morgen",
+                        "de": "Morgen"
+                    }
+                },
+                {
+                    "id": "tonight_1",
+                    "title": {
+                        "en": "Tomorrow Night",
+                        "nl": "Morgen vanavond",
+                        "de": "Morgen Nacht"
+                    }
+                },
+                {
+                    "id": "today_2",
+                    "title": {
+                        "en": "Today + 2",
+                        "nl": "Vandaag + 2",
+                        "de": "Heute + 2"
+                    }
+                },
+                {
+                    "id": "tonight_2",
+                    "title": {
+                        "en": "Tonight + 2",
+                        "nl": "Vanavond + 2",
+                        "de": "Heute Nacht + 2"
+                    }
+                },
+                {
+                    "id": "today_3",
+                    "title": {
+                        "en": "Today + 3",
+                        "nl": "Vandaag + 3",
+                        "de": "Heute + 3"
+                    }
+                },
+                {
+                    "id": "tonight_3",
+                    "title": {
+                        "en": "Tonight + 3",
+                        "nl": "Vanavond + 3",
+                        "de": "Heute Nacht + 3"
+                    }
+                },
+                {
+                    "id": "today_4",
+                    "title": {
+                        "en": "Today + 4",
+                        "nl": "Vandaag + 4",
+                        "de": "Heute + 4"
+                    }
+                },
+                {
+                    "id": "tonight_4",
+                    "title": {
+                        "en": "Tonight + 4",
+                        "nl": "Vanavond + 4",
+                        "de": "Heute Nacht + 4"
+                    }
+                },
+                {
+                    "id": "today_5",
+                    "title": {
+                        "en": "Today + 5",
+                        "nl": "Vandaag + 5",
+                        "de": "Heute + 5"
+                    }
+                },
+                {
+                    "id": "tonight_5",
+                    "title": {
+                        "en": "Tonight + 5",
+                        "nl": "Vanavond + 5",
+                        "de": "Heute Nacht + 5"
+                    }
+                }
+            ]
+        }
+    ]
 }

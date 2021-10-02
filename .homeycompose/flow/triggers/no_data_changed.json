@@ -1,8 +1,12 @@
 {
-  "id": "no_data_changed",
-  "title": {
-    "en": "No data has been received",
-    "nl": "Er zijn geen gegevens ontvangen",
-    "de": "Es wurden keine Daten empfangen"
-  }
+    "id": "no_data_changed",
+    "title": {
+        "en": "No data has been received",
+        "nl": "Er zijn geen gegevens ontvangen",
+        "de": "Es wurden keine Daten empfangen"
+    },
+    "platforms": [
+        "local",
+        "cloud"
+    ]
 }

@@ -1,27 +1,31 @@
 {
     "id": "measure_temperature_dewPoint_changed",
-    "title":
-    {
+    "title": {
         "en": "The dew point changed",
         "nl": "Het dauwpunt veranderde",
         "de": "Der Taupunkt hat sich geändert"
     },
+    "platforms": [
+        "local",
+        "cloud"
+    ],
     "tokens": [
-    {
-        "name": "dewPoint",
-        "type": "number",
-        "title":
         {
-            "en": "Dew Point",
-            "nl": "Dauwpunt",
-            "de": "Taupunkt"
-        },
-        "example": 25
-    } ],
+            "name": "dewPoint",
+            "type": "number",
+            "title": {
+                "en": "Dew Point",
+                "nl": "Dauwpunt",
+                "de": "Taupunkt"
+            },
+            "example": 25
+        }
+    ],
     "args": [
-    {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=weather"
-    } ]
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+        }
+    ]
 }
