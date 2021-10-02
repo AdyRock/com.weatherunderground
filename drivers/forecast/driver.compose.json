@@ -27,7 +27,7 @@
         "measure_cloud_cover",
         "measure_precipitation_chance",
         "precipitation_type",
-        "measure_temperature.feelsLike.forecast",
+        "measure_temperature.feelsLike_forecast",
         "measure_wind_angle.forecast",
         "measure_gust_strength.forecast",
         "measure_humidity.forecast",
@@ -79,7 +79,7 @@
         {
             "insights": false
         },
-        "measure_temperature.feelsLike.forecast":
+        "measure_temperature.feelsLike_forecast":
         {
             "title":
             {

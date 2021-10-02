@@ -92,7 +92,12 @@ class ForecastDevice extends Homey.Device
 
         if ( !this.hasCapability( "measure_temperature.feelsLike.forecast" ) )
         {
-            this.addCapability( "measure_temperature.feelsLike.forecast" );
+            this.removeCapability( "measure_temperature.feelsLike.forecast" );
+        }
+
+        if ( !this.hasCapability( "measure_temperature.feelsLike_forecast" ) )
+        {
+            this.addCapability( "measure_temperature.feelsLike_forecast" );
         }
 
         if ( this.hasCapability( "measure_temperature.feelsLike" ) )
@@ -117,7 +122,7 @@ class ForecastDevice extends Homey.Device
         }, 70000 );
     }
 
-    async onSettings( oldSettingsObj, newSettingsObj, changedKeys )
+    async onSettings( { oldSettings, newSettings, changedKeys } )
     {
         // run when the user has changed the device's settings in Homey.
         // changedKeys contains an array of keys that have been changed
@@ -126,7 +131,7 @@ class ForecastDevice extends Homey.Device
         // throw new Error('Your error message');
         this.log( "onSettings called" );
 
-        let placeID = await this.homey.app.getPlaceID( newSettingsObj, oldSettingsObj );
+        let placeID = await this.homey.app.getPlaceID( newSettings, oldSettings );
         if ( !placeID )
         {
             throw new Error( this.homey.__( "stationNotFound" ) );
@@ -222,7 +227,7 @@ class ForecastDevice extends Homey.Device
 
                 this.setCapabilityValue( "measure_humidity.forecast", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "measure_ultraviolet.forecast", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_temperature.feelsLike.forecast", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "measure_temperature.feelsLike_forecast", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
             }
         }
         catch ( err )

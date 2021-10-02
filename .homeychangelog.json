@@ -130,5 +130,14 @@
     },
     "2.1.17": {
         "en": "If the station ID is not found then you now have the option to add it anyway. Adding / removing a station automatically increments / decrements the station count to adjust the polling interval."
+    },
+    "3.0.0": {
+        "en": "updated to SDK 3"
+    },
+    "3.0.1": {
+        "en": "Fix capability name"
+    },
+    "3.0.2": {
+        "en": "Fix device settings"
     }
 }

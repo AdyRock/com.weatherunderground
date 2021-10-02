@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.weatherunderground",
-  "version": "2.1.17",
+  "version": "3.0.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local",
@@ -4768,7 +4768,7 @@
         "measure_cloud_cover",
         "measure_precipitation_chance",
         "precipitation_type",
-        "measure_temperature.feelsLike.forecast",
+        "measure_temperature.feelsLike_forecast",
         "measure_wind_angle.forecast",
         "measure_gust_strength.forecast",
         "measure_humidity.forecast",
@@ -4809,7 +4809,7 @@
         "measure_snow": {
           "insights": false
         },
-        "measure_temperature.feelsLike.forecast": {
+        "measure_temperature.feelsLike_forecast": {
           "title": {
             "en": "Feels Like",
             "nl": "Voelt als",

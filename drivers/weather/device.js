@@ -36,7 +36,7 @@ class WeatherDevice extends Homey.Device
         }, 6000 );
     }
 
-    async onSettings( oldSettingsObj, newSettingsObj )
+    async onSettings( { oldSettings, newSettings, changedKeys } )
     {
         // run when the user has changed the device's settings in Homey.
         // changedKeysArr contains an array of keys that have been changed
@@ -47,7 +47,7 @@ class WeatherDevice extends Homey.Device
 
         try
         {
-            let placeID = await this.homey.app.getPlaceID( newSettingsObj, oldSettingsObj );
+            let placeID = await this.homey.app.getPlaceID( newSettings, oldSettings );
             if ( !placeID )
             {
                 throw new Error( Homey.__( "stationNotFound" ) );
