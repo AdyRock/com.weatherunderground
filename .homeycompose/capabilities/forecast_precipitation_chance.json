@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Precipitation Chance",
+    "nl": "Neerslagkans",
+    "de": "Niederschlagswahrscheinlichkeit"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "%"
+  },
+  "insights": true,
+  "icon": "/assets/rainsnow.svg"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Humidity",
+    "nl": "Luchtvochtigheid",
+    "de": "Luftfeuchtigkeit"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "%"
+  },
+  "insights": false,
+  "decimals": 1,
+  "icon": "/assets/humidity.svg"
+}

@@ -139,5 +139,8 @@
     },
     "3.0.2": {
         "en": "Fix device settings"
+    },
+    "3.0.3": {
+        "en": "Changed capabilities to remove unwanted automatic flows."
     }
 }

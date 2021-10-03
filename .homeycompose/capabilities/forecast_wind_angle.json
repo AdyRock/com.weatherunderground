@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Wind Angle",
+    "nl": "Windrichting",
+    "de": "Windrichtung"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "°"
+  },
+  "insights": false,
+  "decimals": 1,
+  "icon": "/assets/weathercock.svg"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Cloud Cover",
+    "nl": "Bewolking",
+    "de": "Bewölkung"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "%"
+  },
+  "insights": true,
+  "icon": "/assets/cloud.svg"
+}

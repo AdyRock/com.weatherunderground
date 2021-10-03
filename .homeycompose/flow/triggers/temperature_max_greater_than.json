@@ -1,11 +1,9 @@
 {
     "title": {
-        "en": "The feels like temperature changed",
-        "nl": "Het voelt als veranderd",
-        "de": "Gefühlte Temperatur hat sich geändert"
+        "en": "The high temperature became greater than"
     },
     "titleFormatted": {
-        "en": "The  feels like temperature [[day]] changed"
+        "en": "The high temperature [[day]] became greater than [[temperature]]°C"
     },
     "platforms": [
         "local",
@@ -13,14 +11,14 @@
     ],
     "tokens": [
         {
-            "name": "measure_temperature.feelsLike.forecast",
+            "name": "measure_temperature.max",
             "type": "number",
             "title": {
-                "en": "Feels Like",
-                "nl": "Voelt als",
-                "de": "Gefühlte Temperatur"
+                "en": "High Temperature",
+                "nl": "Hoge temperatuur",
+                "de": "Höchsttemperatur"
             },
-            "example": 25
+            "example": 20
         }
     ],
     "args": [
@@ -133,6 +131,22 @@
                     }
                 }
             ]
+        },
+        {
+            "type": "number",
+            "name": "temperature",
+            "min": -20,
+            "max": 60,
+            "step": 1,
+            "placeholder": {
+                "en": "Set a value"
+            },
+            "title": {
+                "en": "Temperature"
+            },
+            "units": {
+                "en": "°C"
+            }
         }
     ]
 }

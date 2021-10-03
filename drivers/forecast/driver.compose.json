@@ -18,68 +18,25 @@
         "forecast_day",
         "forecast_active_day",
         "forecast_moonPhase",
-        "measure_rain.forecast",
-        "measure_snow",
-        "measure_temperature.max",
-        "measure_temperature.min",
+        "forecast_rain",
+        "forecast_snow",
+        "forecast_temperature.max",
+        "forecast_temperature.min",
         "forecast_text",
         "forecast_summary",
-        "measure_cloud_cover",
-        "measure_precipitation_chance",
+        "forecast_cloud_cover",
+        "forecast_precipitation_chance",
         "precipitation_type",
-        "measure_temperature.feelsLike_forecast",
-        "measure_wind_angle.forecast",
-        "measure_gust_strength.forecast",
-        "measure_humidity.forecast",
-        "measure_ultraviolet.forecast",
+        "forecast_temperature.feelsLike",
+        "forecast_wind_angle",
+        "forecast_gust_strength",
+        "forecast_humidity",
+        "forecast_ultraviolet",
         "thunder_category"
     ],
     "capabilitiesOptions":
     {
-        "measure_cloud_cover":
-        {
-            "insights": false
-        },
-        "measure_precipitation_chance":
-        {
-            "insights": false
-        },
-        "measure_wind_angle.forecast":
-        {
-            "insights": false
-        },
-        "measure_gust_strength.forecast":
-        {
-            "insights": false
-        },
-        "measure_humidity.forecast":
-        {
-            "insights": false
-        },
-        "measure_ultraviolet.forecast":
-        {
-            "insights": false,
-            "title":
-            {
-                "en": "UV-Index",
-                "de": "UV-Index"
-            }
-        },
-        "measure_rain.forecast":
-        {
-            "title":
-            {
-                "en": "Rain Total",
-                "nl": "Regen Totaal",
-                "de": "Regenmenge"
-            },
-            "insights": false
-        },
-        "measure_snow":
-        {
-            "insights": false
-        },
-        "measure_temperature.feelsLike_forecast":
+        "forecast_temperature.feelsLike":
         {
             "title":
             {
@@ -88,7 +45,7 @@
                 "de": "Gefühlte Temperatur"
             }
         },
-        "measure_temperature.max":
+        "forecast_temperature.max":
         {
             "title":
             {
@@ -98,7 +55,7 @@
             },
             "insights": false
         },
-        "measure_temperature.min":
+        "forecast_temperature.min":
         {
             "title":
             {

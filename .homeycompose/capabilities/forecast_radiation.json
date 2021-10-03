@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Solar Radiation",
+    "nl": "Zonnestraling",
+    "de": "Sonnenstrahlung"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "W/m²"
+  },
+  "insights": true,
+  "decimals": 1,
+  "icon": "/assets/radiation.svg"
+}

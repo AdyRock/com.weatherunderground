@@ -23,7 +23,28 @@ class ForecastDevice extends Homey.Device
     async onInit()
     {
         this.log( 'ForecastDevice has been initialised' );
+        
+        this.upgradeCapabilities();
 
+        this.registerCapabilityListener( 'forecast_day', async ( Day ) =>
+        {
+            return this.updateCapabilities( Day );
+        } );
+
+        if ( !this.getCapabilityValue( 'forecast_day' ) )
+        {
+            this.setCapabilityValue( 'forecast_day', "today" ).catch(this.error);
+        }
+
+        // Refresh forecast but give it a minute and a bit to settle down
+        this.timerID = this.homey.setTimeout( () =>
+        {
+            this.refreshCapabilities();
+        }, 70000 );
+    }
+
+    upgradeCapabilities()
+    {
         if ( !this.hasCapability( "forecast_day" ) )
         {
             this.addCapability( "forecast_day" );
@@ -46,38 +67,86 @@ class ForecastDevice extends Homey.Device
 
         if ( this.hasCapability( "measure_wind_strength" ) )
         {
-            this.addCapability( "measure_gust_strength.forecast" );
+            this.addCapability( "forecast_gust_strength" );
             this.removeCapability( "measure_wind_strength" );
+        }
+
+        if ( this.hasCapability( "measure_gust_strength.forecast" ) )
+        {
+            this.addCapability( "forecast_gust_strength" );
+            this.removeCapability( "measure_gust_strength.forecast" );
         }
 
         if ( this.hasCapability( "measure_rain" ) )
         {
-            this.addCapability( "measure_rain.forecast" );
+            this.addCapability( "forecast_rain" );
             this.removeCapability( "measure_rain" );
+        }
+
+        if ( this.hasCapability( "measure_rain.forecast" ) )
+        {
+            this.addCapability( "forecast_rain" );
+            this.removeCapability( "measure_rain.forecast" );
         }
 
         if ( this.hasCapability( "measure_wind_angle" ) )
         {
-            this.addCapability( "measure_wind_angle.forecast" );
+            this.addCapability( "forecast_wind_angle" );
             this.removeCapability( "measure_wind_angle" );
+        }
+
+        if ( this.hasCapability( "measure_wind_angle.forecast" ) )
+        {
+            this.addCapability( "forecast_wind_angle" );
+            this.removeCapability( "measure_wind_angle.forecast" );
         }
 
         if ( this.hasCapability( "measure_gust_strength" ) )
         {
-            this.addCapability( "measure_gust_strength.forecast" );
+            this.addCapability( "forecast_gust_strength" );
             this.removeCapability( "measure_gust_strength" );
+        }
+
+        if ( this.hasCapability( "measure_gust_strength.forecast" ) )
+        {
+            this.addCapability( "forecast_gust_strength" );
+            this.removeCapability( "measure_gust_strength.forecast" );
         }
 
         if ( this.hasCapability( "measure_humidity" ) )
         {
-            this.addCapability( "measure_humidity.forecast" );
+            this.addCapability( "forecast_humidity" );
             this.removeCapability( "measure_humidity" );
+        }
+
+        if ( this.hasCapability( "measure_humidity.forecast" ) )
+        {
+            this.addCapability( "forecast_humidity" );
+            this.removeCapability( "measure_humidity.forecast" );
         }
 
         if ( this.hasCapability( "measure_ultraviolet" ) )
         {
-            this.addCapability( "measure_ultraviolet.forecast" );
+            this.addCapability( "forecast_ultraviolet" );
             this.removeCapability( "measure_ultraviolet" );
+        }
+
+        if ( this.hasCapability( "measure_ultraviolet.forecast" ) )
+        {
+            this.addCapability( "forecast_ultraviolet" );
+            this.removeCapability( "measure_ultraviolet.forecast" );
+        }
+
+        if ( this.hasCapability( "measure_temperature.max" ) )
+        {
+            this.addCapability( "forecast_temperature.max" );
+            this.removeCapability( "measure_temperature.max" );
+        }
+
+        if ( this.hasCapability( "measure_temperature.min" ) )
+        {
+            this.addCapability( "forecast_temperature.min" );
+            this.removeCapability( "measure_temperature.min" );
         }
 
         if ( this.hasCapability( "thunder_category" ) )
@@ -97,7 +166,7 @@ class ForecastDevice extends Homey.Device
 
         if ( !this.hasCapability( "measure_temperature.feelsLike_forecast" ) )
         {
-            this.addCapability( "measure_temperature.feelsLike_forecast" );
+            this.addCapability( "forecast_temperature.feelsLike" );
         }
 
         if ( this.hasCapability( "measure_temperature.feelsLike" ) )
@@ -105,21 +174,23 @@ class ForecastDevice extends Homey.Device
             this.removeCapability( "measure_temperature.feelsLike" );
         }
 
-        this.registerCapabilityListener( 'forecast_day', async ( Day ) =>
+        if ( this.hasCapability( "measure_snow" ) )
         {
-            return this.updateCapabilities( Day );
-        } );
-
-        if ( !this.getCapabilityValue( 'forecast_day' ) )
-        {
-            this.setCapabilityValue( 'forecast_day', "today" ).catch(this.error);
+            this.addCapability( "forecast_snow" );
+            this.removeCapability( "measure_snow" );
         }
 
-        // Refresh forecast but give it a minute and a bit to settle down
-        this.timerID = this.homey.setTimeout( () =>
+        if ( this.hasCapability( "measure_precipitation_chance" ) )
         {
-            this.refreshCapabilities();
-        }, 70000 );
+            this.addCapability( "forecast_precipitation_chance" );
+            this.removeCapability( "measure_precipitation_chance" );
+        }
+
+        if ( this.hasCapability( "measure_cloud_cover" ) )
+        {
+            this.addCapability( "forecast_cloud_cover" );
+            this.removeCapability( "measure_cloud_cover" );
+        }
     }
 
     async onSettings( { oldSettings, newSettings, changedKeys } )
@@ -199,10 +270,10 @@ class ForecastDevice extends Homey.Device
                 // Whole day parts
                 this.setCapabilityValue( "forecast_active_day", this.forecastData.dayOfWeek[ day ] ).catch(this.error);
                 this.setCapabilityValue( "forecast_moonPhase", this.forecastData.moonPhase[ day ] ).catch(this.error);
-                this.setCapabilityValue( "measure_rain.forecast", this.forecastData.qpf[ day ] ).catch(this.error);
-                this.setCapabilityValue( "measure_snow", this.forecastData.qpfSnow[ day ] ).catch(this.error);
-                this.setCapabilityValue( "measure_temperature.max", this.forecastData.temperatureMax[ day ] ).catch(this.error);
-                this.setCapabilityValue( "measure_temperature.min", this.forecastData.temperatureMin[ day ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_rain", this.forecastData.qpf[ day ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_snow", this.forecastData.qpfSnow[ day ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_temperature.max", this.forecastData.temperatureMax[ day ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_temperature.min", this.forecastData.temperatureMin[ day ] ).catch(this.error);
 
                 // Day / Night parts
                 if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
@@ -211,23 +282,23 @@ class ForecastDevice extends Homey.Device
                 }
                 this.setCapabilityValue( "forecast_text", this.forecastData.daypart[ 0 ].daypartName[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "forecast_summary", this.forecastData.daypart[ 0 ].wxPhraseLong[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_cloud_cover", this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_precipitation_chance", this.forecastData.daypart[ 0 ].precipChance[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_cloud_cover", this.forecastData.daypart[ 0 ].cloudCover[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_precipitation_chance", this.forecastData.daypart[ 0 ].precipChance[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "precipitation_type", this.forecastData.daypart[ 0 ].precipType[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_wind_angle.forecast", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_wind_angle", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] ).catch(this.error);
 
                 if ( this.homey.app.SpeedUnits === '0' )
                 {
-                    this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ).catch(this.error);
+                    this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ).catch(this.error);
                 }
                 else
                 {
-                    this.setCapabilityValue( "measure_gust_strength.forecast", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600 ).catch(this.error);
+                    this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600 ).catch(this.error);
                 }
 
-                this.setCapabilityValue( "measure_humidity.forecast", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_ultraviolet.forecast", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "measure_temperature.feelsLike_forecast", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_humidity", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_ultraviolet", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
             }
         }
         catch ( err )
@@ -265,8 +336,8 @@ class ForecastDevice extends Homey.Device
                         {
                             if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
                             if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
-                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ] ); }
-                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ] ); }
+                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
+                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
                         }
 
                         let dayNight = element.value;

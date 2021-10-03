@@ -66,6 +66,20 @@ class ForecastDriver extends Homey.Driver
                 return Promise.resolve( args.day === state.day );
             } );
 
+        this.tempMaxLessTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_max_less_than' )
+            .registerRunListener( ( args, state ) =>
+            {
+                // If true, this flow should run
+                return Promise.resolve( ( args.day === state.day ) && ( state.temperature < args.temperature ) && (state.oldValue >= args.temperature) );
+            } );
+
+        this.tempMaxGreaterTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_max_greater_than' )
+            .registerRunListener( ( args, state ) =>
+            {
+                // If true, this flow should run
+                return Promise.resolve( ( args.day === state.day ) && ( state.temperature > args.temperature ) && (state.oldValue <= args.temperature) );
+            } );
+
         this.tempMinTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_min_changed' )
             .registerRunListener( ( args, state ) =>
             {
@@ -73,6 +87,20 @@ class ForecastDriver extends Homey.Driver
 
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
+            } );
+
+        this.tempMinLessTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_min_less_than' )
+            .registerRunListener( ( args, state ) =>
+            {
+                // If true, this flow should run
+                return Promise.resolve( ( args.day === state.day ) && ( state.temperature < args.temperature ) && (state.oldValue >= args.temperature) );
+            } );
+
+        this.tempMinGreaterTrigger = this.homey.flow.getDeviceTriggerCard( 'temperature_min_greater_than' )
+            .registerRunListener( ( args, state ) =>
+            {
+                // If true, this flow should run
+                return Promise.resolve( ( args.day === state.day ) && ( state.temperature > args.temperature ) && (state.oldValue <= args.temperature) );
             } );
 
         this.cloudCoverTrigger = this.homey.flow.getDeviceTriggerCard( 'cloud_cover_changed' )
@@ -190,27 +218,43 @@ class ForecastDriver extends Homey.Driver
             .catch( this.error );
     }
 
-    async triggerTempMax( Device, Day, Value )
+    async triggerTempMax( Device, Day, Value, OldValue )
     {
         // trigger the card
         this.log( "Triggering max temp changed for: ", Day, " with: ", Value );
         let tokens = { 'measure_temperature.max': Value };
-        let state = { 'day': Day };
+        let state = { 'day': Day, "temperature": Value, 'oldValue': OldValue};
 
         this.tempMaxTrigger.trigger( Device, tokens, state )
-            .then( this.log( "Trigger measure_temperature.max" ) )
+            .then( this.log( "Trigger forecast_temperature.max" ) )
+            .catch( this.error );
+
+        this.tempMaxGreaterTrigger.trigger( Device, tokens, state )
+            .then( this.log( "Trigger forecast_temperature.max_greater" ) )
+            .catch( this.error );
+
+        this.tempMaxLessTrigger.trigger( Device, tokens, state )
+            .then( this.log( "Trigger forecast_temperature.max_less" ) )
             .catch( this.error );
     }
 
-    async triggerTempMin( Device, Day, Value )
+    async triggerTempMin( Device, Day, Value, OldValue )
     {
         // trigger the card
         this.log( "Triggering min temp changed for: ", Day, " with: ", Value );
         let tokens = { 'measure_temperature.min': Value };
-        let state = { 'day': Day };
+        let state = { 'day': Day, "temperature": Value, 'oldValue': OldValue };
 
         this.tempMinTrigger.trigger( Device, tokens, state )
             .then( this.log( "Trigger measure_temperature.min" ) )
+            .catch( this.error );
+
+        this.tempMinGreaterTrigger.trigger( Device, tokens, state )
+            .then( this.log( "Trigger forecast_temperature.min_greater" ) )
+            .catch( this.error );
+
+        this.tempMinLessTrigger.trigger( Device, tokens, state )
+            .then( this.log( "Trigger forecast_temperature.min_less" ) )
             .catch( this.error );
     }
 

@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Temperature",
+    "nl": "Temperatuur",
+    "de": "Temperatur"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "°C"
+  },
+  "insights": false,
+  "decimals": 1,
+  "icon": "/assets/thermometer.svg"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Rain Total",
+    "nl": "Regentotaal",
+    "de": "Niederschlag"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "mm"
+  },
+  "insights": true,
+  "decimals": 1,
+  "icon": "/assets/rainsnow.svg"
+}
