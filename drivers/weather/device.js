@@ -137,15 +137,15 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.temp <= 16.1 )
                 {
-                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill ).catch(this.error);
                 }
                 else if ( currentData.metric.temp >= 21 )
                 {
-                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex ).catch(this.error);
                 }
                 else
                 {
-                    await this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp ).catch(this.error);
                 }
 
                 if ( oldFeelsLike != this.getCapabilityValue( "measure_temperature.feelsLike" ) )
@@ -155,7 +155,7 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.dewpt != this.getCapabilityValue( "measure_temperature.dewPoint" ) )
                 {
-                    await this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt ).catch(this.error);
+                 this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt ).catch(this.error);
                     this.driver.triggerDewPoint( this, currentData.metric.dewpt );
                 }
 
@@ -163,7 +163,7 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.precipTotal != this.getCapabilityValue( "measure_rain.total" ) )
                 {
-                    await this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal ).catch(this.error);
+                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal ).catch(this.error);
                     this.driver.triggerRainTotal( this, currentData.metric.precipTotal );
                 }
 
@@ -196,7 +196,7 @@ class WeatherDevice extends Homey.Device
 
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
                     {
-                        await this.setCapabilityValue( "measure_radiation", currentData.solarRadiation ).catch(this.error);
+                     this.setCapabilityValue( "measure_radiation", currentData.solarRadiation ).catch(this.error);
                         this.driver.triggerRadiation( this, currentData.solarRadiation );
                     }
                 }
