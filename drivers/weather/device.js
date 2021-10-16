@@ -100,8 +100,8 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                this.setAvailable();
-                this.unsetWarning();
+                this.setAvailable().catch(this.error);
+                this.unsetWarning().catch(this.error);
 
                 if ( this.homey.app.stationOffline )
                 {

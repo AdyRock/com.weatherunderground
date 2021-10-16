@@ -1,0 +1,10 @@
+{
+    "name": "com.weatherunderground",
+    "version": "3.0.3",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AdyRock/com.weatherunderground"
+    },
+    "license": "GPL-3.0"
+}

@@ -223,7 +223,7 @@ class ForecastDevice extends Homey.Device
         if ( Units === 'SpeedUnits' )
         {
             let unitsText = this.homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
-            this.setCapabilityOptions( 'measure_gust_strength.forecast', { "units": unitsText } );
+            this.setCapabilityOptions( 'forecast_gust_strength', { "units": unitsText } ).catch(this.error);
             if ( this.timerID )
             {
                 this.homey.clearTimeout( this.timerID );
@@ -243,8 +243,8 @@ class ForecastDevice extends Homey.Device
             {
                 // Update the capabilities for the selected day
 
-                this.setAvailable();
-                this.unsetWarning();
+                this.setAvailable().catch(this.error);
+                this.unsetWarning().catch(this.error);
 
                 if ( this.homey.app.stationOffline )
                 {

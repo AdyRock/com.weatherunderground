@@ -284,10 +284,10 @@ class WeatherApp extends Homey.App
     {
         let promises = [];
 
-        const drivers = Homey.ManagerDrivers.getDrivers();
+        const drivers = this.homey.drivers.getDrivers();
         for ( const driver in drivers )
         {
-            let devices = Homey.ManagerDrivers.getDriver( driver ).getDevices();
+            let devices = this.homey.drivers.getDriver( driver ).getDevices();
             let numDevices = devices.length;
             for ( var i = 0; i < numDevices; i++ )
             {
