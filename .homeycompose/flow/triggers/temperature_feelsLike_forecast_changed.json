@@ -5,7 +5,8 @@
         "de": "Gefühlte Temperatur hat sich geändert"
     },
     "titleFormatted": {
-        "en": "The  feels like temperature [[day]] changed"
+        "en": "The  feels like temperature [[day]] changed",
+        "de": "Die gefühlte Temperatur [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

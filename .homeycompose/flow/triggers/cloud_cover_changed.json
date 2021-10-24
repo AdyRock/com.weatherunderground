@@ -5,7 +5,8 @@
         "de": "Die Bewölkung hat sich geändert"
     },
     "titleFormatted": {
-        "en": "The cloud cover [[day]] changed"
+        "en": "The cloud cover [[day]] changed",
+        "de": "Die Bewölkung [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

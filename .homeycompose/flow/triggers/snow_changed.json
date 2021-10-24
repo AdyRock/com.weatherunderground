@@ -5,7 +5,8 @@
         "de": "Die Schneewahrscheinlichkeit hat sich geändert"
     },
     "titleFormatted": {
-        "en": "The snow chance [[day]] changed"
+        "en": "The snow chance [[day]] changed",
+        "de": "Die Schneewahrscheinlichkeit [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

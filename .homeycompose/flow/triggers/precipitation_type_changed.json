@@ -5,7 +5,8 @@
         "de": "Der Niederschlagsart hat sich geändert"
     },
     "titleFormatted": {
-        "en": "The precipitation type [[day]] changed"
+        "en": "The precipitation type [[day]] changed",
+        "de": "Die Niederschlagswahrscheinlichkeit [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

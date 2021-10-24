@@ -11,7 +11,8 @@
         "da": "Luftfugtigheden ændrede sig"
     },
     "titleFormatted": {
-        "en": "The humidity [[day]] changed"
+        "en": "The humidity [[day]] changed",
+        "de": "Die Luftfeuchtigkeit [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

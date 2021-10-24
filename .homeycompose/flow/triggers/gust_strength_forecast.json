@@ -11,7 +11,8 @@
         "da": "Vindstyrken skiftede"
     },
     "titleFormatted": {
-        "en": "The gust strength [[day]] changed"
+        "en": "The gust strength [[day]] changed",
+        "de": "Die Böenstärke [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

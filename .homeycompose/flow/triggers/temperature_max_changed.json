@@ -5,7 +5,8 @@
         "de": "Die Höchsttemperatur hat sich geändert"
     },
     "titleFormatted": {
-        "en": "The high temperature [[day]] changed"
+        "en": "The high temperature [[day]] changed",
+        "de": "Die Höchsttemperatur [[day]] hat sich geändert"
     },
     "platforms": [
         "local",
