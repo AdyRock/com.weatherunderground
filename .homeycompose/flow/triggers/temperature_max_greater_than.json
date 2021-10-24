@@ -1,9 +1,11 @@
 {
     "title": {
-        "en": "The high temperature became greater than"
+        "en": "The high temperature became greater than",
+        "de": "Die Höchsttemperatur wird mehr als"
     },
     "titleFormatted": {
-        "en": "The high temperature [[day]] became greater than [[temperature]]°C"
+        "en": "The high temperature [[day]] became greater than [[temperature]]°C",
+        "de": "Die Höchsttemperatur [[day]] wird mehr als [[temperature]]°C"
     },
     "platforms": [
         "local",
@@ -30,7 +32,8 @@
         {
             "name": "day",
             "title": {
-                "en": "Period to report"
+                "en": "Period to report",
+                "de": "Meldezeitraum"
             },
             "type": "dropdown",
             "values": [

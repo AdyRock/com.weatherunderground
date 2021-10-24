@@ -278,6 +278,9 @@ class WeatherApp extends Homey.App
                 const day = args.device.getDayNight( args.day );
                 return args.device.forecastData.daypart[ 0 ].uvIndex[ day.dayNight ] > args.value;
             } );
+
+        this.noDataTrigger = this.homey.flow.getTriggerCard( 'no_data_changed' );
+        this.dataResumedTrigger = this.homey.flow.getTriggerCard( 'data_resumed_changed' );
     }
 
     async changeUnits( Units )

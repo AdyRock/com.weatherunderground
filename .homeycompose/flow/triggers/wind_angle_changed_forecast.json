@@ -11,7 +11,8 @@
         "da": "Vindvinklen er skiftet"
     },
     "titleFormatted": {
-        "en": "The wind angle [[day]] changed"
+        "en": "The wind angle [[day]] changed",
+        "de": "Die Windrichtung [[day]] hat sich geändert"
     },
     "platforms": [
         "local",

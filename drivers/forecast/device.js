@@ -249,13 +249,7 @@ class ForecastDevice extends Homey.Device
                 if ( this.homey.app.stationOffline )
                 {
                     this.homey.app.stationOffline = false;
-
-                    let dataResumedTrigger = this.homey.flow.getTriggerCard( 'data_resumed_changed' );
-                    dataResumedTrigger
-                        .register()
-                        .trigger()
-                        .catch( this.error )
-                        .then( this.log( "Resumed triggered" ) );
+                    this.homey.app.dataResumedTrigger.trigger().catch(this.error);
                 }
 
                 const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
@@ -380,14 +374,7 @@ class ForecastDevice extends Homey.Device
                 if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
                 {
                     this.homey.app.stationOffline = true;
-
-                    let noDataTrigger = this.homey.flow.getTriggerCard( 'no_data_changed' );
-                    noDataTrigger
-                        .register()
-                        .trigger()
-                        .catch( this.error )
-                        .then( this.log( "Offline triggered" ) );
-
+                    this.homey.app.noDataTrigger.trigger().catch(this.error);
                     this.setUnavailable( "No data available" );
                 }
                 else

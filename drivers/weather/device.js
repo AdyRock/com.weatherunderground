@@ -106,13 +106,7 @@ class WeatherDevice extends Homey.Device
                 if ( this.homey.app.stationOffline )
                 {
                     this.homey.app.stationOffline = false;
-
-                    let dataResumedTrigger = this.homey.flow.getDeviceTriggerCard( 'data_resumed_changed' );
-                    dataResumedTrigger
-                        .register()
-                        .trigger()
-                        .catch( this.error )
-                        .then( this.log( "Resumed triggered" ) );
+                    this.homey.app.dataResumedTrigger.trigger().catch(this.error);
                 }
 
                 this.homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
@@ -212,13 +206,7 @@ class WeatherDevice extends Homey.Device
                 if ( !this.homey.app.stationOffline )
                 {
                     this.homey.app.stationOffline = true;
-                    let noDataTrigger = this.homey.flow.getDeviceTriggerCard( 'no_data_changed' );
-                    noDataTrigger
-                        .register()
-                        .trigger()
-                        .catch( this.error )
-                        .then( this.log( "Trigger stationOffline" ) );
-
+                    this.homey.app.noDataTrigger.trigger().catch(this.error);
                 }
 
                 this.setWarning( "No data received" );
@@ -240,14 +228,7 @@ class WeatherDevice extends Homey.Device
                 if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
                 {
                     this.homey.app.stationOffline = true;
-
-                    let noDataTrigger = this.homey.flow.getTriggerCard( 'no_data_changed' );
-                    noDataTrigger
-                        .register()
-                        .trigger()
-                        .catch( this.error )
-                        .then( this.log( "Trigger no_data_changed" ) );
-
+                    this.homey.app.noDataTrigger.trigger().catch(this.error);
                     this.setUnavailable( "No data available" );
                 }
                 else

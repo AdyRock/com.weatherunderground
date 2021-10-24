@@ -1,9 +1,11 @@
 {
     "title": {
-        "en": "The low temperature became less than"
+        "en": "The low temperature became less than",
+        "de": "Die Tiefsttemperatur  wird weniger als"
     },
     "titleFormatted": {
-        "en": "The low temperature [[day]] became less than [[temperature]]°C"
+        "en": "The low temperature [[day]] became less than [[temperature]]°C",
+        "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C"
     },
     "platforms": [
         "local",
@@ -30,7 +32,8 @@
         {
             "name": "day",
             "title": {
-                "en": "Period to report"
+                "en": "Period to report",
+                "de": "Meldezeitraum"
             },
             "type": "dropdown",
             "values": [

@@ -1,146 +1,152 @@
 {
-    "0.0.1": {
-        "en": "first release"
-    },
-    "0.0.2": {
-        "en": "Fixed images and removed title from readme"
-    },
-    "0.0.4": {
-        "en": "Added UV and more decimal places to temperature to PWS plus a new device for tomorrows forecast"
-    },
-    "0.0.5": {
-        "en": "Add Dutch translations"
-    },
-    "0.0.6": {
-        "en": "Fixed Dutch URL when calling WU"
-    },
-    "0.0.7": {
-        "en": "Added Dutch translations"
-    },
-    "0.0.8": {
-        "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
-    },
-    "0.1.0": {
-        "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
-    },
-    "0.1.1": {
-        "en": "Changed Forecast Wind Speed to Gust Speed"
-    },
-    "0.1.2": {
-        "en": "Added Solar Radiation and triggers for all custom capabilities"
-    },
-    "0.1.3": {
-        "en": "Added diagnostic log, better validation of settings and removed checks for capabilities in data refresh functions"
-    },
-    "0.1.4": {
-        "en": "Fixed solar radiation and change it's icon"
-    },
-    "0.1.5": {
-        "en": "Added Day and Night selection. Added custom capabilities to Insights"
-    },
-    "0.1.6": {
-        "en": "Removed WindChill and HeatIndex"
-    },
-    "0.1.7": {
-        "en": "Improved error information"
-    },
-    "1.0.0": {
-        "en": "First proper release"
-    },
-    "1.1.0": {
-        "en": "Capped log size and added \"Station Offline\" trigger"
-    },
-    "1.2.0": {
-        "en": "Added German translation"
-    },
-    "1.2.1": {
-        "en": "revised one German translation and added German text to app store"
-    },
-    "1.2.2": {
-        "en": "Published with latest CLI"
-    },
-    "1.2.3": {
-        "en": "Renamed readme.de.txt to README.de.txt so it shows in the store"
-    },
-    "1.2.4": {
-        "en": "Changed ULTRAVIOLET to UV-INDEX for English and German"
-    },
-    "1.3.0": {
-        "en": "Added extra capabilities to forecast\\nChanged order of capabilities(device needs to be removed and added again to update existing devices)\\nToday forecast values automatically switches to Tonight data when WU stops sending it."
-    },
-    "2.0.0": {
-        "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Pressure to Relative Pressure as that is what WU returns."
-    },
-    "2.0.1": {
-        "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Pressure to Relative Pressure as that is what WU returns. UV-Index and Solar Radiation only shown if the data is received. "
-    },
-    "2.0.2": {
-        "en": "Check for null for missing information so 0 is still reported."
-    },
-    "2.1.0": {
-        "en": "Added greater than and equal to flow condition cards for the forecast with selectable days."
-    },
-    "2.1.1": {
-        "en": "Fix broken Solar Radiation trigger and added more diagnostics in case the fix does not work."
-    },
-    "2.1.2": {
-        "en": "Update German text for new flow conditions"
-    },
-    "2.1.3": {
-        "en": "Fix German translations"
-    },
-    "2.1.4": {
-        "en": "Fixed issue with forecast trigger only working for Today"
-    },
-    "2.1.5": {
-        "en": "Added extra logging and always log errors"
-    },
-    "2.1.6": {
-        "en": "Fixed crash when an error is returned for WU"
-    },
-    "2.1.7": {
-        "en": "Fixed an issue where polling stops after a network error"
-    },
-    "2.1.8": {
-        "en": "Ensure error message is cleared from the forecast. Initial update is now delayed to ensure app updates don't exceed connection rate."
-    },
-    "2.1.9": {
-        "en": "Ensure warning message is cleared from the device. Initial update is now delayed to ensure app updates don't exceed connection rate. Fixed an issue where polling stops after a network error"
-    },
-    "2.1.10": {
-        "en": "Another attempt at fixing the mysterious crash when the network fails"
-    },
-    "2.1.11": {
-        "en": "Fixed issues where polling stops after a network error"
-    },
-    "2.1.12": {
-        "en": "Added Data Resumed flow trigger"
-    },
-    "2.1.13": {
-        "en": "Added an app option to specify the number of weather stations on your account so the update rate can be optimised."
-    },
-    "2.1.14": {
-        "en": "Added an app option to specify the wind speed units (Km/H or m/s)."
-    },
-    "2.1.15": {
-        "en": "Fix probelm with using forcast flow conditions."
-    },
-    "2.1.16": {
-        "en": "Fix problem with speed units changing to m/s after update and put default back to Km/H unless already set manually."
-    },
-    "2.1.17": {
-        "en": "If the station ID is not found then you now have the option to add it anyway. Adding / removing a station automatically increments / decrements the station count to adjust the polling interval."
-    },
-    "3.0.0": {
-        "en": "updated to SDK 3"
-    },
-    "3.0.1": {
-        "en": "Fix capability name"
-    },
-    "3.0.2": {
-        "en": "Fix device settings"
-    },
-    "3.0.3": {
-        "en": "Changed capabilities to remove unwanted automatic flows."
-    }
+  "0.0.1": {
+    "en": "first release"
+  },
+  "0.0.2": {
+    "en": "Fixed images and removed title from readme"
+  },
+  "0.0.4": {
+    "en": "Added UV and more decimal places to temperature to PWS plus a new device for tomorrows forecast"
+  },
+  "0.0.5": {
+    "en": "Add Dutch translations"
+  },
+  "0.0.6": {
+    "en": "Fixed Dutch URL when calling WU"
+  },
+  "0.0.7": {
+    "en": "Added Dutch translations"
+  },
+  "0.0.8": {
+    "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
+  },
+  "0.1.0": {
+    "en": "Increased decimal places for temperature, added Forecast device, added Dutch translations"
+  },
+  "0.1.1": {
+    "en": "Changed Forecast Wind Speed to Gust Speed"
+  },
+  "0.1.2": {
+    "en": "Added Solar Radiation and triggers for all custom capabilities"
+  },
+  "0.1.3": {
+    "en": "Added diagnostic log, better validation of settings and removed checks for capabilities in data refresh functions"
+  },
+  "0.1.4": {
+    "en": "Fixed solar radiation and change it's icon"
+  },
+  "0.1.5": {
+    "en": "Added Day and Night selection. Added custom capabilities to Insights"
+  },
+  "0.1.6": {
+    "en": "Removed WindChill and HeatIndex"
+  },
+  "0.1.7": {
+    "en": "Improved error information"
+  },
+  "1.0.0": {
+    "en": "First proper release"
+  },
+  "1.1.0": {
+    "en": "Capped log size and added \"Station Offline\" trigger"
+  },
+  "1.2.0": {
+    "en": "Added German translation"
+  },
+  "1.2.1": {
+    "en": "revised one German translation and added German text to app store"
+  },
+  "1.2.2": {
+    "en": "Published with latest CLI"
+  },
+  "1.2.3": {
+    "en": "Renamed readme.de.txt to README.de.txt so it shows in the store"
+  },
+  "1.2.4": {
+    "en": "Changed ULTRAVIOLET to UV-INDEX for English and German"
+  },
+  "1.3.0": {
+    "en": "Added extra capabilities to forecast\\nChanged order of capabilities(device needs to be removed and added again to update existing devices)\\nToday forecast values automatically switches to Tonight data when WU stops sending it."
+  },
+  "2.0.0": {
+    "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Pressure to Relative Pressure as that is what WU returns."
+  },
+  "2.0.1": {
+    "en": "Fixed the flow trigger cards for the forecast so the required day can be selected. Removed Thunder from the forecast as WU is not providing valid data. Changed Pressure to Relative Pressure as that is what WU returns. UV-Index and Solar Radiation only shown if the data is received. "
+  },
+  "2.0.2": {
+    "en": "Check for null for missing information so 0 is still reported."
+  },
+  "2.1.0": {
+    "en": "Added greater than and equal to flow condition cards for the forecast with selectable days."
+  },
+  "2.1.1": {
+    "en": "Fix broken Solar Radiation trigger and added more diagnostics in case the fix does not work."
+  },
+  "2.1.2": {
+    "en": "Update German text for new flow conditions"
+  },
+  "2.1.3": {
+    "en": "Fix German translations"
+  },
+  "2.1.4": {
+    "en": "Fixed issue with forecast trigger only working for Today"
+  },
+  "2.1.5": {
+    "en": "Added extra logging and always log errors"
+  },
+  "2.1.6": {
+    "en": "Fixed crash when an error is returned for WU"
+  },
+  "2.1.7": {
+    "en": "Fixed an issue where polling stops after a network error"
+  },
+  "2.1.8": {
+    "en": "Ensure error message is cleared from the forecast. Initial update is now delayed to ensure app updates don't exceed connection rate."
+  },
+  "2.1.9": {
+    "en": "Ensure warning message is cleared from the device. Initial update is now delayed to ensure app updates don't exceed connection rate. Fixed an issue where polling stops after a network error"
+  },
+  "2.1.10": {
+    "en": "Another attempt at fixing the mysterious crash when the network fails"
+  },
+  "2.1.11": {
+    "en": "Fixed issues where polling stops after a network error"
+  },
+  "2.1.12": {
+    "en": "Added Data Resumed flow trigger"
+  },
+  "2.1.13": {
+    "en": "Added an app option to specify the number of weather stations on your account so the update rate can be optimised."
+  },
+  "2.1.14": {
+    "en": "Added an app option to specify the wind speed units (Km/H or m/s)."
+  },
+  "2.1.15": {
+    "en": "Fix probelm with using forcast flow conditions."
+  },
+  "2.1.16": {
+    "en": "Fix problem with speed units changing to m/s after update and put default back to Km/H unless already set manually."
+  },
+  "2.1.17": {
+    "en": "If the station ID is not found then you now have the option to add it anyway. Adding / removing a station automatically increments / decrements the station count to adjust the polling interval."
+  },
+  "3.0.0": {
+    "en": "updated to SDK 3"
+  },
+  "3.0.1": {
+    "en": "Fix capability name"
+  },
+  "3.0.2": {
+    "en": "Fix device settings"
+  },
+  "3.0.3": {
+    "en": "Changed capabilities to remove unwanted automatic flows."
+  },
+  "3.0.4": {
+    "en": "Fix units selection for wind."
+  },
+  "3.0.5": {
+    "en": "Added missing German translation thanks to Dirk Göbel."
+  }
 }

@@ -11,7 +11,8 @@
         "da": "UV-værdien ændrede sig"
     },
     "titleFormatted": {
-        "en": "The ultraviolet [[day]] changed"
+        "en": "The ultraviolet [[day]] changed",
+        "de": "Der UV-Wert [[day]] hat sich geändert"
     },
     "platforms": [
         "local",
