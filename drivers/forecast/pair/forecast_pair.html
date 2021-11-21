@@ -6,11 +6,13 @@
 
 <body>
     <!-- SETTINGS PAGE -->
+    <div style="text-align: center;">
+        <img src="logo.png" alt="LinkTap">
+        <p style="font-size:25px">Weather Underground</p>
+    </div>
     <div id="settings">
-
         <pSettings>
             </p>
-
             <fieldset>
                 <legend data-i18n="title"></legend>
 
@@ -60,7 +62,7 @@
                     return Homey.alert( Homey.__( "stationNotFound" ) );
                 }
 
-                let rndId = Math.floor(Math.random() * 10000);
+                let rndId = Math.floor( Math.random() * 10000 );
                 Homey.createDevice(
                 {
                     name: stationIDElement.value,

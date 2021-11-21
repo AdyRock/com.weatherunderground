@@ -1,10 +1,13 @@
 {
     "name": "com.weatherunderground",
-    "version": "3.0.5",
+    "version": "3.0.7",
     "main": "app.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/AdyRock/com.weatherunderground"
+    },
+    "dependencies": {
+        "nodemailer": "^6.5.0"
     },
     "license": "GPL-3.0"
 }

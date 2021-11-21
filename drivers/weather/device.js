@@ -10,6 +10,13 @@ class WeatherDevice extends Homey.Device
     {
         this.log( ' WeatherDevice has been init' );
 
+        if ( !this.hasCapability( 'button.send_log' ) )
+        {
+            this.addCapability( 'button.send_log' );
+        }
+        
+        this.registerCapabilityListener('button.send_log', this.onCapabilitySedLog.bind(this));
+
         if ( this.hasCapability( "measure_temperature.heatIndex" ) )
         {
             this.removeCapability( "measure_temperature.heatIndex" );
@@ -182,8 +189,7 @@ class WeatherDevice extends Homey.Device
                     if ( !this.hasCapability( "measure_radiation" ) )
                     {
                         await this.addCapability( "measure_radiation" );
-                        this.driver.radiationTrigger = this.homey.flow.getDeviceTriggerCard( 'measure_radiation_changed' )
-                            .register();
+                        this.driver.radiationTrigger = this.homey.flow.getDeviceTriggerCard( 'measure_radiation_changed' );
                     }
 
                     this.homey.app.updateLog( "SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation );
@@ -253,6 +259,16 @@ class WeatherDevice extends Homey.Device
         let settings = this.getSettings();
         let url = "https://api.weather.com/v2/pws/observations/current?numericPrecision=decimal&stationId=" + settings.stationID + "&format=json&units=m&apiKey=" + settings.apiKey;
         return await this.homey.app.GetURL( url );
+    }
+
+    async onCapabilitySedLog(value)
+    {
+        const body = {
+            notify: true,
+            logType: "diag"
+        };
+
+        this.homey.app.sendLog(body);
     }
 
     async onAdded()

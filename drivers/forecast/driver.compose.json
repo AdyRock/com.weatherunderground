@@ -27,12 +27,14 @@
         "forecast_cloud_cover",
         "forecast_precipitation_chance",
         "precipitation_type",
+        "forecast_temperature",
         "forecast_temperature.feelsLike",
         "forecast_wind_angle",
         "forecast_gust_strength",
         "forecast_humidity",
         "forecast_ultraviolet",
-        "thunder_category"
+        "thunder_category",
+        "button.send_log"
     ],
     "capabilitiesOptions":
     {
@@ -64,6 +66,15 @@
                 "de": "Tiefsttemperatur"
             },
             "insights": false
+        },
+        "button.send_log": {
+            "maintenanceAction": true,
+            "title": {
+                "en": "Send Diagnostics Log"
+            },
+            "desc": {
+                "en": "Send a diagnostics log to the developer"
+            }
         }
     },
     "pair": [

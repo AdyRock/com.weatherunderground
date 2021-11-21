@@ -26,7 +26,8 @@
         "measure_rain",
         "measure_rain.total",
         "measure_ultraviolet",
-        "measure_radiation"
+        "measure_radiation",
+        "button.send_log"
     ],
     "capabilitiesOptions":
     {
@@ -79,6 +80,15 @@
                 "en": "Relative Pressure",
                 "nl": "Relatieve druk",
                 "de": "Relativer Druck"
+            }
+        },
+        "button.send_log": {
+            "maintenanceAction": true,
+            "title": {
+                "en": "Send Diagnostics Log"
+            },
+            "desc": {
+                "en": "Send a diagnostics log to the developer"
             }
         }
     },

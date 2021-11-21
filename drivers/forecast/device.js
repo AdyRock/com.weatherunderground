@@ -29,7 +29,9 @@ class ForecastDevice extends Homey.Device
         this.registerCapabilityListener( 'forecast_day', async ( Day ) =>
         {
             return this.updateCapabilities( Day );
-        } );
+        });
+
+        this.registerCapabilityListener('button.send_log', this.onCapabilitySendLog.bind(this));
 
         if ( !this.getCapabilityValue( 'forecast_day' ) )
         {
@@ -45,6 +47,11 @@ class ForecastDevice extends Homey.Device
 
     upgradeCapabilities()
     {
+        if ( !this.hasCapability( 'button.send_log' ) )
+        {
+            this.addCapability( 'button.send_log' );
+        }
+
         if ( !this.hasCapability( "forecast_day" ) )
         {
             this.addCapability( "forecast_day" );
@@ -154,12 +161,22 @@ class ForecastDevice extends Homey.Device
             this.removeCapability( "thunder_category" );
         }
 
+        if ( this.hasCapability( "measure_temperature" ) )
+        {
+            this.removeCapability( "measure_temperature" );
+        }
+
+        if ( !this.hasCapability( "forecast_temperature" ) )
+        {
+            this.addCapability( "forecast_temperature" );
+        }
+
         if ( this.hasCapability( "measure_temperature.windchill" ) )
         {
             this.removeCapability( "measure_temperature.windchill" );
         }
 
-        if ( !this.hasCapability( "measure_temperature.feelsLike.forecast" ) )
+        if ( this.hasCapability( "measure_temperature.feelsLike.forecast" ) )
         {
             this.removeCapability( "measure_temperature.feelsLike.forecast" );
         }
@@ -292,7 +309,20 @@ class ForecastDevice extends Homey.Device
 
                 this.setCapabilityValue( "forecast_humidity", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "forecast_ultraviolet", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ).catch(this.error);
-                this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
+                this.setCapabilityValue( "forecast_temperature", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
+
+                if ( this.forecastData.daypart[ 0 ].temperature[ dayNight ] <= 16.1 )
+                {
+                    this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperatureWindChill[ dayNight ] ).catch(this.error);
+                }
+                else if ( this.forecastData.daypart[ 0 ].temperature[ dayNight ] >= 21 )
+                {
+                    this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperatureHeatIndex[ dayNight ] ).catch(this.error);
+                }
+                else
+                {
+                    this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
+                }
             }
         }
         catch ( err )
@@ -428,6 +458,16 @@ class ForecastDevice extends Homey.Device
             }
         }
         return { 'dayNight': dayNight, 'day': day };
+    }
+
+    async onCapabilitySendLog(value)
+    {
+        const body = {
+            notify: true,
+            logType: "diag"
+        };
+
+        this.homey.app.sendLog(body);
     }
 
     async onDeleted()

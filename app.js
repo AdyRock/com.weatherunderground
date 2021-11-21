@@ -7,12 +7,28 @@ if ( process.env.DEBUG === '1' )
 
 const Homey = require( 'homey' );
 const https = require( "https" );
+const nodemailer = require('nodemailer');
 
 class WeatherApp extends Homey.App
 {
-    onInit()
+    async onInit()
     {
         this.log( ' WeatherApp is running...' );
+
+        try
+        {
+            // Try to get the local IP address to see if the app is running in Homey cloud so we don't update the logs
+            await this.homey.cloud.getLocalAddress();
+            this.cloudOnly = false;
+        }
+        catch (err)
+        {
+            // getLocalAddress will fail on Homey cloud installations so dissbale the loging options
+            this.cloudOnly = true;
+            this.homey.settings.set('logEnabled', true);
+            this.log("Logging Enabled");
+        }
+
         this.homey.settings.set( 'diagLog', "App Started\r\n" );
         this.stationOffline = false;
 
@@ -518,6 +534,66 @@ class WeatherApp extends Homey.App
         oldText += "\r\n\r\n";
         this.homey.settings.set( 'diagLog', oldText );
     }
+
+    // Send the log to the developer (not applicable to Homey cloud)
+    async sendLog(body)
+    {
+        let tries = 5;
+
+        let logData;
+        if (body.logType === 'diag')
+        {
+            logData = this.homey.settings.get( 'diagLog' );;
+        }
+
+        while (tries-- > 0)
+        {
+            try
+            {
+                // create reusable transporter object using the default SMTP transport
+                const transporter = nodemailer.createTransport(
+                {
+                    host: Homey.env.MAIL_HOST, // Homey.env.MAIL_HOST,
+                    port: 465,
+                    ignoreTLS: false,
+                    secure: true, // true for 465, false for other ports
+                    auth:
+                    {
+                        user: Homey.env.MAIL_USER, // generated ethereal user
+                        pass: Homey.env.MAIL_SECRET, // generated ethereal password
+                    },
+                    tls:
+                    {
+                        // do not fail on invalid certs
+                        rejectUnauthorized: false,
+                    },
+                }, );
+
+                // send mail with defined transport object
+                const info = await transporter.sendMail(
+                {
+                    from: `"Homey User" <${Homey.env.MAIL_USER}>`, // sender address
+                    to: Homey.env.MAIL_RECIPIENT, // list of receivers
+                    subject: `Weather Underground ${body.logType} log`, // Subject line
+                    text: logData, // plain text body
+                }, );
+
+                this.updateLog(`Message sent: ${info.messageId}`);
+                // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+                // Preview only available when sending through an Ethereal account
+                this.log('Preview URL: ', nodemailer.getTestMessageUrl(info));
+                return this.homey.__('settings.logSent');
+            }
+            catch (err)
+            {
+                this.updateLog(`Send log error: ${err.message}`, 0);
+            }
+        }
+
+        return (this.homey.__('settings.logSendFailed'));
+    }
+
 }
 
 module.exports = WeatherApp;

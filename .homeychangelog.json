@@ -148,5 +148,11 @@
   },
   "3.0.5": {
     "en": "Added missing German translation thanks to Dirk Göbel."
+  },
+  "3.0.6": {
+    "en": "Added missing German translation thanks to Dirk Göbel."
+  },
+  "3.0.7": {
+    "en": "Fixed Temperature reading on Forecast not updating."
   }
 }
