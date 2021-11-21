@@ -20,10 +20,12 @@
                     <label for="stationID" data-i18n="stationID"></label>
                     <input id="stationID" type="text" value="" />
                 </div>
+                <button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/devices');">Get Station ID</button>
                 <div class="field row">
                     <label for="apiKey" data-i18n="apiKey"></label>
                     <input id="apiKey" type="text" value="" />
                 </div>
+                <button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/api-keys');">Get API key</button>
             </fieldset>
             <p><button id="save" class="right" data-i18n="addStation"></button></p>
             </fieldset>
