@@ -157,5 +157,8 @@
   },
   "3.0.8": {
     "en": "Added buttons to the connection page to open the WU pages where the Station ID and API keys can be found."
+  },
+  "3.0.9": {
+    "en": "Removed cloud option."
   }
 }

@@ -1,11 +1,10 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.weatherunderground",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "compatibility": ">=5.0.0",
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "sdk": 3,
   "brandColor": "#FF7D4B",
@@ -80,8 +79,7 @@
           "de": "Die Bewölkung [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -216,8 +214,7 @@
           "de": "Die Daten wurden fortgesetzt"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "id": "data_resumed_changed"
       },
@@ -238,8 +235,7 @@
           "de": "Die Böenstärke [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -391,8 +387,7 @@
           "de": "Die Luftfeuchtigkeit [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -533,8 +528,7 @@
           "de": "Die Sonnenstrahlung hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -564,8 +558,7 @@
           "de": "Die Regenmenge hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -596,8 +589,7 @@
           "de": "Der Taupunkt hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -627,8 +619,7 @@
           "de": "Gefühlte Temperatur hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -658,8 +649,7 @@
           "de": "Es wurden keine Daten empfangen"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "id": "no_data_changed"
       },
@@ -674,8 +664,7 @@
           "de": "Die Luftfeuchtigkeit [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -814,8 +803,7 @@
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -954,8 +942,7 @@
           "de": "Die Regenmenge [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1094,8 +1081,7 @@
           "de": "Die Schneewahrscheinlichkeit [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1234,8 +1220,7 @@
           "de": "Die gefühlte Temperatur [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1374,8 +1359,7 @@
           "de": "Die Höchsttemperatur [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1513,8 +1497,7 @@
           "de": "Die Höchsttemperatur [[day]] wird mehr als [[temperature]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1669,8 +1652,7 @@
           "de": "Die Höchsttemperatur [[day]] wird weniger als [[temperature]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1826,8 +1808,7 @@
           "de": "Die Tiefsttemperatur [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -1966,8 +1947,7 @@
           "de": "Die Tiefsttemperatur [[day]] wird mehr als [[temperature]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -2122,8 +2102,7 @@
           "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -2285,8 +2264,7 @@
           "de": "Der UV-Wert [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -2437,8 +2415,7 @@
           "de": "Die Windrichtung [[day]] hat sich geändert"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "tokens": [
           {
@@ -2585,8 +2562,7 @@
           "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -2725,8 +2701,7 @@
           "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -2865,8 +2840,7 @@
           "de": "Die Böenstärke [[day]] ist !{{entspricht|entspricht nicht}} [[value]]km/h"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3005,8 +2979,7 @@
           "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3145,8 +3118,7 @@
           "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3285,8 +3257,7 @@
           "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3425,8 +3396,7 @@
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3565,8 +3535,7 @@
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3705,8 +3674,7 @@
           "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3845,8 +3813,7 @@
           "de": "Die Regenmenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -3985,8 +3952,7 @@
           "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4125,8 +4091,7 @@
           "de": "Die Schneemenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4265,8 +4230,7 @@
           "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4405,8 +4369,7 @@
           "de": "Die Temperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4545,8 +4508,7 @@
           "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4685,8 +4647,7 @@
           "de": "Die Höchsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4825,8 +4786,7 @@
           "de": "Die Tiefsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -4965,8 +4925,7 @@
           "de": "Die Tiefsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -5105,8 +5064,7 @@
           "de": "Der UV-Index [[day]] !{{entspricht|entspricht nicht}} [[value]]"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -5245,8 +5203,7 @@
           "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]"
         },
         "platforms": [
-          "local",
-          "cloud"
+          "local"
         ],
         "args": [
           {
@@ -5385,8 +5342,7 @@
         "de": "Wettervorhersage"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "cloud"
@@ -5497,8 +5453,7 @@
         "de": "Wetterstation"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "cloud"

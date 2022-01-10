@@ -9,8 +9,7 @@
         "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

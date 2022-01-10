@@ -5,8 +5,7 @@
         "de": "Die Sonnenstrahlung hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

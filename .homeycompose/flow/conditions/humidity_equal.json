@@ -9,8 +9,7 @@
         "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

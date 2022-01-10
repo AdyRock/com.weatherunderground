@@ -9,8 +9,7 @@
         "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} [[value]]%"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

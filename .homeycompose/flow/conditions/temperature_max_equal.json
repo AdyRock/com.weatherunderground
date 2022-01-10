@@ -9,8 +9,7 @@
         "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

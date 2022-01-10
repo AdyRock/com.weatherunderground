@@ -5,7 +5,6 @@
         "de": "Die Daten wurden fortgesetzt"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ]
 }

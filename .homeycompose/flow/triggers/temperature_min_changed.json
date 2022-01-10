@@ -9,8 +9,7 @@
         "de": "Die Tiefsttemperatur [[day]] hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

@@ -15,8 +15,7 @@
         "de": "Die Böenstärke [[day]] hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

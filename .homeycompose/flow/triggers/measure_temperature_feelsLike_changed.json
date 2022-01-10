@@ -5,8 +5,7 @@
         "de": "Gefühlte Temperatur hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

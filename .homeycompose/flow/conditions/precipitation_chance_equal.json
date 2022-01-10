@@ -9,8 +9,7 @@
         "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

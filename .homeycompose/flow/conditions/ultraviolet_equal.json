@@ -9,8 +9,7 @@
         "de": "Der UV-Index [[day]] !{{entspricht|entspricht nicht}} [[value]]"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

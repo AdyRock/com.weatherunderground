@@ -9,8 +9,7 @@
         "de": "Die gefühlte Temperatur [[day]] hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

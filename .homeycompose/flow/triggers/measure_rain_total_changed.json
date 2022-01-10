@@ -5,8 +5,7 @@
         "de": "Die Regenmenge hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

@@ -9,8 +9,7 @@
         "de": "Die Tiefsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

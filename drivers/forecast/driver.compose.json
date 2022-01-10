@@ -7,8 +7,7 @@
         "de": "Wettervorhersage"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "connectivity": [
         "cloud"

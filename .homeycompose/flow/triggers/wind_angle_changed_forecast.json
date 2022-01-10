@@ -15,8 +15,7 @@
         "de": "Die Windrichtung [[day]] hat sich geändert"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {

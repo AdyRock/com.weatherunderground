@@ -9,8 +9,7 @@
         "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "args": [
         {

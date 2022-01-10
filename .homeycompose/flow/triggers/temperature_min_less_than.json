@@ -8,8 +8,7 @@
         "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C"
     },
     "platforms": [
-        "local",
-        "cloud"
+        "local"
     ],
     "tokens": [
         {
