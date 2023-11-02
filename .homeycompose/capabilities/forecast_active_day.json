@@ -3,7 +3,8 @@
   "title": {
     "en": "Day",
     "nl": "Dag",
-    "de": "Tag"
+    "de": "Tag",
+    "fr": "Jour"
   },
   "getable": true,
   "setable": false,
