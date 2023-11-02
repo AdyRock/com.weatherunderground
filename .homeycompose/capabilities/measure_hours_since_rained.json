@@ -1,0 +1,13 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Hours Since Last Rained"
+    },
+    "units": {
+        "en": "Hours"
+    },
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "icon": "/assets/rain_time.svg"
+}

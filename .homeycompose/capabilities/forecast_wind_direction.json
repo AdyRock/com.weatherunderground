@@ -1,0 +1,10 @@
+{
+    "type": "string",
+    "title": {
+        "en": "Wind Direction",
+        "nl": "Windrichting"
+    },
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/wind-rose.svg"
+}

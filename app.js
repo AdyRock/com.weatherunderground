@@ -7,7 +7,7 @@ if ( process.env.DEBUG === '1' )
 
 const Homey = require( 'homey' );
 const https = require( "https" );
-const nodemailer = require('nodemailer');
+const nodemailer = require( 'nodemailer' );
 
 class WeatherApp extends Homey.App
 {
@@ -21,12 +21,12 @@ class WeatherApp extends Homey.App
             await this.homey.cloud.getLocalAddress();
             this.cloudOnly = false;
         }
-        catch (err)
+        catch ( err )
         {
             // getLocalAddress will fail on Homey cloud installations so dissbale the loging options
             this.cloudOnly = true;
-            this.homey.settings.set('logEnabled', true);
-            this.log("Logging Enabled");
+            this.homey.settings.set( 'logEnabled', true );
+            this.log( "Logging Enabled" );
         }
 
         this.homey.settings.set( 'diagLog', "App Started\r\n" );
@@ -178,6 +178,20 @@ class WeatherApp extends Homey.App
                 const day = args.device.getDayNight( args.day );
                 return args.device.forecastData.qpf[ day.day ] > args.value;
             } );
+
+        let measure_hours_since_rained_is_lessCondition = this.homey.flow.getConditionCard( 'measure_hours_since_rained_is_less' );
+        measure_hours_since_rained_is_lessCondition.registerRunListener( async ( args, state ) =>
+        {
+            let value = args.device.getCapabilityValue( 'measure_hours_since_rained' );
+            return value < args.value;
+        } );
+
+        let measure_hours_since_rained_is_equalCondition = this.homey.flow.getConditionCard( 'measure_hours_since_rained_is_equal' );
+        measure_hours_since_rained_is_equalCondition.registerRunListener( async ( args, state ) =>
+        {
+            let value = args.device.getCapabilityValue( 'measure_hours_since_rained' );
+            return value === args.value;
+        } );
 
         this.snowEqualCondition = this.homey.flow.getConditionCard( 'snow_equal' );
         this.snowEqualCondition
@@ -536,17 +550,17 @@ class WeatherApp extends Homey.App
     }
 
     // Send the log to the developer (not applicable to Homey cloud)
-    async sendLog(body)
+    async sendLog( body )
     {
         let tries = 5;
 
         let logData;
-        if (body.logType === 'diag')
+        if ( body.logType === 'diag' )
         {
             logData = this.homey.settings.get( 'diagLog' );;
         }
 
-        while (tries-- > 0)
+        while ( tries-- > 0 )
         {
             try
             {
@@ -578,20 +592,20 @@ class WeatherApp extends Homey.App
                     text: logData, // plain text body
                 }, );
 
-                this.updateLog(`Message sent: ${info.messageId}`);
+                this.updateLog( `Message sent: ${info.messageId}` );
                 // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
                 // Preview only available when sending through an Ethereal account
-                this.log('Preview URL: ', nodemailer.getTestMessageUrl(info));
-                return this.homey.__('settings.logSent');
+                this.log( 'Preview URL: ', nodemailer.getTestMessageUrl( info ) );
+                return this.homey.__( 'settings.logSent' );
             }
-            catch (err)
+            catch ( err )
             {
-                this.updateLog(`Send log error: ${err.message}`, 0);
+                this.updateLog( `Send log error: ${err.message}`, 0 );
             }
         }
 
-        return (this.homey.__('settings.logSendFailed'));
+        return ( this.homey.__( 'settings.logSendFailed' ) );
     }
 
 }

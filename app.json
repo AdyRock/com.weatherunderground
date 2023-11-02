@@ -3386,6 +3386,70 @@
         ]
       },
       {
+        "title": {
+          "en": "Hours since last rained is !{{equal|not equal}} to"
+        },
+        "hint": {
+          "en": "This Flow will continue if hours since it last rained is/is not equal to the set value."
+        },
+        "titleFormatted": {
+          "en": "The hours since it last rained is !{{equal|not equal}} to [[value]]Hours"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "max": 70,
+            "step": 1,
+            "placeholder": {
+              "en": "Set a value"
+            },
+            "title": {
+              "en": "Hours since it last rained"
+            }
+          }
+        ],
+        "id": "measure_hours_since_rained_is_equal"
+      },
+      {
+        "title": {
+          "en": "Hours since last rained is !{{less|greater}} than"
+        },
+        "hint": {
+          "en": "This Flow will continue if hours since it last rained is/is not less than the set value."
+        },
+        "titleFormatted": {
+          "en": "The hours since it last rained is !{{less|greater}} less than [[value]]Hours"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "max": 70,
+            "step": 1,
+            "placeholder": {
+              "en": "Set a value"
+            },
+            "title": {
+              "en": "Hours since it last rained"
+            }
+          }
+        ],
+        "id": "measure_hours_since_rained_is_less"
+      },
+      {
         "id": "precipitation_chance_equal",
         "title": {
           "en": "The precipitation chance !{{equals|does not equal}}",
@@ -5364,6 +5428,7 @@
         "forecast_temperature",
         "forecast_temperature.feelsLike",
         "forecast_wind_angle",
+        "forecast_wind_direction",
         "forecast_gust_strength",
         "forecast_humidity",
         "forecast_ultraviolet",
@@ -5466,6 +5531,7 @@
         "measure_humidity",
         "measure_pressure",
         "measure_wind_angle",
+        "measure_wind_direction",
         "measure_wind_strength",
         "measure_gust_strength",
         "measure_rain",
@@ -5878,6 +5944,16 @@
       "decimals": 1,
       "icon": "/assets/weathercock.svg"
     },
+    "forecast_wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Wind Direction",
+        "nl": "Windrichting"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/wind-rose.svg"
+    },
     "measure_cloud_cover": {
       "type": "number",
       "title": {
@@ -5892,6 +5968,19 @@
       },
       "insights": true,
       "icon": "/assets/cloud.svg"
+    },
+    "measure_hours_since_rained": {
+      "type": "number",
+      "title": {
+        "en": "Hours Since Last Rained"
+      },
+      "units": {
+        "en": "Hours"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/rain_time.svg"
     },
     "measure_precipitation_chance": {
       "type": "number",
@@ -5939,6 +6028,16 @@
       "insights": true,
       "decimals": 1,
       "icon": "/assets/rainsnow.svg"
+    },
+    "measure_wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Wind Direction",
+        "nl": "Windrichting"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/wind-rose.svg"
     },
     "precipitation_type": {
       "type": "string",

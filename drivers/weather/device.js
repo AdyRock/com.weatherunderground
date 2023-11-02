@@ -3,6 +3,11 @@
 
 const Homey = require( 'homey' );
 
+const Sector = {
+    'en': ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW', 'N'],
+    'nl': ['N', 'NNO', 'NO', 'ONO', 'O', 'OZO', 'ZO', 'ZZO', 'Z', 'ZZW', 'ZW', 'WZW', 'W', 'WNW', 'NW', 'NNW', 'N']
+};
+
 class WeatherDevice extends Homey.Device
 {
 
@@ -14,8 +19,8 @@ class WeatherDevice extends Homey.Device
         {
             this.addCapability( 'button.send_log' );
         }
-        
-        this.registerCapabilityListener('button.send_log', this.onCapabilitySedLog.bind(this));
+
+        this.registerCapabilityListener( 'button.send_log', this.onCapabilitySedLog.bind( this ) );
 
         if ( this.hasCapability( "measure_temperature.heatIndex" ) )
         {
@@ -27,13 +32,31 @@ class WeatherDevice extends Homey.Device
             this.removeCapability( "measure_temperature.windchill" );
         }
 
-        this.setCapabilityValue( "measure_temperature.feelsLike", 0 ).catch(this.error);
+        this.setCapabilityValue( "measure_temperature.feelsLike", 0 ).catch( this.error );
+        
+        if (!this.hasCapability('measure_hours_since_rained'))
+        {
+            this.addCapability('measure_hours_since_rained');
+        }
+        
+        if (!this.hasCapability('measure_wind_direction'))
+        {
+            this.addCapability('measure_wind_direction');
+        }
 
-        if (this.homey.app.NumStations == 0)
+        this.lastRained = this.homey.settings.get('lastRainedTime');
+        if (this.lastRained === null)
+        {
+            const now = new Date(Date.now());
+            this.lastRained = now.getTime();
+            this.homey.settings.set('lastRainedTime', this.lastRained);
+        }
+
+        if ( this.homey.app.NumStations == 0 )
         {
             // App must have been updated from an older version that didn't have this setting
             this.homey.app.NumStations++;
-            this.homey.settings.set('NumStations', this.homey.app.NumStations);
+            this.homey.settings.set( 'NumStations', this.homey.app.NumStations );
         }
 
         // Refresh forecast but give it a minute to settle down
@@ -75,13 +98,13 @@ class WeatherDevice extends Homey.Device
         }
     }
 
-    async unitsChanged(Units)
+    async unitsChanged( Units )
     {
-        if (Units === 'SpeedUnits')
+        if ( Units === 'SpeedUnits' )
         {
             let unitsText = this.homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
-            this.setCapabilityOptions('measure_wind_strength', {"units": unitsText});
-            this.setCapabilityOptions('measure_gust_strength', {"units": unitsText});
+            this.setCapabilityOptions( 'measure_wind_strength', { "units": unitsText } );
+            this.setCapabilityOptions( 'measure_gust_strength', { "units": unitsText } );
             if ( this.timerID )
             {
                 this.homey.clearTimeout( this.timerID );
@@ -107,46 +130,55 @@ class WeatherDevice extends Homey.Device
                 let weatherData = JSON.parse( result.body );
                 let currentData = weatherData.observations[ 0 ];
 
-                this.setAvailable().catch(this.error);
-                this.unsetWarning().catch(this.error);
+                this.setAvailable().catch( this.error );
+                this.unsetWarning().catch( this.error );
 
                 if ( this.homey.app.stationOffline )
                 {
                     this.homey.app.stationOffline = false;
-                    this.homey.app.dataResumedTrigger.trigger().catch(this.error);
+                    this.homey.app.dataResumedTrigger.trigger().catch( this.error );
                 }
 
                 this.homey.app.updateLog( "PWS Data = " + JSON.stringify( currentData, null, 2 ) );
-                this.setCapabilityValue( "measure_wind_angle", currentData.winddir ).catch(this.error);
+                this.setCapabilityValue( "measure_wind_angle", currentData.winddir ).catch( this.error );
 
-                if (this.homey.app.SpeedUnits === '0')
+                var index = parseInt(currentData.winddir / 22.5);
+                let langCode = this.homey.i18n.getLanguage();
+                if ((langCode !== 'en') && (langCode !== 'nl'))
                 {
-                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed ).catch(this.error);
-                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust ).catch(this.error);
+                    langCode = 'en';
+                }
+                let windDir = Sector[langCode][index];
+                this.setCapabilityValue('measure_wind_direction', windDir).catch(this.error);
+    
+                if ( this.homey.app.SpeedUnits === '0' )
+                {
+                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed ).catch( this.error );
+                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust ).catch( this.error );
                 }
                 else
                 {
                     // Convert Km/H to m/s
-                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed  * 1000 / 3600 ).catch(this.error);
-                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust  * 1000 / 3600).catch(this.error);
+                    this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed * 1000 / 3600 ).catch( this.error );
+                    this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust * 1000 / 3600 ).catch( this.error );
                 }
 
-                this.setCapabilityValue( "measure_humidity", currentData.humidity ).catch(this.error);
-                this.setCapabilityValue( "measure_temperature", currentData.metric.temp ).catch(this.error);
+                this.setCapabilityValue( "measure_humidity", currentData.humidity ).catch( this.error );
+                this.setCapabilityValue( "measure_temperature", currentData.metric.temp ).catch( this.error );
 
                 let oldFeelsLike = this.getCapabilityValue( "measure_temperature.feelsLike" );
 
                 if ( currentData.metric.temp <= 16.1 )
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.windChill ).catch( this.error );
                 }
                 else if ( currentData.metric.temp >= 21 )
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.heatIndex ).catch( this.error );
                 }
                 else
                 {
-                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.feelsLike", currentData.metric.temp ).catch( this.error );
                 }
 
                 if ( oldFeelsLike != this.getCapabilityValue( "measure_temperature.feelsLike" ) )
@@ -156,19 +188,33 @@ class WeatherDevice extends Homey.Device
 
                 if ( currentData.metric.dewpt != this.getCapabilityValue( "measure_temperature.dewPoint" ) )
                 {
-                 this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt ).catch(this.error);
+                    this.setCapabilityValue( "measure_temperature.dewPoint", currentData.metric.dewpt ).catch( this.error );
                     this.driver.triggerDewPoint( this, currentData.metric.dewpt );
                 }
 
-                this.setCapabilityValue( "measure_rain", currentData.metric.precipRate ).catch(this.error);
-
+                this.setCapabilityValue( "measure_rain", currentData.metric.precipRate ).catch( this.error );
+                if (currentData.metric.precipRate > 0)
+                {
+                    const now = new Date(Date.now());
+                    this.lastRained = now.getTime();
+                    this.homey.settings.set('lastRainedTime', this.lastRained);
+                    this.setCapabilityValue('measure_hours_since_rained', 0).catch(this.error);
+                }
+                else
+                {
+                    const now = new Date(Date.now());
+                    const diff = now.getTime() - this.lastRained;
+                    const noRainHours = Math.floor(diff / 1000 / 60 / 60);
+                    this.setCapabilityValue('measure_hours_since_rained', noRainHours).catch(this.error);
+                }
+    
                 if ( currentData.metric.precipTotal != this.getCapabilityValue( "measure_rain.total" ) )
                 {
-                 this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal ).catch(this.error);
+                    this.setCapabilityValue( "measure_rain.total", currentData.metric.precipTotal ).catch( this.error );
                     this.driver.triggerRainTotal( this, currentData.metric.precipTotal );
                 }
 
-                this.setCapabilityValue( "measure_pressure", currentData.metric.pressure ).catch(this.error);
+                this.setCapabilityValue( "measure_pressure", currentData.metric.pressure ).catch( this.error );
 
                 this.log( "UV = ", currentData.uv, "Radiation = ", currentData.solarRadiation );
                 if ( currentData.uv != null )
@@ -177,7 +223,7 @@ class WeatherDevice extends Homey.Device
                     {
                         await this.addCapability( "measure_ultraviolet" );
                     }
-                    this.setCapabilityValue( "measure_ultraviolet", currentData.uv ).catch(this.error);
+                    this.setCapabilityValue( "measure_ultraviolet", currentData.uv ).catch( this.error );
                 }
                 else if ( this.hasCapability( "measure_ultraviolet" ) )
                 {
@@ -196,7 +242,7 @@ class WeatherDevice extends Homey.Device
 
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
                     {
-                     this.setCapabilityValue( "measure_radiation", currentData.solarRadiation ).catch(this.error);
+                        this.setCapabilityValue( "measure_radiation", currentData.solarRadiation ).catch( this.error );
                         this.driver.triggerRadiation( this, currentData.solarRadiation );
                     }
                 }
@@ -212,7 +258,7 @@ class WeatherDevice extends Homey.Device
                 if ( !this.homey.app.stationOffline )
                 {
                     this.homey.app.stationOffline = true;
-                    this.homey.app.noDataTrigger.trigger().catch(this.error);
+                    this.homey.app.noDataTrigger.trigger().catch( this.error );
                 }
 
                 this.setWarning( "No data received" );
@@ -234,7 +280,7 @@ class WeatherDevice extends Homey.Device
                 if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
                 {
                     this.homey.app.stationOffline = true;
-                    this.homey.app.noDataTrigger.trigger().catch(this.error);
+                    this.homey.app.noDataTrigger.trigger().catch( this.error );
                     this.setUnavailable( "No data available" );
                 }
                 else
@@ -261,20 +307,20 @@ class WeatherDevice extends Homey.Device
         return await this.homey.app.GetURL( url );
     }
 
-    async onCapabilitySedLog(value)
+    async onCapabilitySedLog( value )
     {
         const body = {
             notify: true,
             logType: "diag"
         };
 
-        this.homey.app.sendLog(body);
+        this.homey.app.sendLog( body );
     }
 
     async onAdded()
     {
         this.homey.app.NumStations++;
-        this.homey.settings.set('NumStations', this.homey.app.NumStations);
+        this.homey.settings.set( 'NumStations', this.homey.app.NumStations );
     }
 
     async onDeleted()
@@ -284,7 +330,8 @@ class WeatherDevice extends Homey.Device
             this.homey.clearTimeout( this.timerID );
         }
         this.homey.app.NumStations--;
-        this.homey.settings.set('NumStations', this.homey.app.NumStations);    }
+        this.homey.settings.set( 'NumStations', this.homey.app.NumStations );
+    }
 }
 
 module.exports = WeatherDevice;

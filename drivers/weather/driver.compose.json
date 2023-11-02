@@ -20,6 +20,7 @@
         "measure_humidity",
         "measure_pressure",
         "measure_wind_angle",
+        "measure_wind_direction",
         "measure_wind_strength",
         "measure_gust_strength",
         "measure_rain",

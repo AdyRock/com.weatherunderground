@@ -18,6 +18,11 @@ const forecast_dayToNum = [
     { id: "tonight_5", value: 11, day: -6 },
 ];
 
+const Sector = {
+    'en': ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW', 'N'],
+    'nl': ['N', 'NNO', 'NO', 'ONO', 'O', 'OZO', 'ZO', 'ZZO', 'Z', 'ZZW', 'ZW', 'WZW', 'W', 'WNW', 'NW', 'NNW', 'N']
+};
+
 class ForecastDevice extends Homey.Device
 {
     async onInit()
@@ -36,6 +41,11 @@ class ForecastDevice extends Homey.Device
         if ( !this.getCapabilityValue( 'forecast_day' ) )
         {
             this.setCapabilityValue( 'forecast_day', "today" ).catch(this.error);
+        }
+        
+        if (!this.hasCapability('measure_wind_direction'))
+        {
+            this.addCapability('measure_wind_direction');
         }
 
         // Refresh forecast but give it a minute and a bit to settle down
@@ -297,6 +307,15 @@ class ForecastDevice extends Homey.Device
                 this.setCapabilityValue( "forecast_precipitation_chance", this.forecastData.daypart[ 0 ].precipChance[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "precipitation_type", this.forecastData.daypart[ 0 ].precipType[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "forecast_wind_angle", this.forecastData.daypart[ 0 ].windDirection[ dayNight ] ).catch(this.error);
+
+                var index = parseInt(this.forecastData.daypart[ 0 ].windDirection[ dayNight ] / 22.5);
+                let langCode = this.homey.i18n.getLanguage();
+                if ((langCode !== 'en') && (langCode !== 'nl'))
+                {
+                    langCode = 'en';
+                }
+                let windDir = Sector[langCode][index];
+                this.setCapabilityValue('measure_wind_direction', windDir).catch(this.error);
 
                 if ( this.homey.app.SpeedUnits === '0' )
                 {

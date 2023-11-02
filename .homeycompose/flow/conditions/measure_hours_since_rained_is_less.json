@@ -1,0 +1,31 @@
+{
+    "title": {
+        "en": "Hours since last rained is !{{less|greater}} than"
+    },
+    "hint": {
+        "en": "This Flow will continue if hours since it last rained is/is not less than the set value."
+    },
+    "titleFormatted": {
+        "en": "The hours since it last rained is !{{less|greater}} less than [[value]]Hours"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=weather"
+        },
+        {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "max": 70,
+            "step": 1,
+            "placeholder": {
+                "en": "Set a value"
+            },
+            "title": {
+                "en": "Hours since it last rained"
+            }
+        }
+    ]
+}
