@@ -160,5 +160,9 @@
   },
   "3.0.9": {
     "en": "Removed cloud option."
+  },
+  "3.0.10": {
+    "en": "Added cardinal wind direction."
   }
 }
+

@@ -1,6 +1,6 @@
 {
   "id": "com.weatherunderground",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
