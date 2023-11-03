@@ -1,5 +1,5 @@
 {
-    "id": "forecast",
+    "id": "weather",
     "name":
     {
         "en": "Weather Forecast",
@@ -15,31 +15,24 @@
     ],
     "class": "other",
     "capabilities": [
-        "forecast_day",
-        "forecast_active_day",
-        "forecast_moonPhase",
-        "forecast_rain",
-        "forecast_snow",
-        "forecast_temperature.max",
-        "forecast_temperature.min",
-        "forecast_text",
-        "forecast_summary",
-        "forecast_cloud_cover",
-        "forecast_precipitation_chance",
-        "precipitation_type",
-        "forecast_temperature",
-        "forecast_temperature.feelsLike",
-        "forecast_wind_angle",
-        "forecast_wind_direction",
-        "forecast_gust_strength",
-        "forecast_humidity",
-        "forecast_ultraviolet",
-        "thunder_category",
+        "measure_temperature",
+        "measure_temperature.feelsLike",
+        "measure_temperature.dewPoint",
+        "measure_humidity",
+        "measure_pressure",
+        "measure_wind_angle",
+        "measure_wind_direction",
+        "measure_wind_strength",
+        "measure_gust_strength",
+        "measure_rain",
+        "measure_rain.total",
+        "measure_ultraviolet",
+        "measure_radiation",
         "button.send_log"
     ],
     "capabilitiesOptions":
     {
-        "forecast_temperature.feelsLike":
+        "measure_temperature.feelsLike":
         {
             "title":
             {
@@ -49,27 +42,51 @@
                 "fr": "Température ressentie"
             }
         },
-        "forecast_temperature.max":
+        "measure_temperature.dewPoint":
         {
             "title":
             {
-                "en": "High Temperature",
-                "nl": "Hoge temperatuur",
-                "de": "Höchsttemperatur",
-                "fr": "Température maximale"
-            },
-            "insights": false
+                "en": "Dew point",
+                "nl": "Dauwpunt",
+                "de": "Taupunkt",
+                "fr": "Point de rosée"
+            }
         },
-        "forecast_temperature.min":
+        "measure_rain":
+        {
+            "units":
+            {
+                "en": "mm/hr"
+            }
+        },
+        "measure_rain.total":
         {
             "title":
             {
-                "en": "Low Temperature",
-                "nl": "Lage temperatuur",
-                "de": "Tiefsttemperatur",
-                "fr": "Température minimale"
-            },
-            "insights": false
+                "en": "Rain Total",
+                "nl": "Regen Totaal",
+                "de": "Regenmenge",
+                "fr": "Quantité totale de pluie"
+            }
+        },
+        "measure_ultraviolet":
+        {
+            "title":
+            {
+                "en": "UV-Index",
+                "de": "UV-Index",
+                "fr": "Inedx UV"
+            }
+        },
+        "measure_pressure":
+        {
+            "title":
+            {
+                "en": "Relative Pressure",
+                "nl": "Relatieve druk",
+                "de": "Relativer Druck",
+                "fr": "Pression relative"
+            }
         },
         "button.send_log": {
             "maintenanceAction": true,
@@ -85,9 +102,19 @@
     },
     "pair": [
     {
-        "id": "forecast_pair"
+        "id": "weather_pair"
     } ],
     "settings": [
+    {
+        "type": "group",
+        "label":
+        {
+            "en": "Station Details",
+            "nl": "Station detail informatie",
+            "de": "Stationsdetails",
+            "fr": "Détails de la station"
+        },
+        "children": [
         {
             "type": "group",
             "label":
@@ -123,8 +150,8 @@
         } ],
     "images":
     {
-        "large": "/drivers/forecast/assets/images/large.png",
-        "small": "/drivers/forecast/assets/images/small.png"
+        "large": "/drivers/weather/assets/images/large.png",
+        "small": "/drivers/weather/assets/images/small.png"
     },
     "icon": "/drivers/forecast/assets/icon.svg"
 }
