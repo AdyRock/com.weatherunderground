@@ -13,7 +13,8 @@
   "description": {
     "en": "Get the last data from you weather station",
     "nl": "Haal de laatste gegevens van uw weerstation op",
-    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
+    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation",
+    "fr": "Obtenez les dernières données de votre station météo"
   },
   "category": [
     "climate"
@@ -30,6 +31,10 @@
     "de": [
       "Wetter",
       "Klima"
+    ],
+    "fr": [
+      "Météo",
+      "Climat"
     ]
   },
   "permissions": [],
