@@ -2,7 +2,8 @@
     "title": {
         "en": "The solar radiation changed",
         "nl": "De zonnestraling veranderde",
-        "de": "Die Sonnenstrahlung hat sich geändert"
+        "de": "Die Sonnenstrahlung hat sich geändert",
+        "fr": "Le rayonnement solaire a changé"
     },
     "platforms": [
         "local"
@@ -14,7 +15,8 @@
             "title": {
                 "en": "Solar Radiation",
                 "nl": "Zonnestraling",
-                "de": "Sonnenstrahlung"
+                "de": "Sonnenstrahlung",
+                "fr": "Le rayonnement solaire"
             },
             "example": 200
         }
