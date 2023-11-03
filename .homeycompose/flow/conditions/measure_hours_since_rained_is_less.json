@@ -1,9 +1,11 @@
 {
     "title": {
-        "en": "Hours since last rained is !{{less|greater}} than"
+        "en": "Hours since last rained is !{{less|greater}} than",
+        "fr": "Le nombre d'heures depuis la dernière pluie est !{{inferieure|supérieure}} à"
     },
-    "hint": {
-        "en": "This Flow will continue if hours since it last rained is/is not less than the set value."
+    "hint": 		{
+        "en": "This Flow will continue if hours since it last rained is/is not less than the set value.",
+		"fr": "Ce flow continuera si le nombre d'heures écoulées depuis la dernière pluie est inférieur ou non à la valeur réglée."
     },
     "titleFormatted": {
         "en": "The hours since it last rained is !{{less|greater}} less than [[value]]Hours"
@@ -21,10 +23,12 @@
             "max": 70,
             "step": 1,
             "placeholder": {
-                "en": "Set a value"
+                "en": "Set a value (km/h)",
+				"fr": "Définir une valeur (km/h)"
             },
             "title": {
-                "en": "Hours since it last rained"
+                "en": "Hours since it last rained",
+                "fr": "Heures depuis la dernière pluie"
             }
         }
     ]
