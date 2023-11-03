@@ -3,12 +3,14 @@
   "title": {
     "en": "Ultraviolet",
     "nl": "Ultraviolet",
-    "de": "Ultraviolett"
+    "de": "Ultraviolett",
+    "fr": "Ultraviolet"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "UVI"
+    "en": "UVI",
+    "fr": "UVI"
   },
   "insights": false,
   "decimals": 1,
