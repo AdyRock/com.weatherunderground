@@ -3,12 +3,14 @@
   "title": {
     "en": "Snow Total",
     "nl": "Sneeuwtotaal",
-    "de": "Schneemenge"
+    "de": "Schneemenge",
+    "fr": "Quantité de neige"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "mm"
+    "en": "mm",
+    "fr": "mm"
   },
   "insights": true,
   "decimals": 1,
