@@ -2,7 +2,8 @@
     "title": {
         "en": "Data has been resumed",
         "nl": "De gegevens zijn hervat",
-        "de": "Die Daten wurden fortgesetzt"
+        "de": "Die Daten wurden fortgesetzt",
+        "fr": "Les données ont été rétablies"
     },
     "platforms": [
         "local"
