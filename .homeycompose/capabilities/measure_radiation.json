@@ -3,12 +3,14 @@
   "title": {
     "en": "Solar Radiation",
     "nl": "Zonnestraling",
-    "de": "Sonnenstrahlung"
+    "de": "Sonnenstrahlung",
+    "fr": "Rayonnement solaire"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "W/m²"
+    "en": "W/m²",
+    "fr": "W/m2"
   },
   "insights": true,
   "decimals": 1,
