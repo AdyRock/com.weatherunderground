@@ -3,12 +3,14 @@
   "title": {
     "en": "Precipitation Chance",
     "nl": "Neerslagkans",
-    "de": "Niederschlagswahrscheinlichkeit"
+    "de": "Niederschlagswahrscheinlichkeit",
+    "fr": "Probabilité de précipitations"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "%"
+    "en": "%",
+    "fr": "%"
   },
   "insights": true,
   "icon": "/assets/rainsnow.svg"
