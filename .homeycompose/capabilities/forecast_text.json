@@ -3,7 +3,8 @@
   "title": {
     "en": "Day / Night",
     "nl": "Dag / Nacht",
-    "de": "Tag / Nacht"
+    "de": "Tag / Nacht",
+    "fr": "Jour / Nuit"
   },
   "getable": true,
   "setable": false,
