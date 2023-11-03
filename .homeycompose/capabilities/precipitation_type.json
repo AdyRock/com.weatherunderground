@@ -3,7 +3,8 @@
   "title": {
     "en": "Precipitation Type",
     "nl": "Neerslagtype",
-    "de": "Niederschlagsart"
+    "de": "Niederschlagsart",
+    "fr": "Type de précipitation"
   },
   "getable": true,
   "setable": false,
