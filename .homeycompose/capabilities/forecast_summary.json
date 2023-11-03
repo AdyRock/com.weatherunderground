@@ -3,7 +3,8 @@
   "title": {
     "en": "Summary",
     "nl": "Overzicht",
-    "de": "Zusammenfassung"
+    "de": "Zusammenfassung",
+    "fr": "Résumé"
   },
   "getable": true,
   "setable": false,
