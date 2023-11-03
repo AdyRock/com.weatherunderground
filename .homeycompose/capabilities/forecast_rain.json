@@ -3,12 +3,14 @@
   "title": {
     "en": "Rain Total",
     "nl": "Regentotaal",
-    "de": "Niederschlag"
+    "de": "Niederschlag",
+    "fr": "Total des précipitations"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "mm"
+    "en": "mm",
+    "fr": "mm"
   },
   "insights": true,
   "decimals": 1,
