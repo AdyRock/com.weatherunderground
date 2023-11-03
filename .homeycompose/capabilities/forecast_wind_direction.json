@@ -2,7 +2,8 @@
     "type": "string",
     "title": {
         "en": "Wind Direction",
-        "nl": "Windrichting"
+        "nl": "Windrichting",
+        "fr": "Direction du vent"
     },
     "getable": true,
     "setable": false,
