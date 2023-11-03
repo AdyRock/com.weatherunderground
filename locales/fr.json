@@ -1,0 +1,20 @@
+{
+    "title": "Informations de votre station Weather Underground.",
+    "stationID": "ID de la station",
+    "apiKey": "Clé API",
+    "addStation": "Ajouter une station météo",
+    "stationIDRequired": "L'identifiant de la station est requis",
+    "apiKeyRequired": "La clé API est nécessaire",
+    "langCode": "fr-FR",
+    "stationNotFound": "L'ID de la station n'a pas été trouvé ou la clé API n'est pas valide. Souhaitez-vous tout de même ajouter la station ?",
+    "settings": {
+        "settings": "Réglages",
+        "subtitle": "Le taux de mise à jour est basé sur le nombre total de stations météo que vous avez sur votre compte WU, afin de vous assurer que vous restez dans la limite du taux.",
+        "NumStations": "Nombre de stations",
+        "saveChanges": "Enregistrer les modifications",
+        "saved": "Les paramètres ont été enregistrés",
+        "Einheiten": "Unités",
+        "SpeedUnits": "Vitesse du vent",
+        "accountDetails": "Détails du compte"
+    }
+}
