@@ -1,12 +1,18 @@
 {
     "title": {
-        "en": "Hours since last rained is !{{equal|not equal}} to"
+        "en": "Hours since last rained is !{{equal|not equal}} to",
+        "de": "Stunden seit dem letzten Regen sind !{{equal|not equal}} zu",
+        "fr": "Le nombre d'heures depuis la dernière pluie est !{{égal|non égal}} à"
     },
     "hint": {
-        "en": "This Flow will continue if hours since it last rained is/is not equal to the set value."
+        "en": "This Flow will continue if hours since it last rained is/is not equal to the set value.",
+        "de": "Dieser Durchfluss wird fortgesetzt, wenn die Stunden seit dem letzten Regen gleich oder ungleich dem eingestellten Wert sind.",
+        "fr": "Ce flux continuera si le nombre d'heures depuis la dernière pluie est égal ou non à la valeur réglée."
     },
     "titleFormatted": {
-        "en": "The hours since it last rained is !{{equal|not equal}} to [[value]]Hours"
+        "en": "The hours since it last rained is !{{equal|not equal}} to [[value]]Hours",
+        "de": "Die Stunden seit dem letzten Regen sind !{{equal|not equal}} zu [[value]]Hours",
+        "fr": "Le nombre d'heures écoulées depuis la dernière pluie est !{{égal|pas égal}} à [[valeur]]Heures"
     },
     "args": [
         {
@@ -21,10 +27,12 @@
             "max": 70,
             "step": 1,
             "placeholder": {
-                "en": "Set a value"
+                "en": "Set a value",
+                "fr": "Définir une valeur"
             },
             "title": {
-                "en": "Hours since it last rained"
+                "en": "Hours since it last rained",
+                "fr": "Heures depuis la dernière pluie."
             }
         }
     ]
