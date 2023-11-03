@@ -1,11 +1,10 @@
 {
-    "id": "weather",
+    "id": "forecast",
     "name":
     {
         "en": "Weather Forecast",
         "nl": "Weersverwachting",
-        "de": "Wettervorhersage",
-        "fr": "Prévisions météorologiques"
+        "de": "Wettervorhersage"
     },
     "platforms": [
         "local"
@@ -15,94 +14,72 @@
     ],
     "class": "other",
     "capabilities": [
-        "measure_temperature",
-        "measure_temperature.feelsLike",
-        "measure_temperature.dewPoint",
-        "measure_humidity",
-        "measure_pressure",
-        "measure_wind_angle",
-        "measure_wind_direction",
-        "measure_wind_strength",
-        "measure_gust_strength",
-        "measure_rain",
-        "measure_rain.total",
-        "measure_ultraviolet",
-        "measure_radiation",
+        "forecast_day",
+        "forecast_active_day",
+        "forecast_moonPhase",
+        "forecast_rain",
+        "forecast_snow",
+        "forecast_temperature.max",
+        "forecast_temperature.min",
+        "forecast_text",
+        "forecast_summary",
+        "forecast_cloud_cover",
+        "forecast_precipitation_chance",
+        "precipitation_type",
+        "forecast_temperature",
+        "forecast_temperature.feelsLike",
+        "forecast_wind_angle",
+        "forecast_wind_direction",
+        "forecast_gust_strength",
+        "forecast_humidity",
+        "forecast_ultraviolet",
+        "thunder_category",
         "button.send_log"
     ],
     "capabilitiesOptions":
     {
-        "measure_temperature.feelsLike":
+        "forecast_temperature.feelsLike":
         {
             "title":
             {
                 "en": "Feels Like",
                 "nl": "Voelt als",
-                "de": "Gefühlte Temperatur",
-                "fr": "Température ressentie"
+                "de": "Gefühlte Temperatur"
             }
         },
-        "measure_temperature.dewPoint":
+        "forecast_temperature.max":
         {
             "title":
             {
-                "en": "Dew point",
-                "nl": "Dauwpunt",
-                "de": "Taupunkt",
-                "fr": "Point de rosée"
-            }
+                "en": "High Temperature",
+                "nl": "Hoge temperatuur",
+                "de": "Höchsttemperatur"
+            },
+            "insights": false
         },
-        "measure_rain":
-        {
-            "units":
-            {
-                "en": "mm/hr"
-            }
-        },
-        "measure_rain.total":
+        "forecast_temperature.min":
         {
             "title":
             {
-                "en": "Rain Total",
-                "nl": "Regen Totaal",
-                "de": "Regenmenge",
-                "fr": "Quantité totale de pluie"
-            }
-        },
-        "measure_ultraviolet":
-        {
-            "title":
-            {
-                "en": "UV-Index",
-                "de": "UV-Index",
-                "fr": "Inedx UV"
-            }
-        },
-        "measure_pressure":
-        {
-            "title":
-            {
-                "en": "Relative Pressure",
-                "nl": "Relatieve druk",
-                "de": "Relativer Druck",
-                "fr": "Pression relative"
-            }
+                "en": "Low Temperature",
+                "nl": "Lage temperatuur",
+                "de": "Tiefsttemperatur"
+            },
+            "insights": false
         },
         "button.send_log": {
             "maintenanceAction": true,
             "title": {
-                "en": "Send Diagnostics Log",
-                "fr": "Envoi du journal de diagnostic"
+                "en": "Send Diagnostics Log"
             },
             "desc": {
-                "en": "Send a diagnostics log to the developer",
-                "fr": "Envoi du journal de diagnostic au dévelopeur"
+                "en": "Send a diagnostics log to the developer"
             }
         }
     },
     "pair": [
     {
-        "id": "weather_pair"
+        "id": "forecast_pair"
     } ],
     "settings": [
     {
@@ -111,47 +88,34 @@
         {
             "en": "Station Details",
             "nl": "Station detail informatie",
-            "de": "Stationsdetails",
-            "fr": "Détails de la station"
+            "de": "Stationsdetails"
         },
         "children": [
         {
-            "type": "group",
+            "id": "stationID",
+            "type": "text",
             "label":
             {
-                "en": "Station Details",
-                "nl": "Station detail informatie",
-                "de": "Stationsdetails",
-                "fr": "Détails de la station"
-            },
-            "children": [
+                "en": "Station ID",
+                "nl": "Station ID",
+                "de": "Station ID"
+            }
+        },
+        {
+            "id": "apiKey",
+            "type": "text",
+            "label":
             {
-                "id": "stationID",
-                "type": "text",
-                "label":
-                {
-                    "en": "Station ID",
-                    "nl": "Station ID",
-                    "de": "Station ID",
-                    "fr": "Id de la station"
-                }
-            },
-            {
-                "id": "apiKey",
-                "type": "text",
-                "label":
-                {
-                    "en": "API Key",
-                    "nl": "API Sleutel",
-                    "de": "API Key",
-                    "fr": "Clé API"
-                }
-            } ]
-        } ],
+                "en": "API Key",
+                "nl": "API Sleutel",
+                "de": "API Key"
+            }
+        } ]
+    } ],
     "images":
     {
-        "large": "/drivers/weather/assets/images/large.png",
-        "small": "/drivers/weather/assets/images/small.png"
+        "large": "/drivers/forecast/assets/images/large.png",
+        "small": "/drivers/forecast/assets/images/small.png"
     },
     "icon": "/drivers/forecast/assets/icon.svg"
 }
