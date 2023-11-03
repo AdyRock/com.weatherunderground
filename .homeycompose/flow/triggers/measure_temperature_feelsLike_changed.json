@@ -2,7 +2,8 @@
     "title": {
         "en": "The feels like changed",
         "nl": "Het voelt als veranderd",
-        "de": "Gefühlte Temperatur hat sich geändert"
+        "de": "Gefühlte Temperatur hat sich geändert",
+        "fr": "La température ressentie a changé"
     },
     "platforms": [
         "local"
@@ -14,7 +15,8 @@
             "title": {
                 "en": "Feels Like",
                 "nl": "Voelt als",
-                "de": "Gefühlte Temperatur"
+                "de": "Gefühlte Temperatur",
+                "fr": "La température ressentie"
             },
             "example": 25
         }
