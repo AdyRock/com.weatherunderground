@@ -2,7 +2,8 @@
     "title": {
         "en": "The dew point changed",
         "nl": "Het dauwpunt veranderde",
-        "de": "Der Taupunkt hat sich geändert"
+        "de": "Der Taupunkt hat sich geändert",
+        "fr": "Le point de rosée a changé"
     },
     "platforms": [
         "local"
@@ -14,7 +15,8 @@
             "title": {
                 "en": "Dew Point",
                 "nl": "Dauwpunt",
-                "de": "Taupunkt"
+                "de": "Taupunkt",
+                "fr": "Point de rosée"
             },
             "example": 25
         }
