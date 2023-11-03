@@ -3,7 +3,8 @@
   "title": {
     "en": "Thunder",
     "nl": "Onweer",
-    "de": "Gewitter"
+    "de": "Gewitter",
+    "fr": "Orage"
   },
   "getable": true,
   "setable": false,
