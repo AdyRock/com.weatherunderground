@@ -2,7 +2,8 @@
     "title": {
         "en": "No data has been received",
         "nl": "Er zijn geen gegevens ontvangen",
-        "de": "Es wurden keine Daten empfangen"
+        "de": "Es wurden keine Daten empfangen",
+        "fr": "Aucune donnée n'a été reçue"
     },
     "platforms": [
         "local"
