@@ -1,7 +1,9 @@
 {
     "type": "number",
     "title": {
-        "en": "Hours Since Last Rained"
+        "en": "Hours Since Last Rained",
+        "de": "Stunden seit dem letzten Niederschlag",
+        "fr": "Heures depuis la dernière pluie"
     },
     "units": {
         "en": "Hours"
