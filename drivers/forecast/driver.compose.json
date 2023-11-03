@@ -4,7 +4,8 @@
     {
         "en": "Weather Forecast",
         "nl": "Weersverwachting",
-        "de": "Wettervorhersage"
+        "de": "Wettervorhersage",
+        "fr": "Prévisions météorologiques"
     },
     "platforms": [
         "local"
@@ -44,7 +45,8 @@
             {
                 "en": "Feels Like",
                 "nl": "Voelt als",
-                "de": "Gefühlte Temperatur"
+                "de": "Gefühlte Temperatur",
+                "fr": "Température ressentie"
             }
         },
         "forecast_temperature.max":
@@ -53,7 +55,8 @@
             {
                 "en": "High Temperature",
                 "nl": "Hoge temperatuur",
-                "de": "Höchsttemperatur"
+                "de": "Höchsttemperatur",
+                "fr": "Température maximale"
             },
             "insights": false
         },
@@ -63,17 +66,20 @@
             {
                 "en": "Low Temperature",
                 "nl": "Lage temperatuur",
-                "de": "Tiefsttemperatur"
+                "de": "Tiefsttemperatur",
+                "fr": "Température minimale"
             },
             "insights": false
         },
         "button.send_log": {
             "maintenanceAction": true,
             "title": {
-                "en": "Send Diagnostics Log"
+                "en": "Send Diagnostics Log",
+                "fr": "Envoi du journal de diagnostic"
             },
             "desc": {
-                "en": "Send a diagnostics log to the developer"
+                "en": "Send a diagnostics log to the developer",
+                "fr": "Envoi du journal de diagnostic au dévelopeur"
             }
         }
     },
@@ -88,8 +94,9 @@
         {
             "en": "Station Details",
             "nl": "Station detail informatie",
-            "de": "Stationsdetails"
-        },
+            "de": "Stationsdetails",
+            "fr": "Détails de la station"
+    },
         "children": [
         {
             "id": "stationID",
@@ -98,8 +105,9 @@
             {
                 "en": "Station ID",
                 "nl": "Station ID",
-                "de": "Station ID"
-            }
+                "de": "Station ID",
+                "fr": "Id de la station"
+        }
         },
         {
             "id": "apiKey",
@@ -108,8 +116,9 @@
             {
                 "en": "API Key",
                 "nl": "API Sleutel",
-                "de": "API Key"
-            }
+                "de": "API Key",
+                "fr": "Clé API"
+        }
         } ]
     } ],
     "images":
