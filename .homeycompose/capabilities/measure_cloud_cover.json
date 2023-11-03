@@ -3,12 +3,14 @@
   "title": {
     "en": "Cloud Cover",
     "nl": "Bewolking",
-    "de": "Bewölkung"
+    "de": "Bewölkung",
+    "fr": "Couverture nuageuse"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "%"
+    "en": "%",
+    "fr": "%"
   },
   "insights": true,
   "icon": "/assets/cloud.svg"
