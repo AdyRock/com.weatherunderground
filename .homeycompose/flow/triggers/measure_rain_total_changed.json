@@ -2,7 +2,8 @@
     "title": {
         "en": "The rain total changed",
         "nl": "Het regentotaal veranderde",
-        "de": "Die Regenmenge hat sich geändert"
+        "de": "Die Regenmenge hat sich geändert",
+        "fr": "La quantité totale de pluie a changé"
     },
     "platforms": [
         "local"
@@ -14,7 +15,8 @@
             "title": {
                 "en": "Rain Total",
                 "nl": "Regen Totaal",
-                "de": "Regenmenge"
+                "de": "Regenmenge",
+                "fr": "Quantité totale de pluie"
             },
             "example": 2
         }
