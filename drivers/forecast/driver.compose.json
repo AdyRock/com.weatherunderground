@@ -4,7 +4,8 @@
     {
         "en": "Weather Forecast",
         "nl": "Weersverwachting",
-        "de": "Wettervorhersage"
+        "de": "Wettervorhersage",
+        "fr": "Prévisions météorologiques"
     },
     "platforms": [
         "local"
@@ -44,7 +45,8 @@
             {
                 "en": "Feels Like",
                 "nl": "Voelt als",
-                "de": "Gefühlte Temperatur"
+                "de": "Gefühlte Temperatur",
+                "fr": "Température ressentie"
             }
         },
         "forecast_temperature.max":
@@ -53,7 +55,8 @@
             {
                 "en": "High Temperature",
                 "nl": "Hoge temperatuur",
-                "de": "Höchsttemperatur"
+                "de": "Höchsttemperatur",
+                "fr": "Température maximale"
             },
             "insights": false
         },
@@ -63,17 +66,20 @@
             {
                 "en": "Low Temperature",
                 "nl": "Lage temperatuur",
-                "de": "Tiefsttemperatur"
+                "de": "Tiefsttemperatur",
+                "fr": "Température minimale"
             },
             "insights": false
         },
         "button.send_log": {
             "maintenanceAction": true,
             "title": {
-                "en": "Send Diagnostics Log"
+                "en": "Send Diagnostics Log",
+                "fr": "Envoi du journal de diagnostic"
             },
             "desc": {
-                "en": "Send a diagnostics log to the developer"
+                "en": "Send a diagnostics log to the developer",
+                "fr": "Envoi du journal de diagnostic au dévelopeur"
             }
         }
     },
@@ -82,36 +88,39 @@
         "id": "forecast_pair"
     } ],
     "settings": [
-    {
-        "type": "group",
-        "label":
         {
-            "en": "Station Details",
-            "nl": "Station detail informatie",
-            "de": "Stationsdetails"
-        },
-        "children": [
-        {
-            "id": "stationID",
-            "type": "text",
+            "type": "group",
             "label":
             {
-                "en": "Station ID",
-                "nl": "Station ID",
-                "de": "Station ID"
-            }
-        },
-        {
-            "id": "apiKey",
-            "type": "text",
-            "label":
+                "en": "Station Details",
+                "nl": "Station detail informatie",
+                "de": "Stationsdetails",
+                "fr": "Détails de la station"
+            },
+            "children": [
             {
-                "en": "API Key",
-                "nl": "API Sleutel",
-                "de": "API Key"
-            }
-        } ]
-    } ],
+                "id": "stationID",
+                "type": "text",
+                "label":
+                {
+                    "en": "Station ID",
+                    "nl": "Station ID",
+                    "de": "Station ID",
+                    "fr": "Id de la station"
+                }
+            },
+            {
+                "id": "apiKey",
+                "type": "text",
+                "label":
+                {
+                    "en": "API Key",
+                    "nl": "API Sleutel",
+                    "de": "API Key",
+                    "fr": "Clé API"
+                }
+            } ]
+        } ],
     "images":
     {
         "large": "/drivers/forecast/assets/images/large.png",
