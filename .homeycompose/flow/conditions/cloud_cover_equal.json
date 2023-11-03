@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
         "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
-        "fr": "La couverture nuageuse de !{{correspond|correspond pas}} à [[value]]%"
+        "fr": "La couverture nuageuse de [[day]] !{{correspond|correspond pas}} à [[value]]%"
     },
     "platforms": [
         "local"

@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
         "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm",
-		"fr": "La quantité de pluie de [[day]] !{correspond à|ne correspond pas à}} [[valeur]]mm"
+		"fr": "La quantité de pluie de [[day]] !{correspond à|ne correspond pas à}} [[value]]mm"
     },
     "platforms": [
         "local"

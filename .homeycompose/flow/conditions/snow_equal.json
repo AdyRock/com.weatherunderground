@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm",
         "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm",
-		"fr": "La quantité de neige de [[day]] !{correspond à|ne correspond pas à}} [[valeur]]mm"
+		"fr": "La quantité de neige de [[day]] !{correspond à|ne correspond pas à}} [[value]]mm"
     },
     "platforms": [
         "local"

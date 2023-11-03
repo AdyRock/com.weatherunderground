@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The total snow [[day]] is !{{greater than|less or equal to}} [[value]]mm",
         "de": "Die Schneemenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm",
-		"fr": "La quantité de neige de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[valeur]]mm"
+		"fr": "La quantité de neige de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]mm"
     },
     "platforms": [
         "local"

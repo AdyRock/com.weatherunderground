@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C",
         "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C",
-		"fr": "La température de [[day]] !{correspond|correspond pas}} [[valeur]]°C"
+		"fr": "La température de [[day]] !{correspond|correspond pas}} [[value]]°C"
     },
     "platforms": [
         "local"

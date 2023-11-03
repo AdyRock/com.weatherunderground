@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
         "de": "Die Temperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C",
-		"fr": "La température de [[jour]] est !{{supérieure à|inférieure ou égale à}} [[valeur]]°C"
+		"fr": "La température de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]°C"
     },
     "platforms": [
         "local"

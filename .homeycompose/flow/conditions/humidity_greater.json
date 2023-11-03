@@ -7,7 +7,7 @@
     "titleFormatted": {
         "en": "The humidity [[day]] is !{{greater than|less or equal to}} [[value]]%",
         "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%",
-		"fr": "L'humidité de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[valeur]]%."
+		"fr": "L'humidité de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]%."
     },
     "platforms": [
         "local"

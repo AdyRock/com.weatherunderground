@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The precipitation chance [[day]] is !{{greater than|less or equal to}} [[value]]%",
         "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%",
-		"fr": "La probabilité de précipitations de [[jour]] est !{{supérieure à|inférieure ou égale à}}. [[valeur]]%."
+		"fr": "La probabilité de précipitations de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]%."
     },
     "platforms": [
         "local"

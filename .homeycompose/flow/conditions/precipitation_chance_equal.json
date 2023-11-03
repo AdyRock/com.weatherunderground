@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
         "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
-		"fr": "La probabilité de précipitations de [[jour]] !{correspond|correspond pas}} à [[value]]%."
+		"fr": "La probabilité de précipitations de [[day]] !{correspond|correspond pas}} à [[value]]%."
     },
     "platforms": [
         "local"

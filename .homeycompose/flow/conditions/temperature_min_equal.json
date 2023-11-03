@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
         "de": "Die Tiefsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C",
-		"fr": "La température minimale de [[day]] !{correspond|correspond pas}} [[valeur]]°C"
+		"fr": "La température minimale de [[day]] !{correspond|correspond pas}} [[value]]°C"
     },
     "platforms": [
         "local"

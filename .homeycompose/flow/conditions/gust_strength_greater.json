@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The gust strength [[day]] is !{{greater than|less or equal to}} [[value]]km/h",
         "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h",
-		"fr": "La force de la rafale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[valeur]]km/h"
+		"fr": "La force de la rafale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]km/h"
     },
     "platforms": [
         "local"

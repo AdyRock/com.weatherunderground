@@ -7,7 +7,7 @@
     "titleFormatted": {
         "en": "The high temperature [[day]] became less than [[temperature]]°C",
         "de": "Die Höchsttemperatur [[day]] wird weniger als [[temperature]]°C",
-		"fr": "La température maximale de [[day]] est inférieure à [[température]]°C"
+		"fr": "La température maximale de [[day]] est inférieure à [[temperature]]°C"
     },
     "platforms": [
         "local"

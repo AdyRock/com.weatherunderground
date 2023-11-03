@@ -8,7 +8,7 @@
     "titleFormatted": {
         "en": "The ultraviolet [[day]] is !{{greater than|less or equal to}} [[value]]",
         "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]",
-		"fr": "L'indice UV de [[day]] est !{{supérieur à|inférieur ou égal à}}. [[valeur]]"
+		"fr": "L'indice UV de [[day]] est !{{supérieur à|inférieur ou égal à}}. [[value]]"
     },
     "platforms": [
         "local"
