@@ -2,10 +2,10 @@
     "id": "weather",
     "name":
     {
-        "en": "Weather Station",
-        "nl": "Weerstation",
-        "de": "Wetterstation",
-        "fr": "Station météorologique"
+        "en": "Weather Forecast",
+        "nl": "Weersverwachting",
+        "de": "Wettervorhersage",
+        "fr": "Prévisions météorologiques"
     },
     "platforms": [
         "local"
@@ -116,32 +116,42 @@
         },
         "children": [
         {
-            "id": "stationID",
-            "type": "text",
+            "type": "group",
             "label":
             {
-                "en": "Station ID",
-                "nl": "Station ID",
-                "de": "Station ID",
-                "fr": "Id de la station"
-            }
-        },
-        {
-            "id": "apiKey",
-            "type": "text",
-            "label":
+                "en": "Station Details",
+                "nl": "Station detail informatie",
+                "de": "Stationsdetails",
+                "fr": "Détails de la station"
+            },
+            "children": [
             {
-                "en": "API Key",
-                "nl": "API Sleutel",
-                "de": "API Key",
-                "fr": "Clé API"
-            }
-        } ]
-    } ],
+                "id": "stationID",
+                "type": "text",
+                "label":
+                {
+                    "en": "Station ID",
+                    "nl": "Station ID",
+                    "de": "Station ID",
+                    "fr": "Id de la station"
+                }
+            },
+            {
+                "id": "apiKey",
+                "type": "text",
+                "label":
+                {
+                    "en": "API Key",
+                    "nl": "API Sleutel",
+                    "de": "API Key",
+                    "fr": "Clé API"
+                }
+            } ]
+        } ],
     "images":
     {
         "large": "/drivers/weather/assets/images/large.png",
         "small": "/drivers/weather/assets/images/small.png"
     },
-    "icon": "/drivers/weather/assets/icon.svg"
+    "icon": "/drivers/forecast/assets/icon.svg"
 }
