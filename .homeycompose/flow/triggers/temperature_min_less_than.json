@@ -1,11 +1,13 @@
 {
     "title": {
         "en": "The low temperature became less than",
-        "de": "Die Tiefsttemperatur  wird weniger als"
+        "de": "Die Tiefsttemperatur  wird weniger als",
+		"fr": "La température minimale sera inférieure à"
     },
     "titleFormatted": {
         "en": "The low temperature [[day]] became less than [[temperature]]°C",
-        "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C"
+        "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C",
+		"fr": "La température minimale de [[day]] est inférieure à [[température]]°C"
     },
     "platforms": [
         "local"
@@ -17,7 +19,8 @@
             "title": {
                 "en": "Low Temperature",
                 "nl": "Lage temperatuur",
-                "de": "Tiefsttemperatur"
+                "de": "Tiefsttemperatur",
+				"fr": "Température minimale"
             },
             "example": 20
         }
@@ -32,106 +35,119 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
-                "de": "Meldezeitraum"
+                "de": "Meldezeitraum",
+				"fr": "Période de référence"
             },
             "type": "dropdown",
             "values": [
-                {
-                    "id": "today",
-                    "title": {
-                        "en": "Today",
-                        "nl": "Vandaag",
-                        "de": "Heute"
-                    }
-                },
-                {
-                    "id": "tonight",
-                    "title": {
-                        "en": "Tonight",
-                        "nl": "Vanavond",
-                        "de": "Heute Nacht"
-                    }
-                },
-                {
-                    "id": "today_1",
-                    "title": {
-                        "en": "Tomorrow",
-                        "nl": "Morgen",
-                        "de": "Morgen"
-                    }
-                },
-                {
-                    "id": "tonight_1",
-                    "title": {
-                        "en": "Tomorrow Night",
-                        "nl": "Morgen vanavond",
-                        "de": "Morgen Nacht"
-                    }
-                },
-                {
-                    "id": "today_2",
-                    "title": {
-                        "en": "Today + 2",
-                        "nl": "Vandaag + 2",
-                        "de": "Heute + 2"
-                    }
-                },
-                {
-                    "id": "tonight_2",
-                    "title": {
-                        "en": "Tonight + 2",
-                        "nl": "Vanavond + 2",
-                        "de": "Heute Nacht + 2"
-                    }
-                },
-                {
-                    "id": "today_3",
-                    "title": {
-                        "en": "Today + 3",
-                        "nl": "Vandaag + 3",
-                        "de": "Heute + 3"
-                    }
-                },
-                {
-                    "id": "tonight_3",
-                    "title": {
-                        "en": "Tonight + 3",
-                        "nl": "Vanavond + 3",
-                        "de": "Heute Nacht + 3"
-                    }
-                },
-                {
-                    "id": "today_4",
-                    "title": {
-                        "en": "Today + 4",
-                        "nl": "Vandaag + 4",
-                        "de": "Heute + 4"
-                    }
-                },
-                {
-                    "id": "tonight_4",
-                    "title": {
-                        "en": "Tonight + 4",
-                        "nl": "Vanavond + 4",
-                        "de": "Heute Nacht + 4"
-                    }
-                },
-                {
-                    "id": "today_5",
-                    "title": {
-                        "en": "Today + 5",
-                        "nl": "Vandaag + 5",
-                        "de": "Heute + 5"
-                    }
-                },
-                {
-                    "id": "tonight_5",
-                    "title": {
-                        "en": "Tonight + 5",
-                        "nl": "Vanavond + 5",
-                        "de": "Heute Nacht + 5"
-                    }
-                }
+                			{
+				  "id": "today",
+				  "title": {
+					"en": "Today",
+					"nl": "Vandaag",
+					"de": "Heute",
+					"fr": "Aujourd'hui"
+				  }
+				},
+				{
+				  "id": "tonight",
+				  "title": {
+					"en": "Tonight",
+					"nl": "Vanavond",
+					"de": "Heute Nacht",
+					"fr": "Cette nuit"
+				  }
+				},
+				{
+				  "id": "today_1",
+				  "title": {
+					"en": "Tomorrow",
+					"nl": "Morgen",
+					"de": "Morgen",
+					"fr": "Demain"
+				  }
+				},
+				{
+				  "id": "tonight_1",
+				  "title": {
+					"en": "Tomorrow Night",
+					"nl": "Morgen vanavond",
+					"de": "Morgen Nacht",
+					"fr": "Demain soir"
+				  }
+				},
+				{
+				  "id": "today_2",
+				  "title": {
+					"en": "Today + 2",
+					"nl": "Vandaag + 2",
+					"de": "Heute + 2",
+					"fr": "Apres demain"
+				  }
+				},
+				{
+				  "id": "tonight_2",
+				  "title": {
+					"en": "Tonight + 2",
+					"nl": "Vanavond + 2",
+					"de": "Heute Nacht + 2",
+					"fr": "Nuit d'après demain"
+				  }
+				},
+				{
+				  "id": "today_3",
+				  "title": {
+					"en": "Today + 3",
+					"nl": "Vandaag + 3",
+					"de": "Heute + 3",
+					"fr": "J+3"
+				  }
+				},
+				{
+				  "id": "tonight_3",
+				  "title": {
+					"en": "Tonight + 3",
+					"nl": "Vanavond + 3",
+					"de": "Heute Nacht + 3",
+					"fr": "Nuit de J+3"
+				  }
+				},
+				{
+				  "id": "today_4",
+				  "title": {
+					"en": "Today + 4",
+					"nl": "Vandaag + 4",
+					"de": "Heute + 4",
+					"fr": "J+4"
+				  }
+				},
+				{
+				  "id": "tonight_4",
+				  "title": {
+					"en": "Tonight + 4",
+					"nl": "Vanavond + 4",
+					"de": "Heute Nacht + 4",
+					"fr": "Nuit de J+4"
+				  }
+				},
+				{
+				  "id": "today_5",
+				  "title": {
+					"en": "Today + 5",
+					"nl": "Vandaag + 5",
+					"de": "Heute + 5",
+					"fr": "J+5"
+				  }
+				},
+				{
+				  "id": "tonight_5",
+				  "title": {
+					"en": "Tonight + 5",
+					"nl": "Vanavond + 5",
+					"de": "Heute Nacht + 5",
+					"fr": "Nuit de J+5"
+				  }
+				}
             ]
         },
         {
@@ -141,10 +157,12 @@
             "max": 60,
             "step": 1,
             "placeholder": {
-                "en": "Set a value"
+                "en": "Set a value (km/h)",
+				"fr": "Définir une valeur (km/h)"
             },
             "title": {
-                "en": "Temperature"
+                "en": "Temperature",
+				"fr": "Température"
             },
             "units": {
                 "en": "°C"
