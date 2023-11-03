@@ -3,7 +3,8 @@
   "title": {
     "en": "Moon Phase",
     "nl": "Maanfase",
-    "de": "Mond Phase"
+    "de": "Mond Phase",
+    "fr": "Phase lunaire"
   },
   "getable": true,
   "setable": false,
