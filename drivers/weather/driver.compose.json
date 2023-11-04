@@ -4,7 +4,8 @@
     {
         "en": "Weather Station",
         "nl": "Weerstation",
-        "de": "Wetterstation"
+        "de": "Wetterstation",
+        "fr": "Staion météorologique"
     },
     "platforms": [
         "local"
@@ -37,7 +38,8 @@
             {
                 "en": "Feels Like",
                 "nl": "Voelt als",
-                "de": "Gefühlte Temperatur"
+                "de": "Gefühlte Temperatur",
+                "fr": "Température resentie"
             }
         },
         "measure_temperature.dewPoint":
@@ -46,7 +48,8 @@
             {
                 "en": "Dew point",
                 "nl": "Dauwpunt",
-                "de": "Taupunkt"
+                "de": "Taupunkt",
+                "fr": "Point de rosée"
             }
         },
         "measure_rain":
@@ -62,7 +65,8 @@
             {
                 "en": "Rain Total",
                 "nl": "Regen Totaal",
-                "de": "Regenmenge"
+                "de": "Regenmenge",
+                "fr": "Quantité totale de pluie"
             }
         },
         "measure_ultraviolet":
@@ -70,7 +74,8 @@
             "title":
             {
                 "en": "UV-Index",
-                "de": "UV-Index"
+                "de": "UV-Index",
+                "fr": "Index UV"
             }
         },
         "measure_pressure":
@@ -79,16 +84,20 @@
             {
                 "en": "Relative Pressure",
                 "nl": "Relatieve druk",
-                "de": "Relativer Druck"
+                "de": "Relativer Druck",
+                "fr": "Pression relative"
             }
         },
         "button.send_log": {
             "maintenanceAction": true,
             "title": {
-                "en": "Send Diagnostics Log"
+                "en": "Send Diagnostics Log",
+                "fr": "Envoyer le journal de diagnostic"
+                
             },
             "desc": {
-                "en": "Send a diagnostics log to the developer"
+                "en": "Send a diagnostics log to the developer",
+                "fr": "Envoyer un journal de diagnostic au développeur"
             }
         }
     },
@@ -103,7 +112,8 @@
         {
             "en": "Station Details",
             "nl": "Station detail informatie",
-            "de": "Stationsdetails"
+            "de": "Stationsdetails",
+            "fr": "Détail de la station"
         },
         "children": [
         {
@@ -113,7 +123,8 @@
             {
                 "en": "Station ID",
                 "nl": "Station ID",
-                "de": "Station ID"
+                "de": "Station ID",
+                "fr": "ID de la station"
             }
         },
         {
@@ -123,7 +134,8 @@
             {
                 "en": "API Key",
                 "nl": "API Sleutel",
-                "de": "API Key"
+                "de": "API Key",
+                "fr": "Clé API"
             }
         } ]
     } ],
