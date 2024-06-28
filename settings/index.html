@@ -17,26 +17,26 @@
 
     <!-- SETTINGS PAGE -->
     <div id="settings" class="tabcontent">
-        <fieldset>
-            <legend><span data-i18n="settings.accountDetails"></span></legend>
+        <fieldset class="homey-form-fieldset">
             <p data-i18n="settings.subtitle"></p>
             <div class="field row">
-                <label for="NumStations"><span data-i18n="settings.NumStations"></span></label>
-                <input id="NumStations" type="number" min="1" step="1" style="text-align:right; width:80px;" value="" />
+                <label class="homey-form-label" for="NumStations"><span data-i18n="settings.NumStations"></span></label>
+                <input class="homey-form-input" id="NumStations" type="number" min="1" step="1" style="text-align:right; width:80px;" value="" />
             </div>
         </fieldset>
         <fieldset>
-            <legend><span data-i18n="settings.Units"></span></legend>
             <div class="field row">
-                <label for="SpeedUnits"><span data-i18n="settings.SpeedUnits"></span></label>
-                <select id="SpeedUnits" style="width:80px;">
+                <label class="homey-form-label"  for="SpeedUnits"><span data-i18n="settings.SpeedUnits"></span></label>
+                <select class="homey-form-select" id="SpeedUnits" style="width:130px;">
                     <option value='0'>Km/H</option>
                     <option value='1'>m/s</option>
-                </select>
+					<option value='2'>mph</option>
+					<option value='3'>knots</option>
+				</select>
             </div>
         </fieldset>
         <div class="field row">
-            <p><button id="save" class="right"><span data-i18n="settings.saveChanges"></span></button></p>
+            <p><button class="homey-button-primary-full" id="save" class="right"><span data-i18n="settings.saveChanges"></span></button></p>
         </div>
     </div>
 
@@ -46,14 +46,17 @@
             <p> Diagnostics Log
             </p>
             <div class="field row">
-                <label for="logEnabled">Log Enabled</label>
-                <input id="logEnabled" type="checkbox" value="logEnabled" />
-            </div>
+				<label class="homey-form-checkbox">
+					<input class="homey-form-checkbox-input" id="logEnabled" type="checkbox" value="logEnabled" />
+					<span class="homey-form-checkbox-checkmark"></span>
+					<span class="homey-form-checkbox-text"><span data-i18n="settings.logEnabled"></span></span>
+				</label>
+			</div>
         </fieldset>
         <fieldset>
-            <p><button id="clearLog">Clear Log</button></p>
+            <p><button class="homey-button-secondary-shadow" id="clearLog">Clear Log</button></p>
             <div class="field row">
-                <textarea id="diagLog"></textarea>
+                <textarea id="diagLog" style="white-space: nowrap;"></textarea>
             </div>
         </fieldset>
     </div>

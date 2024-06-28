@@ -63,7 +63,8 @@ class WeatherDevice extends Homey.Device
         // Refresh forecast but give it a minute to settle down
         this.timerID = this.homey.setTimeout( () =>
         {
-            this.refreshCapabilities();
+			this.unitsChanged('SpeedUnits');
+			this.refreshCapabilities();
         }, 6000 );
     }
 
@@ -103,8 +104,28 @@ class WeatherDevice extends Homey.Device
     {
         if ( Units === 'SpeedUnits' )
         {
-            let unitsText = this.homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
-            this.setCapabilityOptions( 'measure_wind_strength', { "units": unitsText } );
+            let unitsText = '';
+            
+            switch (this.homey.app.SpeedUnits)
+            {
+                case '0':
+                    unitsText = this.homey.__('speedUnits.km');
+                    break;
+                case '1':
+                    unitsText = this.homey.__('speedUnits.m');
+                    break;
+                case '2':
+                    unitsText = this.homey.__('speedUnits.mph');
+                    break;
+				case '3':
+					unitsText = this.homey.__('speedUnits.knots');
+					break;
+				default:
+                    unitsText = this.homey.__('speedUnits.km');
+                    break;
+            }
+
+			this.setCapabilityOptions( 'measure_wind_strength', { "units": unitsText } );
             this.setCapabilityOptions( 'measure_gust_strength', { "units": unitsText } );
             if ( this.timerID )
             {
@@ -157,12 +178,24 @@ class WeatherDevice extends Homey.Device
                     this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed ).catch( this.error );
                     this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust ).catch( this.error );
                 }
-                else
+                else if ( this.homey.app.SpeedUnits === '1' )
                 {
                     // Convert Km/H to m/s
                     this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed * 1000 / 3600 ).catch( this.error );
                     this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust * 1000 / 3600 ).catch( this.error );
                 }
+				else if ( this.homey.app.SpeedUnits === '2' )
+				{
+					// Convert Km/H to mph
+					this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed / 1.609344 ).catch( this.error );
+					this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust / 1.609344 ).catch( this.error );
+				}
+				else if ( this.homey.app.SpeedUnits === '3' )
+				{
+					// Convert Km/H to knots
+					this.setCapabilityValue( "measure_wind_strength", currentData.metric.windSpeed / 1.852 ).catch( this.error );
+					this.setCapabilityValue( "measure_gust_strength", currentData.metric.windGust / 1.852 ).catch( this.error );
+				}
 
                 this.setCapabilityValue( "measure_humidity", currentData.humidity ).catch( this.error );
                 this.setCapabilityValue( "measure_temperature", currentData.metric.temp ).catch( this.error );

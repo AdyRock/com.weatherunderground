@@ -242,7 +242,8 @@ class ForecastDevice extends Homey.Device
         }
         setImmediate( () =>
         {
-            this.refreshCapabilities();
+			this.unitsChanged('SpeedUnits');
+			this.refreshCapabilities();
         } );
     }
 
@@ -250,8 +251,28 @@ class ForecastDevice extends Homey.Device
     {
         if ( Units === 'SpeedUnits' )
         {
-            let unitsText = this.homey.app.SpeedUnits === '0' ? "Km/H" : "m/s";
-            this.setCapabilityOptions( 'forecast_gust_strength', { "units": unitsText } ).catch(this.error);
+            let unitsText = '';
+            
+            switch (this.homey.app.SpeedUnits)
+            {
+                case '0':
+                    unitsText = this.homey.__('speedUnits.km');
+                    break;
+                case '1':
+                    unitsText = this.homey.__('speedUnits.m');
+                    break;
+                case '2':
+                    unitsText = this.homey.__('speedUnits.mph');
+                    break;
+				case '3':
+					unitsText = this.homey.__('speedUnits.knots');
+					break;
+				default:
+                    unitsText = this.homey.__('speedUnits.km');
+                    break;
+            }
+
+			this.setCapabilityOptions( 'forecast_gust_strength', { "units": unitsText } ).catch(this.error);
             if ( this.timerID )
             {
                 this.homey.clearTimeout( this.timerID );
@@ -320,12 +341,25 @@ class ForecastDevice extends Homey.Device
 
                 if ( this.homey.app.SpeedUnits === '0' )
                 {
+					// km/h
                     this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ).catch(this.error);
                 }
-                else
+                else if (this.homey.app.SpeedUnits === '1' )
                 {
+					// m/s
                     this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600 ).catch(this.error);
                 }
+				else if (this.homey.app.SpeedUnits === '2' )
+				{
+					// mph
+					this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.621371 ).catch(this.error);
+				}
+				else if ( this.homey.app.SpeedUnits === '3' )
+				{
+					// knots
+					this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.539957 ).catch(this.error);
+				}
+
 
                 this.setCapabilityValue( "forecast_humidity", this.forecastData.daypart[ 0 ].relativeHumidity[ dayNight ] ).catch(this.error);
                 this.setCapabilityValue( "forecast_ultraviolet", this.forecastData.daypart[ 0 ].uvIndex[ dayNight ] ).catch(this.error);

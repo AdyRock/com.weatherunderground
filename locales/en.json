@@ -10,11 +10,17 @@
     "settings": {
         "settings": "Settings",
         "subtitle": "The update rate is based on the total number connections you have accessing your WU account to ensure you stay within the rate limit.",
-        "NumStations": "Number of Account Connection",
+        "NumStations": "Number of Accounts Connected",
         "saveChanges": "Save Changes",
         "saved": "The settings have been saved",
         "Units": "Units",
         "SpeedUnits": "Wind Speed",
         "accountDetails": "Account Details"
+    },
+    "speedUnits": {
+        "km": "km/h",
+        "m": "m/s",
+        "mph": "mph",
+		"knots": "knots"
     }
 }

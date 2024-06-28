@@ -169,6 +169,9 @@
   },
   "3.0.12": {
     "en": "French translations."
+  },
+  "3.0.13": {
+	"en": "Added option for MPH and knots to windspeed."
   }
 }
 
