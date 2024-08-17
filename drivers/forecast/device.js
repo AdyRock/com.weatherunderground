@@ -236,14 +236,9 @@ class ForecastDevice extends Homey.Device
             throw new Error( this.homey.__( "stationNotFound" ) );
         }
 
-        if ( this.timerID )
-        {
-            this.homey.clearTimeout( this.timerID );
-        }
         setImmediate( () =>
         {
 			this.unitsChanged('SpeedUnits');
-			this.refreshCapabilities();
         } );
     }
 
@@ -273,19 +268,20 @@ class ForecastDevice extends Homey.Device
             }
 
 			this.setCapabilityOptions( 'forecast_gust_strength', { "units": unitsText } ).catch(this.error);
-            if ( this.timerID )
-            {
-                this.homey.clearTimeout( this.timerID );
-            }
             setImmediate( () =>
             {
-                this.refreshCapabilities();
+				this.updateCapabilities( null );
             } );
         }
     }
 
     async updateCapabilities( SelectedDay )
     {
+		if ( SelectedDay == null )
+		{
+			SelectedDay = this.getCapabilityValue( 'forecast_day' );
+		}
+
         try
         {
             if ( this.forecastData )
