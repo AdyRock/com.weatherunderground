@@ -172,6 +172,9 @@
   },
   "3.0.13": {
 	"en": "Added option for MPH and knots to windspeed."
+  },
+  "3.0.14": {
+	"en": "Use cached values for forecast when changing units."
   }
 }
 
