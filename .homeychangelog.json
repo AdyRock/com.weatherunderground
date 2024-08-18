@@ -175,6 +175,9 @@
   },
   "3.0.14": {
 	"en": "Use cached values for forecast when changing units."
+  },
+  "3.0.15": {
+	"en": "Fixed duplicate calls to get weather data, introduced by new wind speed change, that caused API usage to exceed the limits."
   }
 }
 

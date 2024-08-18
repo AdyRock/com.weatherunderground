@@ -64,7 +64,7 @@ class WeatherDevice extends Homey.Device
         this.timerID = this.homey.setTimeout( () =>
         {
 			this.unitsChanged('SpeedUnits');
-			this.refreshCapabilities();
+//			this.refreshCapabilities();
         }, 6000 );
     }
 
@@ -327,7 +327,8 @@ class WeatherDevice extends Homey.Device
         {
             this.homey.app.updateLog( "Weather Refresh Error Error: " + this.homey.app.varToString( error, false ), true );
         }
-
+		
+		this.homey.clearTimeout( this.timerID );
         this.timerID = this.homey.setTimeout( () =>
         {
             this.refreshCapabilities();

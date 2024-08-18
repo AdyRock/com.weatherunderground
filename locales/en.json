@@ -15,7 +15,8 @@
         "saved": "The settings have been saved",
         "Units": "Units",
         "SpeedUnits": "Wind Speed",
-        "accountDetails": "Account Details"
+        "accountDetails": "Account Details",
+		"logEnabled": "Enable Logging"
     },
     "speedUnits": {
         "km": "km/h",

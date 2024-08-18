@@ -14,6 +14,20 @@ class WeatherApp extends Homey.App
     async onInit()
     {
         this.log( ' WeatherApp is running...' );
+		this.numAPIcalls = this.homey.settings.get( 'numAPIcalls' );
+		if ( !this.numAPIcalls )
+		{
+			this.numAPIcalls = 0;
+		}
+
+		// Set a timer to reset the number of API calls to zero at midnight
+		let now = new Date();
+		let midnight = new Date( now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0 );
+		let timeToMidnight = midnight - now;
+		this.homey.setTimeout( () =>
+		{
+			this.resetAPICounter();
+		}, timeToMidnight );
 
         try
         {
@@ -313,6 +327,19 @@ class WeatherApp extends Homey.App
         this.dataResumedTrigger = this.homey.flow.getTriggerCard( 'data_resumed_changed' );
     }
 
+	resetAPICounter()
+	{
+		this.numAPIcalls = 0;
+		this.homey.settings.set( 'numAPIcalls', this.numAPIcalls );
+		let now = new Date();
+		let midnight = new Date( now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0 );
+		let timeToMidnight = midnight - now;
+		this.homey.setTimeout( () =>
+		{
+			this.resetAPICounter();
+		}, timeToMidnight );
+	}
+	
     async changeUnits( Units )
     {
         let promises = [];
@@ -366,7 +393,9 @@ class WeatherApp extends Homey.App
 
     async GetURL( url )
     {
-        this.updateLog( url );
+		this.numAPIcalls++;
+        this.updateLog( `API calls ${this.numAPIcalls}: ${url}` );
+		this.homey.settings.set( 'numAPIcalls', this.numAPIcalls );
 
         return new Promise( ( resolve, reject ) =>
         {
