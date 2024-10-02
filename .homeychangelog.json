@@ -181,6 +181,9 @@
   },
   "3.0.16": {
 	"en": "Corrected default speed units to '0' instead of 0."
+  },
+  "4.0.0": {
+	"en": "Added weather forecast widget"
   }
 }
 

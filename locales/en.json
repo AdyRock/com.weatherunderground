@@ -23,5 +23,11 @@
         "m": "m/s",
         "mph": "mph",
 		"knots": "knots"
-    }
+    },
+	"widget": {
+		"today": "Today",
+		"tonight": "Tonight",
+		"tomorrow": "Tomorrow Day",
+		"tomorrowNight": "Tomorrow Night"
+	}
 }

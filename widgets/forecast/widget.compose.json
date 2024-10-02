@@ -1,0 +1,121 @@
+{
+	"name": {
+		"en": "Forecast"
+	},
+	"settings": [
+		{
+			"id": "devices",
+			"type": "autocomplete",
+			"title": {
+				"en": "Device"
+			}
+		},
+		{
+			"id": "day",
+			"type": "dropdown",
+			"title": {
+				"en": "Period",
+				"de": "Zeitraum",
+				"fr": "Période",
+				"it": "Periodo",
+				"es": "Período",
+				"pt": "Período",
+				"nl": "Periode",
+				"pl": "Okres",
+				"ko": "기간"
+			},
+			"value": "today",
+			"values": [
+				{
+					"id": 0,
+					"title": {
+						"en": "Today",
+						"de": "Heute",
+						"fr": "Aujourd'hui",
+						"it": "Oggi",
+						"es": "Hoy",
+						"pt": "Hoje",
+						"nl": "Vandaag",
+						"pl": "Dzisiaj",
+						"ko": "오늘"
+					}
+				},
+				{
+					"id": 1,
+					"title": {
+						"en": "Tonight",
+						"de": "Heute Nacht",
+						"fr": "Ce soir",
+						"it": "Stasera",
+						"es": "Esta noche",
+						"pt": "Hoje à noite",
+						"nl": "Vanavond",
+						"pl": "Dziś wieczorem",
+						"ko": "오늘 밤"
+					}
+				},
+				{
+					"id": 2,
+					"title": {
+						"en": "Tomorrow",
+						"de": "Morgen",
+						"fr": "Demain",
+						"it": "Domani",
+						"es": "Mañana",
+						"pt": "Amanhã",
+						"nl": "Morgen",
+						"pl": "Jutro",
+						"ko": "내일"
+					}
+				}
+			]
+		},
+		{
+			"id": "height",
+			"type": "number",
+			"title": {
+				"en": "Widget Height",
+				"de": "Widget Höhe",
+				"fr": "Hauteur du widget",
+				"it": "Altezza del widget",
+				"es": "Altura del widget",
+				"pt": "Altura do widget",
+				"nl": "Widgethoogte",
+				"pl": "Wysokość widżetu",
+				"ko": "위젯 높이"
+			},
+			"value": 390,
+			"min": 100,
+			"max": 1000,
+			"hint": {
+				"en": "Height of the widget in pixels",
+				"de": "Höhe des Widgets in Pixeln",
+				"fr": "Hauteur du widget en pixels",
+				"it": "Altezza del widget in pixel",
+				"es": "Altura del widget en píxeles",
+				"pt": "Altura do widget em pixels",
+				"nl": "Hoogte van de widget in pixels",
+				"pl": "Wysokość widżetu w pikselach",
+				"ko": "위젯의 높이(픽셀)"
+			}
+		}
+	],
+	"api": {
+		"getSomething": {
+			"method": "GET",
+			"path": "/"
+		},
+		"addSomething": {
+			"method": "POST",
+			"path": "/"
+		},
+		"updateSomething": {
+			"method": "PUT",
+			"path": "/:id"
+		},
+		"deleteSomething": {
+			"method": "DELETE",
+			"path": "/:id"
+		}
+	}
+}

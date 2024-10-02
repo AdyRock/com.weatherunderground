@@ -49,11 +49,22 @@ class ForecastDevice extends Homey.Device
             this.addCapability('measure_wind_direction');
         }
 
-        // Refresh forecast but give it a minute and a bit to settle down
-        this.timerID = this.homey.setTimeout( () =>
-        {
-            this.refreshCapabilities();
-        }, 70000 );
+		this.forecastData = this.getSettings().forecastData;
+		let nextUpdate = 1000;
+		if (this.forecastData && this.forecastData.time)
+		{
+			// Make sure the forecast is updated 1 hour after the time saved in the forecast data
+			this.homey.clearTimeout(this.timerID);
+			let now = new Date().getTime();
+			nextUpdate = this.forecastData.time + 3600000 - now;
+			if (nextUpdate < 0) {
+				nextUpdate = 1000;
+			}
+		}
+
+		this.timerID = this.homey.setTimeout(() => {
+			this.refreshCapabilities();
+		}, nextUpdate);
     }
 
     upgradeCapabilities()
@@ -268,10 +279,10 @@ class ForecastDevice extends Homey.Device
             }
 
 			this.setCapabilityOptions( 'forecast_gust_strength', { "units": unitsText } ).catch(this.error);
-            setImmediate( () =>
-            {
+			setImmediate( () =>
+			{
 				this.updateCapabilities( null );
-            } );
+			} );
         }
     }
 
@@ -431,7 +442,11 @@ class ForecastDevice extends Homey.Device
                     } );
                 }
 
-                this.oldForecastData = this.forecastData;
+                this.forecastData.time = new Date().getTime();
+				this.oldForecastData = this.forecastData;
+				await this.setSettings( { forecastData: this.forecastData } );
+
+				this.app.homey.api.realtime('updateWidget', deviceId);
             }
             else
             {
@@ -524,6 +539,133 @@ class ForecastDevice extends Homey.Device
     {
         this.homey.clearTimeout( this.timerID );
     }
+
+	getWidgetForecast(deviceId, forecastDay )
+	{
+		const data = this.getData();
+		if (this.__id != deviceId)
+		{
+			return null;
+		}
+		if (this.forecastData)
+		{
+			const entry = forecast_dayToNum[forecastDay];
+			let dayNight = entry.value;
+			let day = entry.day;
+			if (day < 0)
+			{
+				day = -1 - day;
+			}
+			this.log("day = ", day, " Day/Night = ", dayNight);
+
+			// Day / Night parts
+			// if (this.forecastData.daypart[0].daypartName[dayNight] == null)
+			// {
+			// 	dayNight++;
+			// }
+
+			const period = [];
+			period.push(this.homey.__("widget.today"));
+			period.push(this.homey.__("widget.tonight"));
+			period.push(this.homey.__("widget.tomorrow"));
+			period.push(this.homey.__("widget.tomorrowNight"));
+
+			const forecast = {
+				"day_period": period[dayNight],
+				"night_period": period[dayNight + 1],
+				"active_day": this.forecastData.dayOfWeek[day],
+				"icon_day": this.getIconFileName(this.forecastData.daypart[0].iconCode[dayNight]),
+				"icon_night": this.getIconFileName(this.forecastData.daypart[0].iconCode[dayNight + 1]),
+				"moonPhase": this.forecastData.moonPhase[day],
+				"temperature.max": this.forecastData.temperatureMax[day],
+				"temperature.min": this.forecastData.temperatureMin[day],
+				"day_text": this.forecastData.daypart[0].narrative[dayNight],
+				"night_text": this.forecastData.daypart[0].narrative[dayNight + 1],
+				"day_cloud_cover": this.forecastData.daypart[0].cloudCover[dayNight],
+				"night_cloud_cover": this.forecastData.daypart[0].cloudCover[dayNight + 1],
+				"day_precipitation_chance": this.forecastData.daypart[0].precipChance[dayNight],
+				"night_precipitation_chance": this.forecastData.daypart[0].precipChance[dayNight + 1],
+				"day_precipitation_type": this.forecastData.daypart[0].precipType[dayNight],
+				"night_precipitation_type": this.forecastData.daypart[0].precipType[dayNight + 1],
+				"day_wind_angle": this.forecastData.daypart[0].windDirection[dayNight],
+				"night_wind_angle": this.forecastData.daypart[0].windDirection[dayNight + 1],
+				"day_gust_strength": this.forecastData.daypart[0].windSpeed[dayNight],
+				"night_gust_strength": this.forecastData.daypart[0].windSpeed[dayNight + 1],
+				"day_humidity": this.forecastData.daypart[0].relativeHumidity[dayNight],
+				"night_humidity": this.forecastData.daypart[0].relativeHumidity[dayNight + 1],
+				"ultraviolet": this.forecastData.daypart[0].uvIndex[dayNight],
+				"day_temperature": this.forecastData.daypart[0].temperature[dayNight],
+				"night_temperature": this.forecastData.daypart[0].temperature[dayNight + 1],
+				"day_temperature.feelsLike": this.forecastData.daypart[0].temperature[dayNight],
+				"night_temperature.feelsLike": this.forecastData.daypart[0].temperature[dayNight + 1]
+			};
+
+			return forecast;
+		}
+
+		return null;
+	}
+
+	getIconFileName(iconCode)
+	{
+		const weatherSymbols = [
+			"wsymbol_0079_tornado",
+			"wsymbol_0080_tropical_storm_hurricane",
+			"wsymbol_0080_tropical_storm_hurricane",
+			"wsymbol_0024_thunderstorms",
+			"wsymbol_0024_thunderstorms",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0049_freezing_drizzle",
+			"wsymbol_0048_drizzle",
+			"wsymbol_0050_freezing_rain",
+			"wsymbol_0017_cloudy_with_light_rain",
+			"wsymbol_0017_cloudy_with_light_rain",
+			"wsymbol_0019_cloudy_with_light_snow",
+			"wsymbol_0020_cloudy_with_heavy_snow",
+			"wsymbol_0053_blowing_snow",
+			"wsymbol_0019_cloudy_with_light_snow",
+			"wsymbol_0022_cloudy_with_light_hail",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0056_dust_sand",
+			"wsymbol_0007_fog",
+			"wsymbol_0005_hazy_sun",
+			"wsymbol_0055_smoke",
+			"wsymbol_0060_windy",
+			"wsymbol_0060_windy",
+			"wsymbol_0049_freezing_drizzle",
+			"wsymbol_0004_black_low_cloud",
+			"wsymbol_0044_mostly_cloudy_night",
+			"wsymbol_0043_mostly_cloudy",
+			"wsymbol_0041_partly_cloudy_night",
+			"wsymbol_0002_sunny_intervals",
+			"wsymbol_0008_clear_sky_night",
+			"wsymbol_0001_sunny",
+			"wsymbol_0041_partly_cloudy_night",
+			"wsymbol_0002_sunny_intervals",
+			"wsymbol_0023_cloudy_with_heavy_hail",
+			"wsymbol_0045_hot",
+			"wsymbol_0016_thundery_showers",
+			"wsymbol_0016_thundery_showers",
+			"wsymbol_0010_heavy_rain_showers",
+			"wsymbol_0018_cloudy_with_heavy_rain",
+			"wsymbol_0011_light_snow_showers",
+			"wsymbol_0020_cloudy_with_heavy_snow",
+			"wsymbol_0054_blizzard",
+			"wsymbol_0999_unknown",
+			"wsymbol_0025_light_rain_showers_night",
+			"wsymbol_0027_light_snow_showers_night",
+			"wsymbol_0032_thundery_showers_night"
+		];
+
+		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+		{
+			return `${weatherSymbols[iconCode]}.gif`;
+		}
+
+		return null;
+	}
 }
 
 module.exports = ForecastDevice;

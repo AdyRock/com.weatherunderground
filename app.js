@@ -325,6 +325,14 @@ class WeatherApp extends Homey.App
 
         this.noDataTrigger = this.homey.flow.getTriggerCard( 'no_data_changed' );
         this.dataResumedTrigger = this.homey.flow.getTriggerCard( 'data_resumed_changed' );
+
+		const widget = this.homey.dashboards.getWidget('forecast');
+
+		widget.registerSettingAutocompleteListener('devices', async (query, settings) => {
+			const devices = await this.getAppForecastDevices({});
+			return devices;
+		});
+
     }
 
 	resetAPICounter()
@@ -636,6 +644,45 @@ class WeatherApp extends Homey.App
 
         return ( this.homey.__( 'settings.logSendFailed' ) );
     }
+
+	getWidgetForecast( deviceId, day )
+	{
+		// find a Forecast driver / device for the given deviceId
+		let devices = this.homey.drivers.getDriver('forecast').getDevices();
+		let numDevices = devices.length;
+		for (var i = 0; i < numDevices; i++)
+		{
+			let device = devices[i];
+			if (device.getWidgetForecast)
+			{
+				const forecast = device.getWidgetForecast(deviceId, day);
+				return forecast;
+			}
+		}
+
+		return null;
+	}
+
+	async getAppForecastDevices()
+	{
+		// find a Forecast driver / device
+		const forecastDevices = [];
+		const drivers = this.homey.drivers.getDrivers();
+		for (const driver in drivers)
+		{
+			let devices = this.homey.drivers.getDriver(driver).getDevices();
+			let numDevices = devices.length;
+			for (var i = 0; i < numDevices; i++)
+			{
+				let device = devices[i];
+				if (device.getWidgetForecast)
+				{
+					forecastDevices.push(device);
+				}
+			}
+		}
+		return forecastDevices;
+	}
 
 }
 

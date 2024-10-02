@@ -1,7 +1,7 @@
 {
   "id": "com.weatherunderground",
-  "version": "3.0.16",
-  "compatibility": ">=5.0.0",
+  "version": "4.0.0",
+  "compatibility": ">=12.1.0",
   "platforms": [
     "local"
   ],
@@ -13,7 +13,13 @@
   "description": {
     "en": "Get the last data from you weather station",
     "nl": "Haal de laatste gegevens van uw weerstation op",
-    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation"
+    "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation",
+	"fr": "Obtenez les dernières données de votre station météo",
+	"it": "Ottieni gli ultimi dati dalla tua stazione meteorologica",
+	"es": "Obtenga los últimos datos de su estación meteorológica",
+	"pt": "Obtenha os últimos dados da sua estação meteorológica",
+	"pl": "Pobierz najnowsze dane ze swojej stacji pogodowej",
+	"ko": "당신의 기상 관측소에서 최신 데이터를 가져 오세요"
   },
   "category": [
     "climate"
