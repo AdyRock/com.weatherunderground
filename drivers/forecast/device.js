@@ -29,7 +29,7 @@ class ForecastDevice extends Homey.Device
     async onInit()
     {
         this.log( 'ForecastDevice has been initialised' );
-        
+
         this.upgradeCapabilities();
 
         this.registerCapabilityListener( 'forecast_day', async ( Day ) =>
@@ -43,7 +43,7 @@ class ForecastDevice extends Homey.Device
         {
             this.setCapabilityValue( 'forecast_day', "today" ).catch(this.error);
         }
-        
+
         if (!this.hasCapability('measure_wind_direction'))
         {
             this.addCapability('measure_wind_direction');
@@ -258,7 +258,7 @@ class ForecastDevice extends Homey.Device
         if ( Units === 'SpeedUnits' )
         {
             let unitsText = '';
-            
+
             switch (this.homey.app.SpeedUnits)
             {
                 case '0':
@@ -446,7 +446,7 @@ class ForecastDevice extends Homey.Device
 				this.oldForecastData = this.forecastData;
 				await this.setSettings( { forecastData: this.forecastData } );
 
-				this.app.homey.api.realtime('updateWidget', deviceId);
+				this.homey.api.realtime('updateWidget', this.__id);
             }
             else
             {
