@@ -189,7 +189,7 @@
 	"en": "Fixed forecast colours for dark mode"
   },
   "4.0.2": {
-	"eb": "Fixed crash when updating the forecast widget"
+	"en": "Fixed crash when updating the forecast widget"
   }
 }
 
