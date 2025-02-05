@@ -389,7 +389,7 @@ class ForecastDevice extends Homey.Device
         catch ( err )
         {
             this.log( "Forecast Update: " + err );
-            this.setWarning( err, null );
+			this.setWarning(err, null).catch(this.error);
         }
     }
 
@@ -450,7 +450,7 @@ class ForecastDevice extends Homey.Device
             }
             else
             {
-                this.setWarning( "No data received" );
+				this.setWarning("No data received").catch(this.error);
             }
         }
         catch ( err )
@@ -464,17 +464,17 @@ class ForecastDevice extends Homey.Device
             if ( errString )
             {
                 this.homey.app.updateLog( "Forecast Refresh: " + errString, true );
-                this.unsetWarning();
+				this.unsetWarning().catch(this.error);
 
                 if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
                 {
                     this.homey.app.stationOffline = true;
                     this.homey.app.noDataTrigger.trigger().catch(this.error);
-                    this.setUnavailable( "No data available" );
+					this.setUnavailable("No data available").catch(this.error);
                 }
                 else
                 {
-                    this.setUnavailable( errString );
+					this.setUnavailable(errString).catch(this.error);
                 }
             }
         }
