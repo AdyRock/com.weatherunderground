@@ -190,6 +190,9 @@
   },
   "4.0.2": {
 	"en": "Fixed crash when updating the forecast widget"
+  },
+  "4.0.3": {
+	"en": "Updated Widget preview"
   }
 }
 
