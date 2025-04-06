@@ -1,0 +1,310 @@
+<html>
+
+<head>
+	<style>
+		textarea {
+			background-color: transparent;
+			resize: none;
+			border-color: Transparent;
+			color: var(--homey-text-color);
+			font-size: var(--homey-font-size-default);
+			overflow: hidden;
+		}
+
+		textarea:focus {
+			outline: none;
+		}
+
+		table {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			border-collapse: separate;
+			/* Ensures border-spacing is applied */
+			border: none;
+			background-color: transparent;
+			color: var(--homey-text-color);
+			font-size: var(--homey-font-size-default);
+			max-height: calc(100% - 137px - 40px);
+			/* Ensures the table doesn't overlap the last textarea */
+			overflow: auto;
+			display: block;
+			border-spacing: 5px;
+			/* Adds a small gap between rows and columns */
+			table-layout: fixed;
+			/* Ensures fixed column widths */
+			width: 100%;
+			/* Ensures the table fills the width */
+		}
+
+		thead,
+		tbody {
+			display: block;
+			overflow: hidden;
+			/* Added overflow property */
+		}
+
+		tbody {
+			overflow-y: auto;
+			max-height: calc(100% - 137px - 40px);
+			/* Adjusts for the last textarea */
+		}
+
+		table img {
+			width: 50%;
+			height: auto;
+		}
+
+		table td,
+		table th {
+			width: 20%;
+			/* Ensure columns are equally spaced */
+			max-width: 20%;
+			/* Prevent columns from expanding */
+			min-width: 20%;
+			/* Prevent columns from shrinking */
+			text-align: center;
+			/* Center-align content */
+			overflow: hidden;
+			/* Prevent content overflow */
+			white-space: nowrap;
+			/* Prevent text wrapping */
+			text-overflow: hidden;
+			/* Add ellipsis if text overflows */
+		}
+
+		table td img {
+			display: block;
+			margin: 0 auto;
+			/* Centers the images horizontally */
+		}
+
+		table td:first-child,
+		table th:first-child {
+			width: 25px;
+			/* Set the first column to a fixed width of 20 pixels */
+			min-width: 25px;
+			/* Ensure the column does not shrink below 20 pixels */
+			max-width: 35px;
+			/* Prevent the column from expanding beyond 20 pixels */
+			overflow: hidden;
+			/* Prevent content from expanding the column */
+			word-wrap: break-word;
+			/* Ensure text wraps within the column */
+		}
+
+		.separator-line {
+			position: absolute;
+			top: calc(100% - 230px);
+			/* Adjusted to position above the table */
+			left: 10px;
+			width: 90%;
+			height: 1px;
+			background-color: rgba(0, 0, 0, 0.2);
+			/* Faint horizontal line */
+		}
+
+		body {
+			background: linear-gradient(180deg, rgb(0, 130, 250) 0%, rgba(192, 244, 247, 1) 52%, rgba(236, 242, 244, 1) 60%, rgba(236, 242, 244, 1) 100%);
+			/* Default gradient for night */
+			transition: background 1s ease;
+			/* Smooth transition for background change */
+		}
+
+		/* Dark Mode */
+		.homey-dark-mode body {
+			background: linear-gradient(180deg, rgb(25, 25, 112) 0%, rgb(59, 61, 74) 50%, rgb(31, 40, 41) 100%);
+		}
+	</style>
+</head>
+
+<body class="homey-widget-small">
+	<textarea id="day0" readonly
+		style="position:absolute;left:14px;top:7px;width:137px;height:42px;font-size:var(--homey-font-size-xxlarge);font-weight:--homey-font-weight-bold;">Sunday</textarea>
+	<img id="Icon0" src="wsymbol_0001_sunny.png" style="position:absolute;left:171px;top:12px;rotate:0deg;">
+	<textarea id="highTemp0" readonly
+		style="position:absolute;left:252px;top:12px;width:62px;height:25px;font-size:var(--homey-font-size-large);">↑ 22°</textarea>
+	<textarea id="lowTemp0" readonly
+		style="position:absolute;left:252px;top:40px;width:62px;height:25px;font-size:var(--homey-font-size-large);">↓ -2°</textarea>
+	<textarea id="wind0" readonly
+		style="position:absolute;left:14px;top:62px;width:200px;height:20px;">💨 SSW 5mph</textarea>
+	<textarea id="sunrise_set" readonly
+		style="position:absolute;left:14px;top:93px;width:200px;height:20px;">🔆 05:55AM - 06:34PM</textarea>
+	<textarea id="moonrise_set" readonly
+		style="position:absolute;left:14px;top:127px;width:200px;height:20px;">🌙 06:33PM - 04:20AM</textarea>
+	<textarea id="cloud0" style="position:absolute;left:241px;top:93px;width:73px;height:20px;">🌥️ 35%</textarea>
+	<textarea id="rain0" style="position:absolute;left:241px;top:127px;width:73px;height:20px;">🌧 35%</textarea>
+	<div class="separator-line"></div>
+	<table style="position:absolute;bottom:10px;left:10px;width:90%;border-collapse:separate;">
+		<tbody>
+			<tr>
+				<td></td>
+				<td id="day1">Mon</td>
+				<td id="day2">Tu</td>
+				<td id="day3">Wed</td>
+				<td id="day4">Thu</td>
+			</tr>
+			<tr>
+				<td>🔆</td>
+				<td>
+					<img id="dayIcon1" src="">
+				</td>
+				<td>
+					<img id="dayIcon2" src="">
+				</td>
+				<td>
+					<img id="dayIcon3" src="">
+				</td>
+				<td>
+					<img id="dayIcon4" src="">
+				</td>
+			</tr>
+			<tr>
+				<td>↑</td>
+				<td id="highTemp1">22°</td>
+				<td id="highTemp2">22°</td>
+				<td id="highTemp3">22°</td>
+				<td id="highTemp4">22°</td>
+			</tr>
+			<tr>
+				<td>🌧</td>
+				<td id="dayRain1">35%</td>
+				<td id="dayRain2">35%</td>
+				<td id="dayRain3">35%</td>
+				<td id="dayRain4">35%</td>
+			</tr>
+			<tr>
+				<td>🌙</td>
+				<td>
+					<img id="nightIcon1" src="">
+				</td>
+				<td>
+					<img id="nightIcon2" src="">
+				</td>
+				<td>
+					<img id="nightIcon3" src="">
+				</td>
+				<td>
+					<img id="nightIcon4" src="">
+				</td>
+			</tr>
+			<tr>
+				<td>↓</td>
+				<td id="lowTemp1">-2°</td>
+				<td id="lowTemp2">-2°</td>
+				<td id="lowTemp3">-2°</td>
+				<td id="lowTemp4">-2°</td>
+			</tr>
+			<tr>
+				<td>🌧</td>
+				<td id="nightRain1">35%</td>
+				<td id="nightRain2">35%</td>
+				<td id="nightRain3">35%</td>
+				<td id="nightRain4">35%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript">
+		var_Homey = null;
+		function onHomeyReady(Homey)
+		{
+			_Homey = Homey;
+			Homey.ready();
+
+			const settings = Homey.getSettings();
+			const height = settings.height || 390;
+			Homey.setHeight(height);
+
+			Homey.api('GET', `/?deviceId=${settings.devices.id}`, {})
+				.then((result) =>
+				{
+					updateWidget(result);
+				})
+				.catch(console.error);
+
+			Homey.on('updateWidget', function (deviceId)
+			{
+				const settings = Homey.getSettings();
+				if (settings.devices.id !== deviceId)
+				{
+					return;
+				}
+
+				Homey.api('GET', `/?deviceId=${settings.devices.id}`, {})
+					.then((result) =>
+					{
+						updateWidget(result);
+					})
+					.catch(console.error);
+			});
+
+		}
+
+		function updateWidget(result)
+		{
+			if (!result)
+			{
+				return;
+			}
+
+			// update todays elements
+			const day = result[0];
+			document.getElementById(`day0`).value = day.day;
+			document.getElementById(`Icon0`).src = day.dayIcon ? day.dayIcon : day.nightIcon; // Updated to use dayIcon
+			document.getElementById(`highTemp0`).value = day.highTemp ? `↑ ${day.highTemp}°` : "";
+			document.getElementById(`lowTemp0`).value = `↓ ${day.lowTemp}°`;
+			document.getElementById(`wind0`).value = day.dayGustStrength ? `💨 ${day.dayWindAngle} ${day.dayGustStrength}mph` : `💨 ${day.nightWindAngle} ${day.nightGustStrength}mph`; // Updated to use dayGustStrength
+			document.getElementById(`cloud0`).value = day.dayCloud ? `☁️ ${day.dayCloud}%` : `☁️ ${day.nightCloud}%`; // Updated to use dayCloud
+			document.getElementById(`rain0`).value = day.dayRain ? `🌧 ${day.dayRain}%` : `🌧 ${day.nightRain}%`; // Updated rain percentage
+
+			// Convert the sunrise and sunset times to a more readable format
+			const sunrise = new Date(day.sunrise);
+			const sunset = new Date(day.sunset);
+			const sunriseHours = sunrise.getHours() % 12 || 12;
+			const sunriseMinutes = String(sunrise.getMinutes()).padStart(2, '0');
+			const sunsetHours = sunset.getHours() % 12 || 12;
+			const sunsetMinutes = String(sunset.getMinutes()).padStart(2, '0');
+			const sunriseAmPm = sunrise.getHours() < 12 ? 'AM' : 'PM';
+			const sunsetAmPm = sunset.getHours() < 12 ? 'AM' : 'PM';
+			const sunriseTime = `${sunriseHours}:${sunriseMinutes}${sunriseAmPm}`;
+			const sunsetTime = `${sunsetHours}:${sunsetMinutes}${sunsetAmPm}`;
+
+			const moonrise = new Date(day.moonrise);
+			const moonset = new Date(day.moonset);
+			const moonriseHours = moonrise.getHours() % 12 || 12;
+			const moonriseMinutes = String(moonrise.getMinutes()).padStart(2, '0');
+			const moonsetHours = moonset.getHours() % 12 || 12;
+			const moonsetMinutes = String(moonset.getMinutes()).padStart(2, '0');
+			const moonriseAmPm = moonrise.getHours() < 12 ? 'AM' : 'PM';
+			const moonsetAmPm = moonset.getHours() < 12 ? 'AM' : 'PM';
+			const moonriseTime = `${moonriseHours}:${moonriseMinutes}${moonriseAmPm}`;
+			const moonsetTime = `${moonsetHours}:${moonsetMinutes}${moonsetAmPm}`;
+
+			document.getElementById(`sunrise_set`).innerText = `🔆 ${sunriseTime} - ${sunsetTime}`;
+			document.getElementById(`moonrise_set`).innerText = `🌙 ${moonriseTime} - ${moonsetTime}`;
+
+			// update the table elements
+			for (let i = 1; i < 5; i++)
+			{
+				const day = result[i];
+
+				// Just use the first 3 characters of the day name
+				const dayName = day.day.length > 3 ? day.day.substring(0, 3) : day.day;
+				document.getElementById(`day${i}`).innerText = dayName;
+
+				document.getElementById(`highTemp${i}`).innerText = `${day.highTemp}°`;
+				document.getElementById(`lowTemp${i}`).innerText = `${day.lowTemp}°`;
+				document.getElementById(`dayRain${i}`).innerText = `${day.dayRain}%`; // Updated rain percentage for day
+				document.getElementById(`nightRain${i}`).innerText = `${day.nightRain}%`; // Updated rain percentage for night
+
+				// update the icons
+				document.getElementById(`dayIcon${i}`).src = day.dayIcon;
+				document.getElementById(`nightIcon${i}`).src = day.nightIcon; // Updated to use nightIcon
+			}
+
+		}
+	</script>
+</body>
+
+</html>

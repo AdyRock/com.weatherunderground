@@ -666,6 +666,153 @@ class ForecastDevice extends Homey.Device
 
 		return null;
 	}
+
+
+	// Return an array of 5 days of weather data
+	// Each day contains the following data:
+	// The day of the week, an icon code, high and low temperature, a chance of rain, a chance of snow, a wind direction, a wind speed, a humidity level, and a UV index.
+	getWidget5DayWeather(deviceId)
+	{
+		const data = this.getData();
+		if (this.__id != deviceId)
+		{
+			return null;
+		}
+
+		const period = [];
+		period.push(this.getWidgetDay1Weather());
+		period.push(this.getWidgetDay2To5Weather(1));
+		period.push(this.getWidgetDay2To5Weather(2));
+		period.push(this.getWidgetDay2To5Weather(3));
+		period.push(this.getWidgetDay2To5Weather(4));
+		period.push(this.getWidgetDay2To5Weather(5));
+		return period;
+	}
+
+
+	getWidgetDay2To5Weather(day)
+	{
+		const forecast = {
+			"day": this.forecastData.dayOfWeek[day],
+			"dayIcon": this.getSmallIconFileName(this.forecastData.daypart[0].iconCode[day * 2]),
+			"nightIcon": this.getSmallIconFileName(this.forecastData.daypart[0].iconCode[day * 2 + 1]),
+			"highTemp": this.forecastData.temperatureMax[day],
+			"lowTemp": this.forecastData.temperatureMin[day],
+			"dayRain": this.forecastData.daypart[0].precipChance[day * 2],
+			"nightRain": this.forecastData.daypart[0].precipChance[day + 1],
+		};
+
+		return forecast;
+	}
+
+	getWidgetDay1Weather()
+	{
+		let langCode = this.homey.i18n.getLanguage();
+		if ((langCode !== 'en') && (langCode !== 'nl'))
+		{
+			langCode = 'en';
+		}
+
+		var index = parseInt(this.forecastData.daypart[0].windDirection[0] / 22.5);
+		const dayWind = Sector[langCode][index];
+
+		index = parseInt(this.forecastData.daypart[0].windDirection[1] / 22.5);
+		const nightWind = Sector[langCode][index];
+
+		const forecast = {
+			"day": this.forecastData.dayOfWeek[0],
+			"dayIcon": this.getSmallIconFileName(this.forecastData.daypart[0].iconCode[0]),
+			"nightIcon": this.getSmallIconFileName(this.forecastData.daypart[0].iconCode[1]),
+			"moonPhase": this.forecastData.moonPhase[0],
+			"highTemp": this.forecastData.temperatureMax[0],
+			"lowTemp": this.forecastData.temperatureMin[0],
+			"dayCloud": this.forecastData.daypart[0].cloudCover[0],
+			"nightCloud": this.forecastData.daypart[0].cloudCover[1],
+			"dayRain": this.forecastData.daypart[0].precipChance[0],
+			"dayRainType": this.forecastData.daypart[0].precipType[0],
+			"nightRain": this.forecastData.daypart[0].precipChance[1],
+			"nightRainType": this.forecastData.daypart[0].precipType[1],
+			"dayWindAngle": dayWind,
+			"nightWindAngle": nightWind,
+			"dayGustStrength": this.forecastData.daypart[0].windSpeed[0],
+			"nightGustStrength": this.forecastData.daypart[0].windSpeed[1],
+			"dayHumidity": this.forecastData.daypart[0].relativeHumidity[0],
+			"nightHumidity": this.forecastData.daypart[0].relativeHumidity[1],
+			"ultraviolet": this.forecastData.daypart[0].uvIndex[0],
+			"dayTemperature": this.forecastData.daypart[0].temperature[0],
+			"nightTemperature": this.forecastData.daypart[0].temperature[1],
+			"dayTemperatureFeelsLike": this.forecastData.daypart[0].temperature[0],
+			"nightTemperatureFeelsLike": this.forecastData.daypart[0].temperature[1],
+			"sunrise": this.forecastData.sunriseTimeLocal[0],
+			"sunset": this.forecastData.sunsetTimeLocal[0],
+			"moonrise": this.forecastData.moonriseTimeLocal[0],
+			"moonset": this.forecastData.moonsetTimeLocal[0],
+		};
+
+		return forecast;
+	}
+
+
+	getSmallIconFileName(iconCode)
+	{
+		const weatherSymbols = [
+			"wsymbol_0079_tornado",
+			"wsymbol_0080_tropical_storm_hurricane",
+			"wsymbol_0080_tropical_storm_hurricane",
+			"wsymbol_0024_thunderstorms",
+			"wsymbol_0024_thunderstorms",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0049_freezing_drizzle",
+			"wsymbol_0048_drizzle",
+			"wsymbol_0050_freezing_rain",
+			"wsymbol_0017_cloudy_with_light_rain",
+			"wsymbol_0017_cloudy_with_light_rain",
+			"wsymbol_0019_cloudy_with_light_snow",
+			"wsymbol_0020_cloudy_with_heavy_snow",
+			"wsymbol_0053_blowing_snow",
+			"wsymbol_0019_cloudy_with_light_snow",
+			"wsymbol_0022_cloudy_with_light_hail",
+			"wsymbol_0021_cloudy_with_sleet",
+			"wsymbol_0056_dust_sand",
+			"wsymbol_0007_fog",
+			"wsymbol_0005_hazy_sun",
+			"wsymbol_0055_smoke",
+			"wsymbol_0060_windy",
+			"wsymbol_0060_windy",
+			"wsymbol_0049_freezing_drizzle",
+			"wsymbol_0004_black_low_cloud",
+			"wsymbol_0044_mostly_cloudy_night",
+			"wsymbol_0043_mostly_cloudy",
+			"wsymbol_0041_partly_cloudy_night",
+			"wsymbol_0002_sunny_intervals",
+			"wsymbol_0008_clear_sky_night",
+			"wsymbol_0001_sunny",
+			"wsymbol_0041_partly_cloudy_night",
+			"wsymbol_0002_sunny_intervals",
+			"wsymbol_0023_cloudy_with_heavy_hail",
+			"wsymbol_0045_hot",
+			"wsymbol_0016_thundery_showers",
+			"wsymbol_0016_thundery_showers",
+			"wsymbol_0010_heavy_rain_showers",
+			"wsymbol_0018_cloudy_with_heavy_rain",
+			"wsymbol_0011_light_snow_showers",
+			"wsymbol_0020_cloudy_with_heavy_snow",
+			"wsymbol_0054_blizzard",
+			"wsymbol_0999_unknown",
+			"wsymbol_0025_light_rain_showers_night",
+			"wsymbol_0027_light_snow_showers_night",
+			"wsymbol_0032_thundery_showers_night"
+		];
+
+		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+		{
+			return `${weatherSymbols[iconCode]}.png`;
+		}
+
+		return null;
+	}
 }
 
 module.exports = ForecastDevice;

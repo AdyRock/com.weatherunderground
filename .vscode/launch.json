@@ -10,9 +10,9 @@
         "restart": true,
         "name": "Attach to Docker Homey",
         "address": "0.0.0.0",
-        "port": 9222,
+        "port": 9229,
         "localRoot": "${workspaceFolder}",
-        "remoteRoot": "/"
+        "remoteRoot": "/app/"
     },
     {
         "type": "node",

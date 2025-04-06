@@ -2,7 +2,7 @@
 'use strict';
 if ( process.env.DEBUG === '1' )
 {
-    require( 'inspector' ).open( 9222, '0.0.0.0', true );
+//    require( 'inspector' ).open( 9222, '0.0.0.0', true );
 }
 
 const Homey = require( 'homey' );
@@ -326,14 +326,20 @@ class WeatherApp extends Homey.App
         this.noDataTrigger = this.homey.flow.getTriggerCard( 'no_data_changed' );
         this.dataResumedTrigger = this.homey.flow.getTriggerCard( 'data_resumed_changed' );
 
-		const widget = this.homey.dashboards.getWidget('forecast');
-
-		widget.registerSettingAutocompleteListener('devices', async (query, settings) => {
+		const widget1 = this.homey.dashboards.getWidget('forecast');
+		widget1.registerSettingAutocompleteListener('devices', async (query, settings) => {
 			const devices = await this.getAppForecastDevices({});
 			return devices;
 		});
 
-    }
+		const widget2 = this.homey.dashboards.getWidget('weather');
+		widget2.registerSettingAutocompleteListener('devices', async (query, settings) =>
+		{
+			const devices = await this.getAppForecastDevices({});
+			return devices;
+		});
+
+	}
 
 	resetAPICounter()
 	{
@@ -347,7 +353,7 @@ class WeatherApp extends Homey.App
 			this.resetAPICounter();
 		}, timeToMidnight );
 	}
-	
+
     async changeUnits( Units )
     {
         let promises = [];
@@ -656,6 +662,24 @@ class WeatherApp extends Homey.App
 			if (device.getWidgetForecast)
 			{
 				const forecast = device.getWidgetForecast(deviceId, day);
+				return forecast;
+			}
+		}
+
+		return null;
+	}
+
+	getWidget5DayWeather(deviceId)
+	{
+		// find a Forecast driver / device for the given deviceId
+		let devices = this.homey.drivers.getDriver('forecast').getDevices();
+		let numDevices = devices.length;
+		for (var i = 0; i < numDevices; i++)
+		{
+			let device = devices[i];
+			if (device.getWidget5DayWeather)
+			{
+				const forecast = device.getWidget5DayWeather(deviceId);
 				return forecast;
 			}
 		}

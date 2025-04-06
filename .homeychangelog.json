@@ -193,6 +193,9 @@
   },
   "4.0.3": {
 	"en": "Updated Widget preview"
+  },
+  "4.0.4": {
+	"en": "Added 5 day forecast widget"
   }
 }
 
