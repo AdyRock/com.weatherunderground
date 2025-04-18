@@ -283,6 +283,8 @@ class ForecastDevice extends Homey.Device
 			{
 				this.updateCapabilities( null );
 			} );
+
+			this.homey.api.realtime('updateWidget', this.__id);
         }
     }
 
@@ -349,22 +351,22 @@ class ForecastDevice extends Homey.Device
                 if ( this.homey.app.SpeedUnits === '0' )
                 {
 					// km/h
-                    this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] ).catch(this.error);
+                    this.setCapabilityValue( "forecast_gust_strength", Math.round(this.forecastData.daypart[ 0 ].windSpeed[ dayNight ]) ).catch(this.error);
                 }
                 else if (this.homey.app.SpeedUnits === '1' )
                 {
 					// m/s
-                    this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600 ).catch(this.error);
+                    this.setCapabilityValue( "forecast_gust_strength", Math.round(this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 1000 / 3600) ).catch(this.error);
                 }
 				else if (this.homey.app.SpeedUnits === '2' )
 				{
 					// mph
-					this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.621371 ).catch(this.error);
+					this.setCapabilityValue( "forecast_gust_strength", Math.round(this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.621371) ).catch(this.error);
 				}
 				else if ( this.homey.app.SpeedUnits === '3' )
 				{
 					// knots
-					this.setCapabilityValue( "forecast_gust_strength", this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.539957 ).catch(this.error);
+					this.setCapabilityValue( "forecast_gust_strength", Math.round(this.forecastData.daypart[ 0 ].windSpeed[ dayNight ] * 0.539957) ).catch(this.error);
 				}
 
 
@@ -719,6 +721,32 @@ class ForecastDevice extends Homey.Device
 		index = parseInt(this.forecastData.daypart[0].windDirection[1] / 22.5);
 		const nightWind = Sector[langCode][index];
 
+		// km/h
+		var windSpeedDay = this.forecastData.daypart[0].windSpeed[0];
+		var windSpeedNight = this.forecastData.daypart[0].windSpeed[1];
+		var windSpeedUnits = this.homey.__('speedUnits.km');
+		if (this.homey.app.SpeedUnits === '1')
+		{
+			// m/s
+			windSpeedDay = Math.round(this.forecastData.daypart[0].windSpeed[0] * 1000 / 3600);
+			windSpeedNight = Math.round(this.forecastData.daypart[0].windSpeed[1] * 1000 / 3600);
+			windSpeedUnits = this.homey.__('speedUnits.m');
+		}
+		else if (this.homey.app.SpeedUnits === '2')
+		{
+			// mph
+			windSpeedDay = Math.round(this.forecastData.daypart[0].windSpeed[0] * 0.621371);
+			windSpeedNight = Math.round(this.forecastData.daypart[0].windSpeed[1] * 0.621371);
+			windSpeedUnits = this.homey.__('speedUnits.mph');
+		}
+		else if (this.homey.app.SpeedUnits === '3')
+		{
+			// knots
+			windSpeedDay = Math.round(this.forecastData.daypart[0].windSpeed[0] * 0.539957);
+			windSpeedNight = Math.round(this.forecastData.daypart[0].windSpeed[1] * 0.539957);
+			windSpeedUnits = this.homey.__('speedUnits.knots');
+		}
+
 		const forecast = {
 			"day": this.forecastData.dayOfWeek[0],
 			"dayIcon": this.getSmallIconFileName(this.forecastData.daypart[0].iconCode[0]),
@@ -734,8 +762,8 @@ class ForecastDevice extends Homey.Device
 			"nightRainType": this.forecastData.daypart[0].precipType[1],
 			"dayWindAngle": dayWind,
 			"nightWindAngle": nightWind,
-			"dayGustStrength": this.forecastData.daypart[0].windSpeed[0],
-			"nightGustStrength": this.forecastData.daypart[0].windSpeed[1],
+			"dayGustStrength": windSpeedDay,
+			"nightGustStrength": windSpeedNight,
 			"dayHumidity": this.forecastData.daypart[0].relativeHumidity[0],
 			"nightHumidity": this.forecastData.daypart[0].relativeHumidity[1],
 			"ultraviolet": this.forecastData.daypart[0].uvIndex[0],
@@ -747,6 +775,7 @@ class ForecastDevice extends Homey.Device
 			"sunset": this.forecastData.sunsetTimeLocal[0],
 			"moonrise": this.forecastData.moonriseTimeLocal[0],
 			"moonset": this.forecastData.moonsetTimeLocal[0],
+			"windSpeedUnits": windSpeedUnits,
 		};
 
 		return forecast;

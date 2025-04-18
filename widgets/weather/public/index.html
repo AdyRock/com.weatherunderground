@@ -9,45 +9,104 @@
 			color: var(--homey-text-color);
 			font-size: var(--homey-font-size-default);
 			overflow: hidden;
+			width: auto;
+			height: auto;
+			white-space: nowrap;
 		}
 
 		textarea:focus {
 			outline: none;
 		}
 
+		textarea#day0,
+		textarea#wind0,
+		textarea#sunrise_set,
+		textarea#moonrise_set {
+			position: absolute;
+			left: 5%;
+			width: 90%;
+			height: auto;
+		}
+
+		textarea#day0 {
+			top: 4%;
+			width: 40%;
+			font-size: var(--homey-font-size-xlarge);
+		}
+
+		textarea#wind0 {
+			top: 20%;
+		}
+
+		textarea#sunrise_set {
+			top: 28%;
+		}
+
+		textarea#moonrise_set {
+			top: 36%;
+		}
+
+		textarea#highTemp0,
+		textarea#lowTemp0,
+		textarea#cloud0,
+		textarea#rain0 {
+			position: absolute;
+			left: 72%;
+			width: 28%;
+			height: auto;
+		}
+
+		textarea#highTemp0 {
+			top: 4%;
+		}
+
+		textarea#lowTemp0 {
+			top: 12%;
+		}
+
+		textarea#cloud0 {
+			top: 28%;
+		}
+
+		textarea#rain0 {
+			top: 35%;
+		}
+
+		img#Icon0 {
+			position: absolute;
+			left: 60%;
+			top: 6%;
+			transform: translateX(-50%);
+			width: 20%;
+			height: auto;
+		}
+
 		table {
 			position: absolute;
-			bottom: 10px;
-			left: 10px;
+			top: 48%;
+			left: 5%;
+			width: 90%;
 			border-collapse: separate;
-			/* Ensures border-spacing is applied */
 			border: none;
 			background-color: transparent;
 			color: var(--homey-text-color);
 			font-size: var(--homey-font-size-default);
-			max-height: calc(100% - 137px - 40px);
-			/* Ensures the table doesn't overlap the last textarea */
+			max-height: calc(100% - 48%);
 			overflow: auto;
 			display: block;
 			border-spacing: 5px;
-			/* Adds a small gap between rows and columns */
 			table-layout: fixed;
-			/* Ensures fixed column widths */
-			width: 100%;
-			/* Ensures the table fills the width */
 		}
 
 		thead,
 		tbody {
 			display: block;
 			overflow: hidden;
-			/* Added overflow property */
 		}
 
 		tbody {
 			overflow-y: auto;
-			max-height: calc(100% - 137px - 40px);
-			/* Adjusts for the last textarea */
+			max-height: calc(100% - 48%);
 		}
 
 		table img {
@@ -58,84 +117,88 @@
 		table td,
 		table th {
 			width: 20%;
-			/* Ensure columns are equally spaced */
 			max-width: 20%;
-			/* Prevent columns from expanding */
 			min-width: 20%;
-			/* Prevent columns from shrinking */
 			text-align: center;
-			/* Center-align content */
 			overflow: hidden;
-			/* Prevent content overflow */
 			white-space: nowrap;
-			/* Prevent text wrapping */
 			text-overflow: hidden;
-			/* Add ellipsis if text overflows */
 		}
 
 		table td img {
 			display: block;
 			margin: 0 auto;
-			/* Centers the images horizontally */
 		}
 
 		table td:first-child,
 		table th:first-child {
 			width: 25px;
-			/* Set the first column to a fixed width of 20 pixels */
 			min-width: 25px;
-			/* Ensure the column does not shrink below 20 pixels */
 			max-width: 35px;
-			/* Prevent the column from expanding beyond 20 pixels */
 			overflow: hidden;
-			/* Prevent content from expanding the column */
 			word-wrap: break-word;
-			/* Ensure text wraps within the column */
 		}
 
 		.separator-line {
 			position: absolute;
-			top: calc(100% - 230px);
-			/* Adjusted to position above the table */
+			top: 47%;
 			left: 10px;
 			width: 90%;
 			height: 1px;
 			background-color: rgba(0, 0, 0, 0.2);
-			/* Faint horizontal line */
 		}
 
 		body {
 			background: linear-gradient(180deg, rgb(0, 130, 250) 0%, rgba(192, 244, 247, 1) 52%, rgba(236, 242, 244, 1) 60%, rgba(236, 242, 244, 1) 100%);
-			/* Default gradient for night */
 			transition: background 1s ease;
-			/* Smooth transition for background change */
+			font-size: calc(12px + 0.5vw);
 		}
 
 		/* Dark Mode */
 		.homey-dark-mode body {
 			background: linear-gradient(180deg, rgb(25, 25, 112) 0%, rgb(59, 61, 74) 50%, rgb(31, 40, 41) 100%);
 		}
+
+		/* Responsive adjustments */
+		@media (min-width: 400px) {
+			textarea#day0 {
+				left: 10%;
+				width: 30%;
+			}
+
+			img#Icon0 {
+				left: 60%;
+				width: 15%;
+			}
+
+			textarea#highTemp0,
+			textarea#lowTemp0,
+			textarea#cloud0,
+			textarea#rain0 {
+				left: 75%;
+				width: 15%;
+			}
+
+			table {
+				left: 5%;
+				width: 90%;
+			}
+		}
 	</style>
 </head>
 
 <body class="homey-widget-small">
-	<textarea id="day0" readonly
-		style="position:absolute;left:14px;top:7px;width:137px;height:42px;font-size:var(--homey-font-size-xxlarge);font-weight:--homey-font-weight-bold;">Sunday</textarea>
-	<img id="Icon0" src="wsymbol_0001_sunny.png" style="position:absolute;left:171px;top:12px;rotate:0deg;">
-	<textarea id="highTemp0" readonly
-		style="position:absolute;left:252px;top:12px;width:62px;height:25px;font-size:var(--homey-font-size-large);">↑ 22°</textarea>
-	<textarea id="lowTemp0" readonly
-		style="position:absolute;left:252px;top:40px;width:62px;height:25px;font-size:var(--homey-font-size-large);">↓ -2°</textarea>
-	<textarea id="wind0" readonly
-		style="position:absolute;left:14px;top:62px;width:200px;height:20px;">💨 SSW 5mph</textarea>
-	<textarea id="sunrise_set" readonly
-		style="position:absolute;left:14px;top:93px;width:200px;height:20px;">🔆 05:55AM - 06:34PM</textarea>
-	<textarea id="moonrise_set" readonly
-		style="position:absolute;left:14px;top:127px;width:200px;height:20px;">🌙 06:33PM - 04:20AM</textarea>
-	<textarea id="cloud0" style="position:absolute;left:241px;top:93px;width:73px;height:20px;">🌥️ 35%</textarea>
-	<textarea id="rain0" style="position:absolute;left:241px;top:127px;width:73px;height:20px;">🌧 35%</textarea>
+	<textarea id="day0" readonly>Sunday</textarea>
+	<img id="Icon0" src="wsymbol_0001_sunny.png">
+	<textarea id="highTemp0" readonly>🌡↑ 22°</textarea>
+	<textarea id="lowTemp0" readonly>🌡↓ -2°</textarea>
+	<textarea id="wind0" readonly>💨 SSW 5mph</textarea>
+	<textarea id="sunrise_set" readonly>🔆 05:55AM - 06:34PM</textarea>
+	<textarea id="moonrise_set" readonly>🌙 06:33PM - 04:20AM</textarea>
+	<textarea id="cloud0">🌥️ 35%</textarea>
+	<textarea id="rain0">☂️ 35%</textarea>
 	<div class="separator-line"></div>
-	<table style="position:absolute;bottom:10px;left:10px;width:90%;border-collapse:separate;">
+	<table>
 		<tbody>
 			<tr>
 				<td></td>
@@ -160,14 +223,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td>↑</td>
+				<td>🌡↑</td>
 				<td id="highTemp1">22°</td>
 				<td id="highTemp2">22°</td>
 				<td id="highTemp3">22°</td>
 				<td id="highTemp4">22°</td>
 			</tr>
 			<tr>
-				<td>🌧</td>
+				<td>☂️</td>
 				<td id="dayRain1">35%</td>
 				<td id="dayRain2">35%</td>
 				<td id="dayRain3">35%</td>
@@ -189,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td>↓</td>
+				<td>🌡↓</td>
 				<td id="lowTemp1">-2°</td>
 				<td id="lowTemp2">-2°</td>
 				<td id="lowTemp3">-2°</td>
 				<td id="lowTemp4">-2°</td>
 			</tr>
 			<tr>
-				<td>🌧</td>
+				<td>☂️</td>
 				<td id="nightRain1">35%</td>
 				<td id="nightRain2">35%</td>
 				<td id="nightRain3">35%</td>
@@ -252,11 +315,11 @@
 			const day = result[0];
 			document.getElementById(`day0`).value = day.day;
 			document.getElementById(`Icon0`).src = day.dayIcon ? day.dayIcon : day.nightIcon; // Updated to use dayIcon
-			document.getElementById(`highTemp0`).value = day.highTemp ? `↑ ${day.highTemp}°` : "";
-			document.getElementById(`lowTemp0`).value = `↓ ${day.lowTemp}°`;
-			document.getElementById(`wind0`).value = day.dayGustStrength ? `💨 ${day.dayWindAngle} ${day.dayGustStrength}mph` : `💨 ${day.nightWindAngle} ${day.nightGustStrength}mph`; // Updated to use dayGustStrength
+			document.getElementById(`highTemp0`).value = day.highTemp ? `🌡↑${day.highTemp}°` : "";
+			document.getElementById(`lowTemp0`).value = `🌡↓${day.lowTemp}°`; // Updated to use thermometer symbol
+			document.getElementById(`wind0`).value = day.dayGustStrength ? `💨 ${day.dayWindAngle} ${day.dayGustStrength}${day.windSpeedUnits}` : `💨 ${day.nightWindAngle} ${day.nightGustStrength}${day.windSpeedUnits}`; // Updated to use dayGustStrength
 			document.getElementById(`cloud0`).value = day.dayCloud ? `☁️ ${day.dayCloud}%` : `☁️ ${day.nightCloud}%`; // Updated to use dayCloud
-			document.getElementById(`rain0`).value = day.dayRain ? `🌧 ${day.dayRain}%` : `🌧 ${day.nightRain}%`; // Updated rain percentage
+			document.getElementById(`rain0`).value = day.dayRain ? `☂️ ${day.dayRain}%` : `☂️ ${day.nightRain}%`; // Updated rain percentage
 
 			// Convert the sunrise and sunset times to a more readable format
 			const sunrise = new Date(day.sunrise);
