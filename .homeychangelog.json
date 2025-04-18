@@ -196,6 +196,9 @@
   },
   "4.0.4": {
 	"en": "Added 5 day forecast widget"
+  },
+  "4.0.5": {
+	"en": "Improve 5 day forecast widget layout for larger font sizes and fixed Wind Speed units."
   }
 }
 
