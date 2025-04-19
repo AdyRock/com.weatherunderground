@@ -23,27 +23,29 @@
 		textarea#sunrise_set,
 		textarea#moonrise_set {
 			position: absolute;
-			left: 5%;
-			width: 90%;
+			left: 2%;
 			height: auto;
 		}
 
 		textarea#day0 {
 			top: 4%;
-			width: 40%;
-			font-size: var(--homey-font-size-xlarge);
+			width: 50%;
+			font-size: var(--homey-font-size-xxlarge);
 		}
 
 		textarea#wind0 {
 			top: 20%;
+			width: 50%;
 		}
 
 		textarea#sunrise_set {
 			top: 28%;
+			width: 60%;
 		}
 
 		textarea#moonrise_set {
 			top: 36%;
+			width: 60%;
 		}
 
 		textarea#highTemp0,
@@ -51,8 +53,8 @@
 		textarea#cloud0,
 		textarea#rain0 {
 			position: absolute;
-			left: 72%;
-			width: 28%;
+			left: 75%;
+			width: 22%;
 			height: auto;
 		}
 
@@ -74,7 +76,7 @@
 
 		img#Icon0 {
 			position: absolute;
-			left: 60%;
+			left: 65%;
 			top: 6%;
 			transform: translateX(-50%);
 			width: 20%;
@@ -95,7 +97,8 @@
 			overflow: auto;
 			display: block;
 			border-spacing: 5px;
-			table-layout: fixed;
+			table-layout: auto;
+			/* Changed from fixed to auto */
 		}
 
 		thead,
@@ -116,13 +119,18 @@
 
 		table td,
 		table th {
-			width: 20%;
-			max-width: 20%;
-			min-width: 20%;
+			width: 25%;
+			max-width: none;
+			/* Remove max-width restriction */
+			min-width: 10%;
+			/* Set a reasonable minimum width */
 			text-align: center;
 			overflow: hidden;
 			white-space: nowrap;
-			text-overflow: hidden;
+			text-overflow: ellipsis;
+			/* Ensure text truncates if necessary */
+			font-size: calc(10px + 1vw);
+			/* Adjust font size for better fit */
 		}
 
 		table td img {
@@ -132,9 +140,9 @@
 
 		table td:first-child,
 		table th:first-child {
-			width: 25px;
-			min-width: 25px;
-			max-width: 35px;
+			width: 30px;
+			min-width: 30px;
+			max-width: 45px;
 			overflow: hidden;
 			word-wrap: break-word;
 		}
@@ -163,11 +171,11 @@
 		@media (min-width: 400px) {
 			textarea#day0 {
 				left: 10%;
-				width: 30%;
+				width: 55%;
 			}
 
 			img#Icon0 {
-				left: 60%;
+				left: 65%;
 				width: 15%;
 			}
 
@@ -176,12 +184,18 @@
 			textarea#cloud0,
 			textarea#rain0 {
 				left: 75%;
-				width: 15%;
+				width: 25%;
 			}
 
 			table {
 				left: 5%;
 				width: 90%;
+			}
+
+			table td,
+			table th {
+				width: 25%;
+				font-size: calc(10px + 1.6vw);
 			}
 		}
 	</style>
@@ -282,7 +296,7 @@
 			Homey.api('GET', `/?deviceId=${settings.devices.id}`, {})
 				.then((result) =>
 				{
-					updateWidget(result);
+					updateWidget(result, settings);
 				})
 				.catch(console.error);
 
@@ -297,14 +311,24 @@
 				Homey.api('GET', `/?deviceId=${settings.devices.id}`, {})
 					.then((result) =>
 					{
-						updateWidget(result);
+						updateWidget(result, settings);
 					})
 					.catch(console.error);
 			});
-
 		}
 
-		function updateWidget(result)
+		function adjustFontSize(textarea)
+		{
+			const maxFontSize = parseFloat(getComputedStyle(textarea).fontSize);
+			let fontSize = maxFontSize;
+			while ((textarea.scrollHeight > textarea.clientHeight || textarea.scrollWidth > textarea.clientWidth) && fontSize > 10)
+			{
+				fontSize -= 1;
+				textarea.style.fontSize = `${fontSize}px`;
+			}
+		}
+
+		function updateWidget(result, settings)
 		{
 			if (!result)
 			{
@@ -321,28 +345,32 @@
 			document.getElementById(`cloud0`).value = day.dayCloud ? `☁️ ${day.dayCloud}%` : `☁️ ${day.nightCloud}%`; // Updated to use dayCloud
 			document.getElementById(`rain0`).value = day.dayRain ? `☂️ ${day.dayRain}%` : `☂️ ${day.nightRain}%`; // Updated rain percentage
 
-			// Convert the sunrise and sunset times to a more readable format
+			// Convert the sunrise and sunset times based on time format
+			const formatTime = (date, is24Hour) =>
+			{
+				const hours = String(date.getHours()).padStart(2, '0'); // Add leading zero
+				const minutes = String(date.getMinutes()).padStart(2, '0');
+				if (is24Hour)
+				{
+					return `${hours}:${minutes}`;
+				} else
+				{
+					const hours12 = hours % 12 || 12;
+					const amPm = hours < 12 ? 'AM' : 'PM';
+					return `${hours12}:${minutes}${amPm}`;
+				}
+			};
+
+			const is24Hour = settings.timeFormat === '24';
 			const sunrise = new Date(day.sunrise);
 			const sunset = new Date(day.sunset);
-			const sunriseHours = sunrise.getHours() % 12 || 12;
-			const sunriseMinutes = String(sunrise.getMinutes()).padStart(2, '0');
-			const sunsetHours = sunset.getHours() % 12 || 12;
-			const sunsetMinutes = String(sunset.getMinutes()).padStart(2, '0');
-			const sunriseAmPm = sunrise.getHours() < 12 ? 'AM' : 'PM';
-			const sunsetAmPm = sunset.getHours() < 12 ? 'AM' : 'PM';
-			const sunriseTime = `${sunriseHours}:${sunriseMinutes}${sunriseAmPm}`;
-			const sunsetTime = `${sunsetHours}:${sunsetMinutes}${sunsetAmPm}`;
-
 			const moonrise = new Date(day.moonrise);
 			const moonset = new Date(day.moonset);
-			const moonriseHours = moonrise.getHours() % 12 || 12;
-			const moonriseMinutes = String(moonrise.getMinutes()).padStart(2, '0');
-			const moonsetHours = moonset.getHours() % 12 || 12;
-			const moonsetMinutes = String(moonset.getMinutes()).padStart(2, '0');
-			const moonriseAmPm = moonrise.getHours() < 12 ? 'AM' : 'PM';
-			const moonsetAmPm = moonset.getHours() < 12 ? 'AM' : 'PM';
-			const moonriseTime = `${moonriseHours}:${moonriseMinutes}${moonriseAmPm}`;
-			const moonsetTime = `${moonsetHours}:${moonsetMinutes}${moonsetAmPm}`;
+
+			const sunriseTime = formatTime(sunrise, is24Hour);
+			const sunsetTime = formatTime(sunset, is24Hour);
+			const moonriseTime = formatTime(moonrise, is24Hour);
+			const moonsetTime = formatTime(moonset, is24Hour);
 
 			document.getElementById(`sunrise_set`).innerText = `🔆 ${sunriseTime} - ${sunsetTime}`;
 			document.getElementById(`moonrise_set`).innerText = `🌙 ${moonriseTime} - ${moonsetTime}`;
@@ -366,7 +394,17 @@
 				document.getElementById(`nightIcon${i}`).src = day.nightIcon; // Updated to use nightIcon
 			}
 
+			// Adjust font size for all textareas
+			const textareas = document.querySelectorAll('textarea');
+			textareas.forEach(adjustFontSize);
 		}
+
+		// Adjust font size on window resize
+		window.addEventListener('resize', () =>
+		{
+			const textareas = document.querySelectorAll('textarea');
+			textareas.forEach(adjustFontSize);
+		});
 	</script>
 </body>
 

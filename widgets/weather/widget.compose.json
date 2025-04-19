@@ -38,6 +38,31 @@
 				"pl": "Wysokość widżetu w pikselach",
 				"ko": "위젯의 높이(픽셀)"
 			}
+		},
+		{
+			"id": "timeFormat",
+			"type": "dropdown",
+			"title": {
+				"en": "12/24 Hour Format"
+			},
+			"value": "12",
+			"values": [
+				{
+					"id": "12",
+					"title": {
+						"en": "12 Hour"
+					}
+				},
+				{
+					"id": "24",
+					"title": {
+						"en": "24 Hour"
+					}
+				}
+			],
+			"hint": {
+				"en": "Select between 12-hour and 24-hour time format"
+			}
 		}
 	],
 	"api": {

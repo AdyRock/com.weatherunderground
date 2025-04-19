@@ -199,6 +199,9 @@
   },
   "4.0.5": {
 	"en": "Improve 5 day forecast widget layout for larger font sizes and fixed Wind Speed units."
+  },
+  "4.0.6": {
+	"en": "Adjust 5 day forecast font sizes to fit available space. Added option for 12/24 hour time format."
   }
 }
 
