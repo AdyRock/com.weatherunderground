@@ -5,94 +5,99 @@
 </head>
 
 <body>
-    <!-- SETTINGS PAGE -->
-    <div style="text-align: center;">
-        <img src="logo.png" alt="LinkTap">
-        <p style="font-size:25px">Weather Underground</p>
-    </div>
-    <div id="settings">
-        <pSettings>
-            </p>
-            <fieldset>
-                <legend data-i18n="title"></legend>
+	<!-- SETTINGS PAGE -->
+	<div style="text-align: center;">
+		<img src="logo.png" alt="LinkTap">
+		<p style="font-size:25px">Weather Underground</p>
+	</div>
+	<div id="settings">
+		<pSettings>
+			</p>
+			<fieldset>
+				<legend data-i18n="title"></legend>
 
-                <div class="field row">
-                    <label for="stationID" data-i18n="stationID"></label>
-                    <input id="stationID" type="text" value="" />
-                </div>
-                <button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/devices');">Get Station ID</button>
-                <div class="field row">
-                    <label for="apiKey" data-i18n="apiKey"></label>
-                    <input id="apiKey" type="text" value="" />
-                </div>
-                <button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/api-keys');">Get API key</button>
-            </fieldset>
-            <p><button id="save" class="right" data-i18n="addStation"></button></p>
-            </fieldset>
-    </div>
+				<div class="field row">
+					<label for="stationID" data-i18n="stationID"></label>
+					<input id="stationID" type="text" value="" />
+				</div>
+				<button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/devices');">Get Station
+					ID</button>
+				<div class="field row">
+					<label for="apiKey" data-i18n="apiKey"></label>
+					<input id="apiKey" type="text" value="" />
+				</div>
+				<button id="getAPIKey" onClick="Homey.popup('https://www.wunderground.com/member/api-keys');">Get API
+					key</button>
+			</fieldset>
+			<p><button id="save" class="right" data-i18n="addStation"></button></p>
+			</fieldset>
+	</div>
 
-    <script type="text/javascript">
-        var stationIDElement = document.getElementById( 'stationID' );
-        var apiKeyElement = document.getElementById( 'apiKey' );
-        var saveElement = document.getElementById( 'save' );
+	<script type="text/javascript">
+		var stationIDElement = document.getElementById('stationID');
+		var apiKeyElement = document.getElementById('apiKey');
+		var saveElement = document.getElementById('save');
 
-        // Tell Homey we're ready to be displayed
-        Homey.ready();
+		// Tell Homey we're ready to be displayed
+		Homey.ready();
 
-        saveElement.addEventListener( 'click', function( e )
-        {
-            Homey.showLoadingOverlay()
-            if ( stationIDElement.value === "" )
-            {
-                Homey.hideLoadingOverlay()
-                return Homey.alert( Homey.__( "stationIDRequired" ) );
-            }
-            if ( apiKeyElement.value === "" )
-            {
-                Homey.hideLoadingOverlay()
-                return Homey.alert( Homey.__( "apiKeyRequired" ) );
-            }
-            var settings = {
-                stationID: stationIDElement.value,
-                apiKey: apiKeyElement.value
-            };
-            Homey.emit( 'validate', settings, function( err, result )
-            {
-                if ( !result )
-                {
-                    Homey.hideLoadingOverlay()
-                    return Homey.alert( Homey.__( "stationNotFound" ) );
-                }
+		saveElement.addEventListener('click', function (e)
+		{
+			Homey.showLoadingOverlay()
+			if (stationIDElement.value === "")
+			{
+				Homey.hideLoadingOverlay()
+				return Homey.alert(Homey.__("stationIDRequired"));
+			}
+			if (apiKeyElement.value === "")
+			{
+				Homey.hideLoadingOverlay()
+				return Homey.alert(Homey.__("apiKeyRequired"));
+			}
+			var settings = {
+				stationID: stationIDElement.value,
+				apiKey: apiKeyElement.value
+			};
+			Homey.emit('validate', settings, async function (err, result)
+			{
+				if (!result)
+				{
+					Homey.hideLoadingOverlay()
+					if (!await Homey.confirm(Homey.__("stationNotFound"), "warning"))
+					{
+						return;
+					}
+				}
 
-                let rndId = Math.floor( Math.random() * 10000 );
-                Homey.createDevice(
-                {
-                    name: stationIDElement.value,
-                    icon: "/icon.svg",
-                    data:
-                    {
-                        id: stationIDElement.value + "_F" + rndId,
-                    },
-                    settings:
-                    {
-                        stationID: stationIDElement.value,
-                        apiKey: apiKeyElement.value
-                    },
+				let rndId = Math.floor(Math.random() * 10000);
+				Homey.createDevice(
+					{
+						name: stationIDElement.value,
+						icon: "/icon.svg",
+						data:
+						{
+							id: stationIDElement.value + "_F" + rndId,
+						},
+						settings:
+						{
+							stationID: stationIDElement.value,
+							apiKey: apiKeyElement.value
+						},
 
-                    // the store is dynamic and persistent storage for your device
-                    store: {},
-                }, function( err, result )
-                {
-                    if ( err )
-                    {
-                        Homey.hideLoadingOverlay()
-                        return Homey.alert( err );
-                    }
-                    Homey.done();
-                } );
-            } );
-        } );
-    </script>
+						// the store is dynamic and persistent storage for your device
+						store: {},
+					}, function (err, result)
+				{
+					if (err)
+					{
+						Homey.hideLoadingOverlay()
+						return Homey.alert(err);
+					}
+					Homey.done();
+				});
+			});
+		});
+	</script>
 
 </body>
 

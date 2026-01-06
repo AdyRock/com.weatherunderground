@@ -1,6 +1,6 @@
 {
     "name": "com.weatherunderground",
-    "version": "4.0.5",
+    "version": "4.0.7",
     "main": "app.js",
     "repository": {
         "type": "git",

@@ -202,6 +202,9 @@
   },
   "4.0.6": {
 	"en": "Adjust 5 day forecast font sizes to fit available space. Added option for 12/24 hour time format."
+  },
+  "4.0.7": {
+	"en": "Changed device class to 'sensor' so it is included in the Homey Climate section."
   }
 }
 

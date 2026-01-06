@@ -30,7 +30,6 @@
         "forecast_temperature",
         "forecast_temperature.feelsLike",
         "forecast_wind_angle",
-        "forecast_wind_direction",
         "forecast_gust_strength",
         "forecast_humidity",
         "forecast_ultraviolet",

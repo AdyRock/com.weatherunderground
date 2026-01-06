@@ -49,7 +49,13 @@ class ForecastDevice extends Homey.Device
             this.addCapability('measure_wind_direction');
         }
 
+		if (this.hasCapability('forecast_wind_direction'))
+		{
+			this.removeCapability('forecast_wind_direction');
+		}
+
 		this.forecastData = this.getSettings().forecastData;
+		this.oldForecastData = this.forecastData;
 		let nextUpdate = 1000;
 		if (this.forecastData && this.forecastData.time)
 		{
