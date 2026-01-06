@@ -2,7 +2,7 @@
 'use strict';
 if ( process.env.DEBUG === '1' )
 {
-//    require( 'inspector' ).open( 9222, '0.0.0.0', true );
+    require( 'inspector' ).open( 9222, '0.0.0.0', true );
 }
 
 const Homey = require( 'homey' );
@@ -389,17 +389,26 @@ class WeatherApp extends Homey.App
         if ( !placeID || ( oldStationID != newSettings.stationID ) )
         {
             let url = "https://api.weather.com/v3/location/search?query=" + newSettings.stationID + "&locationType=pws&language=en-US&format=json&apiKey=" + newSettings.apiKey;
-            let searchResult = await this.GetURL( url );
-            if ( searchResult )
-            {
-                let searchData = JSON.parse( searchResult.body );
-                this.homey.app.updateLog( JSON.stringify( searchData, null, 2 ) );
-                placeID = searchData.location.placeId[ 0 ];
-            }
-            else
-            {
-                return null;
-            }
+
+			try
+			{
+				let searchResult = await this.GetURL( url );
+				if ( searchResult )
+				{
+					let searchData = JSON.parse( searchResult.body );
+					this.homey.app.updateLog( JSON.stringify( searchData, null, 2 ) );
+					placeID = searchData.location.placeId[ 0 ];
+				}
+				else
+				{
+					return null;
+				}
+			}
+			catch ( err )
+			{
+				this.homey.app.updateLog( "Error retrieving placeID: " + this.homey.app.varToString( err ), true );
+				throw new Error( "Error retrieving placeID: " + this.homey.app.varToString( err ) );
+			}
         }
 
         return placeID;

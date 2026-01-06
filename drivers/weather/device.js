@@ -15,6 +15,7 @@ class WeatherDevice extends Homey.Device
     onInit()
     {
         this.log( ' WeatherDevice has been init' );
+		this.setClass('sensor');
 
         if ( !this.hasCapability( 'button.send_log' ) )
         {

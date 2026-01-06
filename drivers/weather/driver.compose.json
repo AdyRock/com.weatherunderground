@@ -13,7 +13,7 @@
     "connectivity": [
         "cloud"
     ],
-    "class": "other",
+    "class": "sensor",
     "capabilities": [
         "measure_temperature",
         "measure_temperature.feelsLike",
@@ -93,7 +93,7 @@
             "title": {
                 "en": "Send Diagnostics Log",
                 "fr": "Envoyer le journal de diagnostic"
-                
+
             },
             "desc": {
                 "en": "Send a diagnostics log to the developer",
