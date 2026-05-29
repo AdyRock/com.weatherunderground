@@ -246,6 +246,40 @@
       },
       {
         "title": {
+          "en": "The forecast icon SVG was updated"
+        },
+        "platforms": [
+          "local"
+        ],
+        "tokens": [
+          {
+            "name": "forecast_icon_svg",
+            "type": "string",
+            "title": {
+              "en": "Forecast Icon SVG"
+            },
+            "example": "<svg xmlns=\"http://www.w3.org/2000/svg\"></svg>"
+          },
+          {
+            "name": "forecast_icon_name",
+            "type": "string",
+            "title": {
+              "en": "Forecast Icon Name"
+            },
+            "example": "wsymbol_0001_sunny"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+          }
+        ],
+        "id": "forecast_icon_svg_updated"
+      },
+      {
+        "title": {
           "en": "The gust strength changed",
           "nl": "De windstoot snelheid is veranderd",
           "de": "Die Böenstärke hat sich geändert",
@@ -6047,6 +6081,7 @@
         "forecast_temperature.min",
         "forecast_text",
         "forecast_summary",
+        "forecast_icon_svg",
         "forecast_cloud_cover",
         "forecast_precipitation_chance",
         "precipitation_type",
@@ -6672,6 +6707,16 @@
       "insights": false,
       "decimals": 1,
       "icon": "/assets/humidity.svg"
+    },
+    "forecast_icon_svg": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
     },
     "forecast_moonPhase": {
       "type": "string",

@@ -2,6 +2,8 @@
 'use strict';
 
 const Homey = require( 'homey' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
 const forecast_dayToNum = [
     { id: "today", value: 0, day: 0 },
@@ -23,6 +25,57 @@ const Sector = {
     'nl': ['N', 'NNO', 'NO', 'ONO', 'O', 'OZO', 'ZO', 'ZZO', 'Z', 'ZZW', 'ZW', 'WZW', 'W', 'WNW', 'NW', 'NNW', 'N'],
     'fr': ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSO', 'SO', 'OSO', 'O', 'OOO', 'NO', 'NNO', 'N']
 };
+
+const weatherSymbols = [
+    "wsymbol_0079_tornado",
+    "wsymbol_0080_tropical_storm_hurricane",
+    "wsymbol_0080_tropical_storm_hurricane",
+    "wsymbol_0024_thunderstorms",
+    "wsymbol_0024_thunderstorms",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0049_freezing_drizzle",
+    "wsymbol_0048_drizzle",
+    "wsymbol_0050_freezing_rain",
+    "wsymbol_0017_cloudy_with_light_rain",
+    "wsymbol_0017_cloudy_with_light_rain",
+    "wsymbol_0019_cloudy_with_light_snow",
+    "wsymbol_0020_cloudy_with_heavy_snow",
+    "wsymbol_0053_blowing_snow",
+    "wsymbol_0019_cloudy_with_light_snow",
+    "wsymbol_0022_cloudy_with_light_hail",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0056_dust_sand",
+    "wsymbol_0007_fog",
+    "wsymbol_0005_hazy_sun",
+    "wsymbol_0055_smoke",
+    "wsymbol_0060_windy",
+    "wsymbol_0060_windy",
+    "wsymbol_0049_freezing_drizzle",
+    "wsymbol_0004_black_low_cloud",
+    "wsymbol_0044_mostly_cloudy_night",
+    "wsymbol_0043_mostly_cloudy",
+    "wsymbol_0041_partly_cloudy_night",
+    "wsymbol_0002_sunny_intervals",
+    "wsymbol_0008_clear_sky_night",
+    "wsymbol_0001_sunny",
+    "wsymbol_0041_partly_cloudy_night",
+    "wsymbol_0002_sunny_intervals",
+    "wsymbol_0023_cloudy_with_heavy_hail",
+    "wsymbol_0045_hot",
+    "wsymbol_0016_thundery_showers",
+    "wsymbol_0016_thundery_showers",
+    "wsymbol_0010_heavy_rain_showers",
+    "wsymbol_0018_cloudy_with_heavy_rain",
+    "wsymbol_0011_light_snow_showers",
+    "wsymbol_0020_cloudy_with_heavy_snow",
+    "wsymbol_0054_blizzard",
+    "wsymbol_0999_unknown",
+    "wsymbol_0025_light_rain_showers_night",
+    "wsymbol_0027_light_snow_showers_night",
+    "wsymbol_0032_thundery_showers_night"
+];
 
 class ForecastDevice extends Homey.Device
 {
@@ -56,6 +109,7 @@ class ForecastDevice extends Homey.Device
 
 		this.forecastData = this.getSettings().forecastData;
 		this.oldForecastData = this.forecastData;
+        this.svgCache = {};
 		let nextUpdate = 1000;
 		if (this.forecastData && this.forecastData.time)
 		{
@@ -98,6 +152,11 @@ class ForecastDevice extends Homey.Device
         if ( !this.hasCapability( "forecast_summary" ) )
         {
             this.addCapability( "forecast_summary" );
+        }
+
+        if ( !this.hasCapability( "forecast_icon_svg" ) )
+        {
+            this.addCapability( "forecast_icon_svg" );
         }
 
         if ( this.hasCapability( "measure_wind_strength" ) )
@@ -392,6 +451,8 @@ class ForecastDevice extends Homey.Device
                 {
                     this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
                 }
+
+                await this.updateSvgCapability( SelectedDay );
             }
         }
         catch ( err )
@@ -399,6 +460,80 @@ class ForecastDevice extends Homey.Device
             this.log( "Forecast Update: " + err );
 			this.setWarning(err, null).catch(this.error);
         }
+    }
+
+    async updateSvgCapability( SelectedDay )
+    {
+        const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
+        if ( !entry )
+        {
+            return;
+        }
+
+        let dayNight = entry.value;
+        if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
+        {
+            dayNight++;
+        }
+
+        const iconCode = this.forecastData.daypart[ 0 ].iconCode[ dayNight ];
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( !iconSymbol )
+        {
+            return;
+        }
+
+        const svgContent = await this.getIconSvgContent( iconSymbol );
+        if ( !svgContent )
+        {
+            return;
+        }
+
+        const currentSvgContent = this.getCapabilityValue( "forecast_icon_svg" );
+        if ( currentSvgContent === svgContent )
+        {
+            return;
+        }
+
+        this.setCapabilityValue( "forecast_icon_svg", svgContent ).catch( this.error );
+        this.driver.triggerForecastSvgUpdated( this, svgContent, iconSymbol );
+    }
+
+    async getIconSvgContent( iconSymbol )
+    {
+        if ( this.svgCache[ iconSymbol ] )
+        {
+            return this.svgCache[ iconSymbol ];
+        }
+
+        try
+        {
+            const iconPath = path.join( __dirname, '..', '..', 'assets', 'weather_icons', `${iconSymbol}.svg` );
+            const svgContentRaw = await fs.promises.readFile( iconPath, 'utf8' );
+            const svgContent = svgContentRaw.replace( /\r?\n|\r/g, '' ).trim();
+            this.svgCache[ iconSymbol ] = svgContent;
+            return svgContent;
+        }
+        catch ( err )
+        {
+            this.homey.app.updateLog( `Unable to read SVG icon for ${iconSymbol}: ${err.message}`, true );
+            return null;
+        }
+    }
+
+    getIconSymbolName( iconCode )
+    {
+        if ( iconCode == null )
+        {
+            return null;
+        }
+
+        if ( ( iconCode >= 0 ) && ( iconCode < weatherSymbols.length ) )
+        {
+            return weatherSymbols[ iconCode ];
+        }
+
+        return null;
     }
 
     async refreshCapabilities()
@@ -616,60 +751,10 @@ class ForecastDevice extends Homey.Device
 
 	getIconFileName(iconCode)
 	{
-		const weatherSymbols = [
-			"wsymbol_0079_tornado",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0048_drizzle",
-			"wsymbol_0050_freezing_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0053_blowing_snow",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0022_cloudy_with_light_hail",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0056_dust_sand",
-			"wsymbol_0007_fog",
-			"wsymbol_0005_hazy_sun",
-			"wsymbol_0055_smoke",
-			"wsymbol_0060_windy",
-			"wsymbol_0060_windy",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0004_black_low_cloud",
-			"wsymbol_0044_mostly_cloudy_night",
-			"wsymbol_0043_mostly_cloudy",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0008_clear_sky_night",
-			"wsymbol_0001_sunny",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0023_cloudy_with_heavy_hail",
-			"wsymbol_0045_hot",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0010_heavy_rain_showers",
-			"wsymbol_0018_cloudy_with_heavy_rain",
-			"wsymbol_0011_light_snow_showers",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0054_blizzard",
-			"wsymbol_0999_unknown",
-			"wsymbol_0025_light_rain_showers_night",
-			"wsymbol_0027_light_snow_showers_night",
-			"wsymbol_0032_thundery_showers_night"
-		];
-
-		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( iconSymbol )
 		{
-			return `${weatherSymbols[iconCode]}.gif`;
+            return `${iconSymbol}.gif`;
 		}
 
 		return null;
@@ -790,60 +875,10 @@ class ForecastDevice extends Homey.Device
 
 	getSmallIconFileName(iconCode)
 	{
-		const weatherSymbols = [
-			"wsymbol_0079_tornado",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0048_drizzle",
-			"wsymbol_0050_freezing_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0053_blowing_snow",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0022_cloudy_with_light_hail",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0056_dust_sand",
-			"wsymbol_0007_fog",
-			"wsymbol_0005_hazy_sun",
-			"wsymbol_0055_smoke",
-			"wsymbol_0060_windy",
-			"wsymbol_0060_windy",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0004_black_low_cloud",
-			"wsymbol_0044_mostly_cloudy_night",
-			"wsymbol_0043_mostly_cloudy",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0008_clear_sky_night",
-			"wsymbol_0001_sunny",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0023_cloudy_with_heavy_hail",
-			"wsymbol_0045_hot",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0010_heavy_rain_showers",
-			"wsymbol_0018_cloudy_with_heavy_rain",
-			"wsymbol_0011_light_snow_showers",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0054_blizzard",
-			"wsymbol_0999_unknown",
-			"wsymbol_0025_light_rain_showers_night",
-			"wsymbol_0027_light_snow_showers_night",
-			"wsymbol_0032_thundery_showers_night"
-		];
-
-		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( iconSymbol )
 		{
-			return `${weatherSymbols[iconCode]}.png`;
+            return `${iconSymbol}.png`;
 		}
 
 		return null;

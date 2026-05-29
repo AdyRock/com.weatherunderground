@@ -147,6 +147,8 @@ class ForecastDriver extends Homey.Driver
                 // If true, this flow should run
                 return Promise.resolve( args.day === state.day );
             } );
+
+            this.forecastSvgUpdatedTrigger = this.homey.flow.getDeviceTriggerCard( 'forecast_icon_svg_updated' );
     }
 
     async onPair( session )
@@ -315,6 +317,21 @@ class ForecastDriver extends Homey.Driver
 
         this.temperatureTrigger.trigger( Device, tokens, state )
             .then( this.log( "Trigger measure_temperature.feelsLike.forecast" ) )
+            .catch( this.error );
+    }
+
+    async triggerForecastSvgUpdated( Device, SvgContent, IconName )
+    {
+        // trigger the card
+        this.log( "Triggering forecast SVG update for icon: ", IconName );
+        let tokens = {
+            'forecast_icon_svg': SvgContent,
+            'forecast_icon_name': IconName
+        };
+        let state = {};
+
+        this.forecastSvgUpdatedTrigger.trigger( Device, tokens, state )
+            .then( this.log( "Trigger forecast_icon_svg_updated" ) )
             .catch( this.error );
     }
 }

@@ -1,0 +1,212 @@
+[
+    {
+        "wsymbol":  "wsymbol_0001_sunny",
+        "meteocon":  "clear-day",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/clear-day.svg",
+        "localFile":  "wsymbol_0001_sunny.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0002_sunny_intervals",
+        "meteocon":  "partly-cloudy-day",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-day.svg",
+        "localFile":  "wsymbol_0002_sunny_intervals.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0004_black_low_cloud",
+        "meteocon":  "cloudy",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/cloudy.svg",
+        "localFile":  "wsymbol_0004_black_low_cloud.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0005_hazy_sun",
+        "meteocon":  "haze-day",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/haze-day.svg",
+        "localFile":  "wsymbol_0005_hazy_sun.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0007_fog",
+        "meteocon":  "fog",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/fog.svg",
+        "localFile":  "wsymbol_0007_fog.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0008_clear_sky_night",
+        "meteocon":  "clear-night",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/clear-night.svg",
+        "localFile":  "wsymbol_0008_clear_sky_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0010_heavy_rain_showers",
+        "meteocon":  "rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/rain.svg",
+        "localFile":  "wsymbol_0010_heavy_rain_showers.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0011_light_snow_showers",
+        "meteocon":  "snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/snow.svg",
+        "localFile":  "wsymbol_0011_light_snow_showers.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0016_thundery_showers",
+        "meteocon":  "thunderstorms-day-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/thunderstorms-day-rain.svg",
+        "localFile":  "wsymbol_0016_thundery_showers.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0017_cloudy_with_light_rain",
+        "meteocon":  "overcast-day-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-day-rain.svg",
+        "localFile":  "wsymbol_0017_cloudy_with_light_rain.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0018_cloudy_with_heavy_rain",
+        "meteocon":  "extreme-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/extreme-rain.svg",
+        "localFile":  "wsymbol_0018_cloudy_with_heavy_rain.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0019_cloudy_with_light_snow",
+        "meteocon":  "overcast-day-snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-day-snow.svg",
+        "localFile":  "wsymbol_0019_cloudy_with_light_snow.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0020_cloudy_with_heavy_snow",
+        "meteocon":  "extreme-snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/extreme-snow.svg",
+        "localFile":  "wsymbol_0020_cloudy_with_heavy_snow.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0021_cloudy_with_sleet",
+        "meteocon":  "overcast-day-sleet",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-day-sleet.svg",
+        "localFile":  "wsymbol_0021_cloudy_with_sleet.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0022_cloudy_with_light_hail",
+        "meteocon":  "overcast-day-hail",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-day-hail.svg",
+        "localFile":  "wsymbol_0022_cloudy_with_light_hail.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0023_cloudy_with_heavy_hail",
+        "meteocon":  "extreme-hail",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/extreme-hail.svg",
+        "localFile":  "wsymbol_0023_cloudy_with_heavy_hail.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0024_thunderstorms",
+        "meteocon":  "thunderstorms",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/thunderstorms.svg",
+        "localFile":  "wsymbol_0024_thunderstorms.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0025_light_rain_showers_night",
+        "meteocon":  "partly-cloudy-night-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-night-rain.svg",
+        "localFile":  "wsymbol_0025_light_rain_showers_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0027_light_snow_showers_night",
+        "meteocon":  "partly-cloudy-night-snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-night-snow.svg",
+        "localFile":  "wsymbol_0027_light_snow_showers_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0032_thundery_showers_night",
+        "meteocon":  "thunderstorms-night-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/thunderstorms-night-rain.svg",
+        "localFile":  "wsymbol_0032_thundery_showers_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0041_partly_cloudy_night",
+        "meteocon":  "partly-cloudy-night",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-night.svg",
+        "localFile":  "wsymbol_0041_partly_cloudy_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0043_mostly_cloudy",
+        "meteocon":  "partly-cloudy-day",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-day.svg",
+        "localFile":  "wsymbol_0043_mostly_cloudy.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0044_mostly_cloudy_night",
+        "meteocon":  "partly-cloudy-night",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/partly-cloudy-night.svg",
+        "localFile":  "wsymbol_0044_mostly_cloudy_night.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0045_hot",
+        "meteocon":  "sun-hot",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/sun-hot.svg",
+        "localFile":  "wsymbol_0045_hot.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0048_drizzle",
+        "meteocon":  "drizzle",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/drizzle.svg",
+        "localFile":  "wsymbol_0048_drizzle.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0049_freezing_drizzle",
+        "meteocon":  "overcast-drizzle",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-drizzle.svg",
+        "localFile":  "wsymbol_0049_freezing_drizzle.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0050_freezing_rain",
+        "meteocon":  "overcast-rain",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/overcast-rain.svg",
+        "localFile":  "wsymbol_0050_freezing_rain.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0053_blowing_snow",
+        "meteocon":  "wind-snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/wind-snow.svg",
+        "localFile":  "wsymbol_0053_blowing_snow.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0054_blizzard",
+        "meteocon":  "extreme-snow",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/extreme-snow.svg",
+        "localFile":  "wsymbol_0054_blizzard.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0055_smoke",
+        "meteocon":  "smoke",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/smoke.svg",
+        "localFile":  "wsymbol_0055_smoke.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0056_dust_sand",
+        "meteocon":  "dust",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/dust.svg",
+        "localFile":  "wsymbol_0056_dust_sand.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0060_windy",
+        "meteocon":  "wind",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/wind.svg",
+        "localFile":  "wsymbol_0060_windy.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0079_tornado",
+        "meteocon":  "tornado",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/tornado.svg",
+        "localFile":  "wsymbol_0079_tornado.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0080_tropical_storm_hurricane",
+        "meteocon":  "cyclone",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/cyclone.svg",
+        "localFile":  "wsymbol_0080_tropical_storm_hurricane.svg"
+    },
+    {
+        "wsymbol":  "wsymbol_0999_unknown",
+        "meteocon":  "cloudy",
+        "sourceUrl":  "https://cdn.jsdelivr.net/npm/@meteocons/svg-static/fill/cloudy.svg",
+        "localFile":  "wsymbol_0999_unknown.svg"
+    }
+]

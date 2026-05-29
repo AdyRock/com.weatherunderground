@@ -24,6 +24,7 @@
         "forecast_temperature.min",
         "forecast_text",
         "forecast_summary",
+        "forecast_icon_svg",
         "forecast_cloud_cover",
         "forecast_precipitation_chance",
         "precipitation_type",
