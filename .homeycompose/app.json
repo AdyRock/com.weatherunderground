@@ -1,6 +1,6 @@
 {
   "id": "com.weatherunderground",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -11,7 +11,7 @@
     "en": "Weather Underground"
   },
   "description": {
-    "en": "Get the last data from you weather station",
+    "en": "Get the latest data from your weather station",
     "nl": "Haal de laatste gegevens van uw weerstation op",
     "de": "Holen Sie sich die letzten Daten von Ihrer Wetterstation",
 	"fr": "Obtenez les dernières données de votre station météo",
