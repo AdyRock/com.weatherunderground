@@ -205,6 +205,9 @@
   },
   "4.0.7": {
 	"en": "Changed device class to 'sensor' so it is included in the Homey Climate section."
+  },
+  "4.0.8": {
+	"en": "Added hidden forecast SVG icon capability and Flow trigger when it changes."
   }
 }
 

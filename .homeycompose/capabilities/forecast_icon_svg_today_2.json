@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Forecast Icon SVG (Today + 2)"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "insights": false
+}
+

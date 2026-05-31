@@ -6081,7 +6081,18 @@
         "forecast_temperature.min",
         "forecast_text",
         "forecast_summary",
-        "forecast_icon_svg",
+        "forecast_icon_svg_today",
+        "forecast_icon_svg_tonight",
+        "forecast_icon_svg_today_1",
+        "forecast_icon_svg_tonight_1",
+        "forecast_icon_svg_today_2",
+        "forecast_icon_svg_tonight_2",
+        "forecast_icon_svg_today_3",
+        "forecast_icon_svg_tonight_3",
+        "forecast_icon_svg_today_4",
+        "forecast_icon_svg_tonight_4",
+        "forecast_icon_svg_today_5",
+        "forecast_icon_svg_tonight_5",
         "forecast_cloud_cover",
         "forecast_precipitation_chance",
         "precipitation_type",
@@ -6712,6 +6723,126 @@
       "type": "string",
       "title": {
         "en": "Forecast Icon SVG"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Today)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today_1": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tomorrow)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today_2": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Today + 2)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today_3": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Today + 3)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today_4": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Today + 4)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_today_5": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Today + 5)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tonight)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight_1": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tomorrow Night)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight_2": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tonight + 2)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight_3": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tonight + 3)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight_4": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tonight + 4)"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "forecast_icon_svg_tonight_5": {
+      "type": "string",
+      "title": {
+        "en": "Forecast Icon SVG (Tonight + 5)"
       },
       "getable": true,
       "setable": false,

@@ -316,7 +316,8 @@ class WeatherDevice extends Homey.Device
                 {
                     this.homey.app.stationOffline = true;
                     this.homey.app.noDataTrigger.trigger().catch( this.error );
-                    this.setUnavailable( "No data available" ).catch( this.error );
+                    this.setWarning( "The weather station hasn't published any data to WeatherUnderground for a long time. Check the weather station connection." ).catch( this.error );
+                    this.setUnavailable( "The weather station hasn't published any data to WeatherUnderground for a long time. Check the weather station connection." ).catch( this.error );
                 }
                 else
                 {
