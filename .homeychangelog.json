@@ -208,6 +208,9 @@
   },
   "4.0.8": {
 	"en": "Added hidden forecast SVG icon capability and Flow trigger when it changes."
+  },
+  "4.0.9": {
+	"en": "Update weather svg files for better compatability with Button+ hardware"
   }
 }
 
