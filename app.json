@@ -6217,6 +6217,7 @@
         "measure_rain.total",
         "measure_ultraviolet",
         "measure_radiation",
+        "measure_luminance",
         "button.send_log"
       ],
       "capabilitiesOptions": {

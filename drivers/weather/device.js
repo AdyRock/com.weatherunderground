@@ -273,6 +273,11 @@ class WeatherDevice extends Homey.Device
                         this.driver.radiationTrigger = this.homey.flow.getDeviceTriggerCard( 'measure_radiation_changed' );
                     }
 
+                    if ( !this.hasCapability( "measure_luminance" ) )
+                    {
+                        await this.addCapability( "measure_luminance" );
+                    }
+
                     this.homey.app.updateLog( "SR Old = " + this.getCapabilityValue( "measure_radiation" ) + " SR New = " + currentData.solarRadiation );
 
                     if ( currentData.solarRadiation != this.getCapabilityValue( "measure_radiation" ) )
@@ -280,10 +285,27 @@ class WeatherDevice extends Homey.Device
                         this.setCapabilityValue( "measure_radiation", currentData.solarRadiation ).catch( this.error );
                         this.driver.triggerRadiation( this, currentData.solarRadiation );
                     }
+
+                    const estimatedLux = Math.round(
+                        currentData.solarRadiation * 126
+                    );
+
+                    this.setCapabilityValue(
+                        "measure_luminance",
+                        estimatedLux
+                    ).catch( this.error );
                 }
-                else if ( this.hasCapability( "measure_radiation" ) )
+                else
                 {
-					this.removeCapability("measure_radiation").catch(this.error);;
+                    if ( this.hasCapability( "measure_radiation" ) )
+                    {
+						this.removeCapability("measure_radiation").catch(this.error);
+                    }
+
+                    if ( this.hasCapability( "measure_luminance" ) )
+                    {
+                        this.removeCapability("measure_luminance").catch(this.error);
+                    }
                 }
                 this.homey.app.updateLog( "refreshCapabilities complete" );
             }
