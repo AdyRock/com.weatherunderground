@@ -1,12 +1,13 @@
 {
     "title": {
         "en": "The high temperature changed",
-        "nl": "De hoge temperatuur veranderd",
+        "nl": "De maximumtemperatuur veranderde",
         "de": "Die Höchsttemperatur hat sich geändert",
 		"fr": "La température maximale a changé"
     },
     "titleFormatted": {
         "en": "The high temperature [[day]] changed",
+        "nl": "De maximumtemperatuur [[day]] is veranderd",
         "de": "Die Höchsttemperatur [[day]] hat sich geändert",
 		"fr": "La température maximale de [[day]] a changé"
     },
@@ -19,7 +20,7 @@
             "type": "number",
             "title": {
                 "en": "High Temperature",
-                "nl": "Hoge temperatuur",
+                "nl": "Maximumtemperatuur",
                 "de": "Höchsttemperatur",
 				"fr": "Température maximale"
             },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

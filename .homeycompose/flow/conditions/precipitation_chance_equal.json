@@ -2,11 +2,13 @@
     "id": "precipitation_chance_equal",
     "title": {
         "en": "The precipitation chance !{{equals|does not equal}}",
+        "nl": "De kans op neerslag !{{is gelijk aan|is niet gelijk aan}}",
         "de": "Die Niederschlagswahrscheinlichkeit !{{entspricht|entspricht nicht}}",
 		"fr": "La probabilité de précipitations !{{égale|n'est pas égale}}"
     },
     "titleFormatted": {
         "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
+        "nl": "De kans op neerslag [[day]] !{{is gelijk aan|is niet gelijk aan}} [[value]]%",
         "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
 		"fr": "La probabilité de précipitations de [[day]] !{correspond|correspond pas}} à [[value]]%."
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Chance of precipitation",
+                "nl": "Kans op neerslag",
 				"de": "Chance auf Niederschlag",
 				"fr": "Risque de précipitations"
             },
@@ -32,6 +35,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a % value",
+                "nl": "Stel een % waarde in",
                 "fr": "Définir une valeur en %"
             }
         },
@@ -39,6 +43,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -74,7 +79,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

@@ -1,12 +1,13 @@
 {
     "title": {
         "en": "The feels like temperature changed",
-        "nl": "Het voelt als veranderd",
+        "nl": "De gevoelstemperatuur is veranderd",
         "de": "Gefühlte Temperatur hat sich geändert",
 		"fr": "La température ressentie a changé"
     },
     "titleFormatted": {
         "en": "The  feels like temperature [[day]] changed",
+        "nl": "De gevoelstemperatuur [[day]] is veranderd",
         "de": "Die gefühlte Temperatur [[day]] hat sich geändert",
 		"fr": "La température ressentie de [[day]] a changé"
     },
@@ -19,7 +20,7 @@
             "type": "number",
             "title": {
                 "en": "Feels Like",
-                "nl": "Voelt als",
+                "nl": "Gevoelstemperatuur",
                 "de": "Gefühlte Temperatur",
 				"fr": "Température ressentie"
             },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

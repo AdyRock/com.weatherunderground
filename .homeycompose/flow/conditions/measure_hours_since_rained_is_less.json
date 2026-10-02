@@ -1,14 +1,17 @@
 {
     "title": {
         "en": "Hours since last rained is !{{less|greater}} than",
+        "nl": "Uren sinds het laatste regen is !{{minder|meer}} dan",
         "fr": "Le nombre d'heures depuis la dernière pluie est !{{inferieure|supérieure}} à"
     },
     "hint": 		{
         "en": "This Flow will continue if hours since it last rained is/is not less than the set value.",
+		"nl": "Deze flow wordt gestart wanneer het aantal uren sinds de laatste regen minder of meer is dan de ingestelde waarde.",
 		"fr": "Ce flow continuera si le nombre d'heures écoulées depuis la dernière pluie est inférieur ou non à la valeur réglée."
     },
     "titleFormatted": {
-        "en": "The hours since it last rained is !{{less|greater}} less than [[value]]Hours"
+        "en": "The hours since it last rained is !{{less|greater}} less than [[value]] hours",
+        "nl": "De uren sinds het laatste regen is !{{minder|meer}} dan [[value]] uren"
     },
     "args": [
         {
@@ -24,10 +27,12 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (km/h)",
+                "nl": "Stel een waarde in (km/u)",
 				"fr": "Définir une valeur (km/h)"
             },
             "title": {
                 "en": "Hours since it last rained",
+                "nl": "Uren sinds het laatste regen",
                 "fr": "Heures depuis la dernière pluie"
             }
         }

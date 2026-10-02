@@ -1,18 +1,21 @@
 {
     "title": {
         "en": "Hours since last rained is !{{equal|not equal}} to",
+        "nl": "Uren sinds het laatste regen is !{{gelijk|niet gelijk}} aan",
         "de": "Stunden seit dem letzten Regen sind !{{equal|not equal}} zu",
         "fr": "Le nombre d'heures depuis la dernière pluie est !{{égal|non égal}} à"
     },
     "hint": {
         "en": "This Flow will continue if hours since it last rained is/is not equal to the set value.",
+        "nl": "Deze flow wordt gestart wanneer het aantal uren sinds de laatste regen gelijk of ongelijk is aan de ingestelde waarde.",
         "de": "Dieser Durchfluss wird fortgesetzt, wenn die Stunden seit dem letzten Regen gleich oder ungleich dem eingestellten Wert sind.",
         "fr": "Ce flux continuera si le nombre d'heures depuis la dernière pluie est égal ou non à la valeur réglée."
     },
     "titleFormatted": {
-        "en": "The hours since it last rained is !{{equal|not equal}} to [[value]]Hours",
-        "de": "Die Stunden seit dem letzten Regen sind !{{equal|not equal}} zu [[value]]Hours",
-        "fr": "Le nombre d'heures écoulées depuis la dernière pluie est !{{égal|pas égal}} à [[value]]Heures"
+        "en": "The hours since it last rained is !{{equal|not equal}} to [[value]] hours",
+        "nl": "De uren sinds het laatste regen is !{{gelijk|niet gelijk}} aan [[value]] uren",
+        "de": "Die Stunden seit dem letzten Regen sind !{{equal|not equal}} zu [[value]] Stunden",
+        "fr": "Le nombre d'heures écoulées depuis la dernière pluie est !{{égal|pas égal}} à [[value]] heures"
     },
     "args": [
         {
@@ -28,10 +31,12 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value",
+                "nl": "Stel een waarde in",
                 "fr": "Définir une valeur"
             },
             "title": {
                 "en": "Hours since it last rained",
+                "nl": "Uren sinds het laatste regen",
                 "fr": "Heures depuis la dernière pluie."
             }
         }

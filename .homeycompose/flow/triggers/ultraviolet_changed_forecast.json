@@ -12,6 +12,7 @@
     },
     "titleFormatted": {
         "en": "The ultraviolet [[day]] changed",
+        "nl": "De ultraviolet [[day]] is veranderd",
         "de": "Der UV-Wert [[day]] hat sich geändert",
 		"fr": "L'indice UV de [[day]] a changé"
     },
@@ -46,6 +47,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -81,7 +83,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }
