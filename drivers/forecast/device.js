@@ -587,10 +587,11 @@ class ForecastDevice extends Homey.Device
                         this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
                         if ( element.day >= 0 )
                         {
-                            if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
-                            if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
-                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
-                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
+                            // The API returns null for values that have elapsed today (e.g. temperatureMax after the daytime high has passed), so only trigger on valid numbers
+                            if ( ( this.forecastData.qpf[ element.day ] != null ) && ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
+                            if ( ( this.forecastData.qpfSnow[ element.day ] != null ) && ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMax[ element.day ] != null ) && ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMin[ element.day ] != null ) && ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
                         }
 
                         let dayNight = element.value;
