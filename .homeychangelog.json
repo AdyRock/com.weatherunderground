@@ -212,7 +212,7 @@
   "4.0.9": {
 	"en": "Update weather svg files for better compatability with Button+ hardware"
   },
-  "4.1.0": {
+  "4.0.10": {
 	"en": "Improved contrast of small details in svg icons. Fixed a Flow trigger error when the forecast temperature max / min is no longer available for the current day."
   }
 }
