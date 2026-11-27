@@ -7,6 +7,7 @@
     "apiKeyRequired": "API Key is required",
     "langCode": "en-GB",
     "stationNotFound": "Unable to find the Station ID location or invalid API Key. Would you like to add the station anyway?",
+    "invalidLuminanceFactor": "The luminance conversion factor must be a positive number.",
     "settings": {
         "settings": "Settings",
         "subtitle": "The update rate is based on the total number connections you have accessing your WU account to ensure you stay within the rate limit.",

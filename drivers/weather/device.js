@@ -17,6 +17,11 @@ class WeatherDevice extends Homey.Device
         this.log( ' WeatherDevice has been init' );
 		this.setClass('sensor');
 
+        if ( !this.getSetting( 'luminanceEnabled' ) && this.hasCapability( 'measure_luminance' ) )
+        {
+            this.removeCapability( 'measure_luminance' ).catch( this.error );
+        }
+
         if ( !this.hasCapability( 'button.send_log' ) )
         {
             this.addCapability( 'button.send_log' );
@@ -78,12 +83,36 @@ class WeatherDevice extends Homey.Device
         // throw new Error('Your error message');
         this.log( "onSettings called" );
 
+        if ( newSettings.luminanceFactor != null &&
+             ( !Number.isFinite( newSettings.luminanceFactor ) || newSettings.luminanceFactor <= 0 ) )
+        {
+            throw new Error( this.homey.__( 'invalidLuminanceFactor' ) );
+        }
+
         try
         {
-            let placeID = await this.homey.app.getPlaceID( newSettings, oldSettings );
-            if ( !placeID )
+            if ( changedKeys.some( key => key === 'stationID' || key === 'apiKey' ) )
             {
-                throw new Error( Homey.__( "stationNotFound" ) );
+                let placeID = await this.homey.app.getPlaceID( newSettings, oldSettings );
+                if ( !placeID )
+                {
+                    throw new Error( Homey.__( "stationNotFound" ) );
+                }
+            }
+
+            if ( !newSettings.luminanceEnabled && this.hasCapability( 'measure_luminance' ) )
+            {
+                await this.removeCapability( 'measure_luminance' );
+            }
+            else if ( newSettings.luminanceEnabled &&
+                      changedKeys.some( key => key === 'luminanceEnabled' || key === 'luminanceFactor' ) &&
+                      !changedKeys.includes( 'stationID' ) && this.hasCapability( 'measure_radiation' ) )
+            {
+                const solarRadiation = this.getCapabilityValue( 'measure_radiation' );
+                if ( solarRadiation != null )
+                {
+                    await this.updateLuminance( solarRadiation, newSettings );
+                }
             }
 
             if ( this.timerID )
@@ -99,6 +128,30 @@ class WeatherDevice extends Homey.Device
         {
             throw new Error( e );
         }
+    }
+
+    async updateLuminance( solarRadiation, settings = this.getSettings() )
+    {
+        if ( !settings.luminanceEnabled || solarRadiation == null )
+        {
+            if ( this.hasCapability( 'measure_luminance' ) )
+            {
+                await this.removeCapability( 'measure_luminance' );
+            }
+            return;
+        }
+
+        const factor = settings.luminanceFactor == null ? 126 : settings.luminanceFactor;
+        if ( !Number.isFinite( factor ) || factor <= 0 || !Number.isFinite( solarRadiation ) || solarRadiation < 0 )
+        {
+            throw new Error( 'Invalid solar radiation or luminance conversion factor' );
+        }
+
+        if ( !this.hasCapability( 'measure_luminance' ) )
+        {
+            await this.addCapability( 'measure_luminance' );
+        }
+        await this.setCapabilityValue( 'measure_luminance', Math.round( solarRadiation * factor ) );
     }
 
     async unitsChanged( Units )
@@ -285,6 +338,7 @@ class WeatherDevice extends Homey.Device
                 {
 					this.removeCapability("measure_radiation").catch(this.error);;
                 }
+                await this.updateLuminance( currentData.solarRadiation );
                 this.homey.app.updateLog( "refreshCapabilities complete" );
             }
             else

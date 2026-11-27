@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.weatherunderground",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
@@ -6362,9 +6362,18 @@
         "measure_rain.total",
         "measure_ultraviolet",
         "measure_radiation",
+        "measure_luminance",
         "button.send_log"
       ],
       "capabilitiesOptions": {
+        "measure_luminance": {
+          "title": {
+            "en": "Approximate Luminance",
+            "nl": "Geschatte lichtsterkte",
+            "de": "Geschätzte Beleuchtungsstärke",
+            "fr": "Luminosité approximative"
+          }
+        },
         "measure_temperature.feelsLike": {
           "title": {
             "en": "Feels Like",
@@ -6427,6 +6436,53 @@
         }
       ],
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Approximate Luminance",
+            "nl": "Geschatte lichtsterkte",
+            "de": "Geschätzte Beleuchtungsstärke",
+            "fr": "Luminosité approximative"
+          },
+          "children": [
+            {
+              "id": "luminanceEnabled",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Enable approximate luminance",
+                "nl": "Geschatte lichtsterkte inschakelen",
+                "de": "Geschätzte Beleuchtungsstärke aktivieren",
+                "fr": "Activer la luminosité approximative"
+              },
+              "hint": {
+                "en": "Estimate outdoor illuminance in lux by multiplying solar radiation (W/m²) by the conversion factor. This is not a direct light measurement and accuracy varies with conditions and the sensor.",
+                "nl": "Schat de lichtsterkte buiten in lux door de zonnestraling (W/m²) te vermenigvuldigen met de omrekenfactor. Dit is geen directe lichtmeting; de nauwkeurigheid hangt af van de omstandigheden en de sensor.",
+                "de": "Schätzt die Beleuchtungsstärke im Freien in Lux, indem die Sonneneinstrahlung (W/m²) mit dem Umrechnungsfaktor multipliziert wird. Dies ist keine direkte Lichtmessung; die Genauigkeit hängt von den Bedingungen und dem Sensor ab.",
+                "fr": "Estime l'éclairement extérieur en lux en multipliant le rayonnement solaire (W/m²) par le facteur de conversion. Ce n'est pas une mesure directe ; la précision dépend des conditions et du capteur."
+              }
+            },
+            {
+              "id": "luminanceFactor",
+              "type": "number",
+              "value": 126,
+              "min": 0.01,
+              "step": 0.01,
+              "label": {
+                "en": "Conversion factor",
+                "nl": "Omrekenfactor",
+                "de": "Umrechnungsfaktor",
+                "fr": "Facteur de conversion"
+              },
+              "hint": {
+                "en": "Lux = solar radiation × factor. Default: 126. Adjust using a separate lux meter.",
+                "nl": "Lux = zonnestraling × factor. Standaard: 126. Pas aan met behulp van een aparte luxmeter.",
+                "de": "Lux = Sonneneinstrahlung × Faktor. Standard: 126. Mit einem separaten Luxmeter anpassen.",
+                "fr": "Lux = rayonnement solaire × facteur. Valeur par défaut : 126. Ajustez à l'aide d'un luxmètre séparé."
+              }
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {

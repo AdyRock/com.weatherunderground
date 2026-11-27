@@ -7,6 +7,7 @@
     "apiKeyRequired": "API Key wird benötigt",
     "langCode": "de-DE",
     "stationNotFound": "Die Stations ID wurde nicht gefunden oder der API Key ist ungültig. Would you like to add the station anyway?",
+    "invalidLuminanceFactor": "Der Umrechnungsfaktor für die Beleuchtungsstärke muss eine positive Zahl sein.",
     "settings": {
         "settings": "Einstellungen",
         "subtitle": "Die Aktualisierungsrate basiert auf der Gesamtzahl der Wetterstationen, die Sie auf Ihrem WU-Konto haben, um sicherzustellen, dass Sie innerhalb des Ratenlimits bleiben.",
