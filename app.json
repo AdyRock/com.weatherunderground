@@ -86,6 +86,7 @@
         },
         "titleFormatted": {
           "en": "The cloud cover [[day]] changed",
+          "nl": "De bewolking [[day]] veranderde",
           "de": "Die Bewölkung [[day]] hat sich geändert",
           "fr": "La couverture nuageuse de [[day]] a changé"
         },
@@ -115,6 +116,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -150,7 +152,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -281,7 +283,7 @@
       {
         "title": {
           "en": "The gust strength changed",
-          "nl": "De windstoot snelheid is veranderd",
+          "nl": "De windstoot kracht is veranderd",
           "de": "Die Böenstärke hat sich geändert",
           "fr": "La force du coup de vent a changé",
           "it": "L'intensità delle raffiche è cambiata",
@@ -292,6 +294,7 @@
         },
         "titleFormatted": {
           "en": "The gust strength [[day]] changed",
+          "nl": "De windstoot kracht [[day]] is veranderd",
           "de": "Die Böenstärke [[day]] hat sich geändert",
           "fr": "La force des rafales de [[day]] a changé"
         },
@@ -326,6 +329,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -361,7 +365,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -458,6 +462,7 @@
         },
         "titleFormatted": {
           "en": "The humidity [[day]] changed",
+          "nl": "De luchtvochtigheid [[day]] is veranderd",
           "de": "Die Luftfeuchtigkeit [[day]] hat sich geändert",
           "fr": "L'humidité de [[day]] a changé"
         },
@@ -492,6 +497,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -527,7 +533,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -657,7 +663,7 @@
             "type": "number",
             "title": {
               "en": "Rain Total",
-              "nl": "Regen Totaal",
+              "nl": "Regentotaal",
               "de": "Regenmenge",
               "fr": "Quantité totale de pluie"
             },
@@ -709,7 +715,7 @@
       {
         "title": {
           "en": "The feels like changed",
-          "nl": "Het voelt als veranderd",
+          "nl": "De gevoelstemperatuur is veranderd",
           "de": "Gefühlte Temperatur hat sich geändert",
           "fr": "La température ressentie a changé"
         },
@@ -722,7 +728,7 @@
             "type": "number",
             "title": {
               "en": "Feels Like",
-              "nl": "Voelt als",
+              "nl": "Gevoelstemperatuur",
               "de": "Gefühlte Temperatur",
               "fr": "La température ressentie"
             },
@@ -759,6 +765,7 @@
         },
         "titleFormatted": {
           "en": "The precipitation chance [[day]] changed",
+          "nl": "De neerslagkans [[day]] is veranderd",
           "de": "Die Luftfeuchtigkeit [[day]] hat sich geändert",
           "fr": "L'humidité de l'air de [[day]] a changé"
         },
@@ -788,6 +795,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -823,7 +831,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -914,6 +922,7 @@
         },
         "titleFormatted": {
           "en": "The precipitation type [[day]] changed",
+          "nl": "De neerslagtype [[day]] veranderde",
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] hat sich geändert",
           "fr": "Le type de précipitations de [[day]] a changé"
         },
@@ -943,6 +952,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -978,7 +988,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1069,6 +1079,7 @@
         },
         "titleFormatted": {
           "en": "The rain total [[day]] changed",
+          "nl": "Het regentotaal [[day]] veranderde",
           "de": "Die Regenmenge [[day]] hat sich geändert",
           "fr": "La quantité de pluie totale de [[day]] a changé"
         },
@@ -1081,7 +1092,7 @@
             "type": "number",
             "title": {
               "en": "Rain Total",
-              "nl": "Regen Totaal",
+              "nl": "Regentotaal",
               "de": "Regenmenge",
               "fr": "Quantité totale de pluie"
             },
@@ -1098,6 +1109,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -1133,7 +1145,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1224,6 +1236,7 @@
         },
         "titleFormatted": {
           "en": "The snow chance [[day]] changed",
+          "nl": "De sneeuwkans [[day]] veranderde",
           "de": "Die Schneewahrscheinlichkeit [[day]] hat sich geändert",
           "fr": "Les probabilités de neige de [[day]] ont changé"
         },
@@ -1253,6 +1266,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -1288,7 +1302,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1373,12 +1387,13 @@
       {
         "title": {
           "en": "The feels like temperature changed",
-          "nl": "Het voelt als veranderd",
+          "nl": "De gevoelstemperatuur is veranderd",
           "de": "Gefühlte Temperatur hat sich geändert",
           "fr": "La température ressentie a changé"
         },
         "titleFormatted": {
           "en": "The  feels like temperature [[day]] changed",
+          "nl": "De gevoelstemperatuur [[day]] is veranderd",
           "de": "Die gefühlte Temperatur [[day]] hat sich geändert",
           "fr": "La température ressentie de [[day]] a changé"
         },
@@ -1391,7 +1406,7 @@
             "type": "number",
             "title": {
               "en": "Feels Like",
-              "nl": "Voelt als",
+              "nl": "Gevoelstemperatuur",
               "de": "Gefühlte Temperatur",
               "fr": "Température ressentie"
             },
@@ -1408,6 +1423,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -1443,7 +1459,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1528,12 +1544,13 @@
       {
         "title": {
           "en": "The high temperature changed",
-          "nl": "De hoge temperatuur veranderd",
+          "nl": "De maximumtemperatuur veranderde",
           "de": "Die Höchsttemperatur hat sich geändert",
           "fr": "La température maximale a changé"
         },
         "titleFormatted": {
           "en": "The high temperature [[day]] changed",
+          "nl": "De maximumtemperatuur [[day]] is veranderd",
           "de": "Die Höchsttemperatur [[day]] hat sich geändert",
           "fr": "La température maximale de [[day]] a changé"
         },
@@ -1546,7 +1563,7 @@
             "type": "number",
             "title": {
               "en": "High Temperature",
-              "nl": "Hoge temperatuur",
+              "nl": "Maximumtemperatuur",
               "de": "Höchsttemperatur",
               "fr": "Température maximale"
             },
@@ -1563,6 +1580,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -1598,7 +1616,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1683,11 +1701,13 @@
       {
         "title": {
           "en": "The high temperature became greater than",
+          "nl": "De maximumtemperatuur is hoger dan",
           "de": "Die Höchsttemperatur wird mehr als",
           "fr": "La température maximale sera supérieure à"
         },
         "titleFormatted": {
           "en": "The high temperature [[day]] became greater than [[temperature]]°C",
+          "nl": "De maximumtemperatuur [[day]] is hoger dan [[temperature]]°C",
           "de": "Die Höchsttemperatur [[day]] wird mehr als [[temperature]]°C",
           "fr": "La température maximale de [[day]] est supérieure à [[temperature]]°C"
         },
@@ -1700,7 +1720,7 @@
             "type": "number",
             "title": {
               "en": "High Temperature",
-              "nl": "Hoge temperatuur",
+              "nl": "Maximumtemperatuur",
               "de": "Höchsttemperatur",
               "fr": "Température maximale"
             },
@@ -1717,6 +1737,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "de": "Meldezeitraum",
               "fr": "Période de référence"
             },
@@ -1753,7 +1774,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -1856,11 +1877,13 @@
       {
         "title": {
           "en": "The high temperature became less than",
+          "nl": "De maximumtemperatuur is minder dan",
           "de": "Die Höchsttemperatur wird weniger als",
           "fr": "La température maximale sera inférieure à"
         },
         "titleFormatted": {
           "en": "The high temperature [[day]] became less than [[temperature]]°C",
+          "nl": "De maximumtemperatuur [[day]] is minder dan [[temperature]]°C",
           "de": "Die Höchsttemperatur [[day]] wird weniger als [[temperature]]°C",
           "fr": "La température maximale de [[day]] est inférieure à [[temperature]]°C"
         },
@@ -1873,7 +1896,7 @@
             "type": "number",
             "title": {
               "en": "High Temperature",
-              "nl": "Hoge temperatuur",
+              "nl": "Maximumtemperatuur",
               "de": "Höchsttemperatur",
               "fr": "Température maximale"
             },
@@ -1890,6 +1913,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "de": "Meldezeitraum",
               "fr": "Période de référence"
             },
@@ -1926,7 +1950,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2029,12 +2053,13 @@
       {
         "title": {
           "en": "The low temperature changed",
-          "nl": "De lage temperatuur veranderde",
+          "nl": "De minimumtemperatuur veranderde",
           "de": "Die Tiefsttemperatur hat sich geändert",
           "fr": "La température minimale a changé"
         },
         "titleFormatted": {
           "en": "The low temperature [[day]] changed",
+          "nl": "De minimumtemperatuur [[day]] is veranderd",
           "de": "Die Tiefsttemperatur [[day]] hat sich geändert",
           "fr": "La température minimale de [[day]] a changé"
         },
@@ -2047,7 +2072,7 @@
             "type": "number",
             "title": {
               "en": "Low Temperature",
-              "nl": "Lage temperatuur",
+              "nl": "Minimumtemperatuur",
               "de": "Tiefsttemperatur",
               "fr": "Température minimale"
             },
@@ -2064,6 +2089,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "de": "Meldezeitraum",
               "fr": "Période de référence"
             },
@@ -2100,7 +2126,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2185,11 +2211,13 @@
       {
         "title": {
           "en": "The low temperature became greater than",
+          "nl": "De minimumtemperatuur is hoger geworden dan",
           "de": "Die Tiefsttemperatur wird mehr als",
           "fr": "La température minimale sera supérieure à"
         },
         "titleFormatted": {
           "en": "The low temperature [[day]] became greater than [[temperature]]°C",
+          "nl": "De minimumtemperatuur [[day]] is hoger geworden dan [[temperature]]°C",
           "de": "Die Tiefsttemperatur [[day]] wird mehr als [[temperature]]°C",
           "fr": "La température minimale de [[day]] est supérieure à [[temperature]]°C"
         },
@@ -2202,7 +2230,7 @@
             "type": "number",
             "title": {
               "en": "Low Temperature",
-              "nl": "Lage temperatuur",
+              "nl": "Minimumtemperatuur",
               "de": "Tiefsttemperatur",
               "fr": "Température minimale"
             },
@@ -2219,6 +2247,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "de": "Meldezeitraum",
               "fr": "Période de référence"
             },
@@ -2255,7 +2284,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2358,11 +2387,13 @@
       {
         "title": {
           "en": "The low temperature became less than",
+          "nl": "De minimumtemperatuur werd minder dan",
           "de": "Die Tiefsttemperatur  wird weniger als",
           "fr": "La température minimale sera inférieure à"
         },
         "titleFormatted": {
           "en": "The low temperature [[day]] became less than [[temperature]]°C",
+          "nl": "De minimumtemperatuur [[day]] werd minder dan [[temperature]]°C",
           "de": "Die Tiefsttemperatur [[day]] wird weniger als [[temperature]]°C",
           "fr": "La température minimale de [[day]] est inférieure à [[temperature]]°C"
         },
@@ -2375,7 +2406,7 @@
             "type": "number",
             "title": {
               "en": "Low Temperature",
-              "nl": "Lage temperatuur",
+              "nl": "Minimumtemperatuur",
               "de": "Tiefsttemperatur",
               "fr": "Température minimale"
             },
@@ -2392,6 +2423,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "de": "Meldezeitraum",
               "fr": "Période de référence"
             },
@@ -2428,7 +2460,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2542,6 +2574,7 @@
         },
         "titleFormatted": {
           "en": "The ultraviolet [[day]] changed",
+          "nl": "De ultraviolet [[day]] is veranderd",
           "de": "Der UV-Wert [[day]] hat sich geändert",
           "fr": "L'indice UV de [[day]] a changé"
         },
@@ -2576,6 +2609,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -2611,7 +2645,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2707,6 +2741,7 @@
         },
         "titleFormatted": {
           "en": "The wind angle [[day]] changed",
+          "nl": "De windrichting [[day]] is veranderd",
           "de": "Die Windrichtung [[day]] hat sich geändert",
           "fr": "La direction du vent de [[day]] a changé"
         },
@@ -2741,6 +2776,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -2776,7 +2812,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -2864,11 +2900,13 @@
         "id": "cloud_cover_equal",
         "title": {
           "en": "The cloud cover !{{equals|does not equal}}",
+          "nl": "De bewolking !{{is gelijk aan|is niet gelijk aan}}",
           "de": "Die Bewölkung !{{entspricht|entspricht nicht}}",
           "fr": "La couverture nuageuse !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
+          "nl": "De bewolking [[day]] !{{is gelijk aan|is niet gelijk aan}} [[value]]%",
           "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
           "fr": "La couverture nuageuse de [[day]] !{{correspond|correspond pas}} à [[value]]%"
         },
@@ -2885,6 +2923,7 @@
             "name": "value",
             "title": {
               "en": "Cloud cover %",
+              "nl": "Bewolking %",
               "fr": "Couverture nuageuse %"
             },
             "type": "number",
@@ -2893,6 +2932,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -2900,6 +2940,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -2935,7 +2976,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3020,11 +3061,13 @@
         "id": "cloud_cover_greater",
         "title": {
           "en": "The cloud cover is !{{greater than|less or equal to}}",
+          "nl": "De bewolking is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Bewölkung ist !{{größer als|kleiner oder gleich}}",
           "fr": "La couverture nuageuse est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The cloud cover [[day]] is !{{greater than|less or equal to}} [[value]]%",
+          "nl": "De bewolking [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]%",
           "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} [[value]]%",
           "fr": "La couverture nuageuse de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]."
         },
@@ -3041,6 +3084,7 @@
             "name": "value",
             "title": {
               "en": "Cloud cover %",
+              "nl": "Bewolking %",
               "fr": "Couverture nuageuse"
             },
             "type": "number",
@@ -3049,6 +3093,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -3056,6 +3101,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3091,7 +3137,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3176,11 +3222,13 @@
         "id": "gust_strength_equal",
         "title": {
           "en": "The gust strength !{{equals|does not equal}}",
+          "nl": "De windstoot kracht !{{komt overeen|komt niet overeen}}",
           "de": "Die Böenstärke !{{entspricht|entspricht nicht}}",
           "fr": "La force des rafales !{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h",
+          "nl": "De windstoot kracht [[day]] !{{komt overeen|komt niet overeen}} [[value]]km/h",
           "de": "Die Böenstärke [[day]] ist !{{entspricht|entspricht nicht}} [[value]]km/h",
           "fr": "La force des rafales de [[day]] est !{{correspond|ne correspond pas}} à [[value]] km/h"
         },
@@ -3197,6 +3245,7 @@
             "name": "value",
             "title": {
               "en": "Gust strength",
+              "nl": "Windstoot kracht",
               "fr": "Force de la rafale"
             },
             "type": "number",
@@ -3205,6 +3254,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (km/h)",
+              "nl": "Stel een waarde in (km/u)",
               "fr": "Définir une valeur (km/h)"
             }
           },
@@ -3212,6 +3262,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3247,7 +3298,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3332,11 +3383,13 @@
         "id": "gust_strength_greater",
         "title": {
           "en": "The gust strength is !{{greater than|less or equal to}}",
+          "nl": "De windstoot kracht is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Böenstärke ist !{{größer als|kleiner oder gleich}}",
           "fr": "La force de la rafale est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The gust strength [[day]] is !{{greater than|less or equal to}} [[value]]km/h",
+          "nl": "De windstoot kracht [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]km/h",
           "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h",
           "fr": "La force de la rafale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]km/h"
         },
@@ -3353,6 +3406,7 @@
             "name": "value",
             "title": {
               "en": "Gust strength",
+              "nl": "Windstoot kracht",
               "fr": "Force de la rafale"
             },
             "type": "number",
@@ -3361,6 +3415,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (km/h)",
+              "nl": "Stel een waarde in (km/u)",
               "fr": "Définir une valeur (km/h)"
             }
           },
@@ -3368,6 +3423,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3403,7 +3459,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3488,11 +3544,13 @@
         "id": "humidity_equal",
         "title": {
           "en": "The humidity !{{equals|does not equal}}",
+          "nl": "De luchtvochtigheid !{{komt overeen|komt niet overeen}}",
           "de": "Die Luftfeuchtigkeit !{{entspricht|entspricht nicht}}",
           "fr": "L'humidité de l'air !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%",
+          "nl": "De luchtvochtigheid [[day]] !{{komt overeen|komt niet overeen}} [[value]]%",
           "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
           "fr": "L'humidité de l'air de [[day]] !{{correspond|correspond pas}} à [[value]] %"
         },
@@ -3508,7 +3566,8 @@
           {
             "name": "value",
             "title": {
-              "en": "Humidity"
+              "en": "Humidity",
+              "nl": "Luchtvochtigheid"
             },
             "type": "number",
             "min": 0,
@@ -3516,6 +3575,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -3523,6 +3583,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3558,7 +3619,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3643,10 +3704,12 @@
         "id": "humidity_greater",
         "title": {
           "en": "The humidity is !{{greater than|less or equal to}}",
+          "nl": "De luchtvochtigheid is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Luftfeuchtigkeit ist !{{größer als|kleiner oder gleich}}"
         },
         "titleFormatted": {
           "en": "The humidity [[day]] is !{{greater than|less or equal to}} [[value]]%",
+          "nl": "De luchtvochtigheid [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]%",
           "de": "Die Luftfeuchtigkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%",
           "fr": "L'humidité de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]%."
         },
@@ -3662,7 +3725,8 @@
           {
             "name": "value",
             "title": {
-              "en": "Humidity"
+              "en": "Humidity",
+              "nl": "Luchtvochtigheid"
             },
             "type": "number",
             "min": 0,
@@ -3670,6 +3734,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -3677,6 +3742,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3712,7 +3778,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -3796,18 +3862,21 @@
       {
         "title": {
           "en": "Hours since last rained is !{{equal|not equal}} to",
+          "nl": "Uren sinds het laatste regen is !{{gelijk|niet gelijk}} aan",
           "de": "Stunden seit dem letzten Regen sind !{{equal|not equal}} zu",
           "fr": "Le nombre d'heures depuis la dernière pluie est !{{égal|non égal}} à"
         },
         "hint": {
           "en": "This Flow will continue if hours since it last rained is/is not equal to the set value.",
+          "nl": "Deze flow wordt gestart wanneer het aantal uren sinds de laatste regen gelijk of ongelijk is aan de ingestelde waarde.",
           "de": "Dieser Durchfluss wird fortgesetzt, wenn die Stunden seit dem letzten Regen gleich oder ungleich dem eingestellten Wert sind.",
           "fr": "Ce flux continuera si le nombre d'heures depuis la dernière pluie est égal ou non à la valeur réglée."
         },
         "titleFormatted": {
-          "en": "The hours since it last rained is !{{equal|not equal}} to [[value]]Hours",
-          "de": "Die Stunden seit dem letzten Regen sind !{{equal|not equal}} zu [[value]]Hours",
-          "fr": "Le nombre d'heures écoulées depuis la dernière pluie est !{{égal|pas égal}} à [[value]]Heures"
+          "en": "The hours since it last rained is !{{equal|not equal}} to [[value]] hours",
+          "nl": "De uren sinds het laatste regen is !{{gelijk|niet gelijk}} aan [[value]] uren",
+          "de": "Die Stunden seit dem letzten Regen sind !{{equal|not equal}} zu [[value]] Stunden",
+          "fr": "Le nombre d'heures écoulées depuis la dernière pluie est !{{égal|pas égal}} à [[value]] heures"
         },
         "args": [
           {
@@ -3823,10 +3892,12 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value",
+              "nl": "Stel een waarde in",
               "fr": "Définir une valeur"
             },
             "title": {
               "en": "Hours since it last rained",
+              "nl": "Uren sinds het laatste regen",
               "fr": "Heures depuis la dernière pluie."
             }
           }
@@ -3836,14 +3907,17 @@
       {
         "title": {
           "en": "Hours since last rained is !{{less|greater}} than",
+          "nl": "Uren sinds het laatste regen is !{{minder|meer}} dan",
           "fr": "Le nombre d'heures depuis la dernière pluie est !{{inferieure|supérieure}} à"
         },
         "hint": {
           "en": "This Flow will continue if hours since it last rained is/is not less than the set value.",
+          "nl": "Deze flow wordt gestart wanneer het aantal uren sinds de laatste regen minder of meer is dan de ingestelde waarde.",
           "fr": "Ce flow continuera si le nombre d'heures écoulées depuis la dernière pluie est inférieur ou non à la valeur réglée."
         },
         "titleFormatted": {
-          "en": "The hours since it last rained is !{{less|greater}} less than [[value]]Hours"
+          "en": "The hours since it last rained is !{{less|greater}} less than [[value]] hours",
+          "nl": "De uren sinds het laatste regen is !{{minder|meer}} dan [[value]] uren"
         },
         "args": [
           {
@@ -3859,10 +3933,12 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (km/h)",
+              "nl": "Stel een waarde in (km/u)",
               "fr": "Définir une valeur (km/h)"
             },
             "title": {
               "en": "Hours since it last rained",
+              "nl": "Uren sinds het laatste regen",
               "fr": "Heures depuis la dernière pluie"
             }
           }
@@ -3873,11 +3949,13 @@
         "id": "precipitation_chance_equal",
         "title": {
           "en": "The precipitation chance !{{equals|does not equal}}",
+          "nl": "De kans op neerslag !{{is gelijk aan|is niet gelijk aan}}",
           "de": "Die Niederschlagswahrscheinlichkeit !{{entspricht|entspricht nicht}}",
           "fr": "La probabilité de précipitations !{{égale|n'est pas égale}}"
         },
         "titleFormatted": {
           "en": "The precipitation chance [[day]] !{{equals|does not equal}} [[value]]%",
+          "nl": "De kans op neerslag [[day]] !{{is gelijk aan|is niet gelijk aan}} [[value]]%",
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
           "fr": "La probabilité de précipitations de [[day]] !{correspond|correspond pas}} à [[value]]%."
         },
@@ -3894,6 +3972,7 @@
             "name": "value",
             "title": {
               "en": "Chance of precipitation",
+              "nl": "Kans op neerslag",
               "de": "Chance auf Niederschlag",
               "fr": "Risque de précipitations"
             },
@@ -3903,6 +3982,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -3910,6 +3990,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -3945,7 +4026,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4030,11 +4111,13 @@
         "id": "precipitation_chance_greater",
         "title": {
           "en": "The precipitation chance is !{{greater than|less or equal to}}",
+          "nl": "De kans op neerslag is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Niederschlagswahrscheinlichkeit ist !{{größer als|kleiner oder gleich}}",
           "fr": "La probabilité de précipitations est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The precipitation chance [[day]] is !{{greater than|less or equal to}} [[value]]%",
+          "nl": "De kans op neerslag [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]%",
           "de": "Die Niederschlagswahrscheinlichkeit [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]%",
           "fr": "La probabilité de précipitations de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]%."
         },
@@ -4051,6 +4134,7 @@
             "name": "value",
             "title": {
               "en": "Chance of precipitation",
+              "nl": "Kans op neerslag",
               "fr": "Risque de précipitation"
             },
             "type": "number",
@@ -4059,6 +4143,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a % value",
+              "nl": "Stel een % waarde in",
               "fr": "Définir une valeur en %"
             }
           },
@@ -4066,6 +4151,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4101,7 +4187,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4186,11 +4272,13 @@
         "id": "rain_equal",
         "title": {
           "en": "The total rain !{{equals|does not equal}}",
+          "nl": "Het regentotaal !{{komt overeen|komt niet overeen}}",
           "de": "Die Regenmenge !{{entspricht|entspricht nicht}}",
           "fr": "La quantité de pluie !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The total rain [[day]] !{{equals|does not equal}} [[value]]mm",
+          "nl": "Het regentotaal [[day]] !{{komt overeen|komt niet overeen}} [[value]]mm",
           "de": "Die Regenmenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm",
           "fr": "La quantité de pluie de [[day]] !{correspond à|ne correspond pas à}} [[value]]mm"
         },
@@ -4207,6 +4295,7 @@
             "name": "value",
             "title": {
               "en": "Rain total",
+              "nl": "Regentotaal",
               "fr": "Quantité totale de pluie"
             },
             "type": "number",
@@ -4215,6 +4304,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (mm)",
+              "nl": "Stel een waarde in (mm)",
               "fr": "Définir une valeur (mm)"
             }
           },
@@ -4222,6 +4312,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4257,7 +4348,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4342,11 +4433,13 @@
         "id": "rain_greater",
         "title": {
           "en": "The total rain is !{{greater than|less or equal to}}",
+          "nl": "Het regentotaal is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Regenmenge ist !{{größer als|kleiner oder gleich}}",
           "fr": "La quantité de pluie est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The total rain [[day]] is !{{greater than|less or equal to}} [[value]]mm",
+          "nl": "Het regentotaal [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]mm",
           "de": "Die Regenmenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm",
           "fr": "La quantité de pluie de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]mm"
         },
@@ -4363,6 +4456,7 @@
             "name": "value",
             "title": {
               "en": "Rain total",
+              "nl": "Regentotaal",
               "fr": "Quantité totale de pluie"
             },
             "type": "number",
@@ -4371,6 +4465,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (mm)",
+              "nl": "Stel een waarde in (mm)",
               "fr": "Définir une valeur"
             }
           },
@@ -4378,6 +4473,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4413,7 +4509,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4498,11 +4594,13 @@
         "id": "snow_equal",
         "title": {
           "en": "The total snow !{{equals|does not equal}}",
+          "nl": "Het sneeuwtotaal !{{komt overeen|komt niet overeen}}",
           "de": "Die Schneemenge !{{entspricht|entspricht nicht}}",
           "fr": "La quantité de neige !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm",
+          "nl": "Het sneeuwtotaal [[day]] !{{komt overeen|komt niet overeen}} [[value]]mm",
           "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm",
           "fr": "La quantité de neige de [[day]] !{correspond à|ne correspond pas à}} [[value]]mm"
         },
@@ -4519,6 +4617,7 @@
             "name": "value",
             "title": {
               "en": "Snow total",
+              "nl": "Sneeuwtotaal",
               "fr": "Quantité de neige"
             },
             "type": "number",
@@ -4527,6 +4626,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (mm)",
+              "nl": "Stel een waarde in (mm)",
               "fr": "Définir une valeur (mm)"
             }
           },
@@ -4534,6 +4634,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4569,7 +4670,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4654,11 +4755,13 @@
         "id": "snow_greater",
         "title": {
           "en": "The total snow is !{{greater than|less or equal to}}",
+          "nl": "Het sneeuwtotaal is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Schneemenge ist !{{größer als|kleiner oder gleich}}",
           "fr": "La neige totale est !{{plus grande que|moins ou égale à}}"
         },
         "titleFormatted": {
           "en": "The total snow [[day]] is !{{greater than|less or equal to}} [[value]]mm",
+          "nl": "Het sneeuwtotaal [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]mm",
           "de": "Die Schneemenge [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]mm",
           "fr": "La quantité de neige de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]mm"
         },
@@ -4675,6 +4778,7 @@
             "name": "value",
             "title": {
               "en": "Snow total",
+              "nl": "Sneeuwtotaal",
               "fr": "Quantité de neige totale"
             },
             "type": "number",
@@ -4683,6 +4787,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value",
+              "nl": "Stel een waarde in (mm)",
               "fr": "Définir une valeur"
             }
           },
@@ -4690,6 +4795,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4725,7 +4831,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4810,11 +4916,13 @@
         "id": "temperature_feelsLike_equal",
         "title": {
           "en": "The temperature !{{equals|does not equal}}",
+          "nl": "De gevoelstemperatuur !{{komt overeen|komt niet overeen}}",
           "de": "Die Temperatur !{{entspricht|entspricht nicht}}",
           "fr": "La température !{{égale|n'est pas égale}}"
         },
         "titleFormatted": {
           "en": "The temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "nl": "De gevoelstemperatuur [[day]] !{{komt overeen|komt niet overeen}} [[value]]°C",
           "de": "Die Temperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C",
           "fr": "La température de [[day]] !{correspond|correspond pas}} [[value]]°C"
         },
@@ -4831,6 +4939,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -4839,6 +4948,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -4846,6 +4956,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -4881,7 +4992,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -4966,11 +5077,13 @@
         "id": "temperature_feelsLike_greater",
         "title": {
           "en": "The temperature is !{{greater than|less or equal to}}",
+          "nl": "De gevoelstemperatuur is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Temperatur ist !{{größer als|kleiner oder gleich}}",
           "fr": "La température est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
+          "nl": "De gevoelstemperatuur [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]°C",
           "de": "Die Temperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C",
           "fr": "La température de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]°C"
         },
@@ -4987,6 +5100,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -4995,6 +5109,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -5002,6 +5117,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5037,7 +5153,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5122,11 +5238,13 @@
         "id": "temperature_max_equal",
         "title": {
           "en": "The maximum temperature !{{equals|does not equal}}",
+          "nl": "De maximumtemperatuur !{{komt overeen|komt niet overeen}}",
           "de": "Die Höchsttemperatur !{{entspricht|entspricht nicht}}",
           "fr": "La température maximale !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The maximum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "nl": "De maximumtemperatuur [[day]] !{{komt overeen|komt niet overeen}} [[value]]°C",
           "de": "Die Höchsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C",
           "fr": "La température maximale de [[day]] !{{correspond|correspond pas}} à [[value]] °C"
         },
@@ -5143,6 +5261,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -5151,6 +5270,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -5158,6 +5278,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5193,7 +5314,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5278,11 +5399,13 @@
         "id": "temperature_max_greater",
         "title": {
           "en": "The maximum temperature is !{{greater than|less or equal to}}",
+          "nl": "De maximumtemperatuur is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Höchsttemperatur ist !{{größer als|kleiner oder gleich}}",
           "fr": "La température maximale est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The maximum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
+          "nl": "De maximumtemperatuur [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]°C",
           "de": "Die Höchsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C",
           "fr": "La température maximale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]°C"
         },
@@ -5299,6 +5422,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -5307,6 +5431,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -5314,6 +5439,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5349,7 +5475,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5434,11 +5560,13 @@
         "id": "temperature_min_equal",
         "title": {
           "en": "The minimum temperature !{{equals|does not equal}}",
+          "nl": "De minimumtemperatuur !{{komt overeen|komt niet overeen}}",
           "de": "Die Tiefsttemperatur !{{entspricht|entspricht nicht}}",
           "fr": "La température la plus basse !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The minimum temperature [[day]] !{{equals|does not equal}} [[value]]°C",
+          "nl": "De minimumtemperatuur [[day]] !{{komt overeen|komt niet overeen}} [[value]]°C",
           "de": "Die Tiefsttemperatur [[day]] !{{entspricht|entspricht nicht}} [[value]]°C",
           "fr": "La température minimale de [[day]] !{correspond|correspond pas}} [[value]]°C"
         },
@@ -5455,6 +5583,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -5463,6 +5592,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -5470,6 +5600,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5505,7 +5636,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5590,11 +5721,13 @@
         "id": "temperature_min_greater",
         "title": {
           "en": "The minimum temperature is !{{greater than|less or equal to}}",
+          "nl": "De minimumtemperatuur is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Die Tiefsttemperatur ist !{{größer als|kleiner oder gleich}}",
           "fr": "La température minimale est !{{supérieure à|inférieure ou égale à}}."
         },
         "titleFormatted": {
           "en": "The minimum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
+          "nl": "De minimumtemperatuur [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]°C",
           "de": "Die Tiefsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C",
           "fr": "La température minimale de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]°C"
         },
@@ -5611,6 +5744,7 @@
             "name": "value",
             "title": {
               "en": "Temperature",
+              "nl": "Temperatuur",
               "fr": "Température"
             },
             "type": "number",
@@ -5619,6 +5753,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (°C)",
+              "nl": "Stel een waarde in (°C)",
               "fr": "Définir une valeur (°C)"
             }
           },
@@ -5626,6 +5761,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5661,7 +5797,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5746,11 +5882,13 @@
         "id": "ultraviolet_equal",
         "title": {
           "en": "The ultraviolet !{{equals|does not equal}}",
+          "nl": "De ultraviolet !{{komt overeen|komt niet overeen}}",
           "de": "Der UV-Index !{{entspricht|entspricht nicht}}",
           "fr": "L'indice UV !{{correspond|correspond pas}}"
         },
         "titleFormatted": {
           "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]",
+          "nl": "De ultraviolet [[day]] !{{komt overeen|komt niet overeen}} [[value]]",
           "de": "Der UV-Index [[day]] !{{entspricht|entspricht nicht}} [[value]]",
           "fr": "L'indice UV de [[day]] !{{correspond|correspond pas}} à [[value]] "
         },
@@ -5766,7 +5904,8 @@
           {
             "name": "value",
             "title": {
-              "en": "Ultraviolet"
+              "en": "Ultraviolet",
+              "nl": "Ultraviolet"
             },
             "type": "number",
             "min": 0,
@@ -5774,6 +5913,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (0 to 16)",
+              "nl": "Stel een waarde in (0 tot 16)",
               "fr": "Définir une valeur (0 à 16)"
             }
           },
@@ -5816,7 +5956,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -5901,11 +6041,13 @@
         "id": "ultraviolet_greater",
         "title": {
           "en": "The ultraviolet is !{{greater than|less or equal to}}",
+          "nl": "De ultraviolet is !{{groter dan|kleiner of gelijk aan}}",
           "de": "Der UV-Index ist !{{größer als|kleiner oder gleich}}",
           "fr": "L'indice UV est !{{supérieur à|inférieur ou égal à}}."
         },
         "titleFormatted": {
           "en": "The ultraviolet [[day]] is !{{greater than|less or equal to}} [[value]]",
+          "nl": "De ultraviolet [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]",
           "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]",
           "fr": "L'indice UV de [[day]] est !{{supérieur à|inférieur ou égal à}}. [[value]]"
         },
@@ -5922,6 +6064,7 @@
             "name": "value",
             "title": {
               "en": "Ultraviolet",
+              "nl": "Ultraviolet",
               "fr": "Ultraviolet"
             },
             "type": "number",
@@ -5930,6 +6073,7 @@
             "step": 1,
             "placeholder": {
               "en": "Set a value (0 to 16)",
+              "nl": "Stel een waarde in (0 tot 16)",
               "fr": "Définir une valeur (0 à 16)"
             }
           },
@@ -5937,6 +6081,7 @@
             "name": "day",
             "title": {
               "en": "Period to report",
+              "nl": "Periode om te rapporteren",
               "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -5972,7 +6117,7 @@
                 "id": "tonight_1",
                 "title": {
                   "en": "Tomorrow Night",
-                  "nl": "Morgen vanavond",
+                  "nl": "Morgenavond",
                   "de": "Morgen Nacht",
                   "fr": "Demain soir"
                 }
@@ -6117,7 +6262,7 @@
         "forecast_temperature.max": {
           "title": {
             "en": "High Temperature",
-            "nl": "Hoge temperatuur",
+            "nl": "Maximumtemperatuur",
             "de": "Höchsttemperatur",
             "fr": "Température maximale"
           },
@@ -6126,7 +6271,7 @@
         "forecast_temperature.min": {
           "title": {
             "en": "Low Temperature",
-            "nl": "Lage temperatuur",
+            "nl": "Minimumtemperatuur",
             "de": "Tiefsttemperatur",
             "fr": "Température minimale"
           },
@@ -6223,7 +6368,7 @@
         "measure_temperature.feelsLike": {
           "title": {
             "en": "Feels Like",
-            "nl": "Voelt als",
+            "nl": "Gevoelstemperatuur",
             "de": "Gefühlte Temperatur",
             "fr": "Température resentie"
           }
@@ -6604,7 +6749,7 @@
           "id": "tonight_1",
           "title": {
             "en": "Tomorrow Night",
-            "nl": "Morgen vanavond",
+            "nl": "Morgenavond",
             "de": "Morgen Nacht",
             "fr": "Demain soir"
           }
@@ -7042,6 +7187,7 @@
       "type": "number",
       "title": {
         "en": "Hours Since Last Rained",
+        "nl": "Uren sinds de laatste regen",
         "de": "Stunden seit dem letzten Niederschlag",
         "fr": "Heures depuis la dernière pluie"
       },

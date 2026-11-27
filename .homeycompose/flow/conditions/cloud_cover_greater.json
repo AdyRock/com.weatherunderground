@@ -2,11 +2,13 @@
     "id": "cloud_cover_greater",
     "title": {
         "en": "The cloud cover is !{{greater than|less or equal to}}",
+        "nl": "De bewolking is !{{groter dan|kleiner of gelijk aan}}",
         "de": "Die Bewölkung ist !{{größer als|kleiner oder gleich}}",
         "fr": "La couverture nuageuse est !{{supérieure à|inférieure ou égale à}}."
     },
     "titleFormatted": {
         "en": "The cloud cover [[day]] is !{{greater than|less or equal to}} [[value]]%",
+        "nl": "De bewolking [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]%",
         "de": "Die Bewölkung [[day]] ist !{{größer|kleiner oder gleich}} [[value]]%",
         "fr": "La couverture nuageuse de [[day]] est !{{supérieure à|inférieure ou égale à}} [[value]]."
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Cloud cover %",
+                "nl": "Bewolking %",
                 "fr": "Couverture nuageuse"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a % value",
+                "nl": "Stel een % waarde in",
                 "fr": "Définir une valeur en %"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }
