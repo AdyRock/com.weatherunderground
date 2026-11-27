@@ -2,11 +2,13 @@
     "id": "humidity_equal",
     "title": {
         "en": "The humidity !{{equals|does not equal}}",
+        "nl": "De luchtvochtigheid !{{komt overeen|komt niet overeen}}",
         "de": "Die Luftfeuchtigkeit !{{entspricht|entspricht nicht}}",
 		"fr": "L'humidité de l'air !{{correspond|correspond pas}}"
     },
     "titleFormatted": {
         "en": "The humidity [[day]] !{{equals|does not equal}} [[value]]%",
+        "nl": "De luchtvochtigheid [[day]] !{{komt overeen|komt niet overeen}} [[value]]%",
         "de": "Die Luftfeuchtigkeit [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
 		"fr": "L'humidité de l'air de [[day]] !{{correspond|correspond pas}} à [[value]] %"
     },
@@ -22,7 +24,8 @@
         {
             "name": "value",
             "title": {
-                "en": "Humidity"
+                "en": "Humidity",
+                "nl": "Luchtvochtigheid"
             },
             "type": "number",
             "min": 0,
@@ -30,6 +33,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a % value",
+                "nl": "Stel een % waarde in",
                 "fr": "Définir une valeur en %"
             }
         },
@@ -37,6 +41,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -72,7 +77,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

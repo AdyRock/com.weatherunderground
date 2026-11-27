@@ -7,6 +7,7 @@
     },
     "titleFormatted": {
         "en": "The snow chance [[day]] changed",
+        "nl": "De sneeuwkans [[day]] veranderde",
         "de": "Die Schneewahrscheinlichkeit [[day]] hat sich geändert",
 		"fr": "Les probabilités de neige de [[day]] ont changé"
     },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

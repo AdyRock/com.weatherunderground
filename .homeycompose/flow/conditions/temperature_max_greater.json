@@ -2,11 +2,13 @@
     "id": "temperature_max_greater",
     "title": {
         "en": "The maximum temperature is !{{greater than|less or equal to}}",
+        "nl": "De maximumtemperatuur is !{{groter dan|kleiner of gelijk aan}}",
         "de": "Die Höchsttemperatur ist !{{größer als|kleiner oder gleich}}",
 		"fr": "La température maximale est !{{supérieure à|inférieure ou égale à}}."
     },
     "titleFormatted": {
         "en": "The maximum temperature [[day]] is !{{greater than|less or equal to}} [[value]]°C",
+        "nl": "De maximumtemperatuur [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]°C",
         "de": "Die Höchsttemperatur [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]°C",
 		"fr": "La température maximale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]°C"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Temperature",
+				"nl": "Temperatuur",
 				"fr": "Température"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (°C)",
+				"nl": "Stel een waarde in (°C)",
 				"fr": "Définir une valeur (°C)"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

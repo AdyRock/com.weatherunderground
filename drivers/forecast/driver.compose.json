@@ -65,7 +65,7 @@
             "title":
             {
                 "en": "High Temperature",
-                "nl": "Hoge temperatuur",
+                "nl": "Maximumtemperatuur",
                 "de": "Höchsttemperatur",
                 "fr": "Température maximale"
             },
@@ -76,7 +76,7 @@
             "title":
             {
                 "en": "Low Temperature",
-                "nl": "Lage temperatuur",
+                "nl": "Minimumtemperatuur",
                 "de": "Tiefsttemperatur",
                 "fr": "Température minimale"
             },

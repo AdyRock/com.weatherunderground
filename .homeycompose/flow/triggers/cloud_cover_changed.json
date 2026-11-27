@@ -7,6 +7,7 @@
     },
     "titleFormatted": {
         "en": "The cloud cover [[day]] changed",
+        "nl": "De bewolking [[day]] veranderde",
         "de": "Die Bewölkung [[day]] hat sich geändert",
 		"fr": "La couverture nuageuse de [[day]] a changé"
     },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

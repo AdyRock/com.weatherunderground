@@ -7,6 +7,7 @@
     },
     "titleFormatted": {
         "en": "The rain total [[day]] changed",
+        "nl": "Het regentotaal [[day]] veranderde",
         "de": "Die Regenmenge [[day]] hat sich geändert",
 		"fr": "La quantité de pluie totale de [[day]] a changé"
     },
@@ -19,7 +20,7 @@
             "type": "number",
             "title": {
                 "en": "Rain Total",
-                "nl": "Regen Totaal",
+                "nl": "Regentotaal",
                 "de": "Regenmenge",
 				"fr": "Quantité totale de pluie"
             },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }
