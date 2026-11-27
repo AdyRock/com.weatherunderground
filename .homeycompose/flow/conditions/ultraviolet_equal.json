@@ -2,11 +2,13 @@
     "id": "ultraviolet_equal",
     "title": {
         "en": "The ultraviolet !{{equals|does not equal}}",
+        "nl": "De ultraviolet !{{komt overeen|komt niet overeen}}",
         "de": "Der UV-Index !{{entspricht|entspricht nicht}}",
 		"fr": "L'indice UV !{{correspond|correspond pas}}"
     },
     "titleFormatted": {
         "en": "The ultraviolet [[day]] !{{equals|does not equal}} [[value]]",
+        "nl": "De ultraviolet [[day]] !{{komt overeen|komt niet overeen}} [[value]]",
         "de": "Der UV-Index [[day]] !{{entspricht|entspricht nicht}} [[value]]",
 		"fr": "L'indice UV de [[day]] !{{correspond|correspond pas}} à [[value]] "
     },
@@ -22,7 +24,8 @@
         {
             "name": "value",
             "title": {
-                "en": "Ultraviolet"
+                "en": "Ultraviolet",
+                "nl": "Ultraviolet"
             },
             "type": "number",
             "min": 0,
@@ -30,6 +33,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (0 to 16)",
+                "nl": "Stel een waarde in (0 tot 16)",
 				"fr": "Définir une valeur (0 à 16)"
             }
         },
@@ -72,7 +76,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

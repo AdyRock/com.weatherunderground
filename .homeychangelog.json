@@ -211,6 +211,12 @@
   },
   "4.0.9": {
 	"en": "Update weather svg files for better compatability with Button+ hardware"
+  },
+  "4.0.10": {
+	"en": "Improved contrast of small details in svg icons. Fixed a Flow trigger error when the forecast temperature max / min is no longer available for the current day."
+  },
+  "4.0.11": {
+	"en": "Show a device warning instead of marking the device unavailable when the weather station has not published any new data recently."
   }
 }
 

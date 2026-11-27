@@ -2,11 +2,13 @@
     "id": "cloud_cover_equal",
     "title": {
         "en": "The cloud cover !{{equals|does not equal}}",
+        "nl": "De bewolking !{{is gelijk aan|is niet gelijk aan}}",
         "de": "Die Bewölkung !{{entspricht|entspricht nicht}}",
         "fr": "La couverture nuageuse !{{correspond|correspond pas}}"
     },
     "titleFormatted": {
         "en": "The cloud cover [[day]] !{{equals|does not equal}} [[value]]%",
+        "nl": "De bewolking [[day]] !{{is gelijk aan|is niet gelijk aan}} [[value]]%",
         "de": "Die Bewölkung [[day]] !{{entspricht|entspricht nicht}} [[value]]%",
         "fr": "La couverture nuageuse de [[day]] !{{correspond|correspond pas}} à [[value]]%"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Cloud cover %",
+                "nl": "Bewolking %",
                 "fr": "Couverture nuageuse %"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a % value",
+                "nl": "Stel een % waarde in",
                 "fr": "Définir une valeur en %"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
                     "id": "tonight_1",
                     "title": {
                       "en": "Tomorrow Night",
-                      "nl": "Morgen vanavond",
+                      "nl": "Morgenavond",
                       "de": "Morgen Nacht",
                       "fr": "Demain soir"
                     }

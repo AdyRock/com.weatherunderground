@@ -14,7 +14,7 @@
             "type": "number",
             "title": {
                 "en": "Rain Total",
-                "nl": "Regen Totaal",
+                "nl": "Regentotaal",
                 "de": "Regenmenge",
                 "fr": "Quantité totale de pluie"
             },

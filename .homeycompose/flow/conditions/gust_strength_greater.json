@@ -2,11 +2,13 @@
     "id": "gust_strength_greater",
     "title": {
         "en": "The gust strength is !{{greater than|less or equal to}}",
+        "nl": "De windstoot kracht is !{{groter dan|kleiner of gelijk aan}}",
         "de": "Die Böenstärke ist !{{größer als|kleiner oder gleich}}",
 		"fr": "La force de la rafale est !{{supérieure à|inférieure ou égale à}}."
     },
     "titleFormatted": {
         "en": "The gust strength [[day]] is !{{greater than|less or equal to}} [[value]]km/h",
+        "nl": "De windstoot kracht [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]km/h",
         "de": "Die Böenstärke [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]km/h",
 		"fr": "La force de la rafale de [[day]] est !{{supérieure à|inférieure ou égale à}}. [[value]]km/h"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Gust strength",
+                "nl": "Windstoot kracht",
                 "fr": "Force de la rafale"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (km/h)",
+				"nl": "Stel een waarde in (km/u)",
 				"fr": "Définir une valeur (km/h)"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

@@ -587,10 +587,11 @@ class ForecastDevice extends Homey.Device
                         this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
                         if ( element.day >= 0 )
                         {
-                            if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
-                            if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
-                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
-                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
+                            // The API returns null for values that have elapsed today (e.g. temperatureMax after the daytime high has passed), so only trigger on valid numbers
+                            if ( ( this.forecastData.qpf[ element.day ] != null ) && ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
+                            if ( ( this.forecastData.qpfSnow[ element.day ] != null ) && ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMax[ element.day ] != null ) && ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMin[ element.day ] != null ) && ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
                         }
 
                         let dayNight = element.value;
@@ -634,12 +635,14 @@ class ForecastDevice extends Homey.Device
                 this.homey.app.updateLog( "Forecast Refresh: " + errString, true );
 				this.unsetWarning().catch(this.error);
 
-                if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+                if ( errString.search( ": 204" ) > 0 )
                 {
-                    this.homey.app.stationOffline = true;
-                    this.homey.app.noDataTrigger.trigger().catch(this.error);
-					this.setWarning("The weather station hasn't published any data to WeatherUnderground for a long time. Check the weather station connection.").catch(this.error);
-					this.setUnavailable("The weather station hasn't published any data to WeatherUnderground for a long time. Check the weather station connection.").catch(this.error);
+                    if ( !this.homey.app.stationOffline )
+                    {
+                        this.homey.app.stationOffline = true;
+                        this.homey.app.noDataTrigger.trigger().catch(this.error);
+                    }
+					this.setWarning("Your weather station has not published any new data recently").catch(this.error);
                 }
                 else
                 {
