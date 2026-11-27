@@ -219,7 +219,7 @@
 	"en": "Show a device warning instead of marking the device unavailable when the weather station has not published any new data recently."
   },
   "4.0.12": {
-	"en": "Added optional approximate luminance based on solar radiation, with a configurable conversion factor."
+	"en": "Added optional approximate luminance based on solar radiation, with a configurable conversion factor. Added a timeout to weather requests so polling can continue if a request stalls."
   }
 }
 
