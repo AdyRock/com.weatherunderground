@@ -2,6 +2,8 @@
 'use strict';
 
 const Homey = require( 'homey' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
 const forecast_dayToNum = [
     { id: "today", value: 0, day: 0 },
@@ -24,13 +26,64 @@ const Sector = {
     'fr': ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSO', 'SO', 'OSO', 'O', 'OOO', 'NO', 'NNO', 'N']
 };
 
+const weatherSymbols = [
+    "wsymbol_0079_tornado",
+    "wsymbol_0080_tropical_storm_hurricane",
+    "wsymbol_0080_tropical_storm_hurricane",
+    "wsymbol_0024_thunderstorms",
+    "wsymbol_0024_thunderstorms",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0049_freezing_drizzle",
+    "wsymbol_0048_drizzle",
+    "wsymbol_0050_freezing_rain",
+    "wsymbol_0017_cloudy_with_light_rain",
+    "wsymbol_0017_cloudy_with_light_rain",
+    "wsymbol_0019_cloudy_with_light_snow",
+    "wsymbol_0020_cloudy_with_heavy_snow",
+    "wsymbol_0053_blowing_snow",
+    "wsymbol_0019_cloudy_with_light_snow",
+    "wsymbol_0022_cloudy_with_light_hail",
+    "wsymbol_0021_cloudy_with_sleet",
+    "wsymbol_0056_dust_sand",
+    "wsymbol_0007_fog",
+    "wsymbol_0005_hazy_sun",
+    "wsymbol_0055_smoke",
+    "wsymbol_0060_windy",
+    "wsymbol_0060_windy",
+    "wsymbol_0049_freezing_drizzle",
+    "wsymbol_0004_black_low_cloud",
+    "wsymbol_0044_mostly_cloudy_night",
+    "wsymbol_0043_mostly_cloudy",
+    "wsymbol_0041_partly_cloudy_night",
+    "wsymbol_0002_sunny_intervals",
+    "wsymbol_0008_clear_sky_night",
+    "wsymbol_0001_sunny",
+    "wsymbol_0041_partly_cloudy_night",
+    "wsymbol_0002_sunny_intervals",
+    "wsymbol_0023_cloudy_with_heavy_hail",
+    "wsymbol_0045_hot",
+    "wsymbol_0016_thundery_showers",
+    "wsymbol_0016_thundery_showers",
+    "wsymbol_0010_heavy_rain_showers",
+    "wsymbol_0018_cloudy_with_heavy_rain",
+    "wsymbol_0011_light_snow_showers",
+    "wsymbol_0020_cloudy_with_heavy_snow",
+    "wsymbol_0054_blizzard",
+    "wsymbol_0999_unknown",
+    "wsymbol_0025_light_rain_showers_night",
+    "wsymbol_0027_light_snow_showers_night",
+    "wsymbol_0032_thundery_showers_night"
+];
+
 class ForecastDevice extends Homey.Device
 {
     async onInit()
     {
         this.log( 'ForecastDevice has been initialised' );
 
-        this.upgradeCapabilities();
+        await this.upgradeCapabilities();
 
         this.registerCapabilityListener( 'forecast_day', async ( Day ) =>
         {
@@ -46,16 +99,17 @@ class ForecastDevice extends Homey.Device
 
         if (!this.hasCapability('measure_wind_direction'))
         {
-            this.addCapability('measure_wind_direction');
+            await this.addCapability('measure_wind_direction');
         }
 
 		if (this.hasCapability('forecast_wind_direction'))
 		{
-			this.removeCapability('forecast_wind_direction');
+			await this.removeCapability('forecast_wind_direction');
 		}
 
 		this.forecastData = this.getSettings().forecastData;
 		this.oldForecastData = this.forecastData;
+        this.svgCache = {};
 		let nextUpdate = 1000;
 		if (this.forecastData && this.forecastData.time)
 		{
@@ -73,168 +127,182 @@ class ForecastDevice extends Homey.Device
 		}, nextUpdate);
     }
 
-    upgradeCapabilities()
+    async upgradeCapabilities()
     {
         if ( !this.hasCapability( 'button.send_log' ) )
         {
-            this.addCapability( 'button.send_log' );
+            await this.addCapability( 'button.send_log' );
         }
 
         if ( !this.hasCapability( "forecast_day" ) )
         {
-            this.addCapability( "forecast_day" );
+            await this.addCapability( "forecast_day" );
         }
 
         if ( !this.hasCapability( "forecast_active_day" ) )
         {
-            this.addCapability( "forecast_active_day" );
+            await this.addCapability( "forecast_active_day" );
         }
 
         if ( !this.hasCapability( "forecast_moonPhase" ) )
         {
-            this.addCapability( "forecast_moonPhase" );
+            await this.addCapability( "forecast_moonPhase" );
         }
 
         if ( !this.hasCapability( "forecast_summary" ) )
         {
-            this.addCapability( "forecast_summary" );
+            await this.addCapability( "forecast_summary" );
+        }
+
+        for ( const { id } of forecast_dayToNum )
+        {
+            const svgCapabilityName = `forecast_icon_svg_${id}`;
+            if ( !this.hasCapability( svgCapabilityName ) )
+            {
+                await this.addCapability( svgCapabilityName );
+            }
+        }
+
+        if ( this.hasCapability( "forecast_icon_svg" ) )
+        {
+            await this.removeCapability( "forecast_icon_svg" );
         }
 
         if ( this.hasCapability( "measure_wind_strength" ) )
         {
-            this.addCapability( "forecast_gust_strength" );
-            this.removeCapability( "measure_wind_strength" );
+            await this.addCapability( "forecast_gust_strength" );
+            await this.removeCapability( "measure_wind_strength" );
         }
 
         if ( this.hasCapability( "measure_gust_strength.forecast" ) )
         {
-            this.addCapability( "forecast_gust_strength" );
-            this.removeCapability( "measure_gust_strength.forecast" );
+            await this.addCapability( "forecast_gust_strength" );
+            await this.removeCapability( "measure_gust_strength.forecast" );
         }
 
         if ( this.hasCapability( "measure_rain" ) )
         {
-            this.addCapability( "forecast_rain" );
-            this.removeCapability( "measure_rain" );
+            await this.addCapability( "forecast_rain" );
+            await this.removeCapability( "measure_rain" );
         }
 
         if ( this.hasCapability( "measure_rain.forecast" ) )
         {
-            this.addCapability( "forecast_rain" );
-            this.removeCapability( "measure_rain.forecast" );
+            await this.addCapability( "forecast_rain" );
+            await this.removeCapability( "measure_rain.forecast" );
         }
 
         if ( this.hasCapability( "measure_wind_angle" ) )
         {
-            this.addCapability( "forecast_wind_angle" );
-            this.removeCapability( "measure_wind_angle" );
+            await this.addCapability( "forecast_wind_angle" );
+            await this.removeCapability( "measure_wind_angle" );
         }
 
         if ( this.hasCapability( "measure_wind_angle.forecast" ) )
         {
-            this.addCapability( "forecast_wind_angle" );
-            this.removeCapability( "measure_wind_angle.forecast" );
+            await this.addCapability( "forecast_wind_angle" );
+            await this.removeCapability( "measure_wind_angle.forecast" );
         }
 
         if ( this.hasCapability( "measure_gust_strength" ) )
         {
-            this.addCapability( "forecast_gust_strength" );
-            this.removeCapability( "measure_gust_strength" );
+            await this.addCapability( "forecast_gust_strength" );
+            await this.removeCapability( "measure_gust_strength" );
         }
 
         if ( this.hasCapability( "measure_gust_strength.forecast" ) )
         {
-            this.addCapability( "forecast_gust_strength" );
-            this.removeCapability( "measure_gust_strength.forecast" );
+            await this.addCapability( "forecast_gust_strength" );
+            await this.removeCapability( "measure_gust_strength.forecast" );
         }
 
         if ( this.hasCapability( "measure_humidity" ) )
         {
-            this.addCapability( "forecast_humidity" );
-            this.removeCapability( "measure_humidity" );
+            await this.addCapability( "forecast_humidity" );
+            await this.removeCapability( "measure_humidity" );
         }
 
         if ( this.hasCapability( "measure_humidity.forecast" ) )
         {
-            this.addCapability( "forecast_humidity" );
-            this.removeCapability( "measure_humidity.forecast" );
+            await this.addCapability( "forecast_humidity" );
+            await this.removeCapability( "measure_humidity.forecast" );
         }
 
         if ( this.hasCapability( "measure_ultraviolet" ) )
         {
-            this.addCapability( "forecast_ultraviolet" );
-            this.removeCapability( "measure_ultraviolet" );
+            await this.addCapability( "forecast_ultraviolet" );
+            await this.removeCapability( "measure_ultraviolet" );
         }
 
         if ( this.hasCapability( "measure_ultraviolet.forecast" ) )
         {
-            this.addCapability( "forecast_ultraviolet" );
-            this.removeCapability( "measure_ultraviolet.forecast" );
+            await this.addCapability( "forecast_ultraviolet" );
+            await this.removeCapability( "measure_ultraviolet.forecast" );
         }
 
         if ( this.hasCapability( "measure_temperature.max" ) )
         {
-            this.addCapability( "forecast_temperature.max" );
-            this.removeCapability( "measure_temperature.max" );
+            await this.addCapability( "forecast_temperature.max" );
+            await this.removeCapability( "measure_temperature.max" );
         }
 
         if ( this.hasCapability( "measure_temperature.min" ) )
         {
-            this.addCapability( "forecast_temperature.min" );
-            this.removeCapability( "measure_temperature.min" );
+            await this.addCapability( "forecast_temperature.min" );
+            await this.removeCapability( "measure_temperature.min" );
         }
 
         if ( this.hasCapability( "thunder_category" ) )
         {
-            this.removeCapability( "thunder_category" );
+            await this.removeCapability( "thunder_category" );
         }
 
         if ( this.hasCapability( "measure_temperature" ) )
         {
-            this.removeCapability( "measure_temperature" );
+            await this.removeCapability( "measure_temperature" );
         }
 
         if ( !this.hasCapability( "forecast_temperature" ) )
         {
-            this.addCapability( "forecast_temperature" );
+            await this.addCapability( "forecast_temperature" );
         }
 
         if ( this.hasCapability( "measure_temperature.windchill" ) )
         {
-            this.removeCapability( "measure_temperature.windchill" );
+            await this.removeCapability( "measure_temperature.windchill" );
         }
 
         if ( this.hasCapability( "measure_temperature.feelsLike.forecast" ) )
         {
-            this.removeCapability( "measure_temperature.feelsLike.forecast" );
+            await this.removeCapability( "measure_temperature.feelsLike.forecast" );
         }
 
         if ( !this.hasCapability( "measure_temperature.feelsLike_forecast" ) )
         {
-            this.addCapability( "forecast_temperature.feelsLike" );
+            await this.addCapability( "forecast_temperature.feelsLike" );
         }
 
         if ( this.hasCapability( "measure_temperature.feelsLike" ) )
         {
-            this.removeCapability( "measure_temperature.feelsLike" );
+            await this.removeCapability( "measure_temperature.feelsLike" );
         }
 
         if ( this.hasCapability( "measure_snow" ) )
         {
-            this.addCapability( "forecast_snow" );
-            this.removeCapability( "measure_snow" );
+            await this.addCapability( "forecast_snow" );
+            await this.removeCapability( "measure_snow" );
         }
 
         if ( this.hasCapability( "measure_precipitation_chance" ) )
         {
-            this.addCapability( "forecast_precipitation_chance" );
-            this.removeCapability( "measure_precipitation_chance" );
+            await this.addCapability( "forecast_precipitation_chance" );
+            await this.removeCapability( "measure_precipitation_chance" );
         }
 
         if ( this.hasCapability( "measure_cloud_cover" ) )
         {
-            this.addCapability( "forecast_cloud_cover" );
-            this.removeCapability( "measure_cloud_cover" );
+            await this.addCapability( "forecast_cloud_cover" );
+            await this.removeCapability( "measure_cloud_cover" );
         }
     }
 
@@ -392,6 +460,8 @@ class ForecastDevice extends Homey.Device
                 {
                     this.setCapabilityValue( "forecast_temperature.feelsLike", this.forecastData.daypart[ 0 ].temperature[ dayNight ] ).catch(this.error);
                 }
+
+                await this.updateAllSvgCapabilities();
             }
         }
         catch ( err )
@@ -399,6 +469,94 @@ class ForecastDevice extends Homey.Device
             this.log( "Forecast Update: " + err );
 			this.setWarning(err, null).catch(this.error);
         }
+    }
+
+    async updateAllSvgCapabilities()
+    {
+        for ( const { id } of forecast_dayToNum )
+        {
+            await this.updateSvgCapability( id );
+        }
+    }
+
+    async updateSvgCapability( SelectedDay )
+    {
+        const entry = forecast_dayToNum.find( x => x.id == SelectedDay );
+        if ( !entry )
+        {
+            return;
+        }
+
+        let dayNight = entry.value;
+        if ( this.forecastData.daypart[ 0 ].daypartName[ dayNight ] == null )
+        {
+            dayNight++;
+        }
+
+        const iconCode = this.forecastData.daypart[ 0 ].iconCode[ dayNight ];
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( !iconSymbol )
+        {
+            return;
+        }
+
+        const svgContent = await this.getIconSvgContent( iconSymbol );
+        if ( !svgContent )
+        {
+            return;
+        }
+
+        const svgCapabilityName = `forecast_icon_svg_${SelectedDay}`;
+        if ( !this.hasCapability( svgCapabilityName ) )
+        {
+            return;
+        }
+
+        const currentSvgContent = this.getCapabilityValue( svgCapabilityName );
+        if ( currentSvgContent === svgContent )
+        {
+            return;
+        }
+
+        this.setCapabilityValue( svgCapabilityName, svgContent ).catch( this.error );
+        this.driver.triggerForecastSvgUpdated( this, svgContent, iconSymbol );
+    }
+
+    async getIconSvgContent( iconSymbol )
+    {
+        if ( this.svgCache[ iconSymbol ] )
+        {
+            return this.svgCache[ iconSymbol ];
+        }
+
+        try
+        {
+            const iconPath = path.join( __dirname, '..', '..', 'assets', 'weather_icons', `${iconSymbol}.svg` );
+            const svgContentRaw = await fs.promises.readFile( iconPath, 'utf8' );
+            const svgContent = svgContentRaw.replace( /\r?\n|\r/g, '' ).trim();
+            this.svgCache[ iconSymbol ] = svgContent;
+            return svgContent;
+        }
+        catch ( err )
+        {
+            this.homey.app.updateLog( `Unable to read SVG icon for ${iconSymbol}: ${err.message}`, true );
+            return null;
+        }
+    }
+
+    getIconSymbolName( iconCode )
+    {
+        if ( iconCode == null )
+        {
+            return null;
+        }
+
+        if ( ( iconCode >= 0 ) && ( iconCode < weatherSymbols.length ) )
+        {
+            return weatherSymbols[ iconCode ];
+        }
+
+        return null;
     }
 
     async refreshCapabilities()
@@ -414,6 +572,8 @@ class ForecastDevice extends Homey.Device
             if ( result )
             {
                 this.forecastData = JSON.parse( result.body );
+				this.setAvailable().catch(this.error);
+				this.unsetWarning().catch(this.error);
                 this.homey.app.updateLog( "Forecast Data = " + JSON.stringify( this.forecastData, null, 2 ) );
 
                 // Update the capabilities for the selected day
@@ -427,10 +587,11 @@ class ForecastDevice extends Homey.Device
                         this.log( "Checking forecast triggers for: ", element.id, "Value: ", element.value, "Day: ", element.day );
                         if ( element.day >= 0 )
                         {
-                            if ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
-                            if ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
-                            if ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
-                            if ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
+                            // The API returns null for values that have elapsed today (e.g. temperatureMax after the daytime high has passed), so only trigger on valid numbers
+                            if ( ( this.forecastData.qpf[ element.day ] != null ) && ( this.forecastData.qpf[ element.day ] != this.oldForecastData.qpf[ element.day ] ) ) { this.driver.triggerRain( this, element.id, this.forecastData.qpf[ element.day ] ); }
+                            if ( ( this.forecastData.qpfSnow[ element.day ] != null ) && ( this.forecastData.qpfSnow[ element.day ] != this.oldForecastData.qpfSnow[ element.day ] ) ) { this.driver.triggerSnow( this, element.id, this.forecastData.qpfSnow[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMax[ element.day ] != null ) && ( this.forecastData.temperatureMax[ element.day ] != this.oldForecastData.temperatureMax[ element.day ] ) ) { this.driver.triggerTempMax( this, element.id, this.forecastData.temperatureMax[ element.day ], this.oldForecastData.temperatureMax[ element.day ] ); }
+                            if ( ( this.forecastData.temperatureMin[ element.day ] != null ) && ( this.forecastData.temperatureMin[ element.day ] != this.oldForecastData.temperatureMin[ element.day ] ) ) { this.driver.triggerTempMin( this, element.id, this.forecastData.temperatureMin[ element.day ], this.oldForecastData.temperatureMin[ element.day ] ); }
                         }
 
                         let dayNight = element.value;
@@ -474,11 +635,14 @@ class ForecastDevice extends Homey.Device
                 this.homey.app.updateLog( "Forecast Refresh: " + errString, true );
 				this.unsetWarning().catch(this.error);
 
-                if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+                if ( errString.search( ": 204" ) > 0 )
                 {
-                    this.homey.app.stationOffline = true;
-                    this.homey.app.noDataTrigger.trigger().catch(this.error);
-					this.setUnavailable("No data available").catch(this.error);
+                    if ( !this.homey.app.stationOffline )
+                    {
+                        this.homey.app.stationOffline = true;
+                        this.homey.app.noDataTrigger.trigger().catch(this.error);
+                    }
+					this.setWarning("Your weather station has not published any new data recently").catch(this.error);
                 }
                 else
                 {
@@ -616,60 +780,10 @@ class ForecastDevice extends Homey.Device
 
 	getIconFileName(iconCode)
 	{
-		const weatherSymbols = [
-			"wsymbol_0079_tornado",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0048_drizzle",
-			"wsymbol_0050_freezing_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0053_blowing_snow",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0022_cloudy_with_light_hail",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0056_dust_sand",
-			"wsymbol_0007_fog",
-			"wsymbol_0005_hazy_sun",
-			"wsymbol_0055_smoke",
-			"wsymbol_0060_windy",
-			"wsymbol_0060_windy",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0004_black_low_cloud",
-			"wsymbol_0044_mostly_cloudy_night",
-			"wsymbol_0043_mostly_cloudy",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0008_clear_sky_night",
-			"wsymbol_0001_sunny",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0023_cloudy_with_heavy_hail",
-			"wsymbol_0045_hot",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0010_heavy_rain_showers",
-			"wsymbol_0018_cloudy_with_heavy_rain",
-			"wsymbol_0011_light_snow_showers",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0054_blizzard",
-			"wsymbol_0999_unknown",
-			"wsymbol_0025_light_rain_showers_night",
-			"wsymbol_0027_light_snow_showers_night",
-			"wsymbol_0032_thundery_showers_night"
-		];
-
-		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( iconSymbol )
 		{
-			return `${weatherSymbols[iconCode]}.gif`;
+            return `${iconSymbol}.gif`;
 		}
 
 		return null;
@@ -790,60 +904,10 @@ class ForecastDevice extends Homey.Device
 
 	getSmallIconFileName(iconCode)
 	{
-		const weatherSymbols = [
-			"wsymbol_0079_tornado",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0080_tropical_storm_hurricane",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0024_thunderstorms",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0048_drizzle",
-			"wsymbol_0050_freezing_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0017_cloudy_with_light_rain",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0053_blowing_snow",
-			"wsymbol_0019_cloudy_with_light_snow",
-			"wsymbol_0022_cloudy_with_light_hail",
-			"wsymbol_0021_cloudy_with_sleet",
-			"wsymbol_0056_dust_sand",
-			"wsymbol_0007_fog",
-			"wsymbol_0005_hazy_sun",
-			"wsymbol_0055_smoke",
-			"wsymbol_0060_windy",
-			"wsymbol_0060_windy",
-			"wsymbol_0049_freezing_drizzle",
-			"wsymbol_0004_black_low_cloud",
-			"wsymbol_0044_mostly_cloudy_night",
-			"wsymbol_0043_mostly_cloudy",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0008_clear_sky_night",
-			"wsymbol_0001_sunny",
-			"wsymbol_0041_partly_cloudy_night",
-			"wsymbol_0002_sunny_intervals",
-			"wsymbol_0023_cloudy_with_heavy_hail",
-			"wsymbol_0045_hot",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0016_thundery_showers",
-			"wsymbol_0010_heavy_rain_showers",
-			"wsymbol_0018_cloudy_with_heavy_rain",
-			"wsymbol_0011_light_snow_showers",
-			"wsymbol_0020_cloudy_with_heavy_snow",
-			"wsymbol_0054_blizzard",
-			"wsymbol_0999_unknown",
-			"wsymbol_0025_light_rain_showers_night",
-			"wsymbol_0027_light_snow_showers_night",
-			"wsymbol_0032_thundery_showers_night"
-		];
-
-		if (iconCode && (iconCode >= 0) && (iconCode < weatherSymbols.length))
+        const iconSymbol = this.getIconSymbolName( iconCode );
+        if ( iconSymbol )
 		{
-			return `${weatherSymbols[iconCode]}.png`;
+            return `${iconSymbol}.png`;
 		}
 
 		return null;

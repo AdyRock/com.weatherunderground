@@ -1,0 +1,33 @@
+{
+    "title": {
+        "en": "The forecast icon SVG was updated"
+    },
+    "platforms": [
+        "local"
+    ],
+    "tokens": [
+        {
+            "name": "forecast_icon_svg",
+            "type": "string",
+            "title": {
+                "en": "Forecast Icon SVG"
+            },
+            "example": "<svg xmlns=\"http://www.w3.org/2000/svg\"></svg>"
+        },
+        {
+            "name": "forecast_icon_name",
+            "type": "string",
+            "title": {
+                "en": "Forecast Icon Name"
+            },
+            "example": "wsymbol_0001_sunny"
+        }
+    ],
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=forecast"
+        }
+    ]
+}

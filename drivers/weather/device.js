@@ -312,11 +312,14 @@ class WeatherDevice extends Homey.Device
                 this.homey.app.updateLog( "Weather Refresh: " + errString, true );
                 this.unsetWarning().catch( this.error );
 
-                if ( !this.homey.app.stationOffline && ( errString.search( ": 204" ) > 0 ) )
+                if ( errString.search( ": 204" ) > 0 )
                 {
-                    this.homey.app.stationOffline = true;
-                    this.homey.app.noDataTrigger.trigger().catch( this.error );
-                    this.setUnavailable( "No data available" ).catch( this.error );
+                    if ( !this.homey.app.stationOffline )
+                    {
+                        this.homey.app.stationOffline = true;
+                        this.homey.app.noDataTrigger.trigger().catch( this.error );
+                    }
+                    this.setWarning( "Your weather station has not published any new data recently" ).catch( this.error );
                 }
                 else
                 {

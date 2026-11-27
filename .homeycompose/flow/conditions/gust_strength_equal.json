@@ -2,11 +2,13 @@
     "id": "gust_strength_equal",
     "title": {
         "en": "The gust strength !{{equals|does not equal}}",
+        "nl": "De windstoot kracht !{{komt overeen|komt niet overeen}}",
         "de": "Die Böenstärke !{{entspricht|entspricht nicht}}",
         "fr": "La force des rafales !{correspond|correspond pas}}"
     },
     "titleFormatted": {
         "en": "The gust strength [[day]] !{equals|does not equal}} [[value]]km/h",
+        "nl": "De windstoot kracht [[day]] !{{komt overeen|komt niet overeen}} [[value]]km/h",
         "de": "Die Böenstärke [[day]] ist !{{entspricht|entspricht nicht}} [[value]]km/h",
         "fr": "La force des rafales de [[day]] est !{{correspond|ne correspond pas}} à [[value]] km/h"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Gust strength",
+                "nl": "Windstoot kracht",
                 "fr": "Force de la rafale"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (km/h)",
+                "nl": "Stel een waarde in (km/u)",
                 "fr": "Définir une valeur (km/h)"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

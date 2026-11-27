@@ -1,11 +1,13 @@
 {
     "title": {
         "en": "The low temperature became greater than",
+        "nl": "De minimumtemperatuur is hoger geworden dan",
         "de": "Die Tiefsttemperatur wird mehr als",
 		"fr": "La température minimale sera supérieure à"
     },
     "titleFormatted": {
         "en": "The low temperature [[day]] became greater than [[temperature]]°C",
+        "nl": "De minimumtemperatuur [[day]] is hoger geworden dan [[temperature]]°C",
         "de": "Die Tiefsttemperatur [[day]] wird mehr als [[temperature]]°C",
 		"fr": "La température minimale de [[day]] est supérieure à [[temperature]]°C"
     },
@@ -18,7 +20,7 @@
             "type": "number",
             "title": {
                 "en": "Low Temperature",
-                "nl": "Lage temperatuur",
+                "nl": "Minimumtemperatuur",
                 "de": "Tiefsttemperatur",
 				"fr": "Température minimale"
             },
@@ -35,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "de": "Meldezeitraum",
 				"fr": "Période de référence"
             },
@@ -71,7 +74,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

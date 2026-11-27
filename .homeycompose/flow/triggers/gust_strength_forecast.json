@@ -1,7 +1,7 @@
 {
     "title": {
         "en": "The gust strength changed",
-        "nl": "De windstoot snelheid is veranderd",
+        "nl": "De windstoot kracht is veranderd",
         "de": "Die Böenstärke hat sich geändert",
         "fr": "La force du coup de vent a changé",
         "it": "L'intensità delle raffiche è cambiata",
@@ -12,6 +12,7 @@
     },
     "titleFormatted": {
         "en": "The gust strength [[day]] changed",
+        "nl": "De windstoot kracht [[day]] is veranderd",
         "de": "Die Böenstärke [[day]] hat sich geändert",
 		"fr": "La force des rafales de [[day]] a changé"
     },
@@ -46,6 +47,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -81,7 +83,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

@@ -2,11 +2,13 @@
     "id": "snow_equal",
     "title": {
         "en": "The total snow !{{equals|does not equal}}",
+        "nl": "Het sneeuwtotaal !{{komt overeen|komt niet overeen}}",
         "de": "Die Schneemenge !{{entspricht|entspricht nicht}}",
 		"fr": "La quantité de neige !{{correspond|correspond pas}}"
     },
     "titleFormatted": {
         "en": "The total snow [[day]] !{{equals|does not equal}} [[value]]mm",
+        "nl": "Het sneeuwtotaal [[day]] !{{komt overeen|komt niet overeen}} [[value]]mm",
         "de": "Die Schneemenge [[day]] !{{entspricht|entspricht nicht}} [[value]]mm",
 		"fr": "La quantité de neige de [[day]] !{correspond à|ne correspond pas à}} [[value]]mm"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Snow total",
+				"nl": "Sneeuwtotaal",
 				"fr": "Quantité de neige"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (mm)",
+				"nl": "Stel een waarde in (mm)",
 				"fr": "Définir une valeur (mm)"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

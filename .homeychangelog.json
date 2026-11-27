@@ -205,6 +205,18 @@
   },
   "4.0.7": {
 	"en": "Changed device class to 'sensor' so it is included in the Homey Climate section."
+  },
+  "4.0.8": {
+	"en": "Added hidden forecast SVG icon capability and Flow trigger when it changes."
+  },
+  "4.0.9": {
+	"en": "Update weather svg files for better compatability with Button+ hardware"
+  },
+  "4.0.10": {
+	"en": "Improved contrast of small details in svg icons. Fixed a Flow trigger error when the forecast temperature max / min is no longer available for the current day."
+  },
+  "4.0.11": {
+	"en": "Show a device warning instead of marking the device unavailable when the weather station has not published any new data recently."
   }
 }
 

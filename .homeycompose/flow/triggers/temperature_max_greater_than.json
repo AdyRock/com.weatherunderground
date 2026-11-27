@@ -1,11 +1,13 @@
 {
     "title": {
         "en": "The high temperature became greater than",
+        "nl": "De maximumtemperatuur is hoger dan",
         "de": "Die Höchsttemperatur wird mehr als",
 		"fr": "La température maximale sera supérieure à"
     },
     "titleFormatted": {
         "en": "The high temperature [[day]] became greater than [[temperature]]°C",
+        "nl": "De maximumtemperatuur [[day]] is hoger dan [[temperature]]°C",
         "de": "Die Höchsttemperatur [[day]] wird mehr als [[temperature]]°C",
 		"fr": "La température maximale de [[day]] est supérieure à [[temperature]]°C"
     },
@@ -18,7 +20,7 @@
             "type": "number",
             "title": {
                 "en": "High Temperature",
-                "nl": "Hoge temperatuur",
+                "nl": "Maximumtemperatuur",
                 "de": "Höchsttemperatur",
 				"fr": "Température maximale"
             },
@@ -35,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "de": "Meldezeitraum",
 				"fr": "Période de référence"
             },
@@ -71,7 +74,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

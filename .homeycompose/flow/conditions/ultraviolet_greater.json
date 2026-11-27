@@ -2,11 +2,13 @@
     "id": "ultraviolet_greater",
     "title": {
         "en": "The ultraviolet is !{{greater than|less or equal to}}",
+        "nl": "De ultraviolet is !{{groter dan|kleiner of gelijk aan}}",
         "de": "Der UV-Index ist !{{größer als|kleiner oder gleich}}",
 		"fr": "L'indice UV est !{{supérieur à|inférieur ou égal à}}."
     },
     "titleFormatted": {
         "en": "The ultraviolet [[day]] is !{{greater than|less or equal to}} [[value]]",
+        "nl": "De ultraviolet [[day]] is !{{groter dan|kleiner of gelijk aan}} [[value]]",
         "de": "Der UV-Index [[day]] ist !{{größer als|kleiner oder gleich}} [[value]]",
 		"fr": "L'indice UV de [[day]] est !{{supérieur à|inférieur ou égal à}}. [[value]]"
     },
@@ -23,6 +25,7 @@
             "name": "value",
             "title": {
                 "en": "Ultraviolet",
+                "nl": "Ultraviolet",
 				"fr": "Ultraviolet"
             },
             "type": "number",
@@ -31,6 +34,7 @@
             "step": 1,
             "placeholder": {
                 "en": "Set a value (0 to 16)",
+                "nl": "Stel een waarde in (0 tot 16)",
 				"fr": "Définir une valeur (0 à 16)"
             }
         },
@@ -38,6 +42,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -73,7 +78,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

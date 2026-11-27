@@ -7,6 +7,7 @@
     },
     "titleFormatted": {
         "en": "The precipitation type [[day]] changed",
+        "nl": "De neerslagtype [[day]] veranderde",
         "de": "Die Niederschlagswahrscheinlichkeit [[day]] hat sich geändert",
 		"fr": "Le type de précipitations de [[day]] a changé"
     },
@@ -36,6 +37,7 @@
             "name": "day",
             "title": {
                 "en": "Period to report",
+                "nl": "Periode om te rapporteren",
                 "fr": "Période de référence"
             },
             "type": "dropdown",
@@ -71,7 +73,7 @@
 				  "id": "tonight_1",
 				  "title": {
 					"en": "Tomorrow Night",
-					"nl": "Morgen vanavond",
+					"nl": "Morgenavond",
 					"de": "Morgen Nacht",
 					"fr": "Demain soir"
 				  }

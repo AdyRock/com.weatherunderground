@@ -2,6 +2,7 @@
     "type": "number",
     "title": {
         "en": "Hours Since Last Rained",
+        "nl": "Uren sinds de laatste regen",
         "de": "Stunden seit dem letzten Niederschlag",
         "fr": "Heures depuis la dernière pluie"
     },
