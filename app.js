@@ -8,6 +8,7 @@ if ( process.env.DEBUG === '1' )
 const Homey = require( 'homey' );
 const https = require( "https" );
 const nodemailer = require( 'nodemailer' );
+const REQUEST_TIMEOUT_MS = 30000;
 
 class WeatherApp extends Homey.App
 {
@@ -422,12 +423,45 @@ class WeatherApp extends Homey.App
 
         return new Promise( ( resolve, reject ) =>
         {
+            let timeoutID;
+            let request;
+            let settled = false;
+            const onError = ( err ) =>
+            {
+                if ( settled )
+                {
+                    return;
+                }
+                settled = true;
+                this.homey.clearTimeout( timeoutID );
+
+                let errMessage = null;
+                if ( err.message )
+                {
+                    errMessage = err.message;
+                }
+                else if ( err.data && err.data.message )
+                {
+                    errMessage = err.data.message;
+                }
+
+                if ( !errMessage )
+                {
+                    errMessage = err.toString();
+                }
+
+                this.updateLog( "GetURL On Error: " + this.varToString( err ), true );
+                reject( "GetURL On Error: " + errMessage );
+            };
+
             try
             {
-                https.get( url, ( res ) =>
+                request = https.get( url, ( res ) =>
                 {
                     let body = [];
 
+                    res.on( 'error', onError );
+                    res.on( 'aborted', () => onError( new Error( 'Weather response was aborted' ) ) );
                     res.on( 'data', ( chunk ) =>
                     {
                         this.updateLog( "retrieve data" );
@@ -436,6 +470,12 @@ class WeatherApp extends Homey.App
 
                     res.on( 'end', () =>
                     {
+                        if ( settled )
+                        {
+                            return;
+                        }
+                        settled = true;
+                        this.homey.clearTimeout( timeoutID );
                         this.updateLog( "Done retrieval of data" );
                         if ( res.statusCode === 200 )
                         {
@@ -471,32 +511,28 @@ class WeatherApp extends Homey.App
                             reject( "GetURL Error: " + res.statusCode + ", " + message );
                         }
                     } );
-                } ).on( 'error', ( err ) =>
-                {
-                    let errMessage = null;
-                    if ( err.message )
-                    {
-                        errMessage = err.message;
-                    }
-                    else if ( err.data )
-                    {
-                        if ( err.data.message )
-                        {
-                            errMessage = err.data.message;
-                        }
-                    }
-
-                    if ( !errMessage )
-                    {
-                        errMessage = err.toString();
-                    }
-
-                    this.updateLog( "GetURL On Error: " + this.varToString( err ), true );
-                    reject( "GetURL On Error: " + errMessage );
                 } );
+                request.on( 'error', onError );
+                timeoutID = this.homey.setTimeout( () =>
+                {
+                    if ( !settled )
+                    {
+                        onError( new Error( `Weather request timed out after ${REQUEST_TIMEOUT_MS / 1000} seconds` ) );
+                        request.destroy();
+                    }
+                }, REQUEST_TIMEOUT_MS );
             }
             catch ( e )
             {
+                settled = true;
+                if ( request )
+                {
+                    request.destroy();
+                }
+                if ( timeoutID !== undefined )
+                {
+                    this.homey.clearTimeout( timeoutID );
+                }
                 this.updateLog( "GetURL Catch: " + this.varToString( e ), true );
                 reject( e );
             }

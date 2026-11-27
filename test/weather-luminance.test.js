@@ -158,3 +158,21 @@ test( 'weather refresh updates luminance without changing the radiation reading'
     assert.equal( values.measure_radiation, 250 );
     assert.equal( values.measure_luminance, 25000 );
 } );
+
+test( 'weather polling is rescheduled after a request timeout', async () =>
+{
+    const { device } = createDevice( {} );
+    device.refreshCapabilities = WeatherDevice.prototype.refreshCapabilities;
+    device.getWeather = async () => { throw 'GetURL On Error: Weather request timed out after 30 seconds'; };
+    device.unsetWarning = device.setUnavailable = async () => {};
+    device.homey.app = {
+        NumStations: 2,
+        updateLog: () => {},
+        varToString: error => error
+    };
+    let delay;
+    device.homey.setTimeout = ( callback, ms ) => { delay = ms; return 1; };
+
+    await device.refreshCapabilities();
+    assert.equal( delay, 120000 );
+} );
